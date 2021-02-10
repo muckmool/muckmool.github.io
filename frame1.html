@@ -2,20 +2,26 @@
   
 <p>한자
 <span class='green_window'>
-<input id=text type="text" class='input_text' name="search1" onkeydown="enterSearch()"/>
+<input id=text type="text" class='input_text' name="search" onkeydown="enterSearch1()"/>
  
 <p>한글
-<input id=text type="text" class='input_text' name="search2" onkeydown="enterSearch()"/></span>
+<input id=text type="text" class='input_text' name="search" onkeydown="enterSearch2()"/></span>
 
 <input type="button" class='sch_smit' value="검색" onclick="myFunction()"/>
   
 <!-- JAVASCRIPT -->
 <script type="text/javascript">
-function enterSearch() {
+function enterSearch1() {
     if(event.keyCode == 13){
         myFunction();  // 실행할 이벤트
     }
 }
+function enterSearch2() {
+    if(event.keyCode == 13){
+        myFunction();  // 실행할 이벤트
+    }
+}  
+  
 function myFunction() {
     var x = document.getElementById("text").value;
     document.write(x);
