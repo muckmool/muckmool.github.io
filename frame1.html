@@ -4,6 +4,11 @@
 <span class='green_window'>
 <input id=text type="text" class='input_text' name="search" onkeydown="enterSearch()"/></span>
 <input type="button" class='sch_smit' value="검색" onclick="myFunction()"/>
+
+<p>한글
+<span class='green_window'>
+<input id=text2 type="text" class='input_text' name="search2" onkeydown="enterSearch2()"/></span>
+<input type="button" class='sch_smit' value="검색" onclick="myFunction2()"/>
   
 <!-- JAVASCRIPT -->
 <script type="text/javascript">
@@ -12,10 +17,22 @@ function enterSearch() {
         myFunction();  // 실행할 이벤트
     }
 }
+  
+  
+function enterSearch2() {
+    if(event.keyCode == 13){
+        myFunction2();  // 실행할 이벤트
+    }
+}
 
   
 function myFunction() {
     var x = document.getElementById("text").value;
+    document.write(x);
+}
+  
+function myFunction2() {
+    var x = document.getElementById("text2").value;
     document.write(x);
 }
 
