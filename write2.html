@@ -1,0 +1,34 @@
+<html>
+  
+<p>
+  
+<p>한글 <span class='green_window'> <input id=hangul type="text" class='input_text' name="hangul" onkeydown="enterSearch()"/></span>
+<p>한자 <span class='green_window'> <input id=hanja type="text" class='input_text' name="hanja" onkeydown="enterSearch()"/></span>
+  
+<input type="button" class='sch_smit' value="발행" onclick="myFunction()"/>
+
+  
+<!-- JAVASCRIPT -->
+<script type="text/javascript">
+
+function enterSearch() {
+    if(event.keyCode == 13){
+        myFunction();  // 실행할 이벤트
+    }
+}
+  
+function myFunction() {
+    var x = document.getElementById("hangul").value;
+    var y = document.getElementById("hanja").value;
+  
+    document.write('<p>', x, ' ', y);
+  
+    document.write('<p>', '한글 <span class="green_window"> <input id = hangul type="text" class="input_text" name="hangul" value =', x , ' onkeydown="enterSearch()"/></span>');
+  
+}
+  
+</script>
+  
+
+  
+<html>
