@@ -18,11 +18,16 @@ function enterSearch() {
 }
   
 function myFunction() {
+  
     var x = document.getElementById("hangul").value;
     var y = document.getElementById("hanja").value;
   
-    document.write('<p target = "blank" >', x, ' ', y ,</p>);
-     
+    document.write('<p target = "_blank" >', x, ' ', y ,</p>);
+
+   document.write('<p>한글 <span class="green_window"> <input id=hangul type="text" class="input_text" name="hangul" value =', x , ' onkeydown="enterSearch()"/></span> ');
+   document.write('<p>한자 <span class="green_window"> <input id=hanja type="text" class="input_text" name="hanja" value =', y , ' onkeydown="enterSearch()"/></span>   ');               
+   
+   document.write('<p>', x ,' ', y);
   
 }
   
