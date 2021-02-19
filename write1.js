@@ -31,13 +31,13 @@ function myFunction() {
     
     
     document.write('<p>----------------------------------------------------------------');
-    document.write('<p>', f_hangul ,' ', f_hanja, ' [', f_english , ' ' , f_china , ']' );
-    document.write('<p>스펠: ', f_spell);
-    document.write('<p>풀이: ', f_story);
-    document.write('<p>영어: ', f_english);
-    document.write('<p>중국: ', f_china);    
-    document.write('<p>일뜻: ', f_meaning);
-    document.write('<p>일음: ', f_sound);
+    document.write('<p><p>', f_hangul ,' ', f_hanja, ' [', f_english , ' ' , f_china , ']' );
+    document.write('<p><p>스펠: ', f_spell);
+    document.write('<p><p>풀이: ', f_story);
+    document.write('<p><p>영어: ', f_english);
+    document.write('<p><p>중국: ', f_china);    
+    document.write('<p><p>일뜻: ', f_meaning);
+    document.write('<p><p>일음: ', f_sound);
     document.write('<p>');
   
 }
