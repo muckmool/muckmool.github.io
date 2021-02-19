@@ -15,6 +15,8 @@ function myFunction() {
     var f_meaning = document.getElementById("meaning").value;
     var f_sound = document.getElementById("sound").value;
     
+    window.open(popup.html);
+    
     document.write('<p>----------------------------------------------------------------');
     document.write('<p>', f_hangul ,' ', f_hanja, ' [', f_english , ' ' , f_china , ']' );
     document.write('<p>스펠: ', f_spell);
