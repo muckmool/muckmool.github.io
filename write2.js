@@ -1,5 +1,8 @@
 function enterSearch() {
     if(event.keyCode == 13){
+        
+        popup();
+        
         myFunction();  // 실행할 이벤트
     }
 }
