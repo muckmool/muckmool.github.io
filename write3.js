@@ -26,3 +26,7 @@ function myFunction() {
     document.write('<p>');
   
 }
+
+function myFunction2() {
+   document.write('<p>file creation');
+}
