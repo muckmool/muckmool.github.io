@@ -1,8 +1,5 @@
 function enterSearch() {
-    if(event.keyCode == 13){
-        
-        popup();
-        
+    if(event.keyCode == 13){       
         myFunction();  // 실행할 이벤트
     }
 }
@@ -17,8 +14,6 @@ function myFunction() {
     var f_china = document.getElementById("china").value;
     var f_meaning = document.getElementById("meaning").value;
     var f_sound = document.getElementById("sound").value;
-    
-    window.open(popup.html);
     
     document.write('<p>----------------------------------------------------------------');
     document.write('<p>', f_hangul ,' ', f_hanja, ' [', f_english , ' ' , f_china , ']' );
