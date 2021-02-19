@@ -15,6 +15,7 @@ function myFunction() {
     var f_meaning = document.getElementById("meaning").value;
     var f_sound = document.getElementById("sound").value;
    
+    document.write('<p>');
     document.write('<p>', f_hangul ,' ', f_hanja, ' [', f_english , ' ' , f_china , ']' );
     document.write('<p>스펠: ', f_spell);
     document.write('<p>풀이: ', f_story);
@@ -22,5 +23,19 @@ function myFunction() {
     document.write('<p>중국: ', f_china);    
     document.write('<p>일뜻: ', f_meaning);
     document.write('<p>일음: ', f_sound);
+    document.write('<p>');
+ 
+    document.write('<p><p>한글 <span class="green_window"> <input id=hangul type="text" class="input_text" name="hangul"    value =', f_hangul , ' style="width:300px" onkeydown="enterSearch()"></span>');
+    document.write('<p><p>한자 <span class="green_window"> <input id=hanja type="text" class="input_text" name="hanja"      value =', f_hanja , ' style="width:300px" onkeydown="enterSearch()"></span>');
+    document.write('<p><p>스펠 <span class="green_window"> <input id=spell type="text" class="input_text" name="spell"      value =', f_spell , ' style="width:600px" onkeydown="enterSearch()"/></span>');
+    document.write('<p><p>풀이 <span class="green_window"> <input id=story type="text" class="input_text" name="story"      value =', f_story , ' style="width:600px" onkeydown="enterSearch()"/></span>');  
+    document.write('<p><p>영어 <span class="green_window"> <input id=english type="text" class="input_text" name="english"  value =', f_english , ' style="width:300px" onkeydown="enterSearch()"/></span>'); 
+    document.write('<p><p>중국 <span class="green_window"> <input id=china type="text" class="input_text" name="china"      value =', f_china , ' style="width:300px" onkeydown="enterSearch()"/></span>'); 
+    document.write('<p><p>일뜻 <span class="green_window"> <input id=meaning type="text" class="input_text" name="meaning"  value =', f_meaning , ' style="width:300px" onkeydown="enterSearch()"/></span>');
+    document.write('<p><p>일음 <span class="green_window"> <input id=sound type="text" class="input_text" name="sound"      value =', f_sound , ' style="width:300px" onkeydown="enterSearch()"/></span>'); 
+  
+    document.write('<input type="button" class="sch_smit" value="발행" onclick="myFunction()"/>');
+
+    document.write('<script type="text/javascript" src="write.js"></script>');
   
 }
