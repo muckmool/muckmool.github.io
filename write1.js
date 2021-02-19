@@ -15,14 +15,14 @@ function myFunction() {
     var f_meaning = document.getElementById("meaning").value;
     var f_sound = document.getElementById("sound").value;
  
-    document.write('<p><p>한글 <span class="green_window"> <input id=hangul type="text" class="input_text" name="hangul"    value =', f_hangul , ' style="width:300px" onkeydown="enterSearch()"></span>');
-    document.write('<p><p>한자 <span class="green_window"> <input id=hanja type="text" class="input_text" name="hanja"      value =', f_hanja , ' style="width:300px" onkeydown="enterSearch()"></span>');
-    document.write('<p><p>스펠 <span class="green_window"> <input id=spell type="text" class="input_text" name="spell"      value =', f_spell , ' style="width:600px" onkeydown="enterSearch()"/></span>');
-    document.write('<p><p>풀이 <span class="green_window"> <input id=story type="text" class="input_text" name="story"      value =', f_story , ' style="width:600px" onkeydown="enterSearch()"/></span>');  
-    document.write('<p><p>영어 <span class="green_window"> <input id=english type="text" class="input_text" name="english"  value =', f_english , ' style="width:300px" onkeydown="enterSearch()"/></span>'); 
-    document.write('<p><p>중국 <span class="green_window"> <input id=china type="text" class="input_text" name="china"      value =', f_china , ' style="width:300px" onkeydown="enterSearch()"/></span>'); 
-    document.write('<p><p>일뜻 <span class="green_window"> <input id=meaning type="text" class="input_text" name="meaning"  value =', f_meaning , ' style="width:300px" onkeydown="enterSearch()"/></span>');
-    document.write('<p><p>일음 <span class="green_window"> <input id=sound type="text" class="input_text" name="sound"      value =', f_sound , ' style="width:300px" onkeydown="enterSearch()"/></span>'); 
+    document.write('<p><p>한글 <span class="green_window"> <input id=hangul type="text" class="input_text" name="hangul"   style="width:300px" onkeydown="enterSearch()"  value = ', f_hangul , ' ></span>');
+    document.write('<p><p>한자 <span class="green_window"> <input id=hanja type="text" class="input_text" name="hanja"     style="width:300px" onkeydown="enterSearch()"  value = ', f_hanja , ' ></span>');
+    document.write('<p><p>스펠 <span class="green_window"> <input id=spell type="text" class="input_text" name="spell"     style="width:600px" onkeydown="enterSearch()"  value = ', f_spell , ' ></span>');
+    document.write('<p><p>풀이 <span class="green_window"> <input id=story type="text" class="input_text" name="story"     style="width:600px" onkeydown="enterSearch()"  value = ', f_story , ' ></span>'); 
+    document.write('<p><p>영어 <span class="green_window"> <input id=english type="text" class="input_text" name="english" style="width:300px" onkeydown="enterSearch()"  value = ', f_english , ' ></span>');
+    document.write('<p><p>중국 <span class="green_window"> <input id=china type="text" class="input_text" name="china"     style="width:300px" onkeydown="enterSearch()"  value = ', f_china , ' ></span>');
+    document.write('<p><p>일뜻 <span class="green_window"> <input id=meaning type="text" class="input_text" name="meaning" style="width:300px" onkeydown="enterSearch()"  value = ', f_meaning , ' ></span>');
+    document.write('<p><p>일음 <span class="green_window"> <input id=sound type="text" class="input_text" name="sound"     style="width:300px" onkeydown="enterSearch()"  value = ', f_sound , ' ></span>');
   
     document.write('<input type="button" class="sch_smit" value="발행" onclick="myFunction()"/>');
     
