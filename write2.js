@@ -42,3 +42,7 @@ function myFunction() {
     
   
 }
+
+function myFunction2() {
+   document.write('<p>file creation');
+}
