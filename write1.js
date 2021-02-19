@@ -15,15 +15,6 @@ function myFunction() {
     var f_meaning = document.getElementById("meaning").value;
     var f_sound = document.getElementById("sound").value;
     
-    document.write('<p>----------------------------------------------------------------');
-    document.write('<p>', f_hangul ,' ', f_hanja, ' [', f_english , ' ' , f_china , ']' );
-    document.write('<p>스펠: ', f_spell);
-    document.write('<p>풀이: ', f_story);
-    document.write('<p>영어: ', f_english);
-    document.write('<p>중국: ', f_china);    
-    document.write('<p>일뜻: ', f_meaning);
-    document.write('<p>일음: ', f_sound);
-    document.write('<p>');
  
     document.write('<p><p>한글 <span class="green_window"> <input id=hangul type="text" class="input_text" name="hangul"   style="width:300px" onkeydown="enterSearch()"  value = ', f_hangul , ' ></span>');
     document.write('<p><p>한자 <span class="green_window"> <input id=hanja type="text" class="input_text" name="hanja"     style="width:300px" onkeydown="enterSearch()"  value = ', f_hanja , ' ></span>');
@@ -38,8 +29,14 @@ function myFunction() {
     
     document.write('<script type="text/javascript" src="write2.js"></script>');
     
-    
-    
-
+    document.write('<p>----------------------------------------------------------------');
+    document.write('<p>', f_hangul ,' ', f_hanja, ' [', f_english , ' ' , f_china , ']' );
+    document.write('<p>스펠: ', f_spell);
+    document.write('<p>풀이: ', f_story);
+    document.write('<p>영어: ', f_english);
+    document.write('<p>중국: ', f_china);    
+    document.write('<p>일뜻: ', f_meaning);
+    document.write('<p>일음: ', f_sound);
+    document.write('<p>');
   
 }
