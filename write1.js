@@ -28,6 +28,8 @@ function myFunction() {
     
     document.write('<script type="text/javascript" src="write2.js"></script>');
     
+    window.open(popup.html);
+    
     document.write('<p>----------------------------------------------------------------');
     document.write('<p>', f_hangul ,' ', f_hanja, ' [', f_english , ' ' , f_china , ']' );
     document.write('<p>스펠: ', f_spell);
