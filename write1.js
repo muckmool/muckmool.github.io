@@ -28,7 +28,7 @@ function myFunction() {
     
     document.write('<script type="text/javascript" src="write2.js"></script>');
     
-    document.write('<p>');
+    document.write('<p>----------------------------------------------------------------');
     document.write('<p>', f_hangul ,' ', f_hanja, ' [', f_english , ' ' , f_china , ']' );
     document.write('<p>스펠: ', f_spell);
     document.write('<p>풀이: ', f_story);
