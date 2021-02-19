@@ -1,8 +1,5 @@
 function enterSearch() {
-    if(event.keyCode == 13){
-        
-        popup();
-        
+    if(event.keyCode == 13){      
         myFunction();  // 실행할 이벤트
     }
 }
@@ -18,7 +15,6 @@ function myFunction() {
     var f_meaning = document.getElementById("meaning").value;
     var f_sound = document.getElementById("sound").value;
     
-    window.open(popup.html);
  
     document.write('<p><p>한글 <span class="green_window"> <input id=hangul type="text" class="input_text" name="hangul"   style="width:300px" onkeydown="enterSearch()"  value = ', f_hangul , ' ></span>');
     document.write('<p><p>한자 <span class="green_window"> <input id=hanja type="text" class="input_text" name="hanja"     style="width:300px" onkeydown="enterSearch()"  value = ', f_hanja , ' ></span>');
