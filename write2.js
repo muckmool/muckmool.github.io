@@ -25,9 +25,10 @@ function myFunction() {
     document.write('<p><p>일뜻 <span class="green_window"> <input id=meaning type="text" class="input_text" name="meaning" style="width:300px" onkeydown="enterSearch()"  value = ', f_meaning , ' ></span>');
     document.write('<p><p>일음 <span class="green_window"> <input id=sound type="text" class="input_text" name="sound"     style="width:300px" onkeydown="enterSearch()"  value = ', f_sound , ' ></span>');
   
-    document.write('<input type="button" class="sch_smit" value="발행" onclick="myFunction()"/>');
+    document.write('<input type="button" class="sch_smit" value="글생성" onclick="myFunction()"/>');
+    document.write('<input type="button" class="sch_smit" value="파일생성" onclick="myFunction2()"/>');
     
-    document.write('<script type="text/javascript" src="write2.js"></script>');
+    document.write('<script type="text/javascript" src="write3.js"></script>');
     
     
     document.write('<p>----------------------------------------------------------------');
