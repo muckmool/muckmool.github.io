@@ -26,7 +26,7 @@ function myFunction() {
   
     document.write('<input type="button" class="sch_smit" value="발행" onclick="myFunction()"/>');
     
-    document.write('<script type="text/javascript" src="write.js"></script>');
+    document.write('<script type="text/javascript" src="write2.js"></script>');
     
     document.write('<p>');
     document.write('<p>', f_hangul ,' ', f_hanja, ' [', f_english , ' ' , f_china , ']' );
