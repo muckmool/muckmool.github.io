@@ -1,0 +1,78 @@
+<html>
+
+<p>한글: <input id='hangul'   style="width:300px"  onkeyup='out_hangul()'/>
+<p>한자: <input id='hanja'     style="width:300px"  onkeyup='out_hanja()'/>
+<p>스펠: <input id='spell'     style="width:600px"  onkeyup='out_spell()'/>
+<p>풀이: <input id='story'     style="width:600px"  onkeyup='out_story()'/>
+<p>영어: <input id='english'   style="width:300px"  onkeyup='out_english()'/>
+<p>중국: <input id='china'     style="width:300px"  onkeyup='out_china()'/>
+<p>일뜻: <input id='meaning' style="width:300px"  onkeyup='out_meaning()'/>
+<p>일음: <input id='sound'     style="width:300px" onkeyup='out_sound()'/>
+
+&nbsp <button id="btnHello">파일생성</button>
+
+<p><div id="show">파일생성여부</div> </p>
+
+<p> -----------------------------------------------------</p>
+<p><span id='result_hangul'></span> &nbsp <span id='result_hanja'></span> 
+&nbsp [ <span id='result_english1'></span> &nbsp <span id='result_china1'></span> ] </p> 
+
+<p>스펠: &nbsp <span id='result_spell'></span>
+<p>풀이: &nbsp <span id='result_story'></span>
+<p>영어: &nbsp <span id='result_english2'></span>
+<p>중국: &nbsp <span id='result_china2'></span>
+<p>일뜻: &nbsp <span id='result_meaning'></span>
+<p>일음: &nbsp <span id='result_sound'></span>
+
+<script>
+
+function out_hangul()  {
+  const name = document.getElementById('hangul').value;
+  document.getElementById("result_hangul").innerText = name;
+}
+
+function out_hanja()  {
+  const name = document.getElementById('hanja').value;
+  document.getElementById("result_hanja").innerText = name;
+}
+
+function out_spell()  {
+  const name = document.getElementById('spell').value;
+  document.getElementById("result_spell").innerText = name;
+}
+
+function out_story()  {
+  const name = document.getElementById('story').value;
+  document.getElementById("result_story").innerText = name;
+}
+
+function out_english()  {
+  const name = document.getElementById('english').value;
+  document.getElementById("result_english1").innerText = name;
+  document.getElementById("result_english2").innerText = name;
+}
+
+function out_china()  {
+  const name = document.getElementById('china').value;
+  document.getElementById("result_china1").innerText = name;
+  document.getElementById("result_china2").innerText = name;
+}
+
+function out_meaning()  {
+  const name = document.getElementById('meaning').value;
+  document.getElementById("result_meaning").innerText = name;
+}
+
+function out_sound()  {
+  const name = document.getElementById('sound').value;
+  document.getElementById("result_sound").innerText = name;
+}
+
+document.getElementById("btnHello").onclick = function() { 
+              document.getElementById("show").innerText = "파일생성요청함";
+          }
+</script>
+
+
+
+</html>
