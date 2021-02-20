@@ -22,94 +22,101 @@
 <p>일뜻: &nbsp <span id='result_meaning'></span>
 <p>일음: &nbsp <span id='result_sound'></span>
 
-<p> -----------------------------------------------------</p>
-<p><span id='result_hangul2'></span>.html
-<p><span id='result_hanja2'></span>.html
-<p> -----------------------------------------------------</p>
-<p> <xmp><html></xmp>
-<xmp><p></xmp><span id='result_hangul3'></span> &nbsp <span id='result_hanja3'></span> 
-&nbsp [ <span id='result_english3'></span> &nbsp <span id='result_china3'></span> ] 
-
-<xmp><p></xmp>스펠: &nbsp <span id='result_spell2'></span>
-
-<xmp><p></xmp>풀이: &nbsp <span id='result_story2'></span>
-
-<xmp><p></xmp>영어: &nbsp <span id='result_english4'></span>
-
-<xmp><p></xmp>중국: &nbsp <span id='result_china4'></span>
-
-<xmp><p></xmp>일뜻: &nbsp <span id='result_meaning2'></span>
-
-<xmp><p></xmp>일음: &nbsp <span id='result_sound2'></span>
-
-<xmp></html></xmp>
 
 <script>
 
 function out_hangul()  {
   const name = document.getElementById('hangul').value;
   document.getElementById("result_hangul").innerText = name;
-  document.getElementById("result_hangul2").innerText = name;
-  document.getElementById("result_hangul3").innerText = name;
 }
 
 function out_hanja()  {
   const name = document.getElementById('hanja').value;
   document.getElementById("result_hanja").innerText = name;
-  document.getElementById("result_hanja2").innerText = name;
-  document.getElementById("result_hanja3").innerText = name;
 }
 
 function out_spell()  {
   const name = document.getElementById('spell').value;
   document.getElementById("result_spell").innerText = name;
-  document.getElementById("result_spell2").innerText = name;
 }
 
 function out_story()  {
   const name = document.getElementById('story').value;
   document.getElementById("result_story").innerText = name;
-  document.getElementById("result_story2").innerText = name;
 }
 
 function out_english()  {
   const name = document.getElementById('english').value;
   document.getElementById("result_english1").innerText = name;
   document.getElementById("result_english2").innerText = name;
-  document.getElementById("result_english3").innerText = name;
-  document.getElementById("result_english4").innerText = name;
 }
 
 function out_china()  {
   const name = document.getElementById('china').value;
   document.getElementById("result_china1").innerText = name;
   document.getElementById("result_china2").innerText = name;
-  document.getElementById("result_china3").innerText = name;
-  document.getElementById("result_china4").innerText = name;
 }
 
 function out_meaning()  {
   const name = document.getElementById('meaning').value;
   document.getElementById("result_meaning").innerText = name;
-  document.getElementById("result_meaning2").innerText = name;
 }
 
 function out_sound()  {
   const name = document.getElementById('sound').value;
   document.getElementById("result_sound").innerText = name;
-  document.getElementById("result_sound2").innerText = name;
 }
 
+function saveAsFile(str, filename) {
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:attachment/text,' + encodeURI(str);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = filename;
+    hiddenElement.click();
+    }
+
 document.getElementById("btnFile1").onclick = function() { 
-              // 한글 제목 파일 생성 코드
+
+              const f1_name = document.getElementById('hangul').value + ".html";
+
+              const f_msg = 
+
+   "<p>" + document.getElementById('hangul').value
++ " " + document.getElementById('hanja').value
++ " [" + document.getElementById('english').value + " " + document.getElementById('china').value + "]"
++ "<p>스펠: " + document.getElementById('spell').value
++ "<p>풀이: " + document.getElementById('story').value
++ "<p>영어: " + document.getElementById('english').value
++ "<p>중국: " + document.getElementById('china').value
++ "<p>일뜻: " + document.getElementById('meaning').value
++ "<p>일음: " + document.getElementById('sound').value
+
++ " ";
+
+              saveAsFile(f_msg, f1_name);
           }
+
 document.getElementById("btnFile2").onclick = function() { 
-              // 한자 제목 파일 생성 코드
+    
+              const f2_name = document.getElementById('hanja').value + ".html";
+
+              const f_msg = 
+
+   "<p>" + document.getElementById('hangul').value
++ " " + document.getElementById('hanja').value
++ " [" + document.getElementById('english').value + " " + document.getElementById('china').value + "]"
++ "<p>스펠: " + document.getElementById('spell').value
++ "<p>풀이: " + document.getElementById('story').value
++ "<p>영어: " + document.getElementById('english').value
++ "<p>중국: " + document.getElementById('china').value
++ "<p>일뜻: " + document.getElementById('meaning').value
++ "<p>일음: " + document.getElementById('sound').value
+
++ " ";
+
+              saveAsFile(f_msg, f2_name);
           }
-  
-  
+
 </script>
-
-
 
 </html>
