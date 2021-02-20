@@ -9,9 +9,7 @@
 <p>일뜻: <input id='meaning' style="width:300px"  onkeyup='out_meaning()'/>
 <p>일음: <input id='sound'     style="width:300px" onkeyup='out_sound()'/>
 
-&nbsp <button id="btnHello">파일생성</button>
-
-<p><div id="show">파일생성여부</div> </p>
+&nbsp <button id="btnFile">파일생성요청</button>
 
 <p> -----------------------------------------------------</p>
 <p><span id='result_hangul'></span> &nbsp <span id='result_hanja'></span> 
@@ -68,8 +66,8 @@ function out_sound()  {
   document.getElementById("result_sound").innerText = name;
 }
 
-document.getElementById("btnHello").onclick = function() { 
-              document.getElementById("show").innerText = "파일생성요청함";
+document.getElementById("btnFile").onclick = function() { 
+              // 파일생성요청코드
           }
 </script>
 
