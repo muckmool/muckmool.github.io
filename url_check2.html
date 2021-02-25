@@ -1,14 +1,11 @@
 <html>
 
-<p>한글
-<span class='green_window'>
-<input id=text2 type="text" class='input_text' name="search2" onkeydown="enterSearch2()"/></span>
-<input type="button" class='sch_smit' value="검색" onclick="myFunction2()"/>
+
 
 <script>
 
-function myFunction2() {
-    var x = document.getElementById("text2").value;
+
+    var x = "나무목";
 
 
     const request = new XMLHttpRequest();
@@ -25,7 +22,7 @@ function myFunction2() {
     };
 
     request.send();
-}
+
 
 
 </script>
