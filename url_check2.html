@@ -1,0 +1,37 @@
+<html>
+
+<p>한글
+<span class='green_window'>
+<input id=text2 type="text" class='input_text' name="search2" onkeydown="enterSearch2()"/></span>
+<input type="button" class='sch_smit' value="검색" onclick="myFunction2()"/>
+
+<script>
+
+function myFunction2() {
+    var x = document.getElementById("text2").value;
+
+
+    const request = new XMLHttpRequest();
+    const url = 'http://muckmool.github.io/hangul/index.html'; // 긁어오고 싶은 주소를 넣는다. 
+    request.open('GET', url, true);
+
+    request.onload = function () {
+    var match = x;
+    if( request.responseText.indexOf(match) > 0 ) {
+    document.write('<a href="https://muckmool.github.io/hangul/'+ x + '.html" target="main">' + x + '</a>');
+    }
+    else
+    {
+    document.write('문서없음');
+    }
+
+    document.write(' <p> <form><input type="button" value="페이지 새로 고침" onClick="window.location.reload()"></form> ');
+    };
+
+    request.send();
+}
+
+
+</script>
+
+</html>
