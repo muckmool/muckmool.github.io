@@ -1,0 +1,38 @@
+
+<script>
+
+function enterSearch2() {
+    if(event.keyCode == 13){
+        myFunction2();  // 실행할 이벤트
+    }
+}
+
+function myFunction2() {
+    var x = document.getElementById("text2").value;
+
+   // document.write('<a href="https://muckmool.github.io/han/'+ x + '.html" target="main">' + x + '</a>');
+
+var status;
+
+var url = "http://muckmool.github.io/hangul/" + x + ".html";
+
+fetch(url)
+  .then(function(response) { status = response.status; 
+                                   //document.write(status); 
+                                  var str ="<p><a href = 'http://muckmool.github.io/hangul/" + x +".html'>" + x + "</a>";
+                                   if(status == 200) {document.write(str); };
+                                  }   )
+  .catch((error) => console.log(response.status) );
+
+    document.write(' <p> <form><input type="button" value="페이지 새로 고침" onClick="window.location.reload()"></form> ');
+}
+
+
+
+
+
+
+
+</script>
+
+</html>
