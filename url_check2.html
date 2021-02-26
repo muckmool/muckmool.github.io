@@ -1,21 +1,17 @@
 <html>
 
 
-
 <script>
 
+var status;
 
-    const request = new XMLHttpRequest();
-    const url = 'http://muckmool.github.io/hangul/한일.html'; // 긁어오고 싶은 주소를 넣는다. 
-    request.open('GET', url, true);
+fetch("http://muckmool.github.io/hangul/한일.html")
+  .then(function(response) { status = response.status; 
+                                   document.write(status); 
+                                   if(status == 200) {document.write("<p><a href = 'http://muckmool.github.io/hangul/한일.html'>연결</a>"); };
+                                  }   )
+  .catch((error) => console.log(response.status) );
 
-    request.onload = function () {
-
-    document.write( request.responseText );
-        
-    };
-
-    request.send();
 
 
 
