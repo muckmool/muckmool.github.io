@@ -1,4 +1,4 @@
-function search2 (x) {
+function search1 (x) {
 
 var array = [ 
 
