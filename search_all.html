@@ -14,7 +14,7 @@ function enterSearch2() {
     }
 }
 
-function myFunction2() {
+async function myFunction2() {
     var x = document.getElementById("text2").value;
 
    // document.write('<a href="https://muckmool.github.io/han/'+ x + '.html" target="main">' + x + '</a>');
@@ -23,7 +23,7 @@ var status;
 
 var url = "http://muckmool.github.io/hangul/" + x + ".html";
 
-fetch(url)
+await fetch(url)
   .then(function(response) { status = response.status; 
                                    //document.write(status); 
                                   var str ="<p><a href = 'http://muckmool.github.io/hangul/" + x +".html'>" + x + "</a>";
