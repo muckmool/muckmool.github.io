@@ -3,8 +3,6 @@
 <head>
 <script type="text/javascript" src="search_hangul_alphabet.js"></script>
 <script type="text/javascript" src="search_hanja_alphabet.js"></script>
-<script type="text/javascript" src="search_hangul_2.js"></script>
-<script type="text/javascript" src="search_hanja_2.js"></script>
 </head>
  
 <body> 
@@ -39,8 +37,7 @@ function enterSearch2() {
 function myFunction1() {
     var x = document.getElementById("text1").value;
 
-    search_hanja_1(x);
-    search_hanja_2(x);
+    search1(x);
 
     document.write(' <p> <form><input type="button" value="페이지 새로 고침" onClick="window.location.reload()"></form> '); 
 }
@@ -50,8 +47,7 @@ function myFunction2() {
 
     var x = document.getElementById("text2").value;
 
-    search_hangul_1(x);
-    search_hangul_2(x);
+    search2(x);
 
     document.write(' <p> <form><input type="button" value="페이지 새로 고침" onClick="window.location.reload()"></form> ');                      
 }
