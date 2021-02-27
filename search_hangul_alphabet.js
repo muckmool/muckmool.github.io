@@ -1,4 +1,4 @@
-function search_hangule_1 (x) {
+function search_hangul_1 (x) {
 
 var array = [ 
 
