@@ -1,7 +1,6 @@
 <html>
 
-<p>한글: <input id='hangul'   style="width:300px"  onkeyup='out_hangul()'/>
-<p>한자: <input id='hanja'     style="width:300px"  onkeyup='out_hanja()'/>
+<p>한글 한자: <input id='hangul'   style="width:300px"  onkeyup='out_hangul()'/>
 <p>스펠: <input id='spell'     style="width:500px"  onkeyup='out_spell()'/>
 <p>풀이: <input id='story'     style="width:500px"  onkeyup='out_story()'/>
 <p>영어: <input id='english'   style="width:300px"  onkeyup='out_english()'/>
@@ -27,12 +26,10 @@
 
 function out_hangul()  {
   const name = document.getElementById('hangul').value;
-  document.getElementById("result_hangul").innerText = name;
-}
-
-function out_hanja()  {
-  const name = document.getElementById('hanja').value;
-  document.getElementById("result_hanja").innerText = name;
+  const strArray = name.split(" ");
+  
+  document.getElementById("result_hangul").innerText = strArray[0];
+  document.getElementById("result_hanja").innerText = strArray[1];
 }
 
 function out_spell()  {
