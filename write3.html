@@ -101,8 +101,12 @@ function saveAsFile(str, filename) {
     }
 
 document.getElementById("btnFile1").onclick = function() { 
+    
+      const name = document.getElementById('hangul').value;
+      const strArray = name.split(" ");
+  
 
-              const f1_name = document.getElementById('result_hangul').value + ".html";
+              const f1_name = strArray[0]; + ".html";
 
               const f_msg = 
 
@@ -123,7 +127,12 @@ document.getElementById("btnFile1").onclick = function() {
 
 document.getElementById("btnFile2").onclick = function() { 
     
-              const f2_name = document.getElementById('result_hanja').value + ".html";
+      const name = document.getElementById('hangul').value;
+      const strArray = name.split(" ");
+  
+    
+    
+              const f2_name = strArray[1]; + ".html";
 
               const f_msg = 
 
