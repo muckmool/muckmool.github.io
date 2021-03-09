@@ -73,7 +73,10 @@
 
         
         document.getElementById('canvas').addEventListener('pointerup', () => {
-            isAbleDraw = false;
+            setTimeout(function(){
+             isAbleDraw = false;
+             }.1000);
+            
         });
 
 
