@@ -1,0 +1,33 @@
+<span id='test'></span>
+
+<script>
+
+var bStartEvent = false;
+var bMoveEvent = false;
+
+function init(){
+   document.addEventListener("touchstart", this.onStart.bind(this), false);
+   document.addEventListener("touchmove", this.onStart.bind(this), false);
+   document.addEventListener("touchend", this.onStart.bind(this), false);
+}
+
+function onStart(e) {
+   bStartEvent = true;
+   document.getElementById("test").innerText = "start";
+}
+
+function onMOve(e) {
+    if(!bStartEvent) {
+      return;
+    }
+   bMoveEvent = true;
+   document.getElementById("test").innerText = "move";
+}
+
+function onEnd(e){
+   bStartEvent = false;
+   bMoveEvent = false;
+   document.getElementById("test").innerText = "end";
+}
+
+</script>
