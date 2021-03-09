@@ -111,7 +111,7 @@ let isAbleDraw = false;
             stroke(coordinates, color, lineWidth) {
             	// 마우스가 이동한 경로를 따라 실선 그리기
                 if (coordinates.length > 0) {
-                    const ctx = document.getElementById('canvas').getContext('2d');
+                    const ctx = document.getElementById('main2').getContext('2d');
                     const firstCoordinate = coordinates[0];
                     ctx.beginPath();
                     ctx.moveTo(firstCoordinate[0], firstCoordinate[1]);
