@@ -1,61 +1,67 @@
-function draw(){
+window.onload = function() {
 
-        let isAbleDraw = false;
+  document.ontouchmove = function(e){ e.preventDefault(); }
 
-        const options = {
-            type: 'stroke',
-            strokeStyle: 'black',
-            lineWidth: 7,
-        };
+  var canvas  = document.getElementById('main');
+  var canvastop = canvas.offsetTop
 
-        const rects = [];
-        let currentRect = null;
+  var context = canvas.getContext("2d");
 
-        document.getElementById('canvas').addEventListener('mousedown', () => {
-            isAbleDraw = true;
-            currentRect = {
-                type: options.type,
-                strokeStyle: options.strokeStyle,
-                lineWidth: options.lineWidth,
-                coordinates: [],
-            };
-        });
+  var lastx;
+  var lasty;
 
-        document.getElementById('canvas').addEventListener('mousemove', (e) => {
-            if (isAbleDraw) {
-                const ctx = e.target.getContext('2d');
-                const [x, y] = [e.offsetX, e.offsetY];
-                currentRect.coordinates.push([x, y]);
+  context.strokeStyle = "#000000";
+  context.lineCap = 'round';
+  context.lineJoin = 'round';
+  context.lineWidth = 5;
 
-                if (currentRect.type === 'stroke') drawTools.stroke(currentRect.coordinates, 'rgba(0, 0, 0, 1)', currentRect.lineWidth);
-            }
-        });
+  function clear() {
+    context.fillStyle = "#ffffff";
+    context.rect(0, 0, 300, 300);
+    context.fill();
+  }
 
-        
-        document.getElementById('canvas').addEventListener('mouseup', () => {
-            isAbleDraw = false;
-        })
-       
+  function dot(x,y) {
+    context.beginPath();
+    context.fillStyle = "#000000";
+    context.arc(x,y,1,0,Math.PI*2,true);
+    context.fill();
+    context.stroke();
+    context.closePath();
+  }
 
-        const drawTools = {
+  function line(fromx,fromy, tox,toy) {
+    context.beginPath();
+    context.moveTo(fromx, fromy);
+    context.lineTo(tox, toy);
+    context.stroke();
+    context.closePath();
+  }
 
-            stroke(coordinates, color, lineWidth) {
-            	// 마우스가 이동한 경로를 따라 실선 그리기
-                if (coordinates.length > 0) {
-                    const ctx = document.getElementById('canvas').getContext('2d');
-                    const firstCoordinate = coordinates[0];
-                    ctx.beginPath();
-                    ctx.moveTo(firstCoordinate[0], firstCoordinate[1]);
-                    for (let i = 1; i < coordinates.length; i += 1) {
-                        ctx.lineTo(coordinates[i][0], coordinates[i][1]);
-                    }
-                    ctx.strokeStyle = color;
-                    ctx.lineWidth = lineWidth;
-                    ctx.stroke();
-                    ctx.closePath();
-                }
-            },
+  canvas.ontouchstart = function(event){                   
+    event.preventDefault();                 
+    
+    lastx = event.touches[0].clientX;
+    lasty = event.touches[0].clientY - canvastop;
 
-        };
+    dot(lastx,lasty);
+  }
 
+  canvas.ontouchmove = function(event){                   
+    event.preventDefault();                 
+
+    var newx = event.touches[0].clientX;
+    var newy = event.touches[0].clientY - canvastop;
+
+    line(lastx,lasty, newx,newy);
+    
+    lastx = newx;
+    lasty = newy;
+  }
+
+
+  var clearButton = document.getElementById('clear')
+  clearButton.onclick = clear
+
+  clear()
 }
