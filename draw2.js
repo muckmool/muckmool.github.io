@@ -9,7 +9,7 @@
         const rects = [];
         let currentRect = null;
 
-        document.getElementById('canvas').addEventListener('mousedown', () => {
+        document.getElementById('main2').addEventListener('mousedown', () => {
             isAbleDraw = true;
             currentRect = {
                 type: options.type,
