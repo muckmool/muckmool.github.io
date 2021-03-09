@@ -41,8 +41,8 @@ window.onload = function() {
   canvas.ontouchstart = function(event){                   
     event.preventDefault();                 
     
-    lastx = event.touches[0].offsetX;
-    lasty = event.touches[0].offsetY - canvastop;
+    lastx = event.touches[0].pageX;
+    lasty = event.touches[0].pgaeY - canvastop;
 
     dot(lastx,lasty);
   }
@@ -50,8 +50,8 @@ window.onload = function() {
   canvas.ontouchmove = function(event){                   
     event.preventDefault();                 
 
-    var newx = event.touches[0].offsetX;
-    var newy = event.touches[0].offsetY - canvastop;
+    var newx = event.touches[0].pageX;
+    var newy = event.touches[0].pageY - canvastop;
 
     line(lastx,lasty, newx,newy);
     
