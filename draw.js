@@ -1,13 +1,6 @@
-    var pcDevice = "win16|win32|win64|mac|macintel";
- 
-    // 접속한 디바이스 환경
-    if ( navigator.platform ) {
+//모바일용
 
-        if ( pcDevice.indexOf(navigator.platform.toLowerCase()) < 0 ) {
-            //모바일
-            //document.write("모바일");
-
-            window.onload = function() {
+window.onload = function() {
 
   document.ontouchmove = function(e){ e.preventDefault(); }
 
@@ -75,11 +68,9 @@
   clear()
 }
 
-        } else {
-            //PC
-            //document.write("PC");
-   
-        let isAbleDraw = false;
+// PC용
+
+let isAbleDraw = false;
 
         const options = {
             type: 'stroke',
@@ -90,7 +81,7 @@
         const rects = [];
         let currentRect = null;
 
-        document.getElementById('canvas').addEventListener('mousedown', () => {
+        document.getElementById('main2').addEventListener('mousedown', () => {
             isAbleDraw = true;
             currentRect = {
                 type: options.type,
@@ -100,7 +91,7 @@
             };
         });
 
-        document.getElementById('canvas').addEventListener('mousemove', (e) => {
+        document.getElementById('main2').addEventListener('mousemove', (e) => {
             if (isAbleDraw) {
                 const ctx = e.target.getContext('2d');
                 const [x, y] = [e.offsetX, e.offsetY];
@@ -111,38 +102,10 @@
         });
 
         
-        document.getElementById('canvas').addEventListener('mouseup', () => {
+        document.getElementById('main2').addEventListener('mouseup', () => {
             isAbleDraw = false;
         });
        
-
-
-        document.getElementById('canvas').addEventListener('touchstart', () => {
-            isAbleDraw = true;
-            currentRect = {
-                type: options.type,
-                strokeStyle: options.strokeStyle,
-                lineWidth: options.lineWidth,
-                coordinates: [],
-            };
-        });
-
-        document.getElementById('canvas').addEventListener('touchmove', (e) => {
-            if (isAbleDraw) {
-                const ctx = e.target.getContext('2d');
-                const [x, y] = [e.offsetX, e.offsetY];
-                currentRect.coordinates.push([x, y]);
-
-                if (currentRect.type === 'stroke') drawTools.stroke(currentRect.coordinates, 'rgba(0, 0, 0, 1)', currentRect.lineWidth);
-            }
-        });
-
-        
-        document.getElementById('canvas').addEventListener('touchend', () => {
-            isAbleDraw = false;
-        });
-
-
 
         const drawTools = {
 
@@ -165,7 +128,3 @@
 
         };
 
-
-
-        }
-    }
