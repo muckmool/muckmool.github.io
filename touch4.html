@@ -74,16 +74,12 @@
         
         document.getElementById('canvas').addEventListener('pointerup', () => {
             
-            Sleep(1000);
+       
             
             isAbleDraw = false;
             
         });
 
-function Sleep (delay) {
-   var start = new Date().getTime();
-   while (new Date().getTime() < start + delay);
-};
 
 
         const drawTools = {
