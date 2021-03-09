@@ -1,4 +1,13 @@
-window.onload = function() {
+    var pcDevice = "win16|win32|win64|mac|macintel";
+ 
+    // 접속한 디바이스 환경
+    if ( navigator.platform ) {
+
+        if ( pcDevice.indexOf(navigator.platform.toLowerCase()) < 0 ) {
+            //모바일
+            //document.write("모바일");
+
+            window.onload = function() {
 
   document.ontouchmove = function(e){ e.preventDefault(); }
 
@@ -65,3 +74,98 @@ window.onload = function() {
 
   clear()
 }
+
+        } else {
+            //PC
+            //document.write("PC");
+   
+        let isAbleDraw = false;
+
+        const options = {
+            type: 'stroke',
+            strokeStyle: 'black',
+            lineWidth: 7,
+        };
+
+        const rects = [];
+        let currentRect = null;
+
+        document.getElementById('canvas').addEventListener('mousedown', () => {
+            isAbleDraw = true;
+            currentRect = {
+                type: options.type,
+                strokeStyle: options.strokeStyle,
+                lineWidth: options.lineWidth,
+                coordinates: [],
+            };
+        });
+
+        document.getElementById('canvas').addEventListener('mousemove', (e) => {
+            if (isAbleDraw) {
+                const ctx = e.target.getContext('2d');
+                const [x, y] = [e.offsetX, e.offsetY];
+                currentRect.coordinates.push([x, y]);
+
+                if (currentRect.type === 'stroke') drawTools.stroke(currentRect.coordinates, 'rgba(0, 0, 0, 1)', currentRect.lineWidth);
+            }
+        });
+
+        
+        document.getElementById('canvas').addEventListener('mouseup', () => {
+            isAbleDraw = false;
+        });
+       
+
+
+        document.getElementById('canvas').addEventListener('touchstart', () => {
+            isAbleDraw = true;
+            currentRect = {
+                type: options.type,
+                strokeStyle: options.strokeStyle,
+                lineWidth: options.lineWidth,
+                coordinates: [],
+            };
+        });
+
+        document.getElementById('canvas').addEventListener('touchmove', (e) => {
+            if (isAbleDraw) {
+                const ctx = e.target.getContext('2d');
+                const [x, y] = [e.offsetX, e.offsetY];
+                currentRect.coordinates.push([x, y]);
+
+                if (currentRect.type === 'stroke') drawTools.stroke(currentRect.coordinates, 'rgba(0, 0, 0, 1)', currentRect.lineWidth);
+            }
+        });
+
+        
+        document.getElementById('canvas').addEventListener('touchend', () => {
+            isAbleDraw = false;
+        });
+
+
+
+        const drawTools = {
+
+            stroke(coordinates, color, lineWidth) {
+            	// 마우스가 이동한 경로를 따라 실선 그리기
+                if (coordinates.length > 0) {
+                    const ctx = document.getElementById('canvas').getContext('2d');
+                    const firstCoordinate = coordinates[0];
+                    ctx.beginPath();
+                    ctx.moveTo(firstCoordinate[0], firstCoordinate[1]);
+                    for (let i = 1; i < coordinates.length; i += 1) {
+                        ctx.lineTo(coordinates[i][0], coordinates[i][1]);
+                    }
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = lineWidth;
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            },
+
+        };
+
+
+
+        }
+    }
