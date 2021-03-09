@@ -50,7 +50,7 @@
        
 
 
-        document.getElementById('canvas').addEventListener('touchstart', () => {
+        document.getElementById('canvas').addEventListener('pointerdown', () => {
             isAbleDraw = true;
             currentRect = {
                 type: options.type,
@@ -60,7 +60,7 @@
             };
         });
 
-        document.getElementById('canvas').addEventListener('touchmove', (e) => {
+        document.getElementById('canvas').addEventListener('pointermove', (e) => {
             if (isAbleDraw) {
                 const ctx = e.target.getContext('2d');
                 const [x, y] = [e.offsetX, e.offsetY];
@@ -71,7 +71,7 @@
         });
 
         
-        document.getElementById('canvas').addEventListener('touchend', () => {
+        document.getElementById('canvas').addEventListener('pointerdown', () => {
             isAbleDraw = false;
         });
 
