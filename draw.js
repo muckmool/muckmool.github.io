@@ -66,7 +66,7 @@ window.onload = function() {
   clearButton.onclick = clear
 
   clear()
-}
+
 
 // PC용
 
@@ -128,3 +128,4 @@ let isAbleDraw = false;
 
         };
 
+}
