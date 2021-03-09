@@ -1,6 +1,5 @@
 //모바일용
 
-window.onload = function() {
 
   document.ontouchmove = function(e){ e.preventDefault(); }
 
@@ -61,12 +60,12 @@ window.onload = function() {
     lasty = newy;
   }
 
-
+/*
   var clearButton = document.getElementById('clear')
   clearButton.onclick = clear
 
   clear()
-
+*/
 
 // PC용
 
@@ -128,4 +127,4 @@ let isAbleDraw = false;
 
         };
 
-}
+
