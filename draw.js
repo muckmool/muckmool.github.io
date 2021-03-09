@@ -42,9 +42,7 @@
     event.preventDefault();                 
     
     lastx = event.touches[0].clientX;
-    lasty = event.touches[0].clientY;
-   
-    // - canvastop;
+    lasty = event.touches[0].clientY  - canvastop;
 
     dot(lastx,lasty);
   }
@@ -53,9 +51,7 @@
     event.preventDefault();                 
 
     var newx = event.touches[0].clientX;
-    var newy = event.touches[0].clientY;
-   
-   //- canvastop;
+    var newy = event.touches[0].clientY - canvastop;
 
     line(lastx,lasty, newx,newy);
     
