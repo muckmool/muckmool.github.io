@@ -42,7 +42,7 @@ window.onload = function() {
     event.preventDefault();                 
     
     lastx = event.touches[0].pageX;
-    lasty = event.touches[0].pgaeY - canvastop;
+    lasty = event.touches[0].pageY - canvastop;
 
     dot(lastx,lasty);
   }
