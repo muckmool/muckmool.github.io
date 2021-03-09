@@ -9,7 +9,7 @@
         const rects = [];
         let currentRect = null;
 
-        document.getElementById('main2').addEventListener('mousedown', () => {
+        document.getElementById('canvas').addEventListener('mousedown', () => {
             isAbleDraw = true;
             currentRect = {
                 type: options.type,
@@ -19,7 +19,7 @@
             };
         });
 
-        document.getElementById('main2').addEventListener('mousemove', (e) => {
+        document.getElementById('canvas').addEventListener('mousemove', (e) => {
             if (isAbleDraw) {
                 const ctx = e.target.getContext('2d');
                 const [x, y] = [e.offsetX, e.offsetY];
@@ -30,19 +30,18 @@
         });
 
         
-        document.getElementById('main2').addEventListener('mouseup', () => {
+        document.getElementById('canvas').addEventListener('mouseup', () => {
             isAbleDraw = false;
         });
        
 
 
- 
         const drawTools = {
 
             stroke(coordinates, color, lineWidth) {
             	// 마우스가 이동한 경로를 따라 실선 그리기
                 if (coordinates.length > 0) {
-                    const ctx = document.getElementById('main2').getContext('2d');
+                    const ctx = document.getElementById('canvas').getContext('2d');
                     const firstCoordinate = coordinates[0];
                     ctx.beginPath();
                     ctx.moveTo(firstCoordinate[0], firstCoordinate[1]);
