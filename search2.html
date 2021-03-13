@@ -1,0 +1,64 @@
+<html>
+
+<head>
+<script type="text/javascript" src="search_hangul_alphabet.js"></script>
+<script type="text/javascript" src="search_hanja_alphabet.js"></script>
+<script type="text/javascript" src="search_hangul_m1.js"></script>
+<script type="text/javascript" src="search_hanja_m1.js"></script>
+</head>
+ 
+<body> 
+<p>
+  
+<p>검색어
+<span class='green_window'>
+<input id=text2 type="text" class='input_text' style="width:140px" name="search2" onkeydown="enterSearch2()"/></span>
+<input type="button" class='sch_smit' value="검색" onclick="myFunction2()"/>
+
+  
+<!-- JAVASCRIPT -->
+<script type="text/javascript">
+function enterSearch1() {
+    if(event.keyCode == 13){
+        myFunction1();  // 실행할 이벤트
+    }
+}
+  
+  
+function enterSearch2() {
+    if(event.keyCode == 13){
+        myFunction2();  // 실행할 이벤트
+    }
+}
+
+  
+function myFunction1() {
+    var x = document.getElementById("text1").value;
+
+    search_hanja_alphabet(x);
+    search_hanja_m1(x);
+
+    document.write(' <p> <form><input type="button" value="페이지 새로 고침" onClick="window.location.reload()"></form> '); 
+}
+
+
+function myFunction2() {
+
+    var x = document.getElementById("text2").value;
+
+    search_hangul_alphabet(x);
+    search_hangul_m1(x);
+
+    document.write(' <p> <form><input type="button" value="페이지 새로 고침" onClick="window.location.reload()"></form> ');                      
+}
+
+  
+  
+</script>
+  
+<p>
+<p>  <a href ="muckmool.github.io/write5.html" target="main"> 새 글 쓰기 </a>
+
+</body>
+  
+<html>
