@@ -1,16 +1,7 @@
-<head>
-    <style>
-                  #canvas { border: 1px solid #000000; }
-    </style>
-</head>
 
-
-<body>
-    <canvas id="canvas" width="600" height="600" ></canvas>
+    <canvas id="canvas2" width="600" height="600" syle ="border: 1px solid #000000;"></canvas>
 
     <script>
-
-
 
         let isAbleDraw = false;
 
@@ -24,7 +15,7 @@
         let currentRect = null;
 
         /*
-        document.getElementById('canvas').addEventListener('mousedown', () => {
+        document.getElementById('canvas2').addEventListener('mousedown', () => {
             isAbleDraw = true;
             currentRect = {
                 type: options.type,
@@ -34,7 +25,7 @@
             };
         });
 
-        document.getElementById('canvas').addEventListener('mousemove', (e) => {
+        document.getElementById('canvas2').addEventListener('mousemove', (e) => {
             if (isAbleDraw) {
                 const ctx = e.target.getContext('2d');
                 const [x, y] = [e.offsetX, e.offsetY];
@@ -45,13 +36,13 @@
         });
 
         
-        document.getElementById('canvas').addEventListener('mouseup', () => {
+        document.getElementById('canvas2').addEventListener('mouseup', () => {
             isAbleDraw = false;
         });
        */
 
 
-        document.getElementById('canvas').addEventListener('pointerdown', () => {
+        document.getElementById('canvas2').addEventListener('pointerdown', () => {
             isAbleDraw = true;
             currentRect = {
                 type: options.type,
@@ -61,7 +52,7 @@
             };
         });
 
-        document.getElementById('canvas').addEventListener('pointermove', (e) => {
+        document.getElementById('canvas2').addEventListener('pointermove', (e) => {
             if (isAbleDraw) {
                 const ctx = e.target.getContext('2d');
                 const [x, y] = [e.offsetX, e.offsetY];
@@ -72,7 +63,7 @@
         });
 
         
-        document.getElementById('canvas').addEventListener('pointerup', () => {
+        document.getElementById('canvas2').addEventListener('pointerup', () => {
             
        
             
@@ -87,7 +78,7 @@
             stroke(coordinates, color, lineWidth) {
             	// 마우스가 이동한 경로를 따라 실선 그리기
                 if (coordinates.length > 0) {
-                    const ctx = document.getElementById('canvas').getContext('2d');
+                    const ctx = document.getElementById('canvas2').getContext('2d');
                     const firstCoordinate = coordinates[0];
                     ctx.beginPath();
                     ctx.moveTo(firstCoordinate[0], firstCoordinate[1]);
@@ -106,4 +97,4 @@
 
 
     </script>
-</body>
+

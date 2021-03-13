@@ -1,16 +1,3 @@
-<head>
-    <style>
-                  #canvas { border: 1px solid #000000; }
-    </style>
-</head>
-
-
-<body>
-    <canvas id="canvas" width="400" height="400" ></canvas>
-
-    <script>
-
-
 
         let isAbleDraw = false;
 
@@ -23,7 +10,9 @@
         const rects = [];
         let currentRect = null;
 
-        document.getElementById('canvas').addEventListener('touchstart', () => {
+
+
+        document.getElementById('main2').addEventListener('pointerdown', () => {
             isAbleDraw = true;
             currentRect = {
                 type: options.type,
@@ -33,7 +22,7 @@
             };
         });
 
-        document.getElementById('canvas').addEventListener('touchmove', (e) => {
+        document.getElementById('main2').addEventListener('pointermove', (e) => {
             if (isAbleDraw) {
                 const ctx = e.target.getContext('2d');
                 const [x, y] = [e.offsetX, e.offsetY];
@@ -44,17 +33,22 @@
         });
 
         
-        document.getElementById('canvas').addEventListener('touchend', () => {
-            isAbleDraw = false;
-        })
+        document.getElementById('main2').addEventListener('pointerup', () => {
+            
        
+            
+            isAbleDraw = false;
+            
+        });
+
+
 
         const drawTools = {
 
             stroke(coordinates, color, lineWidth) {
             	// 마우스가 이동한 경로를 따라 실선 그리기
                 if (coordinates.length > 0) {
-                    const ctx = document.getElementById('canvas').getContext('2d');
+                    const ctx = document.getElementById('main2').getContext('2d');
                     const firstCoordinate = coordinates[0];
                     ctx.beginPath();
                     ctx.moveTo(firstCoordinate[0], firstCoordinate[1]);
@@ -72,5 +66,3 @@
 
 
 
-    </script>
-</body>
