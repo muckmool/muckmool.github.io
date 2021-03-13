@@ -1,4 +1,4 @@
-function search_hangul_1 (x) {
+function search_hangul_alphabet (x) {
 
 var array = [ 
 
@@ -8,6 +8,6 @@ var array = [
 
 var check_loop = 0;
 for (var i = 0; i < array.length; i++) { if (x == array[i]) { check_loop = 1; } }
-if( check_loop > 0) { document.write('<p><a href="https://muckmool.github.io/alphabet_hangul/'+ x + '.html" target="main">' + x + '</a>'); }
+if( check_loop > 0) { document.write('<p><a href="https://muckmool.github.io/hangul_alphabet/'+ x + '.html" target="main">' + x + '</a>'); }
 // else { document.write('<p>문서없음'); }                    
 }
