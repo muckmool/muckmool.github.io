@@ -7,23 +7,22 @@
 <script>
 
 var filter = "win16|win32|win64|mac|macintel"; 
-var source = "https://muckmool.github.io/old/draw_touch.js";
 
 if ( navigator.platform ) { 
 
       if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) { 
-            source = "https://muckmool.github.io/old/draw_touch.js";
-            document.write("모바일접속");
+            document.write("터치");
+            document.write('<script src ="https://muckmool.github.io/old/draw_touch.js"><', '/script>');
+            
       } 
       else { 
-               source = "https://muckmool.github.io/old/draw_mouse.js";
-               document.write("PC접속");
+               document.write("마우스");
+               document.write('<script src ="https://muckmool.github.io/old/draw_mouse.js"><', '/script>');
+               
             } 
 }
 
 </script>  
-
-<script src = source></script>
 
 </body>
 
