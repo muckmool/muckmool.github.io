@@ -26,7 +26,7 @@ var array_hanja = [
    if( check_loop > -1) { 
         str1 = x;
         str2 = array_hanja[check_loop];   
-        document.write('<p><a href="https://muckmool.github.io/hangul_alphabet/'+ str1 + '.html" target="main">' + x + '</a>'); 
+        document.write('<p><a href="https://muckmool.github.io/db_alphabet/'+ str1 + '.html" target="main">' + x + '</a>'); 
    }
    else { 
              for (var j = 0; j < array_hanja.length; j++) { 
@@ -36,7 +36,7 @@ var array_hanja = [
              if( check_loop > -1) {
                  str1 = array_hangul[check_loop];
                  str2 = x; 
-                 document.write('<p><a href="https://muckmool.github.io/hangul_alphabet/'+ str1 +  '.html" target="main">' + x + '</a>');
+                 document.write('<p><a href="https://muckmool.github.io/db_alphabet/'+ str1 +  '.html" target="main">' + x + '</a>');
               }
               else { document.write('<p>문서없음'); } 
 

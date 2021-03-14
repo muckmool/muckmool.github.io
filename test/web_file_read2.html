@@ -1,0 +1,30 @@
+<script>
+
+const request = new XMLHttpRequest();
+
+const url = 'https://muckmool.github.io/hangul_alphabet/봉지.html'; 
+
+request.open('GET', url, true);
+
+request.onload = function () {
+
+  // console.log( request.status );
+
+  if( request.status == 200) {
+      str = request.responseText ;
+      const strArray = str.split(" "); 
+      document.write(strArray[0].slice(3, 15));
+      document.write(strArray[1]); 
+  } else {
+            console.log( request.status );
+            document.write("문서없음");
+          }
+   
+};
+
+request.send();
+
+
+
+
+</script>
