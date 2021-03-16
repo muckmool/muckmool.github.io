@@ -1,0 +1,35 @@
+<script>
+
+var array_hangul = [ '가까울근', '가늘세' ];
+
+
+
+for(var i=0; i<array_hangul.length; i++)
+{
+
+const request = new XMLHttpRequest();
+
+const url = 'https://muckmool.github.io/db_m1/' + array_hangul[i] +'.html'; 
+
+request.open('GET', url, true);
+
+request.onload = function () {
+
+
+  if( request.status == 200) {
+      str = request.responseText ;
+      const strArray = str.split(" "); 
+      document.write("'", strArray[1], "', "); 
+  } else {
+            console.log( request.status );
+            document.write("'", "없음", "', ");
+          }
+   
+};
+
+request.send();
+
+}
+
+
+</script>
