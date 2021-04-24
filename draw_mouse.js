@@ -4,7 +4,7 @@
         const options = {
             type: 'stroke',
             strokeStyle: 'black',
-            lineWidth: 3,
+            lineWidth: 4,
         };
 
         const rects = [];
