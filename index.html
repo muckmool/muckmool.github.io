@@ -2298,4 +2298,66 @@ var arr = [
             else {   document.write('<script src ="https://muckmool.github.io/draw_mouse.js"><', '/script>');   } } </script>
 
 
+<style>canvas { border: 1px solid black; }</style>
+<p>
+<canvas id="mycanvas"/>
+<p>
+ <button id = "btn1">지우기</button>
+  
+<script type="text/javascript">
+var canvas, context;
 
+window.onload = function (){
+canvas = document.getElementById('mycanvas');
+canvas.width = 400;
+canvas.height = 300;
+  context = canvas.getContext('2d'); 
+
+  // 선 굵기
+  context.lineWidth = 2;
+  context.strokeStyle = "black";
+
+  canvas.addEventListener("mousemove", function(e){ move(e) });
+  canvas.addEventListener("mousedown", function(e){ down(e) });
+  canvas.addEventListener("mouseup", function(e){ up(e) });
+  canvas.addEventListener("mouseout", function(e){ out(e) });
+}
+
+// 처음 마우스가 눌려진 좌표
+var startX = 0, startY = 0;
+// 드래깅
+var painting = false;
+
+// 선 그리기
+function draw(curX, curY){
+  context.beginPath();
+  context.moveTo(startX, startY);
+  context.lineTo(curX, curY);
+  context.stroke();
+}
+
+function move(e){
+  if(!painting){ return; }
+  var curX = e.offsetX, curY = e.offsetY;
+  draw(curX, curY);
+
+  startX = curX; startY = curY;
+}
+
+function down(e){
+startX = e.offsetX;
+startY = e.offsetY;
+painting = true;
+}
+function up(e){ painting = false; }
+function out(e){ painting = false; }
+
+document.getElementById("btn1").addEventListener('click',clear);
+
+function clear(){
+  var canvas = document.getElementById("mycanvas");
+canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+
+}
+
+</script>
