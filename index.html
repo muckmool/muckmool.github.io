@@ -2293,16 +2293,16 @@ var arr = [
 </tbody>
 </table>
 
-<h2 id="demo"></h2>
+<span id="demo"></span>
 
-<span id="result"><font size = 15px>.</font></span>
+<span id="result">.</span>
 
 <div>
     <span style="display : inline-block">
 
       
       <br>
-      <canvas id="canvas" width="300" height="300" style="border: 2px solid; cursor: crosshair;"></canvas>
+      <canvas id="canvas" width="250" height="250" style="border: 2px solid; cursor: crosshair;"></canvas>
 
       &nbsp;<button onclick="
       var e = document.getElementById('language');
@@ -2344,11 +2344,11 @@ var arr = [
     <script type="text/javascript" defer>
       var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
       var width = document.getElementById("demo").clientWidth
-      canvas.cxt.canvas.width  = width < 300 ? width : 300;
-      canvas.cxt.canvas.height = width < 300 ? width : 300;
+      canvas.cxt.canvas.width  = width < 250 ? width : 250;
+      canvas.cxt.canvas.height = width < 250 ? width : 250;
       canvas.setCallBack(function(data, err) {
         if (err) throw err;
-        else document.getElementById("result").innerHTML = "<font size = 15px>&nbsp" + data + "</font>";
+        else document.getElementById("result").innerHTML = data;
       });
       canvas.set_Undo_Redo(true, true);
       var penSize = document.getElementById("penSize");
@@ -2360,7 +2360,7 @@ var arr = [
       });
 
       function clean(){
-        document.getElementById("result").innerHTML = "<font size = 15px>.</font>";
+        document.getElementById("result").innerHTML = ".";
       }
     </script>
   
