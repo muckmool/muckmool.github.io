@@ -2305,8 +2305,8 @@ var arr = [
     <span style="display : inline-block">
       PenSize <span id="lineWidth">3</span><input type="range" id="penSize" min="1" max="30" value="3">
       <br>
-      <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair;"></canvas>
-      <h1 id="result"></h1>
+      <canvas id="canvas" width="300" height="300" style="border: 2px solid; cursor: crosshair;"></canvas>
+      <span id="result"></span>
       <br>
       <form>
         Language:
@@ -2317,7 +2317,7 @@ var arr = [
         </select>
       </form>
       <br>
-      <button onclick="canvas.erase();">Erase</button>
+      <button onclick="canvas.erase(); clean();">Erase</button>
 
       <button onclick="canvas.undo()">Undo</button>
       <button onclick="canvas.redo()">Redo</button>
@@ -2347,6 +2347,9 @@ var arr = [
       penSize.addEventListener("change", function(){
         canvas.setLineWidth(penSize.value);
       });
+      function clean(){
+        document.getElementById("result").innerHTML = "";
+      }
     </script>
   </div>
   
