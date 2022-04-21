@@ -2302,12 +2302,6 @@ var arr = [
 <div>
     <span style="display : inline-block">  
   
-  
-
-
-&nbsp;<a id="search_obj" href="http://muckmool.tistory.com/2665" target="blank" >사전데이터</a>
-
-
 
       <br>
       <canvas id="canvas" width="250" height="250" style="border: 2px solid; cursor: crosshair;"></canvas>
@@ -2316,13 +2310,13 @@ var arr = [
         var e = document.getElementById('language');
         canvas.setOptions({language: e.options[e.selectedIndex].value});
         canvas.recognize();
-         " style="width: 100px; height: 35px; font-size: 15px;"> OCR </button>
+         " style="width: 70px; height: 35px; font-size: 15px;"> OCR </button>
       
-      &nbsp;<input id="input_01" style="width: 300px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" />
+      &nbsp;<input id="input_01" style="width: 150px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" />
       
-      &nbsp;<button onclick="search();" style="width: 100px; height: 35px; font-size: 15px;"> 조회 </button>
+      &nbsp;<button onclick="search();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
       
-      &nbsp;<button onclick="speak();" style="width: 100px; height: 35px; font-size: 15px;"> TTS </button>
+      &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
       
       <br>
       <button onclick="canvas.erase(); clean();">Erase</button>
@@ -2362,7 +2356,7 @@ var arr = [
         canvas.setLineWidth(penSize.value);
       });
       function clean(){
-        document.getElementById("result").innerHTML = "";
+        document.getElementById("result").innerHTML = "<font size = 20px>.</font>";
       }
     </script>
   </div>
