@@ -2337,7 +2337,7 @@ var arr = [
       canvas.cxt.canvas.height = width < 300 ? width : 300;
       canvas.setCallBack(function(data, err) {
         if (err) throw err;
-        else document.getElementById("result").innerHTML = data;
+        else document.getElementById("result").innerHTML = "<font size = 30px>&nbsp" + data + "</font>";
       });
       canvas.set_Undo_Redo(true, true);
       var penSize = document.getElementById("penSize");
