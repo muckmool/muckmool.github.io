@@ -2319,7 +2319,7 @@ var arr = [
     &nbsp;<button onclick="
       canvas.erase(); 
       clean();
-      input_01.value = input_01.value + 1;
+      increase();
       search();
       " style="width: 50px; height: 35px; font-size: 15px;"> Next </button>
 
@@ -2368,7 +2368,11 @@ var arr = [
 
       function clean(){
         document.getElementById("result").innerHTML = ".";
-      }
+      };
+      
+      function increase(){
+        input_01.value = String(Number(input_01.value) + 1);
+      };
     </script>
   
   </div>
