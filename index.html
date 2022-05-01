@@ -2488,8 +2488,8 @@ var arr = [
     <script type="text/javascript" defer>
       var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
       var width = document.getElementById("demo").clientWidth
-      canvas.cxt.canvas.width  = width < 300 ? width : 300;
-      canvas.cxt.canvas.height = width < 300 ? width : 300;
+      canvas.cxt.canvas.width  = width < 200 ? width : 200;
+      canvas.cxt.canvas.height = width < 200 ? width : 200;
       canvas.setCallBack(function(data, err) {
         if (err) throw err;
         else document.getElementById("result").innerHTML = "<font size = 15px>&nbsp" + data + "</font>";
