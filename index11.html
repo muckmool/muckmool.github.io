@@ -2442,18 +2442,9 @@ var arr = [
 <div>
     <span style="display : inline-block">
 
-    <p>
-    
-    
-    <input id="input_01" style="width: 150px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" />
-    
-    &nbsp;<button onclick="search();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
-    
-    &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
-
-    &nbsp;<button onclick="canvas.erase(); clean(); increase(); search();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
       
-    &nbsp;<canvas id="canvas" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
+      <br>
+      <canvas id="canvas" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
 
       &nbsp;<button onclick="
       var e = document.getElementById('language');
@@ -2461,37 +2452,33 @@ var arr = [
       canvas.recognize();
        " style="width: 70px; height: 35px; font-size: 15px;"> OCR </button>
     
+    &nbsp;<input id="input_01" style="width: 150px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" />
     
-      <p>
+    &nbsp;<button onclick="search();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
+    
+    &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
 
-        <br>
-        <form>
-          Language:
-          <select id="language">
-            <option value="zh_TW" selected="selected">Chinese</option>
-            <option value="ja">Japanese</option>
-            <option value="en">English</option>
-          </select>
-        </form>
+    &nbsp;<button onclick="canvas.erase(); clean(); increase(); search();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        
-        PenSize <span id="lineWidth">3</span><input type="range" id="penSize" min="1" max="30" value="3">
-
-
+      <br>
       <button onclick="canvas.erase(); clean();">Erase</button>
 
       <button onclick="canvas.undo()">Undo</button>
       <button onclick="canvas.redo()">Redo</button>
 
 
-
+    <br>
+    PenSize <span id="lineWidth">3</span><input type="range" id="penSize" min="1" max="30" value="3">
       
-
+      <br>
+      <form>
+        Language:
+        <select id="language">
+          <option value="zh_TW" selected="selected">Chinese</option>
+          <option value="ja">Japanese</option>
+          <option value="en">English</option>
+        </select>
+      </form>
 
       <p><a id="search_obj" href="http://muckmool.tistory.com/2665" target="blank" >사전데이터</a>
 
