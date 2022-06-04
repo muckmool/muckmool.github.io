@@ -2,6 +2,8 @@
 
 var arr = [ 
 
+'.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 
+
 '한일', '一', '.', ' ', '.', ' ', '.', ' ', '.', ' ', '.', ' ', '나무 작대기 하나', '2665', 
 '두이', '二', '한일', '一', '한일', '一', '.', ' ', '.', ' ', '.', ' ', '나무 작대기 둘', '', 
 '석삼', '三', '한일', '一', '한일', '一', '한일', '一', '.', ' ', '.', ' ', '나무 작대기 셋', '', 
@@ -2146,7 +2148,6 @@ var arr = [
             {
               document.getElementById("search_obj").href = "http://muckmool.tistory.com/" + arr[i+13];
               document.getElementById("h60").textContent = arr[i+0];
-              document.getElementById("h61").textContent = arr[i+0] + ", " +arr[i+2] + ", " +arr[i+4] + ", " +arr[i+6] + ", " +arr[i+8] + ", " +arr[i+10] + ", " +arr[i+12] ;
               document.getElementById("h60").style.fontWeight = "900";
               document.getElementById("c0").textContent = arr[i+1];
               document.getElementById("c0").style.fontSize = "50px"
@@ -2294,7 +2295,14 @@ var arr = [
 
               break;
             }
-         }      
+         } 
+         
+         document.getElementById("h61").textContent = arr[i+0] + ", " +arr[i+2] + ", " +arr[i+4] + ", " +arr[i+6] + ", " +arr[i+8] + ", " +arr[i+10] + ", " +arr[i+12] +
+                                                      arr[j+0] + ", " +arr[j+2] + ", " +arr[j+4] + ", " +arr[j+6] + ", " +arr[j+8] + ", " +arr[j+10] + ", " +arr[j+12] +
+                                                      arr[k+0] + ", " +arr[k+2] + ", " +arr[k+4] + ", " +arr[k+6] + ", " +arr[k+8] + ", " +arr[k+10] + ", " +arr[k+12] +
+                                                      arr[l+0] + ", " +arr[l+2] + ", " +arr[l+4] + ", " +arr[l+6] + ", " +arr[l+8] + ", " +arr[l+10] + ", " +arr[l+12] +
+                                                      arr[m+0] + ", " +arr[m+2] + ", " +arr[m+4] + ", " +arr[m+6] + ", " +arr[m+8] + ", " +arr[m+10] + ", " +arr[m+12] +
+                                                      arr[n+0] + ", " +arr[n+2] + ", " +arr[n+4] + ", " +arr[n+6] + ", " +arr[n+8] + ", " +arr[n+10] + ", " +arr[n+12] ;
 
     }
 </script>
@@ -2490,14 +2498,9 @@ var arr = [
 
 
 
-      
-
-
-      <p><a id="search_obj" href="http://muckmool.tistory.com/2665" target="blank" >사전데이터</a>
-
-
     </span>
     <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+
     <script type="text/javascript" defer>
       var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
       var width = document.getElementById("demo").clientWidth
@@ -2505,7 +2508,7 @@ var arr = [
       canvas.cxt.canvas.height = width < 200 ? width : 200;
       canvas.setCallBack(function(data, err) {
         if (err) throw err;
-        else document.getElementById("result").innerHTML = "<font size = 15px>&nbsp" + data + "</font>";
+        else document.getElementById("result").innerHTML = "<font size = 15px>&nbsp" + data.slice(0,1) + "</font>";
       });
       canvas.set_Undo_Redo(true, true);
       var penSize = document.getElementById("penSize");
