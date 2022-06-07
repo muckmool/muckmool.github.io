@@ -2,6 +2,8 @@
 
 var arr = [ 
 
+'.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 
+
 '한일', '一', '.', ' ', '.', ' ', '.', ' ', '.', ' ', '.', ' ', '나무 작대기 하나', '2665', 
 '두이', '二', '한일', '一', '한일', '一', '.', ' ', '.', ' ', '.', ' ', '나무 작대기 둘', '', 
 '석삼', '三', '한일', '一', '한일', '一', '한일', '一', '.', ' ', '.', ' ', '나무 작대기 셋', '', 
@@ -736,7 +738,7 @@ var arr = [
 '정할정', '定', '집면', '宀', '바를정', '正', '.', ' ', '.', ' ', '.', ' ', '집을 바른 곳에 정해서 지어야 한다. 결정', '', 
 '놓을방', '放', '모방', '方', '칠복', '攵', '.', ' ', '.', ' ', '.', ' ', '사방에서 잡힌 경범죄인을 몽둥이로 몇 대 때리고 사방 아무대로나 가라고 놓아줌', '', 
 '갚을보', '報', '다행행', '幸', '병부절', '卩', '또우', '又', '.', ' ', '.', ' ', '죄인을 붙잡아 수갑을 채우고 재판한 후 구부려 앉게하고 손을 대어 원한을 갚게함. 보상', '', 
-'보일시', '示', '.', ' ', '.', ' ', '.', ' ', '.', ' ', '.', ' ', '다리를 높이 제사 그릇 모양. 제사그릇에 제물을 담아 조상에게 보인다. 전시', '', 
+'보일시', '示', '.', ' ', '.', ' ', '.', ' ', '.', ' ', '.', ' ', '다리를 높인 제사 그릇 모양. 제사그릇에 제물을 담아 조상에게 보인다. 전시', '', 
 '고할고', '告', '소우', '牛', '입구', '口', '.', ' ', '.', ' ', '.', ' ', '소를 잡아 제물을 마련한 후 입으로 축문을 읽어 조상에게 고한다', '', 
 '높을숭', '崇', '뫼산', '山', '마루종', '宗', '.', ' ', '.', ' ', '.', ' ', '높은 산마루에 집을 짓고 제사를 지내는 모습. 제사를 지내는 것은 높이는 행위이다. 숭배', '', 
 '마루종', '宗', '집면', '宀', '보일시', '示', '.', ' ', '.', ' ', '.', ' ', '집을 짓고 제사를 지내는 곳은 산 마루이다. 종교', '', 
@@ -2038,7 +2040,7 @@ var arr = [
 
               
 
-              document.getElementById("search_obj").href = "http://muckmool.tistory.com/2665";
+              
               document.getElementById("h60").textContent = ".";
               document.getElementById("h61").textContent = ".";
               document.getElementById("c0").textContent = ".";
@@ -2144,37 +2146,36 @@ var arr = [
         for (i = 0; i < arr.length; i += 14) {
            if(arr[i] == input_01.value  ||  arr[i+1] == input_01.value   || i == ( (input_01.value -1) * 14)  ) 
             {
-              document.getElementById("search_obj").href = "http://muckmool.tistory.com/" + arr[i+13];
+              
               document.getElementById("h60").textContent = arr[i+0];
-              document.getElementById("h61").textContent = arr[i+0] + ", " +arr[i+2] + ", " +arr[i+4] + ", " +arr[i+6] + ", " +arr[i+8] + ", " +arr[i+10] + ", " +arr[i+12] ;
               document.getElementById("h60").style.fontWeight = "900";
               document.getElementById("c0").textContent = arr[i+1];
               document.getElementById("c0").style.fontSize = "50px"
               document.getElementById("h1").textContent = arr[i+0];
-              document.getElementById("h1").style.fontWeight = "200";
+              
               document.getElementById("c1").textContent = arr[i+1];
               document.getElementById("c1").style.fontSize = "20px"
-              document.getElementById("c1").style.fontWeight = "200";
+              
               document.getElementById("h2").textContent = arr[i+2];
               document.getElementById("c2").textContent = arr[i+3];
               document.getElementById("c2").style.fontSize = "20px"
-              document.getElementById("c2").style.fontWeight = "200";
+              
               document.getElementById("h3").textContent = arr[i+4];
               document.getElementById("c3").textContent = arr[i+5];
               document.getElementById("c3").style.fontSize = "20px"
-              document.getElementById("c3").style.fontWeight = "200";
+              
               document.getElementById("h4").textContent = arr[i+6];
               document.getElementById("c4").textContent = arr[i+7];
               document.getElementById("c4").style.fontSize = "20px"
-              document.getElementById("c4").style.fontWeight = "200";
+              
               document.getElementById("h5").textContent = arr[i+8];
               document.getElementById("c5").textContent = arr[i+9];
               document.getElementById("c5").style.fontSize = "20px"
-              document.getElementById("c5").style.fontWeight = "200";
+              
               document.getElementById("h6").textContent = arr[i+10];
               document.getElementById("c6").textContent = arr[i+11];
               document.getElementById("c6").style.fontSize = "20px"
-              document.getElementById("c6").style.fontWeight = "200";
+              
               document.getElementById("h7").textContent = arr[i+12];
 
               break;
@@ -2294,7 +2295,14 @@ var arr = [
 
               break;
             }
-         }      
+         } 
+         
+         document.getElementById("h61").textContent = arr[i+0] + ", " +arr[i+2] + ", " +arr[i+4] + ", " +arr[i+6] + ", " +arr[i+8] + ", " +arr[i+10] + ", " +arr[i+12] +
+                                                      arr[j+0] + ", " +arr[j+2] + ", " +arr[j+4] + ", " +arr[j+6] + ", " +arr[j+8] + ", " +arr[j+10] + ", " +arr[j+12] +
+                                                      arr[k+0] + ", " +arr[k+2] + ", " +arr[k+4] + ", " +arr[k+6] + ", " +arr[k+8] + ", " +arr[k+10] + ", " +arr[k+12] +
+                                                      arr[l+0] + ", " +arr[l+2] + ", " +arr[l+4] + ", " +arr[l+6] + ", " +arr[l+8] + ", " +arr[l+10] + ", " +arr[l+12] +
+                                                      arr[m+0] + ", " +arr[m+2] + ", " +arr[m+4] + ", " +arr[m+6] + ", " +arr[m+8] + ", " +arr[m+10] + ", " +arr[m+12] +
+                                                      arr[n+0] + ", " +arr[n+2] + ", " +arr[n+4] + ", " +arr[n+6] + ", " +arr[n+8] + ", " +arr[n+10] + ", " +arr[n+12] ;
 
     }
 </script>
@@ -2490,14 +2498,9 @@ var arr = [
 
 
 
-      
-
-
-      <p><a id="search_obj" href="http://muckmool.tistory.com/2665" target="blank" >사전데이터</a>
-
-
     </span>
     <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+
     <script type="text/javascript" defer>
       var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
       var width = document.getElementById("demo").clientWidth
@@ -2505,7 +2508,7 @@ var arr = [
       canvas.cxt.canvas.height = width < 200 ? width : 200;
       canvas.setCallBack(function(data, err) {
         if (err) throw err;
-        else document.getElementById("result").innerHTML = "<font size = 15px>&nbsp" + data + "</font>";
+        else document.getElementById("result").innerHTML = "<font size = 15px>&nbsp" + data.slice(0,1) + "</font>";
       });
       canvas.set_Undo_Redo(true, true);
       var penSize = document.getElementById("penSize");
