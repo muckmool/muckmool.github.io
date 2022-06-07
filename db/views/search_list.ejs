@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>search list</title>
+
+        <style>
+            input[type=text] { height: 30px; font-size: 18px; }
+        </style>
+    </head>
+    <body>
+
+
+        
+
+    <form action='/updateAf_3' method='post'>
+    
+                    <p>
+                        <input type='text' size="15" name='SEQN' value ="<%=list[0].SEQN %>">
+                    <p>
+                        <input type='text' size="15" name='HANJA' value ="<%=list[0].HANJA %>">
+                        <input type='text' size="15" name='C1' value ="<%=list[0].C1 %>">
+                        <input type='text' size="15" name='C2' value ="<%=list[0].C2 %>">
+                        <input type='text' size="15" name='C3' value ="<%=list[0].C3 %>">
+                        <input type='text' size="15" name='C4' value ="<%=list[0].C4 %>">
+                        <input type='text' size="15" name='C5' value ="<%=list[0].C5 %>">            
+
+                    <p>
+                        <input type='text' size="15" name='HANGUL' value ="<%=list[0].HANGUL %>">
+                        <input type='text' size="15" name='H1' value ="<%=list[0].H1 %>">
+                        <input type='text' size="15" name='H2' value ="<%=list[0].H2 %>">
+                        <input type='text' size="15" name='H3' value ="<%=list[0].H3 %>">
+                        <input type='text' size="15" name='H4' value ="<%=list[0].H4 %>">
+                        <input type='text' size="15" name='H5' value ="<%=list[0].H5 %>">
+                
+                    <p>
+                        <input type='text' size="118" name='EXPL' value ="<%=list[0].EXPL %>">
+                    <p>
+                        <input type='text' size="15" name='LINK' value ="<%=list[0].LINK %>">
+                        <input type='text' size="100" name='UPCODE' value= 
+                        "<%="'" 
+                                + list[0].HANGUL + "', '"
+                                + list[0].HANJA + "', '"
+                                + list[0].H1 + "', '"
+                                + list[0].C1 + "', '"
+                                + list[0].H2 + "', '"
+                                + list[0].C2 + "', '"
+                                + list[0].H3 + "', '"
+                                + list[0].C3 + "', '"
+                                + list[0].H4 + "', '"
+                                + list[0].C4 + "', '"
+                                + list[0].H5 + "', '"
+                                + list[0].C5 + "', '"
+                                + list[0].EXPL + "', "%>"
+                        >
+
+                        <p>
+                            <input type='text' size="118" name='CHINESE' value ="<%=list[0].CHINESE %>">
+                        <p>
+                            <input type='text' size="118" name='JAPANESE' value ="<%=list[0].JAPANESE %>">
+
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        
+            <button type='submit'>업데이트</button>
+
+    </form>  
+
+        
+        <p>
+        <form action='/searchAf' method='post'>
+            
+            HANGUL : <input type='text' name='HANGUL' value ="<%=list[0].HANGUL %>">
+                    
+            <button type='submit'>조회</button>
+        </form>
+
+        <p>
+            <form action='/publishAf' method='post'>
+                
+                HANGUL : <input type='text' name='HANGUL' value ="<%=list[0].HANGUL %>">
+                        
+                <button type='submit'>Publish</button>
+            </form>
+
+        <p>
+                <form action='/searchAF' method='post'>
+                    
+                    NEXT : <input type='text' name='HANGUL' value ="<%=list[0].SEQN  + 1 %>">
+                            
+                    <button type='submit'>Next</button>
+                </form>
+
+
+        <p>
+                <form action='/listAf' method='post'>
+                    
+                    Category : <input type='text' name='LINK' value ="<%=list[0].LINK %>">
+                            
+                    <button type='submit'>List 조회</button>
+                </form>
+
+
+
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+            <button onclick="location.href='../write'">신규추가</button>
+
+                   
+ 
+
+
+        
+    </body>
+</html>
