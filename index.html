@@ -4118,6 +4118,7 @@ var arr = [
               document.getElementById("h6").textContent = ".";
               document.getElementById("c6").textContent = ".";
               document.getElementById("h7").textContent = ".";
+              document.getElementById("seq").textContent = ".";
 
         //line1
 
@@ -4238,6 +4239,8 @@ var arr = [
               document.getElementById("c6").style.fontSize = "20px"
               
               document.getElementById("h7").textContent = arr[i+12];
+
+              document.getElementById("seq").textContent = parseInt((i-1)/14)+2;
 
               break;
             }
@@ -4514,7 +4517,7 @@ var arr = [
     <p>
     
     
-    <input id="input_01" style="width: 150px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" />
+    <span id="seq"></span><input id="input_01" style="width: 150px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" />
     
     &nbsp;<button onclick="search();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
     
