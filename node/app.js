@@ -150,6 +150,12 @@ app.post('/searchAf2', function (req, res) {
 
 
 
+
+
+
+
+//update
+
 app.post('/updateAf', function (req, res) {
     var body = req.body;
     console.log(body);
@@ -357,6 +363,118 @@ app.post('/writeAf', function (req, res) {
         if(err) console.log('query is not excuted. insert fail...\n' + err);
         else res.redirect('/list-desc');
     });
+});
+
+
+
+// book search write update
+
+app.get('/booksearch', function (req, res) {
+    var sql = 'SELECT MAX(SEQ) as SEQ FROM book1';
+
+    console.log(sql);
+    conn.query(sql, function (err, rows, fields) {
+        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        else res.render('book_search.ejs', {list : rows});
+    });
+
+});
+
+app.post('/booksearchAf', function (req, res) {
+    var body = req.body;
+    console.log(body);
+
+    var sql = 'SELECT * FROM book1 WHERE SEQ = (?)';
+    var params = [body.SEQ];
+    console.log(sql);
+    conn.query(sql, params, function (err, rows, fields) {
+        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        else res.render('book_search_result.ejs', {list : rows});
+    });
+});
+
+
+app.get('/bookwrite', function (req, res) {
+    var sql = 'SELECT MAX(SEQ)+1 as SEQ FROM book1';
+        
+    console.log(sql);
+    conn.query(sql, function (err, rows, fields) {
+        if(err) console.log('query is not excuted. select fail...\n' + err);
+        else res.render('bookwrite.ejs', {list : rows});
+    });
+});
+
+
+app.post('/bookwriteAf', function (req, res) {
+    var body = req.body;
+    console.log(body);
+
+
+    var sql = 'INSERT INTO book1 (`SEQ`, `YEAR`,  `MONTH`,  `DAY`,  `COUNT`, `B_HANJA`, `UM`, `B_HANGUL`) VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
+    var params = [body.SEQ, ".", ".", ".", ".", ".", ".", "."];
+    console.log(sql);
+    conn.query(sql, params, function(err) {
+        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        else res.redirect('/booksearch');
+    });
+});
+
+
+
+
+app.post('/book_updateAf_3', function (req, res) {
+    var body = req.body;
+    console.log(body);
+
+   
+   // hanja update
+
+   var sql = 'UPDATE book1 SET YEAR=?, MONTH=?, DAY=?, COUNT=?, B_HANJA=?, UM=?, B_HANGUL=? WHERE SEQ = ?';
+
+   var SEQ = body.SEQ;
+   var YEAR = body.YEAR;
+   var MONTH = body.MONTH;
+   var DAY = body.DAY;
+   var COUNT = body.COUNT;
+   var B_HANJA = body.B_HANJA;
+   var UM = body.UM;
+   var B_HANGUL = body.B_HANGUL;
+
+   console.log(sql);
+   conn.query(sql, [YEAR, MONTH, DAY, COUNT, B_HANJA, UM, B_HANGUL, SEQ], function (err) {
+       if(err) console.log('query is not excuted. insert fail...\n' + err);
+       else console.log('all update success'); // console.log(body);
+   });
+
+
+
+
+   var sql = 'SELECT * FROM book1 WHERE SEQ = (?)';
+   var params = [body.SEQ];
+   console.log(sql);
+   conn.query(sql, params, function (err, rows, fields) {
+       if(err) console.log('query is not excuted. insert fail...\n' + err);
+       else res.render('book_search_result.ejs', {list : rows});
+   });
+
+
+    
+
+});
+
+
+app.post('/bookpublishAf', function (req, res) {
+    var body = req.body;
+    console.log(body);
+        
+        sql = 'SELECT * FROM book1 WHERE SEQ = (?)';
+        params = [body.SEQ];
+        console.log(sql);
+        conn.query(sql, params, function (err, rows, fields) {
+            if(err) console.log('query is not excuted. insert fail...\n' + err);
+            else res.render('book_publish_result.ejs', {list : rows});
+        });
+
 });
 
 

@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>book publish</title>
+
+        <style>
+            input[type=text] { height: 30px; font-size: 18px; }
+                        
+        </style>
+    </head>
+    <body>
+
+            <p id="result3<%= list[0].SEQ %>">.</p>
+            <br>
+            <p id="result1<%= list[0].SEQ %>">.</p>
+            <br>
+            <p id="result2<%= list[0].SEQ %>">.</p>
+            
+            <script>
+                var hanja =  "<%= list[0].B_HANJA %>";
+                var um = "<%=list[0].UM %>";
+                var hangul = "<%=list[0].B_HANGUL %>";
+
+                hanja = hanja.split('');
+                um = um.split('');
+
+                var result = "<p><ruby>";
+
+                
+                for(var i=0; i<hanja.length; i++) {
+
+                result = result + "<rb>" + hanja[i] + "</rb>" + "<rt>" + um[i] +"</rt>";
+               
+                }
+
+                result = result + "</ruby>";
+
+    
+                document.getElementById('result1<%= list[0].SEQ %>').innerHTML = result;
+                document.getElementById("result1<%= list[0].SEQ %>").style.fontSize = "23px";
+                document.getElementById('result2<%= list[0].SEQ %>').innerHTML = hangul;
+
+                document.getElementById('result3<%= list[0].SEQ %>').innerHTML = "<%= list[0].YEAR %>" +"년 " +"<%= list[0].MONTH %>" +"월 "+"<%= list[0].DAY %>" +"일";
+
+                
+            </script>
+
+
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+&nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
+
+
+<form action='/bookpublishAf' method='post'>
+            
+    <input type='text' name='SEQ' value = "<%=list[0].SEQ + 1 %>">
+            
+    <button type='submit'>Next</button>
+</form>
+
+<form action='/booksearchAf' method='post'>
+            
+  <input type='text' name='SEQ' value = "<%=list[0].SEQ %>">
+          
+  <button type='submit'>수정</button>
+</form>
+
+
+<script>
+        
+    // TTS
+    
+    function speak() {
+           
+        window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+    
+        const speechMsg = new SpeechSynthesisUtterance();
+        speechMsg.rate =  0.7; // 속도: 0.1 ~ 10      
+        speechMsg.pitch = 1; // 음높이: 0 ~ 2
+        speechMsg.lang =  "ko-KR";
+        speechMsg.text = document.getElementById("result3<%= list[0].SEQ %>").textContent
+                       + "<%=list[0].UM %>"
+                       + document.getElementById("result2<%= list[0].SEQ %>").textContent;
+        
+        // SpeechSynthesisUtterance에 저장된 내용을 바탕으로 음성합성 실행
+        window.speechSynthesis.speak(speechMsg)
+    }
+    
+    </script>
+
+    
+    </body>
+</html>

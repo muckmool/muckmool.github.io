@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>book search</title>
+
+        <style>
+            input[type=text] { height: 35px; font-size: 20px; }
+        </style>
+
+    </head>
+    <body>
+        <h2>book search</h2>
+
+
+        <form action='/booksearchAf' method='post'>
+            
+            SEQ : <input type='text' name='SEQ' value ="<%=list[0].SEQ %>">
+                    
+            <button type='submit'>조회</button>
+        </form>
+    </body>
+</html>
