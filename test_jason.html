@@ -6,8 +6,9 @@ fetch('https://muckmool.github.io/data.json')
   .then((response) => response.json())
   .then((data) => { 
 
-let temp = data;
-console.log(temp.data[1].hangul); 
+let temp = data.dictionary[0].hanja + " " + data.dictionary[0].hangul;
+
+console.log(temp); 
 
 
 } );
