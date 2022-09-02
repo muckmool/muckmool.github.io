@@ -41,7 +41,7 @@ def search2():
 
             for i in range(max):
                 if(temp2 == data['dictionary'][i]['hanja']):
-                    temp4 = data['dictionary'][i]['hangul'] 
+                    temp4 = data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan']
                     break      
                 else: 
                     i = i + 1
@@ -54,7 +54,7 @@ def search2():
 
             for i in range(max):
                 if(temp2 == data['dictionary'][i]['hanja']):
-                    temp4 = data['dictionary'][i]['hangul'] 
+                    temp4 = data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
                     break      
                 else: 
                     i = i + 1
@@ -67,7 +67,7 @@ def search2():
 
             for i in range(max):
                 if(temp2 == data['dictionary'][i]['hanja']):
-                    temp4 = data['dictionary'][i]['hangul'] 
+                    temp4 = data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
                     break      
                 else: 
                     i = i + 1
@@ -80,7 +80,7 @@ def search2():
 
             for i in range(max):
                 if(temp2 == data['dictionary'][i]['hanja']):
-                    temp4 = data['dictionary'][i]['hangul'] 
+                    temp4 = data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
                     break      
                 else: 
                     i = i + 1
@@ -108,7 +108,7 @@ def search11():
 
             for i in range(max):
                 if(temp3 == data['dictionary'][i]['hanja']):
-                    temp4 = temp4 + " " + data['dictionary'][i]['hangul']         
+                    temp4 = temp4 + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan']         
                     break      
                 else: 
                     i = i + 1
@@ -135,7 +135,7 @@ def search12():
 
             for i in range(max):
                 if(temp3 == data['dictionary'][i]['hanja']):
-                    temp4 = temp4 + " " + data['dictionary'][i]['hangul']         
+                    temp4 = temp4 + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "   " + data['dictionary'][i]['japan']         
                     break      
                 else: 
                     i = i + 1
@@ -162,7 +162,7 @@ def search13():
 
             for i in range(max):
                 if(temp3 == data['dictionary'][i]['hanja']):
-                    temp4 = temp4 + " " + data['dictionary'][i]['hangul']         
+                    temp4 = temp4 + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan']         
                     break      
                 else: 
                     i = i + 1
@@ -190,7 +190,7 @@ def search14():
 
             for i in range(max):
                 if(temp3 == data['dictionary'][i]['hanja']):
-                    temp4 = temp4 + " " + data['dictionary'][i]['hangul']         
+                    temp4 = temp4 + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan']         
                     break      
                 else: 
                     i = i + 1
