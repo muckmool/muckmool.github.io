@@ -206,30 +206,38 @@ class Clock():
 
         self.root = Tk()                      # 창을 생성
         self.root.wm_attributes("-topmost", 1)
-        self.root.geometry("600x160-70-130")       # 창 크기설정
+        self.root.geometry("600x140-70-600")       # 창 크기설정
         self.root.title("dictionary")    # 창 제목설정
-        self.root.option_add("*Font","맑은고딕 12") # 폰트설정
+        self.root.option_add("*Font","맑은고딕 14") # 폰트설정
         self.root.resizable(False, False)  # x, y 창 크기 변경 불가
 
         self.ent = Entry(self.root, width=73)                 # root라는 창에 입력창 생성
-        self.ent.pack()                        # 입력창 배치
-        self.ent1 = Entry(self.root, width=73)                 # root라는 창에 입력창 생성
-        self.ent1.pack()                        # 입력창 배치
+        self.ent.pack()                                       # 입력창 배치
+        self.ent2 = Entry(self.root, width=73)                 
+        self.ent2.pack()      
+        self.ent3 = Entry(self.root, width=73)                 
+        self.ent3.pack()    
+        self.ent4 = Entry(self.root, width=73)                 
+        self.ent4.pack()    
+        self.ent5 = Entry(self.root, width=73)                 
+        self.ent5.pack()    
+        self.ent6 = Entry(self.root, width=73)                 
+        self.ent6.pack()                      
 
 
         #self.label0 = tk.Label(text="", font=('Helvetica', 10), fg='black')
         #self.label2 = tk.Label(text="조회결과", font=('Helvetica', 12), fg='black', wraplength = 300)
-        self.label11 = tk.Label(text="조회결과", font=('Helvetica', 12), fg='black', wraplength = 300) 
-        self.label12 = tk.Label(text="조회결과", font=('Helvetica', 12), fg='black', wraplength = 300) 
-        self.label13 = tk.Label(text="조회결과", font=('Helvetica', 12), fg='black', wraplength = 300) 
-        self.label14 = tk.Label(text="조회결과", font=('Helvetica', 12), fg='black', wraplength = 300)         
+        #self.label11 = tk.Label(text="조회결과", font=('Helvetica', 12), fg='black', wraplength = 300) 
+        #self.label12 = tk.Label(text="조회결과", font=('Helvetica', 12), fg='black', wraplength = 300) 
+        #self.label13 = tk.Label(text="조회결과", font=('Helvetica', 12), fg='black', wraplength = 300) 
+        #self.label14 = tk.Label(text="조회결과", font=('Helvetica', 12), fg='black', wraplength = 300)         
 
         #self.label0.place(x=0, y=0)
         #self.label2.place(x=0, y=40)
-        self.label11.place(x=0, y=50)
-        self.label12.place(x=0, y=75)
-        self.label13.place(x=0, y=100)
-        self.label14.place(x=0, y=125)
+        #self.label11.place(x=0, y=50)
+        #self.label12.place(x=0, y=75)
+        #self.label13.place(x=0, y=100)
+        #self.label14.place(x=0, y=125)
 
 
         self.update_clock()
@@ -254,14 +262,16 @@ class Clock():
 
             #self.label2.configure(text=search2())
 
-            self.ent1.delete(0, "end")
-            self.ent1.insert(0, search2())
-            
-
-            self.label11.configure(text=search11())
-            self.label12.configure(text=search12())
-            self.label13.configure(text=search13())
-            self.label14.configure(text=search14())
+            self.ent2.delete(0, "end")
+            self.ent2.insert(0, search2())
+            self.ent3.delete(0, "end")
+            self.ent3.insert(0, search11())
+            self.ent4.delete(0, "end")
+            self.ent4.insert(0, search12())
+            self.ent5.delete(0, "end")
+            self.ent5.insert(0, search13())
+            self.ent6.delete(0, "end")
+            self.ent6.insert(0, search14())
             temp99 = l_check
                         
         self.root.after(1000, self.update_clock)

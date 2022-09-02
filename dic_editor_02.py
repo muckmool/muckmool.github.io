@@ -116,8 +116,12 @@ def update():
         data['dictionary'][seq]['h5'] = entry71.get()
         data['dictionary'][seq]['h6'] = entry81.get()
         data['dictionary'][seq]['exp'] = entry9.get()
-        data['dictionary'][seq]['china'] = entry10.get()
-        data['dictionary'][seq]['japan'] = entry11.get()
+        temp = entry10.get()
+        temp = temp.replace("\n", "")
+        data['dictionary'][seq]['china'] = temp
+        temp = entry11.get()
+        temp = temp.replace("\n", "")
+        data['dictionary'][seq]['japan'] = temp
 
         #if(data['dictionary'][seq]['h1'] != "."):
         if(TRUE):
