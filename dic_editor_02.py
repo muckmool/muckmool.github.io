@@ -4,10 +4,11 @@ import tkinter.font
 
 
 tk = Tk()
-tk.geometry("730x330+900+300")
+tk.geometry("930x330+700+600")
 font1 = tkinter.font.Font(family="Consolas", size=12)
 tk.title('사전')
 tk.wm_attributes("-topmost", 1)
+
 
 def new():
     with open ("data2.json", "r", encoding = 'utf-8') as f:
@@ -55,8 +56,8 @@ def new():
     
     entry00.delete(0,"end")
     entry00.insert(0,result)
-    entry1.delete(0,"end")
-    entry1.insert(0,data['dictionary'][i]['hangul'])
+    #entry1.delete(0,"end")
+    #entry1.insert(0,data['dictionary'][i]['hangul'])
     entry2.delete(0,"end")
     entry2.insert(0,data['dictionary'][i]['hanja'])
     entry31.delete(0,"end")
@@ -118,7 +119,8 @@ def update():
         data['dictionary'][seq]['china'] = entry10.get()
         data['dictionary'][seq]['japan'] = entry11.get()
 
-        if(data['dictionary'][seq]['h1'] != "."):
+        #if(data['dictionary'][seq]['h1'] != "."):
+        if(TRUE):
             #print("if")
             for j in range(0, max):
                 #print(j)
@@ -129,7 +131,8 @@ def update():
                     entry32.insert(0,data['dictionary'][seq]['c1'])
                     break
 
-        if(data['dictionary'][seq]['h2'] != "."):
+        #if(data['dictionary'][seq]['h2'] != "."):
+        if(TRUE):
             for j in range(0, max):
                 if(data['dictionary'][seq]['h2'] == data['dictionary'][j]['hangul'] ):
                     data['dictionary'][seq]['c2'] = data['dictionary'][j]['hanja']
@@ -137,7 +140,8 @@ def update():
                     entry42.insert(0,data['dictionary'][seq]['c2'])
                     break
         
-        if(data['dictionary'][seq]['h3'] != "."):
+        #if(data['dictionary'][seq]['h3'] != "."):
+        if(TRUE):
             for j in range(0, max):
                 if(data['dictionary'][seq]['h3'] == data['dictionary'][j]['hangul'] ):
                     data['dictionary'][seq]['c3'] = data['dictionary'][j]['hanja']
@@ -145,7 +149,8 @@ def update():
                     entry52.insert(0,data['dictionary'][seq]['c3'])
                     break
 
-        if(data['dictionary'][seq]['h4'] != "."):
+        #if(data['dictionary'][seq]['h4'] != "."):
+        if(TRUE):
             for j in range(0, max):
                 if(data['dictionary'][seq]['h4'] == data['dictionary'][j]['hangul'] ):
                     data['dictionary'][seq]['c4'] = data['dictionary'][j]['hanja']
@@ -153,14 +158,17 @@ def update():
                     entry62.insert(0,data['dictionary'][seq]['c4'])
                     break
 
-        if(data['dictionary'][seq]['h5'] != "."):
+        #if(data['dictionary'][seq]['h5'] != "."):
+        if(TRUE):
             for j in range(0, max):
                 if(data['dictionary'][seq]['h5'] == data['dictionary'][j]['hangul'] ):
                     data['dictionary'][seq]['c5'] = data['dictionary'][j]['hanja']
                     entry72.delete(0,"end")
                     entry72.insert(0,data['dictionary'][seq]['c5'])
                     break
-        if(data['dictionary'][seq]['h6'] != "."):
+            
+        #if(data['dictionary'][seq]['h6'] != "."):
+        if(TRUE):
             for j in range(0, max):
                 if(data['dictionary'][seq]['h6'] == data['dictionary'][j]['hangul'] ):
                     data['dictionary'][seq]['c6'] = data['dictionary'][j]['hanja']
@@ -187,9 +195,9 @@ def update():
         f.close()
 
         entry00.delete(0,"end")
-        entry00.insert(0,"업데이트 완료")
+        entry00.insert(0, seq)
         entry01.delete(0,"end")
-        entry01.insert(0, entry1.get())
+        entry01.insert(0, "업뎃완료")
         
         
 
@@ -200,19 +208,26 @@ def search():
         data = json.load(f)
 
     max = len(data['dictionary'])
-    h_temp = entry01.get()
+    h_temp = entry1.get()
     result = max - 1
+
+
+    entry01.delete(0,"end")
+    entry01.insert(0,"없음")
 
     for i in range(0,max):
         #print(data['dictionary'][i]['hangul'])
         if(data['dictionary'][i]['hangul'] == h_temp ):
             result = i
+            entry01.delete(0,"end")
+            entry01.insert(0,"조회완료")
             break
+
     
     entry00.delete(0,"end")
     entry00.insert(0,result)
-    entry1.delete(0,"end")
-    entry1.insert(0,data['dictionary'][i]['hangul'])
+    #entry1.delete(0,"end")
+    #entry1.insert(0,data['dictionary'][i]['hangul'])
     entry2.delete(0,"end")
     entry2.insert(0,data['dictionary'][i]['hanja'])
     entry31.delete(0,"end")
@@ -297,6 +312,55 @@ def next():
     entry11.insert(0,data['dictionary'][i]['japan'])
 
 
+def previous():
+    with open ("data2.json", "r", encoding = 'utf-8') as f:
+        data = json.load(f)
+
+    max = len(data['dictionary'])
+    result = int(entry00.get()) - 1
+
+    if(result < 0): 
+        result = result + 1
+
+    i = result
+    
+    entry00.delete(0,"end")
+    entry00.insert(0,result)
+    entry1.delete(0,"end")
+    entry1.insert(0,data['dictionary'][i]['hangul'])
+    entry2.delete(0,"end")
+    entry2.insert(0,data['dictionary'][i]['hanja'])
+    entry31.delete(0,"end")
+    entry31.insert(0,data['dictionary'][i]['h1'])
+    entry41.delete(0,"end")
+    entry41.insert(0,data['dictionary'][i]['h2'])
+    entry51.delete(0,"end")
+    entry51.insert(0,data['dictionary'][i]['h3'])
+    entry61.delete(0,"end")
+    entry61.insert(0,data['dictionary'][i]['h4'])
+    entry71.delete(0,"end")
+    entry71.insert(0,data['dictionary'][i]['h5'])
+    entry81.delete(0,"end")
+    entry81.insert(0,data['dictionary'][i]['h6'])
+    entry32.delete(0,"end")
+    entry32.insert(0,data['dictionary'][i]['c1'])
+    entry42.delete(0,"end")
+    entry42.insert(0,data['dictionary'][i]['c2'])
+    entry52.delete(0,"end")
+    entry52.insert(0,data['dictionary'][i]['c3'])
+    entry62.delete(0,"end")
+    entry62.insert(0,data['dictionary'][i]['c4'])
+    entry72.delete(0,"end")
+    entry72.insert(0,data['dictionary'][i]['c5'])
+    entry82.delete(0,"end")
+    entry82.insert(0,data['dictionary'][i]['c6'])
+    entry9.delete(0,"end")
+    entry9.insert(0,data['dictionary'][i]['exp'])
+    entry10.delete(0,"end")
+    entry10.insert(0,data['dictionary'][i]['china'])
+    entry11.delete(0,"end")
+    entry11.insert(0,data['dictionary'][i]['japan'])
+
 
 def search_seq():
     with open ("data2.json", "r", encoding = 'utf-8') as f:
@@ -368,15 +432,15 @@ label11 = Label(tk,text='일본', font=font1).grid(row=11,column=0)
 # 각 단위 입력받는 부분 만들기
 entry00 = Entry(tk, width=15, font=font1)
 entry01 = Entry(tk, width=10, font=font1)
-entry1 = Entry(tk, width=60, font=font1)
-entry2 = Entry(tk, width=60, font=font1)
+entry1 = Entry(tk, width=80, font=font1)
+entry2 = Entry(tk, width=80, font=font1)
 
-entry31 = Entry(tk, width=60, font=font1)
-entry41 = Entry(tk, width=60, font=font1)
-entry51 = Entry(tk, width=60, font=font1)
-entry61 = Entry(tk, width=60, font=font1)
-entry71 = Entry(tk, width=60, font=font1)
-entry81 = Entry(tk, width=60, font=font1)
+entry31 = Entry(tk, width=80, font=font1)
+entry41 = Entry(tk, width=80, font=font1)
+entry51 = Entry(tk, width=80, font=font1)
+entry61 = Entry(tk, width=80, font=font1)
+entry71 = Entry(tk, width=80, font=font1)
+entry81 = Entry(tk, width=80, font=font1)
 
 entry32 = Entry(tk, width=10, font=font1)
 entry42 = Entry(tk, width=10, font=font1)
@@ -385,9 +449,9 @@ entry62 = Entry(tk, width=10, font=font1)
 entry72 = Entry(tk, width=10, font=font1)
 entry82 = Entry(tk, width=10, font=font1)
 
-entry9 = Entry(tk, width=60, font=font1)
-entry10 = Entry(tk, width=60, font=font1)
-entry11 = Entry(tk, width=60, font=font1)
+entry9 = Entry(tk, width=80, font=font1)
+entry10 = Entry(tk, width=80, font=font1)
+entry11 = Entry(tk, width=80, font=font1)
 
 entry00.grid(row=0,column=1)
 entry01.grid(row=0,column=2)
@@ -413,12 +477,14 @@ entry10.grid(row=10,column=1)
 entry11.grid(row=11,column=1)
 
 
-
-btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=20,column=3)
 btn2 = Button(tk,text='조회',bg='black',fg='white',command=search).grid(row=0,column=3)
-btn5 = Button(tk,text='seq조회',bg='black',fg='white',command=search_seq).grid(row=2,column=3)
-btn3 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=4,column=3)
-btn4 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=10,column=3)
+btn4 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=2,column=3)
+btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=4,column=3)
+
+btn5 = Button(tk,text='seq조회',bg='black',fg='white',command=search_seq).grid(row=8,column=3)
+btn3 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=10,column=3)
+btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=12,column=3)
+
 
 tk.mainloop()
 
