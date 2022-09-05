@@ -41,7 +41,7 @@ def search2():
 
             for i in range(max):
                 if(temp2 == data['dictionary'][i]['hanja']):
-                    temp4 = data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan']
+                    temp4 = data['dictionary'][i]['hanja'] + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan']
                     break      
                 else: 
                     i = i + 1
@@ -54,7 +54,7 @@ def search2():
 
             for i in range(max):
                 if(temp2 == data['dictionary'][i]['hanja']):
-                    temp4 = data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
+                    temp4 = data['dictionary'][i]['hanja'] + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
                     break      
                 else: 
                     i = i + 1
@@ -67,7 +67,7 @@ def search2():
 
             for i in range(max):
                 if(temp2 == data['dictionary'][i]['hanja']):
-                    temp4 = data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
+                    temp4 = data['dictionary'][i]['hanja'] + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
                     break      
                 else: 
                     i = i + 1
@@ -80,7 +80,7 @@ def search2():
 
             for i in range(max):
                 if(temp2 == data['dictionary'][i]['hanja']):
-                    temp4 = data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
+                    temp4 = data['dictionary'][i]['hanja'] + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
                     break      
                 else: 
                     i = i + 1
