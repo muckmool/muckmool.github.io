@@ -40,7 +40,7 @@ def search2():
             temp2 = word[0]
 
             for i in range(max):
-                if(temp2 == data['dictionary'][i]['hanja']):
+                if(temp2 == data['dictionary'][i]['hanja'] or temp2 == data['dictionary'][i]['hangul']):
                     temp4 = data['dictionary'][i]['hanja'] + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan']
                     break      
                 else: 
@@ -53,7 +53,7 @@ def search2():
             temp2 = word[0] + word[1]
 
             for i in range(max):
-                if(temp2 == data['dictionary'][i]['hanja']):
+                if(temp2 == data['dictionary'][i]['hanja'] or temp2 == data['dictionary'][i]['hangul']):
                     temp4 = data['dictionary'][i]['hanja'] + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
                     break      
                 else: 
@@ -66,7 +66,7 @@ def search2():
             temp2 = word[0] + word[1] + word[2]
 
             for i in range(max):
-                if(temp2 == data['dictionary'][i]['hanja']):
+                if(temp2 == data['dictionary'][i]['hanja'] or temp2 == data['dictionary'][i]['hangul']):
                     temp4 = data['dictionary'][i]['hanja'] + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
                     break      
                 else: 
@@ -79,7 +79,33 @@ def search2():
             temp2 = word[0] + word[1] + word[2] + word[3]
 
             for i in range(max):
-                if(temp2 == data['dictionary'][i]['hanja']):
+                if(temp2 == data['dictionary'][i]['hanja'] or temp2 == data['dictionary'][i]['hangul']):
+                    temp4 = data['dictionary'][i]['hanja'] + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
+                    break      
+                else: 
+                    i = i + 1
+
+        # 5글자 조회
+
+        if(len(word)>4 and len(word)<6):
+
+            temp2 = word[0] + word[1] + word[2] + word[3] + word[4]
+
+            for i in range(max):
+                if(temp2 == data['dictionary'][i]['hanja'] or temp2 == data['dictionary'][i]['hangul']):
+                    temp4 = data['dictionary'][i]['hanja'] + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
+                    break      
+                else: 
+                    i = i + 1
+
+        # 6글자 조회
+
+        if(len(word)>5 and len(word)<7):
+
+            temp2 = word[0] + word[1] + word[2] + word[3] + word[4] + word[5]
+
+            for i in range(max):
+                if(temp2 == data['dictionary'][i]['hanja'] or temp2 == data['dictionary'][i]['hangul']):
                     temp4 = data['dictionary'][i]['hanja'] + " " + data['dictionary'][i]['hangul'] + "    " + data['dictionary'][i]['china'] + "    " + data['dictionary'][i]['japan'] 
                     break      
                 else: 
