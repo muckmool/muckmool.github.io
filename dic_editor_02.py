@@ -280,6 +280,7 @@ def next():
     
     entry00.delete(0,"end")
     entry00.insert(0,result)
+    entry01.delete(0,"end")
     entry1.delete(0,"end")
     entry1.insert(0,data['dictionary'][i]['hangul'])
     entry2.delete(0,"end")
@@ -330,6 +331,7 @@ def previous():
     
     entry00.delete(0,"end")
     entry00.insert(0,result)
+    entry01.delete(0,"end")
     entry1.delete(0,"end")
     entry1.insert(0,data['dictionary'][i]['hangul'])
     entry2.delete(0,"end")
