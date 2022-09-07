@@ -1,13 +1,30 @@
 <html>
 
 <script>
-    function publish()  {
-        const resultElement = document.getElementById('result');
-        let date = document.getElementById('date');
-        let hanja = document.getElementById('hanja');
-        let hangul = document.getElementById('hangul');
+
+       
+    fetch('https://muckmool.github.io/book/najungilgi.json')
+      .then((response) => response.json())
+      .then((data) => { 
         
-        resultElement.innerText = date.value + " " + hanja.value + " " + hangul.value;
+      console(data);    
+    
+      } 
+    );
+
+</script>
+
+
+
+<script>
+    function search()  {
+        const resultElement1 = document.getElementById('result1');
+        const resultElement2 = document.getElementById('result2');
+
+        let i = document.getElementById('seq');
+
+        resultElement1.innerText = data.dictionary[i].date;
+        resultElement2.innerText = data.dictionary[i].record;
     }
 
 
@@ -16,19 +33,13 @@
 
         <p>SEQ <input type = "number" style="width:200px;height:40px;font-size:15px;" id="seq" value = 0>
 
-        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-           &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-           &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-           &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-           &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
            <input type='button' onclick='search()' value='조회'/>
-           <input type='button' onclick='update()' value='수정'/>
-           <input type='button' onclick='publish()' value='출판'/>
+           <input type='button' onclick='previous()' value='이전'/>
+           <input type='button' onclick='next()' value='다음'/>
 
-        <p>날짜 <input type = "text" style="width:400px;height:40px;font-size:15px;" id="date">
-        <p>한자<textarea cols="100" rows="5" style="font-size:20px;" id="hanja"></textarea></p>
-        <p>한글<textarea cols="100" rows="5" style="font-size:20px;" id="hangul"></textarea></p>
+        <br><br>
+        <p id="result1">.</p>
         <br>
-        <p id="result">.</p>
+        <p id="result2">.</p>
 
 </html>
