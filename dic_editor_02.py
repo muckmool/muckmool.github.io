@@ -92,6 +92,53 @@ def new():
     entry11.insert(0,data['dictionary'][i]['japan'])
 
 
+def copy():
+    with open ("data2.json", "r", encoding = 'utf-8') as f:
+        data = json.load(f)
+
+
+    #신규데이터추가
+    max = len(data['dictionary'])
+
+    if(data['dictionary'][max-1]['hangul'] != "X"):
+        string =  '{ "dictionary": [\n'
+
+        for i in range(0,max):
+            temp = data['dictionary'][i]
+            temp = json.dumps(temp, ensure_ascii=False)
+            string = string + temp + ',\n'
+
+        string = string + '{ "hangul": "X", "hanja": ".", "h1": ".", "c1": ".", "h2": ".", "c2": ".", "h3": ".", "c3": ".", "h4": ".", "c4": ".", "h5": ".", "c5": ".", "h6": ".", "c6": ".", "exp":".", "china":".", "japan":"." }'
+
+        string = string + '\n]}'
+
+        #print(string)
+
+        f = open("data2.json", 'w', encoding = 'utf-8')
+        f.write(string)
+        f.close()
+
+
+    #신규데이터읽기
+    entry01.delete(0,"end")
+    entry01.insert(0,"X")
+
+    with open ("data2.json", "r", encoding = 'utf-8') as f:
+        data = json.load(f)
+
+    max = len(data['dictionary'])
+    h_temp = entry01.get()
+    result = -1
+
+    for i in range(0,max):
+        #print(data['dictionary'][i]['hangul'])
+        if(data['dictionary'][i]['hangul'] == h_temp ):
+            result = i
+            break
+    
+    entry00.delete(0,"end")
+    entry00.insert(0,result)
+
 
 
 
@@ -485,7 +532,8 @@ entry11.grid(row=11,column=1)
 
 btn2 = Button(tk,text='조회',bg='black',fg='white',command=search).grid(row=0,column=3)
 btn4 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=2,column=3)
-btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=4,column=3)
+btn7 = Button(tk,text='복사',bg='black',fg='white',command=copy).grid(row=4,column=3)
+btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=6,column=3)
 
 btn5 = Button(tk,text='seq조회',bg='black',fg='white',command=search_seq).grid(row=8,column=3)
 btn3 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=10,column=3)
