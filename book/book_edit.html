@@ -35,6 +35,7 @@
         const resultElement2 = document.getElementById('result2');
         const resultElement3 = document.getElementById('seq');
         const resultElement4 = document.getElementById('result4');
+        const resultElement5 = document.getElementById('result5');
 
         let i = resultElement3.value;
         i = parseInt(i);
@@ -61,6 +62,7 @@
         resultElement1.innerText = arr[i*4];
         resultElement2.innerHTML = hanja_temp3;
         resultElement4.innerText = arr[i*4 + 3];
+        resultElement5.innerText = arr[i*4 + 2];
 
     }
 
@@ -70,6 +72,7 @@
         const resultElement2 = document.getElementById('result2');
         const resultElement3 = document.getElementById('seq');
         const resultElement4 = document.getElementById('result4');
+        const resultElement5 = document.getElementById('result5');
 
         let i = resultElement3.value;
         i = parseInt(i);
@@ -100,6 +103,7 @@
         resultElement1.innerText = arr[i*4];
         resultElement2.innerHTML = hanja_temp3;
         resultElement4.innerText = arr[i*4 + 3];
+        resultElement5.innerText = arr[i*4 + 2];
     }
 
 
@@ -108,6 +112,7 @@
         const resultElement2 = document.getElementById('result2');
         const resultElement3 = document.getElementById('seq');
         const resultElement4 = document.getElementById('result4');
+        const resultElement5 = document.getElementById('result5');
 
         let i = resultElement3.value;
         i = parseInt(i);
@@ -138,7 +143,26 @@
         resultElement1.innerText = arr[i*4];
         resultElement2.innerHTML = hanja_temp3;
         resultElement4.innerText = arr[i*4 + 3];
+        resultElement5.innerText = arr[i*4 + 2];
     }
+
+    // TTS
+
+    function speak() {
+       
+       window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+   
+       const speechMsg = new SpeechSynthesisUtterance();
+       speechMsg.rate =  1; // 속도: 0.1 ~ 10      
+       speechMsg.pitch = 1; // 음높이: 0 ~ 2
+       speechMsg.lang =  "ko-KR";
+       speechMsg.text = document.getElementById("result1").textContent + document.getElementById("result5").textContent + document.getElementById("result4").textContent;
+       
+       // SpeechSynthesisUtterance에 저장된 내용을 바탕으로 음성합성 실행
+       window.speechSynthesis.speak(speechMsg)
+   }
+   
+ 
 
 
 </script>
@@ -146,12 +170,14 @@
         <p>SEQ <input type = "text" style="width:200px;height:40px;font-size:15px;" id="seq" value = 1>
 
            <input type='button' onclick='search()' value='search'/>
+           <input type='button' onclick='speak()' value='TTS'/>
            <input type='button' onclick='previous()' value='previous'/>
            <input type='button' onclick='next()' value='next'/>
 
         <br><br>
         <p id="result1">.</p>
-        <p id="result2" style="font-size:23px; font-weight: 900;">.</p>
+        <p id="result2" style="font-size:23px; font-weight: 500;">.</p>
+        <p id="result5">.</p>
         <p id="result4">.</p>
 
 </html>
