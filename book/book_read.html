@@ -167,17 +167,33 @@
 
 </script>
 
-        <p>SEQ <input type = "text" style="width:200px;height:40px;font-size:15px;" id="seq" value = 1>
 
-           <input type='button' onclick='search()' value='search'/>
-           <input type='button' onclick='speak()' value='TTS'/>
-           <input type='button' onclick='previous()' value='previous'/>
-           <input type='button' onclick='next()' value='next'/>
+<p>SEQ <input type = "text" style="width:200px;height:40px;font-size:15px;" id="seq" value = 1>
 
-        <br><br>
-        <p id="result1">.</p>
-        <p id="result2" style="font-size:23px; font-weight: 500;">.</p>
-        <p id="result5">.</p>
-        <p id="result4">.</p>
+    <input type='button' onclick='search()' value='search'/>
+    <input type='button' onclick='speak()' value='TTS'/>
+    <input type='button' onclick='previous()' value='previous'/>
+    <input type='button' onclick='next()' value='next'/>
+
+<br><br>
+
+<!--
+<p id="result1">.</p>
+<p id="result2" style="font-size:23px; font-weight: 500;">.</p>
+<p id="result5">.</p>
+<p id="result4">.</p>
+-->
+
+<table style="border-collapse: collapse; width: 100%;" border="0" width="100%" text-align="center">
+    <tbody>   
+        <tr><td id="result1">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result2" style="font-size:23px; font-weight: 500;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result5">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result4">.</td></tr>
+    </tbody>
+</table>
 
 </html>
