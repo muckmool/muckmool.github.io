@@ -2,7 +2,7 @@
 
 <script>
 
-   arr = [".", "."];
+   arr = [".", ".","."];
        
     fetch('https://muckmool.github.io/book/nanjungilgi.json')
       .then((response) => response.json())
@@ -14,7 +14,8 @@
 
         for (i = 0; i < max; i += 1) {
             arr.push(data.book[i].date);
-            arr.push(data.book[i].record);
+            arr.push(data.book[i].hanja);
+            arr.push(data.book[i].hangul);
 
 
         }  
@@ -38,9 +39,27 @@
 
         //console.log(i);
 
-        resultElement1.innerText = arr[i*2];
-        resultElement2.innerText = arr[i*2 + 1];
+        let hanja_temp1 = arr[i*3 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*3 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        console.log(hanja_temp3);
+
+        resultElement1.innerText = arr[i*3];
+        resultElement2.innerHTML = hanja_temp3;
     }
+
 
     function next()  {
         const resultElement1 = document.getElementById('result1');
@@ -56,10 +75,27 @@
 
         //console.log(i);
 
-        resultElement1.innerText = arr[i*2];
-        resultElement2.innerText = arr[i*2 + 1];
-        resultElement3.value = i;
+        let hanja_temp1 = arr[i*3 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*3 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        console.log(hanja_temp3);
+
+        resultElement1.innerText = arr[i*3];
+        resultElement2.innerHTML = hanja_temp3;
     }
+
 
     function previous()  {
         const resultElement1 = document.getElementById('result1');
@@ -75,20 +111,35 @@
 
         //console.log(i);
 
-        resultElement1.innerText = arr[i*2];
-        resultElement2.innerText = arr[i*2 + 1];
-        resultElement3.value = i;
-    }
+        let hanja_temp1 = arr[i*3 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
 
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*3 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        console.log(hanja_temp3);
+
+        resultElement1.innerText = arr[i*3];
+        resultElement2.innerHTML = hanja_temp3;
+    }
 
 
 </script>
 
         <p>SEQ <input type = "text" style="width:200px;height:40px;font-size:15px;" id="seq" value = 1>
 
-           <input type='button' onclick='search()' value='조회'/>
-           <input type='button' onclick='previous()' value='이전'/>
-           <input type='button' onclick='next()' value='다음'/>
+           <input type='button' onclick='search()' value='search'/>
+           <input type='button' onclick='previous()' value='previous'/>
+           <input type='button' onclick='next()' value='next'/>
 
         <br><br>
         <p id="result1">.</p>
