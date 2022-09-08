@@ -2,12 +2,22 @@
 
 <script>
 
+   arr = [".", "."];
        
-    fetch('https://muckmool.github.io/book/najungilgi.json')
+    fetch('https://muckmool.github.io/book/nanjungilgi.json')
       .then((response) => response.json())
       .then((data) => { 
         
-      console(data);    
+        let temp = data.book; 
+        let max = temp.length;
+        //console.log(max); 
+
+        for (i = 0; i < max; i += 1) {
+            arr.push(data.book[i].date);
+            arr.push(data.book[i].record);
+
+
+        }  
     
       } 
     );
@@ -17,21 +27,64 @@
 
 
 <script>
+
     function search()  {
         const resultElement1 = document.getElementById('result1');
         const resultElement2 = document.getElementById('result2');
+        const resultElement3 = document.getElementById('seq');
 
-        let i = document.getElementById('seq');
+        let i = resultElement3.value;
+        i = parseInt(i);
 
-        resultElement1.innerText = data.dictionary[i].date;
-        resultElement2.innerText = data.dictionary[i].record;
+        //console.log(i);
+
+        resultElement1.innerText = arr[i*2];
+        resultElement2.innerText = arr[i*2 + 1];
+    }
+
+    function next()  {
+        const resultElement1 = document.getElementById('result1');
+        const resultElement2 = document.getElementById('result2');
+        const resultElement3 = document.getElementById('seq');
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i + 1;
+
+        if((i*2+1) > arr.length) { i = i - 1; }
+
+        //console.log(i);
+
+        resultElement1.innerText = arr[i*2];
+        resultElement2.innerText = arr[i*2 + 1];
+        resultElement3.value = i;
+    }
+
+    function previous()  {
+        const resultElement1 = document.getElementById('result1');
+        const resultElement2 = document.getElementById('result2');
+        const resultElement3 = document.getElementById('seq');
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i - 1;
+
+        if(i < 1) { i = 1; }
+
+        //console.log(i);
+
+        resultElement1.innerText = arr[i*2];
+        resultElement2.innerText = arr[i*2 + 1];
+        resultElement3.value = i;
     }
 
 
 
 </script>
 
-        <p>SEQ <input type = "number" style="width:200px;height:40px;font-size:15px;" id="seq" value = 0>
+        <p>SEQ <input type = "text" style="width:200px;height:40px;font-size:15px;" id="seq" value = 1>
 
            <input type='button' onclick='search()' value='조회'/>
            <input type='button' onclick='previous()' value='이전'/>
@@ -39,7 +92,6 @@
 
         <br><br>
         <p id="result1">.</p>
-        <br>
         <p id="result2">.</p>
 
 </html>
