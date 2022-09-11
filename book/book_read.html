@@ -79,6 +79,8 @@
 
         i = i + 1;
 
+
+
         if((i*4 + 3) > arr.length) { i = i - 1; }
 
         //console.log(i);
@@ -98,10 +100,11 @@
              hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
         }
 
-        console.log(hanja_temp3);
+        console.log(i);
 
         resultElement1.innerText = arr[i*4];
         resultElement2.innerHTML = hanja_temp3;
+        resultElement3.value = String(i);
         resultElement4.innerText = arr[i*4 + 3];
         resultElement5.innerText = arr[i*4 + 2];
     }
@@ -138,10 +141,11 @@
              hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
         }
 
-        console.log(hanja_temp3);
+        console.log(i);
 
         resultElement1.innerText = arr[i*4];
         resultElement2.innerHTML = hanja_temp3;
+        resultElement3.value = String(i);
         resultElement4.innerText = arr[i*4 + 3];
         resultElement5.innerText = arr[i*4 + 2];
     }
@@ -190,7 +194,7 @@
     <tbody>   
         <tr><td id="result1">.</td></tr>
         <tr><td>&nbsp</td></tr>
-        <tr><td id="result2" style="font-size:23px; font-weight: 500;">.</td></tr>
+        <tr><td id="result2" style="font-size:26px; font-weight: 300;">.</td></tr>
         <tr><td>&nbsp</td></tr>
         <tr><td id="result5">.</td></tr>
         <tr><td>&nbsp</td></tr>
