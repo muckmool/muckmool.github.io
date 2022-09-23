@@ -34,12 +34,14 @@
 <script>
 
     function search()  {
-        const resultElement1 = document.getElementById('result_book');
-        const resultElement6 = document.getElementById('result_cv');
-        const resultElement2 = document.getElementById('result2');
+        const resultElement_book = document.getElementById('result_book');
+        const resultElement_cv = document.getElementById('result_cv');
         const resultElement3 = document.getElementById('seq');
         const resultElement4 = document.getElementById('result4');
         const resultElement5 = document.getElementById('result5');
+        const resultElement6 = document.getElementById('result6');
+        const resultElement7 = document.getElementById('result7');
+        const resultElement8 = document.getElementById('result8');
 
         let i = resultElement3.value;
         i = parseInt(i);
@@ -61,13 +63,33 @@
              hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
         }
 
+
+        let hanja_temp71 = arr[i*7 + 4];
+        let hanja_temp72 = hanja_temp71.split('');
+        const max2 = hanja_temp72.length;
+
+        //console.log(max);
+
+        let hangul_temp71 = arr[i*7 + 5];
+        let hangul_temp72 = hangul_temp71.split(' ');
+
+        let hanja_temp73 ="";
+
+        for (j = 0; j < max2; j += 1) {
+             hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>";
+        }
+
         //console.log(hanja_temp3);
 
-        resultElement1.innerText = arr[i*7];
-        resultElement6.innerText = arr[i*7 + 1];
-        resultElement2.innerHTML = hanja_temp3;
-        resultElement4.innerText = arr[i*7 + 3];
-        resultElement5.innerText = arr[i*7 + 2];
+        resultElement_book.innerText = arr[i*7];
+        resultElement_cv.innerText = arr[i*7 + 1];
+        resultElement4.innerHTML = hanja_temp3;
+        resultElement5.innerHTML = hanja_temp73;
+
+        resultElement6.innerText = arr[i*7 + 3];
+        resultElement7.innerText = arr[i*7 + 5];
+        resultElement8.innerText = arr[i*7 + 6];
+        
 
     }
 
@@ -203,11 +225,20 @@
         <tr><td id="result_cv" style="font-size:26px;">.</td></tr>
         <tr><td>&nbsp</td></tr>
 
-        <tr><td id="result2" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td id="result4" style="font-size:26px; font-weight: 300;">.</td></tr>
         <tr><td>&nbsp</td></tr>
-        <tr><td id="result5">.</td></tr>
+
+        <tr><td id="result5" style="font-size:26px; font-weight: 300;">.</td></tr>
         <tr><td>&nbsp</td></tr>
-        <tr><td id="result4">.</td></tr>
+
+
+        <tr><td id="result6">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result7">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result8">.</td></tr>
     </tbody>
 </table>
 

@@ -366,7 +366,7 @@ def trans_japan():
                     j = j + 2;
                     break
 
-            string = string + temp2
+            string = string + temp2 + " "
         
         entry5.insert(tkinter.END, string)
 
