@@ -60,7 +60,7 @@
         let hanja_temp3 ="";
 
         for (j = 0; j < max; j += 1) {
-             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>" + " ";
         }
 
 
@@ -93,8 +93,134 @@
 
     }
 
-
     function next()  {
+        const resultElement_book = document.getElementById('result_book');
+        const resultElement_cv = document.getElementById('result_cv');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement4 = document.getElementById('result4');
+        const resultElement5 = document.getElementById('result5');
+        const resultElement6 = document.getElementById('result6');
+        const resultElement7 = document.getElementById('result7');
+        const resultElement8 = document.getElementById('result8');
+
+        let i = resultElement3.value;
+        i = parseInt(i) + 1;
+
+        if((i*7 + 6) > arr.length) { i = i - 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*7 + 2];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*7 + 3];
+        let hangul_temp2 = hangul_temp1.split('_');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>" + " ";
+        }
+
+
+        let hanja_temp71 = arr[i*7 + 4];
+        let hanja_temp72 = hanja_temp71.split('');
+        const max2 = hanja_temp72.length;
+
+        //console.log(max);
+
+        let hangul_temp71 = arr[i*7 + 5];
+        let hangul_temp72 = hangul_temp71.split('_');
+
+        let hanja_temp73 ="";
+
+        for (j = 0; j < max2; j += 1) {
+             hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>";
+        }
+
+        //console.log(hanja_temp3);
+
+        resultElement_book.innerText = arr[i*7];
+        resultElement_cv.innerText = arr[i*7 + 1];
+        resultElement3.value = String(i);
+        resultElement4.innerHTML = hanja_temp3;
+        resultElement5.innerHTML = hanja_temp73;
+
+        resultElement6.innerText = arr[i*7 + 2];
+        resultElement7.innerText = arr[i*7 + 4];
+        resultElement8.innerText = arr[i*7 + 6];
+        
+
+    }
+
+    function previous()  {
+        const resultElement_book = document.getElementById('result_book');
+        const resultElement_cv = document.getElementById('result_cv');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement4 = document.getElementById('result4');
+        const resultElement5 = document.getElementById('result5');
+        const resultElement6 = document.getElementById('result6');
+        const resultElement7 = document.getElementById('result7');
+        const resultElement8 = document.getElementById('result8');
+
+        let i = resultElement3.value;
+        i = parseInt(i) - 1;
+
+        if(i < 1) { i = 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*7 + 2];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*7 + 3];
+        let hangul_temp2 = hangul_temp1.split('_');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>" + " ";
+        }
+
+
+        let hanja_temp71 = arr[i*7 + 4];
+        let hanja_temp72 = hanja_temp71.split('');
+        const max2 = hanja_temp72.length;
+
+        //console.log(max);
+
+        let hangul_temp71 = arr[i*7 + 5];
+        let hangul_temp72 = hangul_temp71.split('_');
+
+        let hanja_temp73 ="";
+
+        for (j = 0; j < max2; j += 1) {
+             hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>";
+        }
+
+        //console.log(hanja_temp3);
+
+        resultElement_book.innerText = arr[i*7];
+        resultElement_cv.innerText = arr[i*7 + 1];
+        resultElement3.value = String(i);
+        resultElement4.innerHTML = hanja_temp3;
+        resultElement5.innerHTML = hanja_temp73;
+
+        resultElement6.innerText = arr[i*7 + 2];
+        resultElement7.innerText = arr[i*7 + 4];
+        resultElement8.innerText = arr[i*7 + 6];
+        
+
+    }
+
+
+    function next2()  {
         const resultElement1 = document.getElementById('result_book');
         const resultElement2 = document.getElementById('result2');
         const resultElement3 = document.getElementById('seq');
@@ -137,7 +263,7 @@
     }
 
 
-    function previous()  {
+    function previous2()  {
         const resultElement1 = document.getElementById('result_book');
         const resultElement2 = document.getElementById('result2');
         const resultElement3 = document.getElementById('seq');
@@ -181,17 +307,64 @@
 
     function speak() {
        
-       window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+    window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+
+    const speechMsg = new SpeechSynthesisUtterance();
+    speechMsg.rate =  1; // 속도: 0.1 ~ 10      
+    speechMsg.pitch = 1; // 음높이: 0 ~ 2
+
+    speechMsg.lang =  "ko-KR";
+    speechMsg.text = document.getElementById("result8").textContent;
+    delay = document.getElementById("result8").textContent;
+    delay = parseInt(delay.length * 200);
+
+    console.log(delay);
+
+    window.speechSynthesis.speak(speechMsg);
+
+    setTimeout( function(){ speak_china(); }, delay);
    
-       const speechMsg = new SpeechSynthesisUtterance();
-       speechMsg.rate =  1; // 속도: 0.1 ~ 10      
-       speechMsg.pitch = 1; // 음높이: 0 ~ 2
-       speechMsg.lang =  "ko-KR";
-       speechMsg.text = document.getElementById("result_book").textContent + document.getElementById("result5").textContent + document.getElementById("result4").textContent;
-       
-       // SpeechSynthesisUtterance에 저장된 내용을 바탕으로 음성합성 실행
-       window.speechSynthesis.speak(speechMsg)
-   }
+    }
+
+    // TTS
+
+    function speak_china() {
+    
+    window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+
+    const speechMsg = new SpeechSynthesisUtterance();
+    speechMsg.rate =  0.8; // 속도: 0.1 ~ 10      
+    speechMsg.pitch = 1; // 음높이: 0 ~ 2
+
+    speechMsg.lang =  "zh-CN";
+    speechMsg.text = document.getElementById("result6").textContent;
+    delay = document.getElementById("result6").textContent;
+    delay = parseInt(delay.length * 500);
+
+    console.log(delay);
+
+    window.speechSynthesis.speak(speechMsg);
+
+    setTimeout( function(){ speak_japan(); }, delay);
+
+    }
+
+    // TTS
+
+    function speak_japan() {
+    
+    window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+
+    const speechMsg = new SpeechSynthesisUtterance();
+    speechMsg.rate =  1; // 속도: 0.1 ~ 10      
+    speechMsg.pitch = 1; // 음높이: 0 ~ 2
+
+
+    speechMsg.lang =  "ja-JP";
+    speechMsg.text = document.getElementById("result7").textContent;
+    window.speechSynthesis.speak(speechMsg);
+
+    }
    
  
 
@@ -232,13 +405,13 @@
         <tr><td>&nbsp</td></tr>
 
 
+        <tr><td id="result8">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
         <tr><td id="result6">.</td></tr>
         <tr><td>&nbsp</td></tr>
 
         <tr><td id="result7">.</td></tr>
-        <tr><td>&nbsp</td></tr>
-
-        <tr><td id="result8">.</td></tr>
     </tbody>
 </table>
 
