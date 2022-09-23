@@ -323,7 +323,7 @@ def trans_china():
                     j = j + 2;
                     break
 
-            string = string + temp2 + " "
+            string = string + temp2 + "_"
         
         entry3.insert(tkinter.END, string)
 
@@ -366,7 +366,7 @@ def trans_japan():
                     j = j + 2;
                     break
 
-            string = string + temp2 + " "
+            string = string + temp2 + "_"
         
         entry5.insert(tkinter.END, string)
 
