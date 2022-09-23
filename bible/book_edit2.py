@@ -323,7 +323,7 @@ def trans_china():
                     j = j + 2;
                     break
 
-            string = string + temp2
+            string = string + temp2 + " "
         
         entry3.insert(tkinter.END, string)
 

@@ -2,9 +2,9 @@
 
 <script>
 
-   arr = [".", ".",".","."];
+   arr = [".", ".",".",".",".",".","."];
        
-    fetch('https://muckmool.github.io/bible/01_genesis.json')
+    fetch('https://muckmool.github.io/bible/bible.json')
       .then((response) => response.json())
       .then((data) => { 
         
@@ -13,10 +13,13 @@
         //console.log(max); 
 
         for (i = 0; i < max; i += 1) {
-            arr.push(data.book[i].date);
-            arr.push(data.book[i].hanja);
+            arr.push(data.book[i].bk);
+            arr.push(data.book[i].cv);
+            arr.push(data.book[i].china);
+            arr.push(data.book[i].pinyin);
+            arr.push(data.book[i].japan);
+            arr.push(data.book[i].hira);
             arr.push(data.book[i].hangul);
-            arr.push(data.book[i].story);
 
 
         }  
@@ -31,7 +34,8 @@
 <script>
 
     function search()  {
-        const resultElement1 = document.getElementById('result1');
+        const resultElement1 = document.getElementById('result_book');
+        const resultElement6 = document.getElementById('result_cv');
         const resultElement2 = document.getElementById('result2');
         const resultElement3 = document.getElementById('seq');
         const resultElement4 = document.getElementById('result4');
@@ -42,14 +46,14 @@
 
         //console.log(i);
 
-        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp1 = arr[i*7 + 2];
         let hanja_temp2 = hanja_temp1.split('');
         const max = hanja_temp2.length;
 
         //console.log(max);
 
-        let hangul_temp1 = arr[i*4 + 2];
-        let hangul_temp2 = hangul_temp1.split('');
+        let hangul_temp1 = arr[i*7 + 3];
+        let hangul_temp2 = hangul_temp1.split(' ');
 
         let hanja_temp3 ="";
 
@@ -59,16 +63,17 @@
 
         //console.log(hanja_temp3);
 
-        resultElement1.innerText = arr[i*4];
+        resultElement1.innerText = arr[i*7];
+        resultElement6.innerText = arr[i*7 + 1];
         resultElement2.innerHTML = hanja_temp3;
-        resultElement4.innerText = arr[i*4 + 3];
-        resultElement5.innerText = arr[i*4 + 2];
+        resultElement4.innerText = arr[i*7 + 3];
+        resultElement5.innerText = arr[i*7 + 2];
 
     }
 
 
     function next()  {
-        const resultElement1 = document.getElementById('result1');
+        const resultElement1 = document.getElementById('result_book');
         const resultElement2 = document.getElementById('result2');
         const resultElement3 = document.getElementById('seq');
         const resultElement4 = document.getElementById('result4');
@@ -85,13 +90,13 @@
 
         //console.log(i);
 
-        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp1 = arr[i*7 + 1];
         let hanja_temp2 = hanja_temp1.split('');
         const max = hanja_temp2.length;
 
         //console.log(max);
 
-        let hangul_temp1 = arr[i*4 + 2];
+        let hangul_temp1 = arr[i*7 + 2];
         let hangul_temp2 = hangul_temp1.split('');
 
         let hanja_temp3 ="";
@@ -102,16 +107,16 @@
 
         console.log(i);
 
-        resultElement1.innerText = arr[i*4];
+        resultElement1.innerText = arr[i*7];
         resultElement2.innerHTML = hanja_temp3;
         resultElement3.value = String(i);
-        resultElement4.innerText = arr[i*4 + 3];
-        resultElement5.innerText = arr[i*4 + 2];
+        resultElement4.innerText = arr[i*7 + 3];
+        resultElement5.innerText = arr[i*7 + 2];
     }
 
 
     function previous()  {
-        const resultElement1 = document.getElementById('result1');
+        const resultElement1 = document.getElementById('result_book');
         const resultElement2 = document.getElementById('result2');
         const resultElement3 = document.getElementById('seq');
         const resultElement4 = document.getElementById('result4');
@@ -126,13 +131,13 @@
 
         //console.log(i);
 
-        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp1 = arr[i*7 + 1];
         let hanja_temp2 = hanja_temp1.split('');
         const max = hanja_temp2.length;
 
         //console.log(max);
 
-        let hangul_temp1 = arr[i*4 + 2];
+        let hangul_temp1 = arr[i*7 + 2];
         let hangul_temp2 = hangul_temp1.split('');
 
         let hanja_temp3 ="";
@@ -143,11 +148,11 @@
 
         console.log(i);
 
-        resultElement1.innerText = arr[i*4];
+        resultElement1.innerText = arr[i*7];
         resultElement2.innerHTML = hanja_temp3;
         resultElement3.value = String(i);
-        resultElement4.innerText = arr[i*4 + 3];
-        resultElement5.innerText = arr[i*4 + 2];
+        resultElement4.innerText = arr[i*7 + 3];
+        resultElement5.innerText = arr[i*7 + 2];
     }
 
     // TTS
@@ -160,7 +165,7 @@
        speechMsg.rate =  1; // 속도: 0.1 ~ 10      
        speechMsg.pitch = 1; // 음높이: 0 ~ 2
        speechMsg.lang =  "ko-KR";
-       speechMsg.text = document.getElementById("result1").textContent + document.getElementById("result5").textContent + document.getElementById("result4").textContent;
+       speechMsg.text = document.getElementById("result_book").textContent + document.getElementById("result5").textContent + document.getElementById("result4").textContent;
        
        // SpeechSynthesisUtterance에 저장된 내용을 바탕으로 음성합성 실행
        window.speechSynthesis.speak(speechMsg)
@@ -183,7 +188,7 @@
 <br><br>
 
 <!--
-<p id="result1">.</p>
+<p id="result_book">.</p>
 <p id="result2" style="font-size:23px; font-weight: 500;">.</p>
 <p id="result5">.</p>
 <p id="result4">.</p>
@@ -193,8 +198,11 @@
 
 
     <tbody>   
-        <tr><td id="result1">.</td></tr>
+        <tr><td id="result_book" style="font-size:26px;">.</td></tr>
         <tr><td>&nbsp</td></tr>
+        <tr><td id="result_cv" style="font-size:26px;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
         <tr><td id="result2" style="font-size:26px; font-weight: 300;">.</td></tr>
         <tr><td>&nbsp</td></tr>
         <tr><td id="result5">.</td></tr>
