@@ -33,6 +33,35 @@
 
 <script>
 
+    function search_bkcv()  {
+
+        const resultElement_book_input = document.getElementById('bk_input');
+        const resultElement_cv_input = document.getElementById('cv_input');
+        const resultElement3 = document.getElementById('seq');
+
+        
+        const max = arr.length;
+
+        let bk = "없음";
+        let cv = "없음";
+
+        for (i = 0; i < max; i += 7) {
+            bk_temp = arr[i];
+            cv_temp = arr[i+1];
+            if(bk_temp == resultElement_book_input.value && cv_temp == resultElement_cv_input.value){
+                bk=bk_temp;
+                cv=cv_temp;
+                resultElement3.value = String(i/7);
+                search();
+                break;
+            }
+        }
+
+        resultElement_book_input.value = bk;
+        resultElement_cv_input.value = cv;
+    }
+
+
     function search()  {
         const resultElement_book = document.getElementById('result_book');
         const resultElement_cv = document.getElementById('result_cv');
@@ -372,6 +401,10 @@
 </script>
 
 <p>muckmool.tistory.com
+
+<p>책이름 <input type = "text" style="width:200px;height:40px;font-size:15px;" id="bk_input" value = "창세기">    
+   장절 <input type = "text" style="width:200px;height:40px;font-size:15px;" id="cv_input" value = "1:1">   
+   <input type='button' onclick='search_bkcv()' value='search'/> 
 
 <p>SEQ <input type = "text" style="width:200px;height:40px;font-size:15px;" id="seq" value = 1>
 
