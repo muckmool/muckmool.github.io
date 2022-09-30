@@ -470,7 +470,7 @@ fetch('https://muckmool.github.io/data2.json')
 
 <h2 id="demo"></h2>
 
-<span id="result_2"><font size = 15px></font></span> <span id="result"><font size = 15px>.</font></span>
+<span id="result"><font size = 15px>.</font></span>
 
 <div>
     <span style="display : inline-block">
@@ -488,18 +488,13 @@ fetch('https://muckmool.github.io/data2.json')
       
     &nbsp;<canvas id="canvas" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
 
-    &nbsp;<button onclick="
-    var e = document.getElementById('language');
-    canvas.setOptions({language: e.options[e.selectedIndex].value});
-    canvas.recognize();
-     " style="width: 70px; height: 35px; font-size: 15px;"> OCR </button>
+    &nbsp;<button onclick="add();" style="width: 70px; height: 35px; font-size: 15px;"> 추가 </button> 
 
-
-    &nbsp;<button onclick="add();canvas.erase(); clean();" style="width: 70px; height: 35px; font-size: 15px;"> 추가 </button> 
-
-    &nbsp;<button onclick="canvas.erase(); clean_all();" style="width: 70px; height: 35px; font-size: 15px;"> 지움 </button> 
-
-
+      &nbsp;<button onclick="
+      var e = document.getElementById('language');
+      canvas.setOptions({language: e.options[e.selectedIndex].value});
+      canvas.recognize();
+       " style="width: 70px; height: 35px; font-size: 15px;"> OCR </button>
 
   
     
@@ -554,12 +549,7 @@ fetch('https://muckmool.github.io/data2.json')
       });
 
       function clean(){
-        document.getElementById("result").innerHTML = "<font size = 15px></font>";
-      };
-
-      function clean_all(){
-        document.getElementById("result").innerHTML = "<font size = 15px></font>";
-        document.getElementById("result_2").innerHTML = "<font size = 15px>.</font>";
+        document.getElementById("result").innerHTML = "<font size = 15px>.</font>";
       };
 
       function increase(){
@@ -568,7 +558,7 @@ fetch('https://muckmool.github.io/data2.json')
 
 
       function add() {
-        document.getElementById("result_2").innerHTML = "<font size = 15px>" + result_2.innerText + result.innerText  + "</font>";
+        input_01.value = input_01.value + result.innerText;
       };
 
     </script>
