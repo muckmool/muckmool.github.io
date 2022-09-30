@@ -470,7 +470,7 @@ fetch('https://muckmool.github.io/data2.json')
 
 <h2 id="demo"></h2>
 
-<span id="result_2"><font size = 15px></font></span> <span id="result"><font size = 15px>.</font></span>
+<span id="result"><font size = 15px>.</font></span>
 
 <div>
     <span style="display : inline-block">
@@ -478,28 +478,25 @@ fetch('https://muckmool.github.io/data2.json')
     <p>
     
     
-    <span id="seq"></span><input id="input_01" style="width: 300px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" />
+    <span id="seq"></span><input id="input_01" style="width: 100px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" />
     
     &nbsp;<button onclick="search();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
     
     &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
 
+    &nbsp;<button onclick="canvas.erase(); clean(); decrease(); search();" style="width: 70px; height: 35px; font-size: 15px;"> PREV </button>
+
     &nbsp;<button onclick="canvas.erase(); clean(); increase(); search();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
       
     &nbsp;<canvas id="canvas" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
 
-    &nbsp;<button onclick="
-    var e = document.getElementById('language');
-    canvas.setOptions({language: e.options[e.selectedIndex].value});
-    canvas.recognize();
-     " style="width: 70px; height: 35px; font-size: 15px;"> OCR </button>
+    &nbsp;<button onclick="add();" style="width: 70px; height: 35px; font-size: 15px;"> 추가 </button> 
 
-
-    &nbsp;<button onclick="add();canvas.erase(); clean();" style="width: 70px; height: 35px; font-size: 15px;"> 추가 </button> 
-
-    &nbsp;<button onclick="canvas.erase(); clean_all();" style="width: 70px; height: 35px; font-size: 15px;"> 지움 </button> 
-
-
+      &nbsp;<button onclick="
+      var e = document.getElementById('language');
+      canvas.setOptions({language: e.options[e.selectedIndex].value});
+      canvas.recognize();
+       " style="width: 70px; height: 35px; font-size: 15px;"> OCR </button>
 
   
     
@@ -554,21 +551,20 @@ fetch('https://muckmool.github.io/data2.json')
       });
 
       function clean(){
-        document.getElementById("result").innerHTML = "<font size = 15px></font>";
-      };
-
-      function clean_all(){
-        document.getElementById("result").innerHTML = "<font size = 15px></font>";
-        document.getElementById("result_2").innerHTML = "<font size = 15px>.</font>";
+        document.getElementById("result").innerHTML = "<font size = 15px>.</font>";
       };
 
       function increase(){
         input_01.value = String(Number(input_01.value) + 1);
       };
 
+      function decrease(){
+        input_01.value = String(Number(input_01.value) - 1);
+      };
+
 
       function add() {
-        document.getElementById("result_2").innerHTML = "<font size = 15px>" + result_2.innerText + result.innerText  + "</font>";
+        input_01.value = input_01.value + result.innerText;
       };
 
     </script>
