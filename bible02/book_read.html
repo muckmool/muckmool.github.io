@@ -1,0 +1,367 @@
+<html>
+
+<script>
+
+   arr = [".", ".",".",".",".",".","."];
+       
+    fetch('https://muckmool.github.io/bible/bible.json')
+      .then((response) => response.json())
+      .then((data) => { 
+        
+        let temp = data.book; 
+        let max = temp.length;
+        //console.log(max); 
+
+        for (i = 0; i < max; i += 1) {
+            arr.push(data.book[i].bk);
+            arr.push(data.book[i].cv);
+            arr.push(data.book[i].china);
+            arr.push(data.book[i].pinyin);
+            arr.push(data.book[i].japan);
+            arr.push(data.book[i].hira);
+            arr.push(data.book[i].hangul);
+
+
+        }  
+    
+      } 
+    );
+
+</script>
+
+
+
+<script>
+
+    function search_bkcv()  {
+
+        const resultElement_book_input = document.getElementById('bk_input');
+        const resultElement_cv_input = document.getElementById('cv_input');
+        const resultElement3 = document.getElementById('seq');
+
+        
+        const max = arr.length;
+
+        let bk = "없음";
+        let cv = "없음";
+
+        for (i = 0; i < max; i += 7) {
+            bk_temp = arr[i];
+            cv_temp = arr[i+1];
+            if(bk_temp == resultElement_book_input.value && cv_temp == resultElement_cv_input.value){
+                bk=bk_temp;
+                cv=cv_temp;
+                resultElement3.value = String(i/7);
+                search();
+                break;
+            }
+        }
+
+        resultElement_book_input.value = bk;
+        resultElement_cv_input.value = cv;
+    }
+
+
+    function search()  {
+
+        const resultElement_book_input = document.getElementById('bk_input');
+        const resultElement_cv_input = document.getElementById('cv_input');
+
+        const resultElement3 = document.getElementById('seq');
+        const resultElement4 = document.getElementById('result4');
+        const resultElement5 = document.getElementById('result5');
+        const resultElement6 = document.getElementById('result6');
+        const resultElement7 = document.getElementById('result7');
+        const resultElement8 = document.getElementById('result8');
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*7 + 2];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*7 + 3];
+        let hangul_temp2 = hangul_temp1.split('_');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>" + " ";
+        }
+
+
+        let hanja_temp71 = arr[i*7 + 4];
+        let hanja_temp72 = hanja_temp71.split('');
+        const max2 = hanja_temp72.length;
+
+        //console.log(max);
+
+        let hangul_temp71 = arr[i*7 + 5];
+        let hangul_temp72 = hangul_temp71.split('_');
+
+        let hanja_temp73 ="";
+
+        for (j = 0; j < max2; j += 1) {
+             hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>";
+        }
+
+        //console.log(hanja_temp3);
+
+        resultElement_book_input.value = arr[i*7];
+        resultElement_cv_input.value = arr[i*7 + 1];
+        resultElement4.innerHTML = hanja_temp3;
+        resultElement5.innerHTML = hanja_temp73;
+
+        resultElement6.innerText = arr[i*7 + 2];
+        resultElement7.innerText = arr[i*7 + 4];
+        resultElement8.innerText = arr[i*7 + 6];
+        
+
+    }
+
+    function next()  {
+        const resultElement_book_input = document.getElementById('bk_input');
+        const resultElement_cv_input = document.getElementById('cv_input');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement4 = document.getElementById('result4');
+        const resultElement5 = document.getElementById('result5');
+        const resultElement6 = document.getElementById('result6');
+        const resultElement7 = document.getElementById('result7');
+        const resultElement8 = document.getElementById('result8');
+
+        let i = resultElement3.value;
+        i = parseInt(i) + 1;
+
+        if((i*7 + 6) > arr.length) { i = i - 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*7 + 2];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*7 + 3];
+        let hangul_temp2 = hangul_temp1.split('_');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>" + " ";
+        }
+
+
+        let hanja_temp71 = arr[i*7 + 4];
+        let hanja_temp72 = hanja_temp71.split('');
+        const max2 = hanja_temp72.length;
+
+        //console.log(max);
+
+        let hangul_temp71 = arr[i*7 + 5];
+        let hangul_temp72 = hangul_temp71.split('_');
+
+        let hanja_temp73 ="";
+
+        for (j = 0; j < max2; j += 1) {
+             hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>";
+        }
+
+        //console.log(hanja_temp3);
+
+        resultElement_book_input.value = arr[i*7];
+        resultElement_cv_input.value = arr[i*7 + 1];
+        resultElement3.value = String(i);
+        resultElement4.innerHTML = hanja_temp3;
+        resultElement5.innerHTML = hanja_temp73;
+
+        resultElement6.innerText = arr[i*7 + 2];
+        resultElement7.innerText = arr[i*7 + 4];
+        resultElement8.innerText = arr[i*7 + 6];
+        
+
+    }
+
+    function previous()  {
+        const resultElement_book_input = document.getElementById('bk_input');
+        const resultElement_cv_input = document.getElementById('cv_input');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement4 = document.getElementById('result4');
+        const resultElement5 = document.getElementById('result5');
+        const resultElement6 = document.getElementById('result6');
+        const resultElement7 = document.getElementById('result7');
+        const resultElement8 = document.getElementById('result8');
+
+        let i = resultElement3.value;
+        i = parseInt(i) - 1;
+
+        if(i < 1) { i = 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*7 + 2];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*7 + 3];
+        let hangul_temp2 = hangul_temp1.split('_');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>" + " ";
+        }
+
+
+        let hanja_temp71 = arr[i*7 + 4];
+        let hanja_temp72 = hanja_temp71.split('');
+        const max2 = hanja_temp72.length;
+
+        //console.log(max);
+
+        let hangul_temp71 = arr[i*7 + 5];
+        let hangul_temp72 = hangul_temp71.split('_');
+
+        let hanja_temp73 ="";
+
+        for (j = 0; j < max2; j += 1) {
+             hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>";
+        }
+
+        //console.log(hanja_temp3);
+
+        resultElement_book_input.value = arr[i*7];
+        resultElement_cv_input.value = arr[i*7 + 1];
+        resultElement3.value = String(i);
+        resultElement4.innerHTML = hanja_temp3;
+        resultElement5.innerHTML = hanja_temp73;
+
+        resultElement6.innerText = arr[i*7 + 2];
+        resultElement7.innerText = arr[i*7 + 4];
+        resultElement8.innerText = arr[i*7 + 6];
+        
+
+    }
+
+
+  
+
+    // TTS
+
+    function speak() {
+       
+    window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+
+    const speechMsg = new SpeechSynthesisUtterance();
+    speechMsg.rate =  1; // 속도: 0.1 ~ 10      
+    speechMsg.pitch = 1; // 음높이: 0 ~ 2
+
+    speechMsg.lang =  "ko-KR";
+    speechMsg.text = document.getElementById("result8").textContent;
+    delay = document.getElementById("result8").textContent;
+    delay = parseInt(delay.length * 200);
+
+    console.log(delay);
+
+    window.speechSynthesis.speak(speechMsg);
+
+    setTimeout( function(){ speak_china(); }, delay);
+   
+    }
+
+    // TTS
+
+    function speak_china() {
+    
+    window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+
+    const speechMsg = new SpeechSynthesisUtterance();
+    speechMsg.rate =  0.8; // 속도: 0.1 ~ 10      
+    speechMsg.pitch = 1; // 음높이: 0 ~ 2
+
+    speechMsg.lang =  "zh-CN";
+    speechMsg.text = document.getElementById("result6").textContent;
+    delay = document.getElementById("result6").textContent;
+    delay = parseInt(delay.length * 500);
+
+    console.log(delay);
+
+    window.speechSynthesis.speak(speechMsg);
+
+    setTimeout( function(){ speak_japan(); }, delay);
+
+    }
+
+    // TTS
+
+    function speak_japan() {
+    
+    window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+
+    const speechMsg = new SpeechSynthesisUtterance();
+    speechMsg.rate =  1; // 속도: 0.1 ~ 10      
+    speechMsg.pitch = 1; // 음높이: 0 ~ 2
+
+
+    speechMsg.lang =  "ja-JP";
+    speechMsg.text = document.getElementById("result7").textContent;
+    window.speechSynthesis.speak(speechMsg);
+
+    }
+   
+ 
+
+
+</script>
+
+<p>muckmool.tistory.com
+
+<p>책이름 <input type = "text" style="width:200px;height:40px;font-size:15px;" id="bk_input" value = "창세기">    
+   장절 <input type = "text" style="width:200px;height:40px;font-size:15px;" id="cv_input" value = "1:1">   
+   <input type='button' onclick='search_bkcv()' value='search'/> 
+
+<p>SEQ <input type = "text" style="width:200px;height:40px;font-size:15px;" id="seq" value = 1>
+
+    <input type='button' onclick='search()' value='search'/>
+    <input type='button' onclick='speak()' value='TTS'/>
+    <input type='button' onclick='previous()' value='previous'/>
+    <input type='button' onclick='next()' value='next'/>
+
+<br><br>
+
+<!--
+<p id="result_book">.</p>
+<p id="result2" style="font-size:23px; font-weight: 500;">.</p>
+<p id="result5">.</p>
+<p id="result4">.</p>
+-->
+
+<table style="border-collapse: collapse; width: 100%;" border="0" width="100%" text-align="center">
+
+
+    <tbody>   
+        <tr><td id="result4" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result5" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+
+        <tr><td id="result8">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result6">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result7">.</td></tr>
+    </tbody>
+</table>
+
+</html>
