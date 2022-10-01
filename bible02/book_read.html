@@ -2,30 +2,109 @@
 
 <script>
 
-   arr = [".", ".",".",".",".",".","."];
+function book_load()  {
+
+   arr = [".", ".",".",".",".","."];
+
+   temp = "";
+
+   if(book_list.value == "01") temp = "https://muckmool.github.io/bible02/01_genesis.json";
+   if(book_list.value == "02") temp = "https://muckmool.github.io/bible02/02_exodus.json";
+   if(book_list.value == "03") temp = "https://muckmool.github.io/bible02/03_leviticus.json";
+   if(book_list.value == "04") temp = "https://muckmool.github.io/bible02/04_numbers.json";
+   if(book_list.value == "05") temp = "https://muckmool.github.io/bible02/05_dueterronomy.json";
+   if(book_list.value == "06") temp = "https://muckmool.github.io/bible02/06_joshua.json";
+   if(book_list.value == "07") temp = "https://muckmool.github.io/bible02/07_judges.json";
+   if(book_list.value == "08") temp = "https://muckmool.github.io/bible02/08_ruth.json";
+   if(book_list.value == "09") temp = "https://muckmool.github.io/bible02/09_samuel_1.json";
+   if(book_list.value == "10") temp = "https://muckmool.github.io/bible02/10_samuel_2.json";
+   if(book_list.value == "11") temp = "https://muckmool.github.io/bible02/11_kings_1.json";
+   if(book_list.value == "12") temp = "https://muckmool.github.io/bible02/12_kings_2.json";
+   if(book_list.value == "13") temp = "https://muckmool.github.io/bible02/13_chronicles_1.json";
+   if(book_list.value == "14") temp = "https://muckmool.github.io/bible02/14_chronicles_2.json";
+   if(book_list.value == "15") temp = "https://muckmool.github.io/bible02/15_ezra.json";
+   if(book_list.value == "16") temp = "https://muckmool.github.io/bible02/16_nehemiah.json";
+   if(book_list.value == "17") temp = "https://muckmool.github.io/bible02/17_esther.json";
+   if(book_list.value == "18") temp = "https://muckmool.github.io/bible02/18_job.json";
+   if(book_list.value == "19") temp = "https://muckmool.github.io/bible02/19_psalms.json";
+   if(book_list.value == "20") temp = "https://muckmool.github.io/bible02/20_proverbs.json";
+   if(book_list.value == "21") temp = "https://muckmool.github.io/bible02/21_ecclesiastes.json";
+   if(book_list.value == "22") temp = "https://muckmool.github.io/bible02/22_songofsolomon.json";
+   if(book_list.value == "23") temp = "https://muckmool.github.io/bible02/23_isaiah.json";
+   if(book_list.value == "24") temp = "https://muckmool.github.io/bible02/24_jeremiah.json";
+   if(book_list.value == "25") temp = "https://muckmool.github.io/bible02/25_lamentations.json";
+   if(book_list.value == "26") temp = "https://muckmool.github.io/bible02/26_ezekiel.jsonn";
+   if(book_list.value == "27") temp = "https://muckmool.github.io/bible02/27_daniel.json";
+   if(book_list.value == "28") temp = "https://muckmool.github.io/bible02/28_hosea.json";
+   if(book_list.value == "29") temp = "https://muckmool.github.io/bible02/29_joel.json";
+   if(book_list.value == "30") temp = "https://muckmool.github.io/bible02/30_amos.json";
+   if(book_list.value == "31") temp = "https://muckmool.github.io/bible02/31_obadiah.json";
+   if(book_list.value == "32") temp = "https://muckmool.github.io/bible02/32_jonah.json";
+   if(book_list.value == "33") temp = "https://muckmool.github.io/bible02/33_micah.json";
+   if(book_list.value == "34") temp = "https://muckmool.github.io/bible02/34_nahum.json";
+   if(book_list.value == "35") temp = "https://muckmool.github.io/bible02/35_habakkuk.json";
+   if(book_list.value == "36") temp = "https://muckmool.github.io/bible02/36_zephaniah.json";
+   if(book_list.value == "37") temp = "https://muckmool.github.io/bible02/37_haggai.json";
+   if(book_list.value == "38") temp = "https://muckmool.github.io/bible02/38_zechariah.json";
+   if(book_list.value == "39") temp = "https://muckmool.github.io/bible02/39_malachi.json";
+   if(book_list.value == "40") temp = "https://muckmool.github.io/bible02/40_matthew.json";
+   if(book_list.value == "41") temp = "https://muckmool.github.io/bible02/41_mark.json";
+   if(book_list.value == "42") temp = "https://muckmool.github.io/bible02/42_luke.json";
+   if(book_list.value == "43") temp = "https://muckmool.github.io/bible02/43_john.json";
+   if(book_list.value == "44") temp = "https://muckmool.github.io/bible02/44_acts.json";
+   if(book_list.value == "45") temp = "https://muckmool.github.io/bible02/45_romans.json";
+   if(book_list.value == "46") temp = "https://muckmool.github.io/bible02/46_corinthians_1.json";
+   if(book_list.value == "47") temp = "https://muckmool.github.io/bible02/47_corinthians_2.json";
+   if(book_list.value == "48") temp = "https://muckmool.github.io/bible02/48_galatians.json";
+   if(book_list.value == "49") temp = "https://muckmool.github.io/bible02/49_ephesians.json";
+   if(book_list.value == "50") temp = "https://muckmool.github.io/bible02/50_philippians.json";
+   if(book_list.value == "51") temp = "https://muckmool.github.io/bible02/51_colossians.json";
+   if(book_list.value == "52") temp = "https://muckmool.github.io/bible02/52_thessalonians_1.json";
+   if(book_list.value == "53") temp = "https://muckmool.github.io/bible02/53_thessalonians_2.json";
+   if(book_list.value == "54") temp = "https://muckmool.github.io/bible02/54_timothy_1.json";
+   if(book_list.value == "55") temp = "https://muckmool.github.io/bible02/55_timothy_2.json";
+   if(book_list.value == "56") temp = "https://muckmool.github.io/bible02/56_titus.json";
+   if(book_list.value == "57") temp = "https://muckmool.github.io/bible02/57_philemon.json";
+   if(book_list.value == "58") temp = "https://muckmool.github.io/bible02/58_hebrews.json";
+   if(book_list.value == "59") temp = "https://muckmool.github.io/bible02/59_james.json";
+   if(book_list.value == "60") temp = "https://muckmool.github.io/bible02/60_peter_1.json";
+   if(book_list.value == "61") temp = "https://muckmool.github.io/bible02/61_peter_2.json";
+   if(book_list.value == "62") temp = "https://muckmool.github.io/bible02/62_john_1.json";
+   if(book_list.value == "63") temp = "https://muckmool.github.io/bible02/63_john_2.json";
+   if(book_list.value == "64") temp = "https://muckmool.github.io/bible02/64_john_3.json";
+   if(book_list.value == "65") temp = "https://muckmool.github.io/bible02/65_jude.json";
+   if(book_list.value == "66") temp = "https://muckmool.github.io/bible02/66_revelation.json";
+
+
        
-    fetch('https://muckmool.github.io/bible/bible.json')
-      .then((response) => response.json())
-      .then((data) => { 
+        fetch(temp)
+        .then((response) => response.json())
+        .then((data) => { 
+            
+            let temp = data.book; 
+            let max = temp.length;
+            //console.log(max); 
+
+            for (i = 0; i < max; i += 1) {
+                
+                arr.push(data.book[i].cv);
+                arr.push(data.book[i].china);
+                arr.push(data.book[i].pinyin);
+                arr.push(data.book[i].japan);
+                arr.push(data.book[i].hira);
+                arr.push(data.book[i].hangul);
+
+
+            }  
         
-        let temp = data.book; 
-        let max = temp.length;
-        //console.log(max); 
-
-        for (i = 0; i < max; i += 1) {
-            arr.push(data.book[i].bk);
-            arr.push(data.book[i].cv);
-            arr.push(data.book[i].china);
-            arr.push(data.book[i].pinyin);
-            arr.push(data.book[i].japan);
-            arr.push(data.book[i].hira);
-            arr.push(data.book[i].hangul);
+        } 
+        );
 
 
-        }  
+    }
+
+
     
-      } 
-    );
 
 </script>
 
@@ -35,36 +114,36 @@
 
     function search_bkcv()  {
 
-        const resultElement_book_input = document.getElementById('bk_input');
+        //const resultElement_book_input = document.getElementById('bk_input');
         const resultElement_cv_input = document.getElementById('cv_input');
         const resultElement3 = document.getElementById('seq');
 
         
         const max = arr.length;
 
-        let bk = "없음";
+        //let bk = "없음";
         let cv = "없음";
 
-        for (i = 0; i < max; i += 7) {
-            bk_temp = arr[i];
+        for (i = 0; i < max; i += 6) {
+            //bk_temp = arr[i];
             cv_temp = arr[i+1];
-            if(bk_temp == resultElement_book_input.value && cv_temp == resultElement_cv_input.value){
-                bk=bk_temp;
+            if(cv_temp == resultElement_cv_input.value){
+                //bk=bk_temp;
                 cv=cv_temp;
-                resultElement3.value = String(i/7);
+                resultElement3.value = String(i/6);
                 search();
                 break;
             }
         }
 
-        resultElement_book_input.value = bk;
+        //resultElement_book_input.value = bk;
         resultElement_cv_input.value = cv;
     }
 
 
     function search()  {
 
-        const resultElement_book_input = document.getElementById('bk_input');
+        //const resultElement_book_input = document.getElementById('bk_input');
         const resultElement_cv_input = document.getElementById('cv_input');
 
         const resultElement3 = document.getElementById('seq');
@@ -79,13 +158,13 @@
 
         //console.log(i);
 
-        let hanja_temp1 = arr[i*7 + 2];
+        let hanja_temp1 = arr[i*6 + 2];
         let hanja_temp2 = hanja_temp1.split('');
         const max = hanja_temp2.length;
 
         //console.log(max);
 
-        let hangul_temp1 = arr[i*7 + 3];
+        let hangul_temp1 = arr[i*6 + 3];
         let hangul_temp2 = hangul_temp1.split('_');
 
         let hanja_temp3 ="";
@@ -95,13 +174,13 @@
         }
 
 
-        let hanja_temp71 = arr[i*7 + 4];
+        let hanja_temp71 = arr[i*6 + 4];
         let hanja_temp72 = hanja_temp71.split('');
         const max2 = hanja_temp72.length;
 
         //console.log(max);
 
-        let hangul_temp71 = arr[i*7 + 5];
+        let hangul_temp71 = arr[i*6 + 5];
         let hangul_temp72 = hangul_temp71.split('_');
 
         let hanja_temp73 ="";
@@ -112,20 +191,20 @@
 
         //console.log(hanja_temp3);
 
-        resultElement_book_input.value = arr[i*7];
-        resultElement_cv_input.value = arr[i*7 + 1];
+        //resultElement_book_input.value = arr[i*7];
+        resultElement_cv_input.value = arr[i*6];
         resultElement4.innerHTML = hanja_temp3;
         resultElement5.innerHTML = hanja_temp73;
 
-        resultElement6.innerText = arr[i*7 + 2];
-        resultElement7.innerText = arr[i*7 + 4];
-        resultElement8.innerText = arr[i*7 + 6];
+        resultElement6.innerText = arr[i*6 + 2];
+        resultElement7.innerText = arr[i*6 + 4];
+        resultElement8.innerText = arr[i*6 + 6];
         
 
     }
 
     function next()  {
-        const resultElement_book_input = document.getElementById('bk_input');
+        //const resultElement_book_input = document.getElementById('bk_input');
         const resultElement_cv_input = document.getElementById('cv_input');
         const resultElement3 = document.getElementById('seq');
         const resultElement4 = document.getElementById('result4');
@@ -137,17 +216,17 @@
         let i = resultElement3.value;
         i = parseInt(i) + 1;
 
-        if((i*7 + 6) > arr.length) { i = i - 1; }
+        if((i*6 + 5) > arr.length) { i = i - 1; }
 
         //console.log(i);
 
-        let hanja_temp1 = arr[i*7 + 2];
+        let hanja_temp1 = arr[i*6 + 2];
         let hanja_temp2 = hanja_temp1.split('');
         const max = hanja_temp2.length;
 
         //console.log(max);
 
-        let hangul_temp1 = arr[i*7 + 3];
+        let hangul_temp1 = arr[i*6 + 3];
         let hangul_temp2 = hangul_temp1.split('_');
 
         let hanja_temp3 ="";
@@ -157,13 +236,13 @@
         }
 
 
-        let hanja_temp71 = arr[i*7 + 4];
+        let hanja_temp71 = arr[i*6 + 4];
         let hanja_temp72 = hanja_temp71.split('');
         const max2 = hanja_temp72.length;
 
         //console.log(max);
 
-        let hangul_temp71 = arr[i*7 + 5];
+        let hangul_temp71 = arr[i*6 + 5];
         let hangul_temp72 = hangul_temp71.split('_');
 
         let hanja_temp73 ="";
@@ -174,21 +253,21 @@
 
         //console.log(hanja_temp3);
 
-        resultElement_book_input.value = arr[i*7];
-        resultElement_cv_input.value = arr[i*7 + 1];
+        //resultElement_book_input.value = arr[i*7];
+        resultElement_cv_input.value = arr[i*6];
         resultElement3.value = String(i);
         resultElement4.innerHTML = hanja_temp3;
         resultElement5.innerHTML = hanja_temp73;
 
-        resultElement6.innerText = arr[i*7 + 2];
-        resultElement7.innerText = arr[i*7 + 4];
-        resultElement8.innerText = arr[i*7 + 6];
+        resultElement6.innerText = arr[i*6 + 2];
+        resultElement7.innerText = arr[i*6 + 4];
+        resultElement8.innerText = arr[i*6 + 6];
         
 
     }
 
     function previous()  {
-        const resultElement_book_input = document.getElementById('bk_input');
+        //const resultElement_book_input = document.getElementById('bk_input');
         const resultElement_cv_input = document.getElementById('cv_input');
         const resultElement3 = document.getElementById('seq');
         const resultElement4 = document.getElementById('result4');
@@ -204,13 +283,13 @@
 
         //console.log(i);
 
-        let hanja_temp1 = arr[i*7 + 2];
+        let hanja_temp1 = arr[i*6 + 2];
         let hanja_temp2 = hanja_temp1.split('');
         const max = hanja_temp2.length;
 
         //console.log(max);
 
-        let hangul_temp1 = arr[i*7 + 3];
+        let hangul_temp1 = arr[i*6 + 3];
         let hangul_temp2 = hangul_temp1.split('_');
 
         let hanja_temp3 ="";
@@ -220,13 +299,13 @@
         }
 
 
-        let hanja_temp71 = arr[i*7 + 4];
+        let hanja_temp71 = arr[i*6 + 4];
         let hanja_temp72 = hanja_temp71.split('');
         const max2 = hanja_temp72.length;
 
         //console.log(max);
 
-        let hangul_temp71 = arr[i*7 + 5];
+        let hangul_temp71 = arr[i*6 + 5];
         let hangul_temp72 = hangul_temp71.split('_');
 
         let hanja_temp73 ="";
@@ -237,15 +316,15 @@
 
         //console.log(hanja_temp3);
 
-        resultElement_book_input.value = arr[i*7];
-        resultElement_cv_input.value = arr[i*7 + 1];
+        //resultElement_book_input.value = arr[i*7];
+        resultElement_cv_input.value = arr[i*6];
         resultElement3.value = String(i);
         resultElement4.innerHTML = hanja_temp3;
         resultElement5.innerHTML = hanja_temp73;
 
-        resultElement6.innerText = arr[i*7 + 2];
-        resultElement7.innerText = arr[i*7 + 4];
-        resultElement8.innerText = arr[i*7 + 6];
+        resultElement6.innerText = arr[i*6 + 2];
+        resultElement7.innerText = arr[i*6 + 4];
+        resultElement8.innerText = arr[i*6 + 6];
         
 
     }
@@ -323,8 +402,83 @@
 
 <p>muckmool.tistory.com
 
-<p>책이름 <input type = "text" style="width:200px;height:40px;font-size:15px;" id="bk_input" value = "창세기">    
-   장절 <input type = "text" style="width:200px;height:40px;font-size:15px;" id="cv_input" value = "1:1">   
+<p>책이름/No 
+
+
+        <select id="book_list" style="width:600px;height:40px;font-size:15px;" >
+            <option value="01">창세기  Genesis  创世纪  創世記</option>
+            <option value="02">출애굽기  Exodus  出埃及记  出エジプト記</option>
+            <option value="03">레위기  Leviticus  利未记  レビ記</option>
+            <option value="04">민수기  Numbers  民数记  民數記</option>
+            <option value="05">신명기  Dueterronomy  申命记  申命記</option>
+            <option value="06">여호수아서  Joshua  约书亚记  ヨシュア記</option>
+            <option value="07">사사기  Judges  士师记  士師記</option>
+            <option value="08">룻기  Ruth  路得记  ルツ記</option>
+            <option value="09">사무엘상  1 Samuel  撒母耳记上  サムエル記上</option>
+            <option value="10">사무엘하  2 Samuel  撒母耳记下  サムエル記下</option>
+            <option value="11">열왕기상  1 Kings  列王纪上  列王紀上</option>
+            <option value="12">열왕기하  2 Kings  列王纪下  列王紀下</option>
+            <option value="13">역대기상  1 Chronicles  历代志上  歷代志上</option>
+            <option value="14">역대기하  2 Chronicles  历代志下  歷代志下</option>
+            <option value="15">에스라서  Ezra  以斯拉记  エズラ記</option>
+            <option value="16">느헤미야서  Nehemiah  尼希米记  ネヘミヤ記</option>
+            <option value="17">에스더서  Esther  以斯帖记  エステル記</option>
+            <option value="18">욥기  Job  约伯记  ヨブ記</option>
+            <option value="19">시편  Psalms  诗篇  詩篇</option>
+            <option value="20">잠언  Proverbs  箴言  箴言</option>
+            <option value="21">전도서  Ecclesiastes  传道书  傳道の書</option>
+            <option value="22">아가  Song of Solomon  雅歌  雅歌</option>
+            <option value="23">이사야서  Isaiah  以赛亚书  イザヤ書</option>
+            <option value="24">예레미야서  Jeremiah  耶利米书  エレミヤ書</option>
+            <option value="25">예레미야애가  Lamentations  耶利米哀歌  哀歌</option>
+            <option value="26">에스겔서  Ezekiel  以西结书  エゼキエル書</option>
+            <option value="27">다니엘서  Daniel  但以理书  ダニエル書</option>
+            <option value="28">호세아서  Hosea  何西阿书  ホセア書</option>
+            <option value="29">요엘서  Joel  约珥书  ヨエル書</option>
+            <option value="30">아모스서  Amos  阿摩司书  アモス書</option>
+            <option value="31">오바댜서  Obadiah  俄巴底亚书  オバデヤ書</option>
+            <option value="32">요나서  Jonah  约拿书  ヨナ書</option>
+            <option value="33">미가  Micah  弥迦书  ミカ書</option>
+            <option value="34">나훔  Nahum  那鸿书  ナホム書</option>
+            <option value="35">하박국  Habakkuk  哈巴谷书  ハバクク書</option>
+            <option value="36">스바냐  Zephaniah  西番雅书  ゼパニヤ書</option>
+            <option value="37">학개  Haggai  哈该书  ハガイ書</option>
+            <option value="38">스가랴  Zechariah  撒迦利亚书  ゼカリヤ書</option>
+            <option value="39">말라기  Malachi  玛拉基书  マラキ書</option>
+            <option value="40">마태복음  Matthew  马太福音  マタイによる福音書</option>
+            <option value="41">마가복음  Mark  马可福音  マルコによる福音書</option>
+            <option value="42">누가복음  Luke  路加福音  ルカによる福音書</option>
+            <option value="43">요한복음  John  约翰福音  ヨハネによる福音書</option>
+            <option value="44">사도행전  Acts  使徒行传  使徒行傳</option>
+            <option value="45">로마서  Romans  罗马书  ロ―マ人への手紙</option>
+            <option value="46">고린도전서  1 Corinthians  歌林多前书  コリント人への第一の手紙</option>
+            <option value="47">고린도후서  2 Corinthians  歌林多后书  コリント人への第二の手紙</option>
+            <option value="48">갈라디아서  Galatians  加拉太书  ガラテヤ人への手紙</option>
+            <option value="49">에베소서  Ephesians  以弗所书  エペソ人への手紙</option>
+            <option value="50">빌립보서  Philippians  腓利比书  ピリピ人への手紙</option>
+            <option value="51">골로새서  Colossians  歌罗西书  コロサイ人への手紙</option>
+            <option value="52">데살로니가전서  1 Thessalonians  帖撒罗尼迦前书  テサロニケ人への第一の手紙</option>
+            <option value="53">데살로니가후서  2 Thessalonians  帖撒罗尼迦后书  テサロニケ人への第二の手紙</option>
+            <option value="54">디모데전서  1 Timothy  提摩太前书  テモテへの第一の手紙</option>
+            <option value="55">디모데후서  2 Timothy  提摩太后书  テモテへの第二の手紙</option>
+            <option value="56">디도서  Titus  提多书  テトスへの手紙</option>
+            <option value="57">빌레몬서  Philemon  腓利门书  ピレモンへの手紙</option>
+            <option value="58">히브리서  Hebrews  希伯来书  ヘブル人への手紙</option>
+            <option value="59">야고보서  James  雅各书  ヤコブの手紙</option>
+            <option value="60">베드로전서  1 Peter  彼得前书  ペテロの第一の手紙</option>
+            <option value="61">베드로후서  2 Peter  彼得后书  ペテロの第二の手紙</option>
+            <option value="62">요한1서  1 John  约翰一书  ヨハネの第一の手紙</option>
+            <option value="63">요한2서  2 John  约翰二书  ヨハネの第二の手紙</option>
+            <option value="64">요한3서  3 John  约翰三书  ヨハネの第三の手紙</option>
+            <option value="65">유다서  Jude  犹大书  ユダの手紙</option>
+            <option value="66">요한계시록  Revelation  启示录  ヨハネの默示錄</option>
+            
+
+        </select>
+        <input type='button' onclick='book_load()' value='Book Load'/> 
+
+
+<p>장절 <input type = "text" style="width:200px;height:40px;font-size:15px;" id="cv_input" value = "1:1">   
    <input type='button' onclick='search_bkcv()' value='search'/> 
 
 <p>SEQ <input type = "text" style="width:200px;height:40px;font-size:15px;" id="seq" value = 1>
