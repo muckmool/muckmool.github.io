@@ -374,20 +374,46 @@ def trans_china():
         #print(lst)
 
 
+def trans_china():
+
+    with open ("dic_china.json", "r", encoding = 'utf-8') as f:
+        data = json.load(f)
+
+    max = len(data['book'])
+
+
+    if(entry2.get("1.0", "end-1c") != None):
+
+        entry3.delete("1.0", "end-1c")
+
+        temp = entry2.get("1.0", "end-1c")
+
+        lst = []
+        string = ""
+
+        for i in temp:
+            lst.append(i)
+
+        for i in range(0,len(lst)):
+            temp2 = lst[i]
+            for j in range(0,max):
+                if(data['book'][j]['hanja'] == temp2):
+                    temp2 = data['book'][j]['um']                     
+                    break
+
+            string = string + temp2 + "_"
+        
+        entry3.insert(tkinter.END, string)
+
+        #print(lst)
+
 
 def trans_japan():
 
-    file = open("dic_japan.txt", "r", encoding = 'utf-8')     # hello.txt 파일을 읽기 모드(r)로 열기. 파일 객체 반환
-    s = file.read()                                     # 파일에서 문자열 읽기
-    #print(s)                                           # Hello, world!
-    file.close()                                        # 파일 객체 닫기
-    
-    s = s.replace("\n", "")
-    s = s[:-1]
-    read = s.split(',')
+    with open ("dic_japan.json", "r", encoding = 'utf-8') as f:
+        data = json.load(f)
 
-    #print(read)
-
+    max = len(data['book'])
 
 
     if(entry4.get("1.0", "end-1c") != None):
@@ -404,10 +430,9 @@ def trans_japan():
 
         for i in range(0,len(lst)):
             temp2 = lst[i]
-            for j in range(0,len(read)):
-                if(read[j] == temp2):
-                    temp2 = read[j + 1]
-                    j = j + 2
+            for j in range(0,max):
+                if(data['book'][j]['kanji'] == temp2):
+                    temp2 = data['book'][j]['hira']                     
                     break
 
             string = string + temp2 + "_"
