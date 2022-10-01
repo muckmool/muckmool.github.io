@@ -2,9 +2,43 @@
 
 <script>
 
+
+arr = [".", ".",".",".",".",".","."];
+
+temp = "";
+
+    
+     fetch("https://muckmool.github.io/bible02/01_genesis.json")
+     .then((response) => response.json())
+     .then((data) => { 
+         
+         let temp = data.book; 
+         let max = temp.length;
+         //console.log(max); 
+
+         for (i = 0; i < max; i += 1) {
+             
+             arr.push(data.book[i].cv);
+             arr.push(data.book[i].china);
+             arr.push(data.book[i].pinyin);
+             arr.push(data.book[i].japan);
+             arr.push(data.book[i].hira);
+             arr.push(data.book[i].hangul);
+
+
+         }  
+
+         console.log(arr);
+     
+     } 
+     );
+
+
+
+
 function book_load()  {
 
-   arr = [".", ".",".",".",".","."];
+   arr = [".", ".",".",".",".",".","."];
 
    temp = "";
 
@@ -192,7 +226,7 @@ function book_load()  {
         //console.log(hanja_temp3);
 
         //resultElement_book_input.value = arr[i*7];
-        resultElement_cv_input.value = arr[i*6];
+        resultElement_cv_input.value = arr[i*6 + 1];
         resultElement4.innerHTML = hanja_temp3;
         resultElement5.innerHTML = hanja_temp73;
 
@@ -254,7 +288,7 @@ function book_load()  {
         //console.log(hanja_temp3);
 
         //resultElement_book_input.value = arr[i*7];
-        resultElement_cv_input.value = arr[i*6];
+        resultElement_cv_input.value = arr[i*6 + 1];
         resultElement3.value = String(i);
         resultElement4.innerHTML = hanja_temp3;
         resultElement5.innerHTML = hanja_temp73;
@@ -317,7 +351,7 @@ function book_load()  {
         //console.log(hanja_temp3);
 
         //resultElement_book_input.value = arr[i*7];
-        resultElement_cv_input.value = arr[i*6];
+        resultElement_cv_input.value = arr[i*6 + 1];
         resultElement3.value = String(i);
         resultElement4.innerHTML = hanja_temp3;
         resultElement5.innerHTML = hanja_temp73;
@@ -405,7 +439,7 @@ function book_load()  {
 <p>책이름/No 
 
 
-        <select id="book_list" style="width:600px;height:40px;font-size:15px;" >
+        <select id="book_list" style="width:500px;height:40px;font-size:15px;" >
             <option value="01">창세기  Genesis  创世纪  創世記</option>
             <option value="02">출애굽기  Exodus  出埃及记  出エジプト記</option>
             <option value="03">레위기  Leviticus  利未记  レビ記</option>
