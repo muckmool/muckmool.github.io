@@ -232,7 +232,7 @@ function book_load()  {
         //console.log(hanja_temp3);
 
         //resultElement_book_input.value = arr[i*7];
-        resultElement9.innerText = arr[i*6];
+        resultElement9.innerText = arr[i*6 + 1];
         resultElement_cv_input.value = arr[i*6 + 1];
         resultElement4.innerHTML = hanja_temp3;
         resultElement5.innerHTML = hanja_temp73;
@@ -296,7 +296,7 @@ function book_load()  {
         //console.log(hanja_temp3);
 
         //resultElement_book_input.value = arr[i*7];
-        resultElement9.innerText = arr[i*6];
+        resultElement9.innerText = arr[i*6 + 1];
         resultElement_cv_input.value = arr[i*6 + 1];
         resultElement3.value = String(i);
         resultElement4.innerHTML = hanja_temp3;
@@ -361,7 +361,7 @@ function book_load()  {
         //console.log(hanja_temp3);
 
         //resultElement_book_input.value = arr[i*7];
-        resultElement9.innerText = arr[i*6];
+        resultElement9.innerText = arr[i*6 + 1];
         resultElement_cv_input.value = arr[i*6 + 1];
         resultElement3.value = String(i);
         resultElement4.innerHTML = hanja_temp3;
@@ -547,21 +547,18 @@ function book_load()  {
 
     <tbody>   
         <tr><td id="result9" style="font-size:26px; font-weight: 300;">.</td></tr>
-        <tr><td>&nbsp</td></tr>
-
         <tr><td id="result4" style="font-size:26px; font-weight: 300;">.</td></tr>
-        <tr><td>&nbsp</td></tr>
-
         <tr><td id="result5" style="font-size:26px; font-weight: 300;">.</td></tr>
-        <tr><td>&nbsp</td></tr>
-
-
         <tr><td id="result8">.</td></tr>
-        <tr><td>&nbsp</td></tr>
+    </tbody>
+</table>
 
+
+<table>
+    <tbody>
+        <tr><td>&nbsp</td></tr>
         <tr><td id="result6">.</td></tr>
         <tr><td>&nbsp</td></tr>
-
         <tr><td id="result7">.</td></tr>
     </tbody>
 </table>
