@@ -4,7 +4,7 @@ import tkinter.font
 
 
 tk = Tk()
-tk.geometry("930x330+700+600")
+tk.geometry("900x310+700+600")
 font1 = tkinter.font.Font(family="Consolas", size=12)
 tk.title('사전')
 tk.wm_attributes("-topmost", 1)
@@ -351,6 +351,8 @@ def search_hanja():
             result = i
             entry01.delete(0,"end")
             entry01.insert(0,"조회완료")
+            entry00.delete(0,"end")
+            entry00.insert(0,result)
             entry1.insert(0,data['dictionary'][i]['hangul'])
             #entry2.insert(0,data['dictionary'][i]['hanja'])
             entry31.insert(0,data['dictionary'][i]['h1'])
@@ -371,6 +373,74 @@ def search_hanja():
             break
 
     
+def search_each_hanja():
+    with open ("data2.json", "r", encoding = 'utf-8') as f:
+        data = json.load(f)
+
+    max = len(data['dictionary'])
+
+    seq = int(entry00.get())
+
+    word = list(entry2.get())
+
+    if(len(word)>1):
+            #print("if")
+            for j in range(0, max):
+                #print(j)
+                if(word[0] == data['dictionary'][j]['hanja'] ):
+                    entry31.delete(0,"end")
+                    entry31.insert(0,data['dictionary'][j]['hangul'])
+                    break
+
+    if(len(word)>1):
+            #print("if")
+            for j in range(0, max):
+                #print(j)
+                if(word[1] == data['dictionary'][j]['hanja'] ):
+                    entry41.delete(0,"end")
+                    entry41.insert(0,data['dictionary'][j]['hangul'])
+                    break
+        
+    if(len(word)>2):
+            #print("if")
+            for j in range(0, max):
+                #print(j)
+                if(word[2] == data['dictionary'][j]['hanja'] ):
+                    entry51.delete(0,"end")
+                    entry51.insert(0,data['dictionary'][j]['hangul'])
+                    break
+
+    if(len(word)>3):
+            #print("if")
+            for j in range(0, max):
+                #print(j)
+                if(word[3] == data['dictionary'][j]['hanja'] ):
+                    entry61.delete(0,"end")
+                    entry61.insert(0,data['dictionary'][j]['hangul'])
+                    break
+
+    if(len(word)>4):
+            #print("if")
+            for j in range(0, max):
+                #print(j)
+                if(word[4] == data['dictionary'][j]['hanja'] ):
+                    entry71.delete(0,"end")
+                    entry71.insert(0,data['dictionary'][j]['hangul'])
+                    break
+            
+    if(len(word)>5):
+            #print("if")
+            for j in range(0, max):
+                #print(j)
+                if(word[5] == data['dictionary'][j]['hanja'] ):
+                    entry81.delete(0,"end")
+                    entry81.insert(0,data['dictionary'][j]['hangul'])
+                    break
+
+   
+    entry01.delete(0,"end")
+    entry01.insert(0, "낱자완료")
+
 
 
 def next():
@@ -596,16 +666,18 @@ entry10.grid(row=10,column=1)
 entry11.grid(row=11,column=1)
 
 
+btn5 = Button(tk,text='SEQ',bg='black',fg='white',command=search_seq).grid(row=0,column=3)
 btn2 = Button(tk,text='한글',bg='black',fg='white',command=search_hangul).grid(row=1,column=2)
 btn8 = Button(tk,text='한자',bg='black',fg='white',command=search_hanja).grid(row=2,column=2)
-btn4 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=4,column=3)
-btn7 = Button(tk,text='복사',bg='black',fg='white',command=copy).grid(row=6,column=3)
-btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=8,column=3)
 
-btn5 = Button(tk,text='SEQ',bg='black',fg='white',command=search_seq).grid(row=0,column=3)
-btn3 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=10,column=3)
-btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=12,column=3)
+btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=2,column=3)
+btn8 = Button(tk,text='낱자',bg='black',fg='white',command=search_each_hanja).grid(row=4,column=3)
 
+btn3 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=6,column=3)
+btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=8,column=3)
+
+btn4 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=11,column=2)
+btn7 = Button(tk,text='복사',bg='black',fg='white',command=copy).grid(row=11,column=3)
 
 tk.mainloop()
 
