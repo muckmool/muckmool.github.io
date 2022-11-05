@@ -408,7 +408,7 @@ def trans_china():
         #print(lst)
 
 
-def trans_japan():
+def trans_japan_old():
 
     with open ("dic_japan.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
@@ -440,6 +440,38 @@ def trans_japan():
         entry5.insert(tkinter.END, string)
 
         #print(lst)
+
+
+def trans_japan():
+
+    with open ("dic_japan.json", "r", encoding = 'utf-8') as f:
+        data = json.load(f)
+
+    max = len(data['book'])
+
+
+    if(entry4.get("1.0", "end-1c") != None):
+
+        entry5.delete("1.0", "end-1c")
+
+        temp = entry4.get("1.0", "end-1c")
+
+        lst = []
+        string = ""
+
+        temp = temp.split(" ")
+
+        for i in range(0,len(temp)):
+            temp2 = temp[i]
+            for j in range(0,max):
+                if(data['book'][j]['kanji'] == temp2):
+                    temp2 = data['book'][j]['hira']                     
+                    break
+            string = string + temp2 + "_"
+        
+        entry5.insert(tkinter.END, string)
+
+
 
 
 def search_book():

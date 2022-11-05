@@ -215,7 +215,7 @@ function book_load()  {
 
 
         let hanja_temp71 = arr[i*6 + 4];
-        let hanja_temp72 = hanja_temp71.split('');
+        let hanja_temp72 = hanja_temp71.split(' ');
         const max2 = hanja_temp72.length;
 
         //console.log(max);
@@ -224,11 +224,10 @@ function book_load()  {
         let hangul_temp72 = hangul_temp71.split('_');
 
         let hanja_temp73 ="";
-        let hira_temp="";
-
+        
         for (j = 0; j < max2; j += 1) {
              hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>";
-             hira_temp = hira_temp + hangul_temp72[j];
+             
         }
 
         //console.log(hanja_temp3);
@@ -281,7 +280,7 @@ function book_load()  {
 
 
         let hanja_temp71 = arr[i*6 + 4];
-        let hanja_temp72 = hanja_temp71.split('');
+        let hanja_temp72 = hanja_temp71.split(' ');
         const max2 = hanja_temp72.length;
 
         //console.log(max);
@@ -348,7 +347,7 @@ function book_load()  {
 
 
         let hanja_temp71 = arr[i*6 + 4];
-        let hanja_temp72 = hanja_temp71.split('');
+        let hanja_temp72 = hanja_temp71.split(' ');
         const max2 = hanja_temp72.length;
 
         //console.log(max);
@@ -419,7 +418,7 @@ function book_load()  {
     speechMsg.lang =  "zh-CN";
     speechMsg.text = document.getElementById("result6").textContent;
     delay = document.getElementById("result6").textContent;
-    delay = parseInt(delay.length * 450);
+    delay = parseInt(delay.length * 350);
 
     console.log(delay);
 
@@ -436,7 +435,7 @@ function book_load()  {
     window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
 
     const speechMsg = new SpeechSynthesisUtterance();
-    speechMsg.rate =  0.8; // 속도: 0.1 ~ 10      
+    speechMsg.rate =  0.7; // 속도: 0.1 ~ 10      
     speechMsg.pitch = 1; // 음높이: 0 ~ 2
 
 
@@ -551,11 +550,16 @@ function book_load()  {
 <table style="border-collapse: collapse; width: 100%;" border="0" width="100%" text-align="center">
 
 
-    <tbody>   
+    <tbody>
+        <tr><td>&nbsp</td></tr>
         <tr><td id="result9" style="font-size:26px; font-weight: 300;">.</td></tr>
-        <tr><td id="result4" style="font-size:26px; font-weight: 300;">.</td></tr>
-        <tr><td id="result5" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
         <tr><td id="result8">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result4" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result5" style="font-size:26px; font-weight: 300;">.</td></tr>
+        
     </tbody>
 </table>
 
