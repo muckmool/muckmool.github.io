@@ -224,9 +224,11 @@ function book_load()  {
         let hangul_temp72 = hangul_temp71.split('_');
 
         let hanja_temp73 ="";
+        let hira_temp="";
 
         for (j = 0; j < max2; j += 1) {
              hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>";
+             hira_temp = hira_temp + hangul_temp72[j];
         }
 
         //console.log(hanja_temp3);
@@ -238,7 +240,7 @@ function book_load()  {
         resultElement5.innerHTML = hanja_temp73;
 
         resultElement6.innerText = arr[i*6 + 2];
-        resultElement7.innerText = arr[i*6 + 4];
+        resultElement7.innerText = hira_temp;
         resultElement8.innerText = arr[i*6 + 6];
         
 
@@ -288,9 +290,11 @@ function book_load()  {
         let hangul_temp72 = hangul_temp71.split('_');
 
         let hanja_temp73 ="";
+        let hira_temp="";
 
         for (j = 0; j < max2; j += 1) {
              hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>";
+             hira_temp = hira_temp + hangul_temp72[j];
         }
 
         //console.log(hanja_temp3);
@@ -303,7 +307,7 @@ function book_load()  {
         resultElement5.innerHTML = hanja_temp73;
 
         resultElement6.innerText = arr[i*6 + 2];
-        resultElement7.innerText = arr[i*6 + 4];
+        resultElement7.innerText = hira_temp;
         resultElement8.innerText = arr[i*6 + 6];
         
 
@@ -353,9 +357,11 @@ function book_load()  {
         let hangul_temp72 = hangul_temp71.split('_');
 
         let hanja_temp73 ="";
+        let hira_temp ="";
 
         for (j = 0; j < max2; j += 1) {
              hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>";
+             hira_temp = hira_temp + hangul_temp72[j];
         }
 
         //console.log(hanja_temp3);
@@ -368,7 +374,7 @@ function book_load()  {
         resultElement5.innerHTML = hanja_temp73;
 
         resultElement6.innerText = arr[i*6 + 2];
-        resultElement7.innerText = arr[i*6 + 4];
+        resultElement7.innerText = hira_temp;
         resultElement8.innerText = arr[i*6 + 6];
         
 
