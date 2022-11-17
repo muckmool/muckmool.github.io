@@ -54,7 +54,8 @@ fetch('https://muckmool.github.io/data2.json')
               
               document.getElementById("h60").textContent = ".";
               document.getElementById("h61").textContent = ".";
-              document.getElementById("c0").textContent = ".";
+              document.getElementById("c01").textContent = ".";
+              document.getElementById("c02").textContent = ".";
               document.getElementById("h1").textContent = ".";
               document.getElementById("c1").textContent = ".";
               document.getElementById("h2").textContent = ".";
@@ -163,8 +164,10 @@ fetch('https://muckmool.github.io/data2.json')
               
               document.getElementById("h60").textContent = arr[i+0];
               document.getElementById("h60").style.fontWeight = "900";
-              document.getElementById("c0").textContent = arr[i+1];
-              document.getElementById("c0").style.fontSize = "50px"
+              document.getElementById("c01").textContent = arr[i+1].substring(0,3);
+              document.getElementById("c01").style.fontSize = "50px"
+              document.getElementById("c02").textContent = arr[i+1].substring(3);
+              document.getElementById("c02").style.fontSize = "50px"
               document.getElementById("h1").textContent = arr[i+0];
               
               document.getElementById("c1").textContent = arr[i+1];
@@ -354,7 +357,7 @@ fetch('https://muckmool.github.io/data2.json')
   </colgroup>
 
 <tr>
-<td align=center id="c0" rowspan="12" width="150"><font size="10">.</font></td>
+<td align=center id="c01" rowspan="6" width="150"><font size="10">.</font></td>
 <td align=center id="c1">.</td>
 <td align=center id="c2">.</td>
 <td align=center id="c3">.</td>
@@ -406,6 +409,7 @@ fetch('https://muckmool.github.io/data2.json')
 <td align=center id="h26">.</td>
 </tr>
 <tr>
+<td align=center id="c02" rowspan="6" width="150"><font size="10">.</font></td>
 <td align=center id="c31">.</td>
 <td align=center id="c32">.</td>
 <td align=center id="c33">.</td>
