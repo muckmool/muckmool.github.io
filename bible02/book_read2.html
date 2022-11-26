@@ -455,16 +455,39 @@ function book_load()  {
     window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
 
     const speechMsg = new SpeechSynthesisUtterance();
-    speechMsg.rate =  0.7; // 속도: 0.1 ~ 10      
+    speechMsg.rate =  1; // 속도: 0.1 ~ 10      
     speechMsg.pitch = 1; // 음높이: 0 ~ 2
 
 
     speechMsg.lang =  "ja-JP";
     speechMsg.text = document.getElementById("result7").textContent;
+    delay = document.getElementById("result7").textContent;
+    delay = parseInt(delay.length * 200);
+
+    console.log(delay);
+
     window.speechSynthesis.speak(speechMsg);
+
+    setTimeout( function(){ speak_english(); }, delay);
 
     }
    
+    // TTS
+
+    function speak_english() {
+    
+    window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+
+    const speechMsg = new SpeechSynthesisUtterance();
+    speechMsg.rate =  1; // 속도: 0.1 ~ 10      
+    speechMsg.pitch = 1; // 음높이: 0 ~ 2
+
+
+    speechMsg.lang =  "en-US";
+    speechMsg.text = document.getElementById("result10").textContent;
+    window.speechSynthesis.speak(speechMsg);
+
+    }
  
 
 

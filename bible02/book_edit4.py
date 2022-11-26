@@ -30,7 +30,7 @@ def new():
             temp = json.dumps(temp, ensure_ascii=False)
             string = string + temp + ',\n'
 
-        string = string + '{"cv": ".", "china": ".", "pinyin": ".", "japan": ".", "hira": ".", "hangul": ".", , "english": "."},\n'
+        string = string + '{"cv": ".", "china": ".", "pinyin": ".", "japan": ".", "hira": ".", "hangul": ".", "english": "."},\n'
 
 
         for i in range(seq+1,max):
