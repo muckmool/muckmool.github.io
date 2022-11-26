@@ -4,7 +4,7 @@ import tkinter.font
 
 
 tk = Tk()
-tk.geometry("920x970+750+50")
+tk.geometry("920x910+750+100")
 font1 = tkinter.font.Font(family="Consolas", size=12)
 font2 = tkinter.font.Font(family="Consolas", size=14)
 tk.title('Bible')
@@ -30,7 +30,7 @@ def new():
             temp = json.dumps(temp, ensure_ascii=False)
             string = string + temp + ',\n'
 
-        string = string + '{"cv": ".", "china": ".", "pinyin": ".", "japan": ".", "hira": ".", "hangul": "."},\n'
+        string = string + '{"cv": ".", "china": ".", "pinyin": ".", "japan": ".", "hira": ".", "hangul": ".", , "english": "."},\n'
 
 
         for i in range(seq+1,max):
@@ -72,6 +72,8 @@ def new():
         entry5.insert(tkinter.END, data['book'][seq+1]['hira'])
         entry6.delete("1.0", "end-1c")
         entry6.insert(tkinter.END, data['book'][seq+1]['hangul'])
+        entry7.delete("1.0", "end-1c")
+        entry7.insert(tkinter.END, data['book'][seq+1]['english'])
 
 
 
@@ -133,6 +135,8 @@ def delete():
         entry5.insert(tkinter.END, data['book'][seq-1]['hira'])
         entry6.delete("1.0", "end-1c")
         entry6.insert(tkinter.END, data['book'][seq-1]['hangul'])
+        entry7.delete("1.0", "end-1c")
+        entry7.insert(tkinter.END, data['book'][seq-1]['english'])
 
 
 
@@ -157,6 +161,7 @@ def update():
         data['book'][seq]['japan'] = entry4.get("1.0", "end-1c")
         data['book'][seq]['hira'] = entry5.get("1.0", "end-1c")
         data['book'][seq]['hangul'] = entry6.get("1.0", "end-1c")
+        data['book'][seq]['english'] = entry7.get("1.0", "end-1c")
 
 
     if(save_trigger == TRUE):
@@ -221,6 +226,8 @@ def search_cv():
     entry5.insert(tkinter.END, data['book'][i]['hira'])
     entry6.delete("1.0", "end-1c")
     entry6.insert(tkinter.END, data['book'][i]['hangul'])
+    entry7.delete("1.0", "end-1c")
+    entry7.insert(tkinter.END, data['book'][i]['english'])
 
 
 
@@ -263,6 +270,8 @@ def search_seq():
     entry5.insert(tkinter.END, data['book'][i]['hira'])
     entry6.delete("1.0", "end-1c")
     entry6.insert(tkinter.END, data['book'][i]['hangul'])
+    entry7.delete("1.0", "end-1c")
+    entry7.insert(tkinter.END, data['book'][i]['english'])
 
 
 def next():
@@ -298,6 +307,8 @@ def next():
     entry5.insert(tkinter.END, data['book'][i]['hira'])
     entry6.delete("1.0", "end-1c")
     entry6.insert(tkinter.END, data['book'][i]['hangul'])
+    entry7.delete("1.0", "end-1c")
+    entry7.insert(tkinter.END, data['book'][i]['english'])
 
 
 def previous():
@@ -330,48 +341,10 @@ def previous():
     entry5.insert(tkinter.END, data['book'][i]['hira'])
     entry6.delete("1.0", "end-1c")
     entry6.insert(tkinter.END, data['book'][i]['hangul'])
+    entry7.delete("1.0", "end-1c")
+    entry7.insert(tkinter.END, data['book'][i]['english'])
 
 
-def trans_china():
-
-    file = open("dic_china.txt", "r", encoding = 'utf-8')     # hello.txt 파일을 읽기 모드(r)로 열기. 파일 객체 반환
-    s = file.read()                                     # 파일에서 문자열 읽기
-    #print(s)                                           # Hello, world!
-    file.close()                                        # 파일 객체 닫기
-    
-    s = s.replace("\n", "")
-    s = s[:-1]
-    read = s.split(',')
-
-    #print(read)
-
-
-
-    if(entry2.get("1.0", "end-1c") != None):
-
-        entry3.delete("1.0", "end-1c")
-
-        temp = entry2.get("1.0", "end-1c")
-
-        lst = []
-        string = ""
-
-        for i in temp:
-            lst.append(i)
-
-        for i in range(0,len(lst)):
-            temp2 = lst[i]
-            for j in range(0,len(read)):
-                if(read[j] == temp2):
-                    temp2 = read[j + 1]
-                    j = j + 2
-                    break
-
-            string = string + temp2 + "_"
-        
-        entry3.insert(tkinter.END, string)
-
-        #print(lst)
 
 
 def trans_china():
@@ -408,38 +381,6 @@ def trans_china():
         #print(lst)
 
 
-def trans_japan_old():
-
-    with open ("dic_japan.json", "r", encoding = 'utf-8') as f:
-        data = json.load(f)
-
-    max = len(data['book'])
-
-
-    if(entry4.get("1.0", "end-1c") != None):
-
-        entry5.delete("1.0", "end-1c")
-
-        temp = entry4.get("1.0", "end-1c")
-
-        lst = []
-        string = ""
-
-        for i in temp:
-            lst.append(i)
-
-        for i in range(0,len(lst)):
-            temp2 = lst[i]
-            for j in range(0,max):
-                if(data['book'][j]['kanji'] == temp2):
-                    temp2 = data['book'][j]['hira']                     
-                    break
-
-            string = string + temp2 + "_"
-        
-        entry5.insert(tkinter.END, string)
-
-        #print(lst)
 
 
 def trans_japan():
@@ -648,6 +589,7 @@ label4 = Label(tk,text='병음', font=font1).grid(row=4, column=0)
 label5 = Label(tk,text='일본', font=font1).grid(row=5, column=0)
 label6 = Label(tk,text='발음', font=font1).grid(row=6, column=0)
 label7 = Label(tk,text='한글', font=font1).grid(row=7, column=0)
+label8 = Label(tk,text='영어', font=font1).grid(row=8, column=0)
 
 
 # 각 단위 입력받는 부분 만들기
@@ -662,6 +604,7 @@ entry3 = Text(tk, width=80, height =7, font=font1)
 entry4 = Text(tk, width=72, height =6, font=font2)
 entry5 = Text(tk, width=80, height =7, font=font1)
 entry6 = Text(tk, width=80, height =7, font=font1)
+entry7 = Text(tk, width=80, height =7, font=font1)
 
 
 entry_book.grid(row=0,column=1)
@@ -675,6 +618,7 @@ entry3.grid(row=4,column=1)
 entry4.grid(row=5,column=1)
 entry5.grid(row=6,column=1)
 entry6.grid(row=7,column=1)
+entry7.grid(row=8,column=1)
 
 entry_book_no.delete(0,"end")
 entry_book_no.insert(tkinter.END, "1")
