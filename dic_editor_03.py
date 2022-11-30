@@ -151,8 +151,18 @@ def update_batch():
     save_trigger = TRUE
 
     for i in range(0,max):
-        data['dictionary'][i]['english'] = "."
+        if data['dictionary'][i]['china'] is not None:
+            temp = data['dictionary'][i]['china']
+            temp = temp.replace('[', '')
+            temp = temp.replace(']', '')
+            data['dictionary'][i]['china'] = temp
 
+        #temp_a = temp.split(' ')
+        #if(len(temp_a)>1):
+        #    data['dictionary'][i]['china'] = temp_a[1] + " " + temp_a[0]
+        #else:
+        #    data['dictionary'][i]['china'] = temp_a[0]
+        
 
     if(save_trigger == TRUE):
         string =  '{ "dictionary": [\n'
