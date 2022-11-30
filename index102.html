@@ -9,7 +9,7 @@ var arr = [
 ];
 
 
-fetch('https://muckmool.github.io/data3.json')
+fetch('https://muckmool.github.io/data2.json')
   .then((response) => response.json())
   .then((data) => { 
     
@@ -55,7 +55,8 @@ fetch('https://muckmool.github.io/data3.json')
               
               document.getElementById("h60").textContent = ".";
               document.getElementById("h61").textContent = ".";
-              document.getElementById("c0").textContent = ".";
+              document.getElementById("c01").textContent = ".";
+              document.getElementById("c02").textContent = ".";
               document.getElementById("h1").textContent = ".";
               document.getElementById("c1").textContent = ".";
               document.getElementById("h2").textContent = ".";
@@ -164,8 +165,10 @@ fetch('https://muckmool.github.io/data3.json')
               
               document.getElementById("h60").textContent = arr[i+0];
               document.getElementById("h60").style.fontWeight = "900";
-              document.getElementById("c0").textContent = arr[i+1];
-              document.getElementById("c0").style.fontSize = "50px"
+              document.getElementById("c01").textContent = arr[i+1].substring(0,3);
+              document.getElementById("c01").style.fontSize = "50px"
+              document.getElementById("c02").textContent = arr[i+1].substring(3);
+              document.getElementById("c02").style.fontSize = "50px"
               document.getElementById("h1").textContent = arr[i+0];
               
               document.getElementById("c1").textContent = arr[i+1];
@@ -201,7 +204,7 @@ fetch('https://muckmool.github.io/data3.json')
 
         //line1
 
-        for (j = 0; j < arr.length; j += 16) {
+        for (j = 0; j < arr.length; j += 17) {
            if(arr[j] == arr[i+2]) 
             { 
               document.getElementById("h11").textContent = arr[j+0];
@@ -224,7 +227,7 @@ fetch('https://muckmool.github.io/data3.json')
 
         //line2
 
-        for (k = 0; k < arr.length; k += 16) {
+        for (k = 0; k < arr.length; k += 17) {
            if(arr[k] == arr[i+4]) 
             { 
               document.getElementById("h21").textContent = arr[k+0];
@@ -247,7 +250,7 @@ fetch('https://muckmool.github.io/data3.json')
 
         //line3
 
-        for (l = 0; l < arr.length; l += 16) {
+        for (l = 0; l < arr.length; l += 17) {
            if(arr[l] == arr[i+6]) 
             { 
               document.getElementById("h31").textContent = arr[l+0];
@@ -270,7 +273,7 @@ fetch('https://muckmool.github.io/data3.json')
 
         //line4
 
-        for (m = 0; m < arr.length; m += 16) {
+        for (m = 0; m < arr.length; m += 17) {
            if(arr[m] == arr[i+8]) 
             { 
               document.getElementById("h41").textContent = arr[m+0];
@@ -293,7 +296,7 @@ fetch('https://muckmool.github.io/data3.json')
 
         //line5
 
-        for (n = 0; n < arr.length; n += 16) {
+        for (n = 0; n < arr.length; n += 17) {
            if(arr[n] == arr[i+10]) 
             { 
               document.getElementById("h51").textContent = arr[n+0];
@@ -321,7 +324,7 @@ fetch('https://muckmool.github.io/data3.json')
                                                       arr[m+0] + ", " +arr[m+2] + ", " +arr[m+4] + ", " +arr[m+6] + ", " +arr[m+8] + ", " +arr[m+10] + ", " +arr[m+12] +
                                                       arr[n+0] + ", " +arr[n+2] + ", " +arr[n+4] + ", " +arr[n+6] + ", " +arr[n+8] + ", " +arr[n+10] + ", " +arr[n+12] ;
 
-        document.getElementById("china").textContent = arr[i+16] + " " + arr[i+14];
+        document.getElementById("china").textContent = arr[i+16] + " " +arr[i+14];
         document.getElementById("japan").textContent = arr[i+15];
 
 
@@ -355,7 +358,7 @@ fetch('https://muckmool.github.io/data3.json')
   </colgroup>
 
 <tr>
-<td align=center id="c0" rowspan="12" width="150"><font size="10">.</font></td>
+<td align=center id="c01" rowspan="6" width="150"><font size="10">.</font></td>
 <td align=center id="c1">.</td>
 <td align=center id="c2">.</td>
 <td align=center id="c3">.</td>
@@ -407,6 +410,7 @@ fetch('https://muckmool.github.io/data3.json')
 <td align=center id="h26">.</td>
 </tr>
 <tr>
+<td align=center id="c02" rowspan="6" width="150"><font size="10">.</font></td>
 <td align=center id="c31">.</td>
 <td align=center id="c32">.</td>
 <td align=center id="c33">.</td>
@@ -465,8 +469,34 @@ fetch('https://muckmool.github.io/data3.json')
 <td align=center id="china" >.</td>
 <td align=left id="japan" colspan="7">.</td>
 </tr>
+<tr>
+<td></td>
+<td colspan="7">
+    <canvas id="canvas" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3); </script>
+    <canvas id="canvas2" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas2'), 3); </script>
+    <canvas id="canvas3" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas3'), 3); </script>
+    <canvas id="canvas4" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas4'), 3); </script>
+    <canvas id="canvas5" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas5'), 3); </script>
+    <canvas id="canvas6" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas6'), 3); </script>
+</td>
+</tr>
 </tbody>
 </table>
+
+
+
 
 
 <h2 id="demo"></h2>
