@@ -11,7 +11,7 @@ tk.wm_attributes("-topmost", 1)
 
 
 def new():
-    with open ("data2.json", "r", encoding = 'utf-8') as f:
+    with open ("data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
 
@@ -26,13 +26,13 @@ def new():
             temp = json.dumps(temp, ensure_ascii=False)
             string = string + temp + ',\n'
 
-        string = string + '{ "hangul": "X", "hanja": ".", "h1": ".", "c1": ".", "h2": ".", "c2": ".", "h3": ".", "c3": ".", "h4": ".", "c4": ".", "h5": ".", "c5": ".", "h6": ".", "c6": ".", "exp":".", "china":".", "japan":"." }'
+        string = string + '{ "hangul": "X", "hanja": ".", "h1": ".", "c1": ".", "h2": ".", "c2": ".", "h3": ".", "c3": ".", "h4": ".", "c4": ".", "h5": ".", "c5": ".", "h6": ".", "c6": ".", "exp":".", "china":".", "japan":"." , "english":"."}'
 
         string = string + '\n]}'
 
         #print(string)
 
-        f = open("data2.json", 'w', encoding = 'utf-8')
+        f = open("data3.json", 'w', encoding = 'utf-8')
         f.write(string)
         f.close()
 
@@ -41,7 +41,7 @@ def new():
     entry01.delete(0,"end")
     entry01.insert(0,"X")
 
-    with open ("data2.json", "r", encoding = 'utf-8') as f:
+    with open ("data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['dictionary'])
@@ -90,10 +90,12 @@ def new():
     entry10.insert(0,data['dictionary'][i]['china'])
     entry11.delete(0,"end")
     entry11.insert(0,data['dictionary'][i]['japan'])
+    entry12.delete(0,"end")
+    entry12.insert(0,data['dictionary'][i]['english'])
 
 
 def copy():
-    with open ("data2.json", "r", encoding = 'utf-8') as f:
+    with open ("data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
 
@@ -108,13 +110,13 @@ def copy():
             temp = json.dumps(temp, ensure_ascii=False)
             string = string + temp + ',\n'
 
-        string = string + '{ "hangul": "X", "hanja": ".", "h1": ".", "c1": ".", "h2": ".", "c2": ".", "h3": ".", "c3": ".", "h4": ".", "c4": ".", "h5": ".", "c5": ".", "h6": ".", "c6": ".", "exp":".", "china":".", "japan":"." }'
+        string = string + '{ "hangul": "X", "hanja": ".", "h1": ".", "c1": ".", "h2": ".", "c2": ".", "h3": ".", "c3": ".", "h4": ".", "c4": ".", "h5": ".", "c5": ".", "h6": ".", "c6": ".", "exp":".", "china":".", "japan":"." , "english":"." }'
 
         string = string + '\n]}'
 
         #print(string)
 
-        f = open("data2.json", 'w', encoding = 'utf-8')
+        f = open("data3.json", 'w', encoding = 'utf-8')
         f.write(string)
         f.close()
 
@@ -123,7 +125,7 @@ def copy():
     entry01.delete(0,"end")
     entry01.insert(0,"X")
 
-    with open ("data2.json", "r", encoding = 'utf-8') as f:
+    with open ("data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['dictionary'])
@@ -140,10 +142,43 @@ def copy():
     entry00.insert(0,result)
 
 
+def update_batch():
+    with open ("data3.json", "r", encoding = 'utf-8') as f:
+        data = json.load(f)
+
+    max = len(data['dictionary'])
+
+    save_trigger = TRUE
+
+    for i in range(0,max):
+        data['dictionary'][i]['english'] = "."
+
+
+    if(save_trigger == TRUE):
+        string =  '{ "dictionary": [\n'
+
+        for i in range(0,max):
+            temp = data['dictionary'][i]
+            temp = json.dumps(temp, ensure_ascii=False)
+            string = string + temp + ',\n'
+
+        string = string[:-2]
+
+        string = string + '\n]}'
+
+        #print(string)
+
+        f = open("data3.json", 'w', encoding = 'utf-8')
+        f.write(string)
+        f.close()
+
+        entry01.delete(0,"end")
+        entry01.insert(0, "Batch완료")
+
 
 
 def update():
-    with open ("data2.json", "r", encoding = 'utf-8') as f:
+    with open ("data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['dictionary'])
@@ -169,6 +204,9 @@ def update():
         temp = entry11.get()
         temp = temp.replace("\n", "")
         data['dictionary'][seq]['japan'] = temp
+        temp = entry12.get()
+        temp = temp.replace("\n", "")
+        data['dictionary'][seq]['english'] = temp
 
         #if(data['dictionary'][seq]['h1'] != "."):
         if(TRUE):
@@ -241,7 +279,7 @@ def update():
 
         #print(string)
 
-        f = open("data2.json", 'w', encoding = 'utf-8')
+        f = open("data3.json", 'w', encoding = 'utf-8')
         f.write(string)
         f.close()
 
@@ -255,7 +293,7 @@ def update():
 
 
 def search_hangul():
-    with open ("data2.json", "r", encoding = 'utf-8') as f:
+    with open ("data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['dictionary'])
@@ -283,6 +321,7 @@ def search_hangul():
     entry9.delete(0,"end")
     entry10.delete(0,"end")
     entry11.delete(0,"end")
+    entry12.delete(0,"end")
 
     for i in range(0,max):
         #print(data['dictionary'][i]['hangul'])
@@ -309,6 +348,7 @@ def search_hangul():
             entry9.insert(0,data['dictionary'][i]['exp'])
             entry10.insert(0,data['dictionary'][i]['china'])
             entry11.insert(0,data['dictionary'][i]['japan'])
+            entry12.insert(0,data['dictionary'][i]['english'])
             break
 
     
@@ -316,7 +356,7 @@ def search_hangul():
 
 
 def search_hanja():
-    with open ("data2.json", "r", encoding = 'utf-8') as f:
+    with open ("data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['dictionary'])
@@ -344,6 +384,7 @@ def search_hanja():
     entry9.delete(0,"end")
     entry10.delete(0,"end")
     entry11.delete(0,"end")
+    entry12.delete(0,"end")
 
     for i in range(0,max):
         #print(data['dictionary'][i]['hangul'])
@@ -370,11 +411,12 @@ def search_hanja():
             entry9.insert(0,data['dictionary'][i]['exp'])
             entry10.insert(0,data['dictionary'][i]['china'])
             entry11.insert(0,data['dictionary'][i]['japan'])
+            entry12.insert(0,data['dictionary'][i]['english'])
             break
 
     
 def search_each_hanja():
-    with open ("data2.json", "r", encoding = 'utf-8') as f:
+    with open ("data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['dictionary'])
@@ -444,7 +486,7 @@ def search_each_hanja():
 
 
 def next():
-    with open ("data2.json", "r", encoding = 'utf-8') as f:
+    with open ("data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['dictionary'])
@@ -492,10 +534,12 @@ def next():
     entry10.insert(0,data['dictionary'][i]['china'])
     entry11.delete(0,"end")
     entry11.insert(0,data['dictionary'][i]['japan'])
+    entry12.delete(0,"end")
+    entry12.insert(0,data['dictionary'][i]['english'])
 
 
 def previous():
-    with open ("data2.json", "r", encoding = 'utf-8') as f:
+    with open ("data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['dictionary'])
@@ -543,10 +587,12 @@ def previous():
     entry10.insert(0,data['dictionary'][i]['china'])
     entry11.delete(0,"end")
     entry11.insert(0,data['dictionary'][i]['japan'])
+    entry12.delete(0,"end")
+    entry12.insert(0,data['dictionary'][i]['english'])
 
 
 def search_seq():
-    with open ("data2.json", "r", encoding = 'utf-8') as f:
+    with open ("data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['dictionary'])
@@ -602,6 +648,8 @@ def search_seq():
     entry10.insert(0,data['dictionary'][i]['china'])
     entry11.delete(0,"end")
     entry11.insert(0,data['dictionary'][i]['japan'])
+    entry12.delete(0,"end")
+    entry12.insert(0,data['dictionary'][i]['english'])
 
     
 
@@ -642,6 +690,7 @@ entry82 = Entry(tk, width=10, font=font1)
 entry9 = Entry(tk, width=80, font=font1)
 entry10 = Entry(tk, width=80, font=font1)
 entry11 = Entry(tk, width=80, font=font1)
+entry12 = Entry(tk, width=80, font=font1)
 
 entry00.grid(row=0,column=1)
 entry01.grid(row=0,column=2)
@@ -665,6 +714,7 @@ entry82.grid(row=8,column=2)
 entry9.grid(row=9,column=1)
 entry10.grid(row=10,column=1)
 entry11.grid(row=11,column=1)
+entry12.grid(row=12,column=1)
 
 
 btn5 = Button(tk,text='SEQ',bg='black',fg='white',command=search_seq).grid(row=0,column=3)

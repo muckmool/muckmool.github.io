@@ -22,7 +22,7 @@ from tkinter import *            # tkinter 라이브러리에 모든 함수를 �
 
 
 def search2_old(): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -115,7 +115,7 @@ def search2_old():
 
 
 def search_hanja(): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -208,7 +208,7 @@ def search_hanja():
 
 
 def search_hangul(): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -301,7 +301,7 @@ def search_hangul():
 
 
 def search_china(): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -394,7 +394,7 @@ def search_china():
 
 
 def search_japan(): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -486,8 +486,102 @@ def search_japan():
         return temp4
 
 
+def search_english(): 
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
+            data = json.load(f)
+
+        max = len(data['dictionary'])
+
+        temp = pyperclip.paste()
+
+
+        word = list(temp)
+        temp4 = ""
+
+        # 1글자 조회
+
+        if(len(word)>0 and len(word)<2):
+
+            temp2 = word[0]
+
+            for i in range(max):
+                if(temp2 == data['dictionary'][i]['hanja'] or temp2 == data['dictionary'][i]['hangul']):
+                    temp4 = data['dictionary'][i]['english']
+                    break      
+                else: 
+                    i = i + 1
+
+        # 2글자 조회
+
+        if(len(word)>1 and len(word)<3):
+
+            temp2 = word[0] + word[1]
+
+            for i in range(max):
+                if(temp2 == data['dictionary'][i]['hanja'] or temp2 == data['dictionary'][i]['hangul']):
+                    temp4 = data['dictionary'][i]['english']
+                    break      
+                else: 
+                    i = i + 1
+
+        # 3글자 조회
+
+        if(len(word)>2 and len(word)<4):
+
+            temp2 = word[0] + word[1] + word[2]
+
+            for i in range(max):
+                if(temp2 == data['dictionary'][i]['hanja'] or temp2 == data['dictionary'][i]['hangul']):
+                    temp4 = data['dictionary'][i]['english']
+                    break      
+                else: 
+                    i = i + 1
+
+        # 4글자 조회
+
+        if(len(word)>3 and len(word)<5):
+
+            temp2 = word[0] + word[1] + word[2] + word[3]
+
+            for i in range(max):
+                if(temp2 == data['dictionary'][i]['hanja'] or temp2 == data['dictionary'][i]['hangul']):
+                    temp4 = data['dictionary'][i]['english']
+                    break        
+                else: 
+                    i = i + 1
+
+        # 5글자 조회
+
+        if(len(word)>4 and len(word)<6):
+
+            temp2 = word[0] + word[1] + word[2] + word[3] + word[4]
+
+            for i in range(max):
+                if(temp2 == data['dictionary'][i]['hanja'] or temp2 == data['dictionary'][i]['hangul']):
+                    temp4 = data['dictionary'][i]['english']
+                    break        
+                else: 
+                    i = i + 1
+
+        # 6글자 조회
+
+        if(len(word)>5 and len(word)<7):
+
+            temp2 = word[0] + word[1] + word[2] + word[3] + word[4] + word[5]
+
+            for i in range(max):
+                if(temp2 == data['dictionary'][i]['hanja'] or temp2 == data['dictionary'][i]['hangul']):
+                    temp4 = data['dictionary'][i]['english']
+                    break       
+                else: 
+                    i = i + 1
+
+        return temp4
+
+
+
 def search20(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -513,7 +607,7 @@ def search20(temp_hanja):
         return temp4
 
 def search30(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -539,7 +633,7 @@ def search30(temp_hanja):
         return temp4
 
 def search40(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -565,7 +659,7 @@ def search40(temp_hanja):
         return temp4
 
 def search50(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -592,7 +686,7 @@ def search50(temp_hanja):
 
 
 def search60(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -619,7 +713,7 @@ def search60(temp_hanja):
 
 
 def search70(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -646,7 +740,7 @@ def search70(temp_hanja):
 
 
 def search21(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -672,7 +766,7 @@ def search21(temp_hanja):
         return temp4
 
 def search31(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -698,7 +792,7 @@ def search31(temp_hanja):
         return temp4
 
 def search41(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -724,7 +818,7 @@ def search41(temp_hanja):
         return temp4
 
 def search51(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -751,7 +845,7 @@ def search51(temp_hanja):
 
 
 def search61(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -778,7 +872,7 @@ def search61(temp_hanja):
 
 
 def search71(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -805,7 +899,7 @@ def search71(temp_hanja):
 
 
 def search22(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -831,7 +925,7 @@ def search22(temp_hanja):
         return temp4
 
 def search32(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -857,7 +951,7 @@ def search32(temp_hanja):
         return temp4
 
 def search42(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -883,7 +977,7 @@ def search42(temp_hanja):
         return temp4
 
 def search52(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -910,7 +1004,7 @@ def search52(temp_hanja):
 
 
 def search62(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -937,7 +1031,7 @@ def search62(temp_hanja):
 
 
 def search72(temp_hanja): 
-        with open ("data2.json", "r", encoding = 'utf-8') as f:
+        with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         max = len(data['dictionary'])
@@ -1062,6 +1156,8 @@ class Clock():
             self.ent11.insert(0, search_china())
             self.ent12.delete(0, "end")
             self.ent12.insert(0, search_japan())
+            self.ent01.delete(0, "end")
+            self.ent01.insert(0, search_english())
             
             self.ent20.delete(0, "end")
             self.ent20.insert(0, search20(temp_hanja))
