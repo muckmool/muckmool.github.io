@@ -1066,7 +1066,7 @@ class Clock():
 
         self.root = Tk()                      # 창을 생성
         self.root.wm_attributes("-topmost", 1)
-        self.root.geometry("611x151-70-600")       # 창 크기설정
+        self.root.geometry("611x171-70-10")       # 창 크기설정
         self.root.title("dictionary")    # 창 제목설정
         self.root.option_add("*Font","맑은고딕 11") # 폰트설정
         self.root.resizable(False, False)  # x, y 창 크기 변경 불가
@@ -1078,7 +1078,8 @@ class Clock():
         self.ent40 = Entry(self.root, width=25)                   
         self.ent50 = Entry(self.root, width=25)   
         self.ent60 = Entry(self.root, width=25)
-        self.ent70 = Entry(self.root, width=25)      
+        self.ent70 = Entry(self.root, width=25)
+        self.ent80 = Entry(self.root, width=25)       
 
         self.ent01 = Entry(self.root, width=25)
         self.ent11 = Entry(self.root, width=25)            
@@ -1088,6 +1089,7 @@ class Clock():
         self.ent51 = Entry(self.root, width=25)   
         self.ent61 = Entry(self.root, width=25) 
         self.ent71 = Entry(self.root, width=25) 
+        self.ent81 = Entry(self.root, width=25) 
 
         self.ent02 = Entry(self.root, width=25)
         self.ent12 = Entry(self.root, width=25)            
@@ -1096,34 +1098,42 @@ class Clock():
         self.ent42 = Entry(self.root, width=25)                   
         self.ent52 = Entry(self.root, width=25)   
         self.ent62 = Entry(self.root, width=25)  
-        self.ent72 = Entry(self.root, width=25)          
+        self.ent72 = Entry(self.root, width=25)   
+        self.ent82 = Entry(self.root, width=25)        
 
-        self.ent00.grid(row=0,column=0)     
-        self.ent10.grid(row=1,column=0) 
-        self.ent20.grid(row=2,column=0) 
-        self.ent30.grid(row=3,column=0) 
-        self.ent40.grid(row=4,column=0) 
-        self.ent50.grid(row=5,column=0)    
-        self.ent60.grid(row=6,column=0)    
-        self.ent70.grid(row=7,column=0)          
+        self.ent00.grid(row=0,column=0)  #한자
+        self.ent02.grid(row=0,column=1)  #공백
+        self.ent01.grid(row=0,column=2)  #영어
+        self.ent10.grid(row=1,column=0)  #한글
+        self.ent11.grid(row=1,column=1)  #중국어
+        self.ent12.grid(row=1,column=2)  #일본어
 
-        self.ent01.grid(row=0,column=1)     
-        self.ent11.grid(row=1,column=1) 
-        self.ent21.grid(row=2,column=1) 
-        self.ent31.grid(row=3,column=1) 
-        self.ent41.grid(row=4,column=1) 
-        self.ent51.grid(row=5,column=1)    
-        self.ent61.grid(row=6,column=1)  
-        self.ent71.grid(row=7,column=1) 
 
-        self.ent02.grid(row=0,column=2)     
-        self.ent12.grid(row=1,column=2) 
-        self.ent22.grid(row=2,column=2) 
-        self.ent32.grid(row=3,column=2) 
-        self.ent42.grid(row=4,column=2) 
-        self.ent52.grid(row=5,column=2)    
-        self.ent62.grid(row=6,column=2)   
-        self.ent72.grid(row=7,column=2)  
+        self.ent80.grid(row=2,column=0) 
+        self.ent20.grid(row=3,column=0) 
+        self.ent30.grid(row=4,column=0) 
+        self.ent40.grid(row=5,column=0) 
+        self.ent50.grid(row=6,column=0)    
+        self.ent60.grid(row=7,column=0)    
+        self.ent70.grid(row=8,column=0)          
+
+
+
+        self.ent81.grid(row=2,column=1) 
+        self.ent21.grid(row=3,column=1) 
+        self.ent31.grid(row=4,column=1) 
+        self.ent41.grid(row=5,column=1) 
+        self.ent51.grid(row=6,column=1)    
+        self.ent61.grid(row=7,column=1)  
+        self.ent71.grid(row=8,column=1) 
+
+        self.ent82.grid(row=2,column=2) 
+        self.ent22.grid(row=3,column=2) 
+        self.ent32.grid(row=4,column=2) 
+        self.ent42.grid(row=5,column=2) 
+        self.ent52.grid(row=6,column=2)    
+        self.ent62.grid(row=7,column=2)   
+        self.ent72.grid(row=8,column=2)  
 
 
 
