@@ -1,0 +1,74 @@
+<html>
+
+<script>
+
+   arr = [".", ".",".","."];
+       
+    fetch('https://muckmool.github.io/english_dic/data3.json')
+      .then((response) => response.json())
+      .then((data) => { 
+        
+        let temp = data.book; 
+        let max = temp.length;
+        //console.log(max); 
+
+        for (i = 0; i < max; i += 1) {
+            arr.push(data.book[i].category);
+            arr.push(data.book[i].english);
+            arr.push(data.book[i].korean);
+            arr.push(data.book[i].example);
+
+
+        }  
+    
+      } 
+    );
+
+</script>
+
+
+
+<script>
+
+    function search()  {
+
+        document.write("<table>");
+
+            for (i = 0; i < arr.length; i += 4) {
+
+            document.write("<tr><td>");
+            document.write(arr[i]);
+
+            document.write("</td><td>");
+            document.write(arr[i+1]);
+
+            document.write("</td><td>");
+            document.write(arr[i+2]);
+
+            document.write("</td><td>");
+            document.write(arr[i+3]);
+            document.write("</td></tr>");
+
+            }  
+
+        document.write("</table>")   
+
+
+    };
+
+
+    
+
+
+</script>
+
+
+<select id="category" style="width:200px;height:40px;font-size:15px;" >
+    <option value="01">01</option>
+    <option value="02">02</option>
+</select>
+        
+<input type='button' onclick='search()' value='조회'/> 
+
+
+</html>
