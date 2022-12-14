@@ -1,7 +1,5 @@
 <html>
-    <head>
-        <link href="https://muckmool.github.io/english_dic/english_dic2.css" rel="stylesheet" type="text/css" />
-    </head>
+
 
 <script>
 
@@ -32,11 +30,14 @@
 
 <script>
 
-
-
     function search()  {
 
-        document.write("<table>");
+
+
+
+        document.write("<head> <style> table, th, td { border: 1px solid black; border-collapse: collapse; } </style> </head>");
+
+        document.write("<table style='width:100%'>");
 
             for (i = 0; i < arr.length; i += 4) {
 
