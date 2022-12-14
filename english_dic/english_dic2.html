@@ -1,4 +1,7 @@
 <html>
+    <head>
+        <link href="https://muckmool.github.io/english_dic/english_dic2.css" rel="stylesheet" type="text/css" />
+    </head>
 
 <script>
 
@@ -8,16 +11,15 @@
       .then((response) => response.json())
       .then((data) => { 
         
-        let temp = data.book; 
+        let temp = data.dictionary; 
         let max = temp.length;
         //console.log(max); 
 
         for (i = 0; i < max; i += 1) {
-            arr.push(data.book[i].category);
-            arr.push(data.book[i].english);
-            arr.push(data.book[i].korean);
-            arr.push(data.book[i].example);
-
+            arr.push(data.dictionary[i].category);
+            arr.push(data.dictionary[i].english);
+            arr.push(data.dictionary[i].korean);
+            arr.push(data.dictionary[i].example);
 
         }  
     
@@ -29,6 +31,8 @@
 
 
 <script>
+
+
 
     function search()  {
 
@@ -51,10 +55,11 @@
 
             }  
 
-        document.write("</table>")   
+        document.write("</table>");
 
 
     };
+
 
 
     
