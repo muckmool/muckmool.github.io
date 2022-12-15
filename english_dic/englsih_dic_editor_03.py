@@ -246,6 +246,7 @@ def search_korean():
 
     max = len(data['dictionary'])
     h_temp = entry3.get()
+    h_temp = h_temp.replace(" ", "")
     result = max - 1
 
     entry01.delete(0,"end")
@@ -264,6 +265,7 @@ def search_korean():
     for i in range(0,max):
         if (stop < 1):
             temp = data['dictionary'][i]['korean']
+            temp = temp.replace(" ", "")
             ref_temp = temp.split(",")
             max2 = len(ref_temp)
 

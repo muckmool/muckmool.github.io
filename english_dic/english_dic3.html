@@ -1,5 +1,8 @@
 <html>
 
+    <head> 
+        <style> table, th, td { border: 1px solid black; border-collapse: collapse; } </style> 
+    </head>
 
 <script>
 
@@ -31,7 +34,7 @@
 
 <script>
 
-    function search()  {
+    function search_old()  {
 
 
         //console.log(category.value);
@@ -67,6 +70,47 @@
 
     };
 
+    function search()  {
+
+
+        //console.log(category.value);
+
+        temp = "";
+        temp2 = category.value;
+
+
+        temp = temp + "<table style='width:100%'>";
+
+        for (i = 0; i < arr.length; i += 4) {
+
+            if(arr[i] == temp2)
+                {
+                //document.write("<tr><td>");
+                //document.write(arr[i]);
+
+                temp = temp + "</td><td>";
+                temp = temp + arr[i+1];
+
+                temp = temp + "</td><td>";
+                temp = temp + arr[i+2];
+
+                temp = temp + "</td><td>";
+                temp = temp + arr[i+3];
+                temp = temp + "</td></tr>";
+                }
+
+        }  
+
+        temp = temp + "</table>";
+
+
+
+
+        document.getElementById('display').innerHTML=temp;
+
+
+    };
+
 
 
     
@@ -81,6 +125,7 @@
 </select>
         
 <input type='button' onclick='search()' value='조회'/> 
+<p id="display">.</p>
 
 
 </html>

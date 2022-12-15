@@ -1,15 +1,15 @@
 { "dictionary": [
-{"category": "01.수", "english": "one", "korean": "일,하나", "example": "Give me one candy."},
-{"category": "01.수", "english": "two", "korean": "이,둘", "example": "."},
-{"category": "01.수", "english": "three", "korean": "삼,셋", "example": "."},
-{"category": "01.수", "english": "four", "korean": "사,넷", "example": "."},
-{"category": "01.수", "english": "five", "korean": "오,다섯", "example": "."},
-{"category": "01.수", "english": "six", "korean": "육,여섯", "example": "."},
-{"category": "01.수", "english": "seven", "korean": "칠,일곱", "example": "."},
-{"category": "01.수", "english": "eight", "korean": "팔,여덟", "example": "."},
-{"category": "01.수", "english": "nine", "korean": "구,아홉", "example": "."},
-{"category": "01.수", "english": "ten", "korean": "십,열", "example": "."},
-{"category": "01.수", "english": "eleven", "korean": "십일,열하나", "example": "."},
-{"category": "01.수", "english": "twelve", "korean": "십이,열둘", "example": "."},
-{"category": "01.수", "english": "thirteen", "korean": "십삼,열셋", "example": "."}
+{"category": "01.수", "english": "one", "korean": "일, 하나", "example": "Give me one candy."},
+{"category": "01.수", "english": "two", "korean": "이, 둘", "example": "."},
+{"category": "01.수", "english": "three", "korean": "삼, 셋", "example": "."},
+{"category": "01.수", "english": "four", "korean": "사, 넷", "example": "."},
+{"category": "01.수", "english": "five", "korean": "오, 다섯", "example": "."},
+{"category": "01.수", "english": "six", "korean": "육, 여섯", "example": "."},
+{"category": "01.수", "english": "seven", "korean": "칠, 일곱", "example": "."},
+{"category": "01.수", "english": "eight", "korean": "팔, 여덟", "example": "."},
+{"category": "01.수", "english": "nine", "korean": "구, 아홉", "example": "."},
+{"category": "01.수", "english": "ten", "korean": "십, 열", "example": "."},
+{"category": "01.수", "english": "eleven", "korean": "십일, 열하나", "example": "."},
+{"category": "01.수", "english": "twelve", "korean": "십이, 열둘", "example": "."},
+{"category": "01.수", "english": "thirteen", "korean": "십삼, 열셋", "example": "."}
 ]}
