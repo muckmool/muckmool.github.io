@@ -1,6 +1,7 @@
 import json
 from tkinter import *
 import tkinter.font
+import time
 
 
 tk = Tk()
@@ -188,6 +189,9 @@ def update_batch():
 
 
 def update():
+
+    #print(time.ctime())
+
     with open ("data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
@@ -207,6 +211,12 @@ def update():
         data['dictionary'][seq]['h4'] = entry61.get()
         data['dictionary'][seq]['h5'] = entry71.get()
         data['dictionary'][seq]['h6'] = entry81.get()
+        data['dictionary'][seq]['c1'] = entry32.get()
+        data['dictionary'][seq]['c2'] = entry42.get()
+        data['dictionary'][seq]['c3'] = entry52.get()
+        data['dictionary'][seq]['c4'] = entry62.get()
+        data['dictionary'][seq]['c5'] = entry72.get()
+        data['dictionary'][seq]['c6'] = entry82.get()
         data['dictionary'][seq]['exp'] = entry9.get()
         temp = entry10.get()
         temp = temp.replace("\n", "")
@@ -218,64 +228,10 @@ def update():
         temp = temp.replace("\n", "")
         data['dictionary'][seq]['english'] = temp
 
-        #if(data['dictionary'][seq]['h1'] != "."):
-        if(TRUE):
-            #print("if")
-            for j in range(0, max):
-                #print(j)
-                if(data['dictionary'][seq]['h1'] == data['dictionary'][j]['hangul'] ):
-                    #print(data['dictionary'][j]['hangul'])
-                    data['dictionary'][seq]['c1'] = data['dictionary'][j]['hanja']
-                    entry32.delete(0,"end")
-                    entry32.insert(0,data['dictionary'][seq]['c1'])
-                    break
-
-        #if(data['dictionary'][seq]['h2'] != "."):
-        if(TRUE):
-            for j in range(0, max):
-                if(data['dictionary'][seq]['h2'] == data['dictionary'][j]['hangul'] ):
-                    data['dictionary'][seq]['c2'] = data['dictionary'][j]['hanja']
-                    entry42.delete(0,"end")
-                    entry42.insert(0,data['dictionary'][seq]['c2'])
-                    break
-        
-        #if(data['dictionary'][seq]['h3'] != "."):
-        if(TRUE):
-            for j in range(0, max):
-                if(data['dictionary'][seq]['h3'] == data['dictionary'][j]['hangul'] ):
-                    data['dictionary'][seq]['c3'] = data['dictionary'][j]['hanja']
-                    entry52.delete(0,"end")
-                    entry52.insert(0,data['dictionary'][seq]['c3'])
-                    break
-
-        #if(data['dictionary'][seq]['h4'] != "."):
-        if(TRUE):
-            for j in range(0, max):
-                if(data['dictionary'][seq]['h4'] == data['dictionary'][j]['hangul'] ):
-                    data['dictionary'][seq]['c4'] = data['dictionary'][j]['hanja']
-                    entry62.delete(0,"end")
-                    entry62.insert(0,data['dictionary'][seq]['c4'])
-                    break
-
-        #if(data['dictionary'][seq]['h5'] != "."):
-        if(TRUE):
-            for j in range(0, max):
-                if(data['dictionary'][seq]['h5'] == data['dictionary'][j]['hangul'] ):
-                    data['dictionary'][seq]['c5'] = data['dictionary'][j]['hanja']
-                    entry72.delete(0,"end")
-                    entry72.insert(0,data['dictionary'][seq]['c5'])
-                    break
-            
-        #if(data['dictionary'][seq]['h6'] != "."):
-        if(TRUE):
-            for j in range(0, max):
-                if(data['dictionary'][seq]['h6'] == data['dictionary'][j]['hangul'] ):
-                    data['dictionary'][seq]['c6'] = data['dictionary'][j]['hanja']
-                    entry82.delete(0,"end")
-                    entry82.insert(0,data['dictionary'][seq]['c6'])
-                    break
+    #print(time.ctime())
 
     if(save_trigger == TRUE):
+
         string =  '{ "dictionary": [\n'
 
         for i in range(0,max):
@@ -293,10 +249,12 @@ def update():
         f.write(string)
         f.close()
 
-        entry00.delete(0,"end")
-        entry00.insert(0, seq)
+        #entry00.delete(0,"end")
+        #entry00.insert(0, seq)
         entry01.delete(0,"end")
         entry01.insert(0, "업뎃완료")
+
+    #print(time.ctime())
         
         
 

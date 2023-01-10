@@ -1,6 +1,13 @@
 { "dictionary": [
-{"hangul": "한일", "hanja": "一", "english": "one", "china": "一", "china_s": "yī", "japan_k": "一", "japan_m": "ひとつ", "japan_s": "いち"},
-{"hangul": "두이", "hanja": ".", "english": ".", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."},
-{"hangul": "석삼", "hanja": ".", "english": ".", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."},
-{"hangul": "넉사", "hanja": ".", "english": ".", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."}
+{"hangul": ".", "hanja": ".", "exp": ".", "english": ".", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."},
+{"hangul": "프링글스", "hanja": ".", "exp": ".", "english": "Pringles", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."},
+{"hangul": "와사비", "hanja": "", "exp": ".", "english": "", "china": "", "china_s": "", "japan_k": "", "japan_m": "わさび", "japan_s": ""},
+{"hangul": "뇌전증", "hanja": "腦電症", "exp": "간질이라고도 함.", "english": "epilepsy", "china": "癫痫症", "china_s": "diānxiánzhèng", "japan_k": "肝蛭病", "japan_m": "カンテツびょう", "japan_s": ""},
+{"hangul": "인슐린", "hanja": ".", "exp": ".", "english": "insulin", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."},
+{"hangul": "메이플라워호", "hanja": ".", "exp": "1620년 미대륙에 도착한 이민자들의 배이름", "english": "Mayflower", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."},
+{"hangul": "로봇", "hanja": "", "exp": "", "english": "robot", "china": "", "china_s": "", "japan_k": "", "japan_m": "", "japan_s": ""},
+{"hangul": "덴뿌라", "hanja": ".", "exp": "포루투갈어 튀김 tempero의 일본식 발음.", "english": ".", "china": ".", "china_s": ".", "japan_k": "天麩羅", "japan_m": "天ぷら", "japan_s": "てんぷら"},
+{"hangul": "오뎅", "hanja": ".", "exp": "뎅은 でんがく[田楽] 산적의 준말", "english": ".", "china": ".", "china_s": ".", "japan_k": "御田", "japan_m": "お‐でん", "japan_s": "."},
+{"hangul": "부타동", "hanja": ".", "exp": "돼지고기덮밥. 동은 네모난 곽에 반찬을 얹은 모양.", "english": ".", "china": ".", "china_s": ".", "japan_k": "豚丼", "japan_m": "ぶたどん", "japan_s": "."},
+{"hangul": "이시가리", "hanja": ".", "exp": "イシガレイ 돌가자미, サメガレイ 줄가자미 (상어가자미) 상인들이 돌가자미를 줄가자미로 팔기 위해 만든 잘못된 일본말 ", "english": ".", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": "サメガレイ", "japan_s": "."}
 ]}
