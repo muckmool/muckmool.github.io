@@ -4,6 +4,7 @@ import tkinter.font
 import time
 import pyperclip
 import sys
+import atexit
 
 
 tk = Tk()
@@ -15,175 +16,85 @@ tk.wm_attributes("-topmost", 1)
 
 
 def new():
-    with open ("data13.json", "r", encoding = 'utf-8') as f:
-        data = json.load(f)
 
+    new_string = '{ "hangul": "X", "hanja": ".", "exp": ".", "english": ".", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."}'
 
-    #신규데이터추가
-    max = len(data['dictionary'])
+    add_json = json.loads(new_string)
 
-    if(data['dictionary'][max-1]['hangul'] != "X"):
-        string =  '{ "dictionary": [\n'
+    g_data['dictionary'].append(add_json)
 
-        for i in range(0,max):
-            temp = data['dictionary'][i]
-            temp = json.dumps(temp, ensure_ascii=False)
-            string = string + temp + ',\n'
-
-        string = string + '{ "hangul": "X", "hanja": ".", "exp": ".", "english": ".", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."}'
-
-        string = string + '\n]}'
-
-        #print(string)
-
-        f = open("data13.json", 'w', encoding = 'utf-8')
-        f.write(string)
-        f.close()
-
-
-    #신규데이터읽기
-    entry01.delete(0,"end")
-    entry01.insert(0,"X")
-
-    with open ("data13.json", "r", encoding = 'utf-8') as f:
-        data = json.load(f)
-
-    max = len(data['dictionary'])
-    h_temp = entry01.get()
-    result = -1
-
-    for i in range(0,max):
-        #print(data['dictionary'][i]['hangul'])
-        if(data['dictionary'][i]['hangul'] == h_temp ):
-            result = i
-            break
-    
     entry00.delete(0,"end")
-    entry00.insert(0,result)
+
+    search_seq()
+
     entry01.delete(0,"end")
-    entry01.insert(0,"조회완료")
-    entry1.delete(0,"end")
-    entry1.insert(0,data['dictionary'][i]['hangul'])
-    entry2.delete(0,"end")
-    entry2.insert(0,data['dictionary'][i]['hanja'])
-    entry101.delete(0,"end")
-    entry101.insert(0,data['dictionary'][i]['exp'])
-    entry31.delete(0,"end")
-    entry31.insert(0,data['dictionary'][i]['english'])
-    entry41.delete(0,"end")
-    entry41.insert(0,data['dictionary'][i]['china'])
-    entry51.delete(0,"end")
-    entry51.insert(0,data['dictionary'][i]['china_s'])
-    entry61.delete(0,"end")
-    entry61.insert(0,data['dictionary'][i]['japan_k'])
-    entry71.delete(0,"end")
-    entry71.insert(0,data['dictionary'][i]['japan_m'])
-    entry81.delete(0,"end")
-    entry81.insert(0,data['dictionary'][i]['japan_s'])
+    entry01.insert(0,"신규완료")
+
+
+def delete():
+
+    if(entry00.get() != ''):
+        target = int(entry00.get())
+
+    g_data['dictionary'].pop(target)
+
+    
+    target = target - 1
+    
+    entry00.delete(0,target)
+
+    search_seq()
+
+    entry01.delete(0,"end")
+    entry01.insert(0,"삭제완료")
 
 
 def copy():
-    with open ("data13.json", "r", encoding = 'utf-8') as f:
-        data = json.load(f)
+    hangul = entry1.get()
+    hanja = entry2.get()
+    exp = entry101.get()
+    english = entry31.get()
+    china = entry41.get()
+    china_s = entry51.get()
+    japan_k = entry61.get()
+    japan_m = entry71.get()
+    japan_s = entry81.get()
 
+    new_string = '{ "hangul": "' + hangul + '", "hanja": "' + hanja +'", "exp": "' + exp + '", "english": "'+ english +'", "china": "'+ china +'", "china_s": "'+ china_s +'", "japan_k": "'+ japan_k +'", "japan_m": "'+ japan_m +'", "japan_s": "'+ japan_s + '" }'
 
-    #신규데이터추가
-    max = len(data['dictionary'])
+    add_json = json.loads(new_string)
 
-    if(data['dictionary'][max-1]['hangul'] != "X"):
-        string =  '{ "dictionary": [\n'
+    g_data['dictionary'].append(add_json)
 
-        for i in range(0,max):
-            temp = data['dictionary'][i]
-            temp = json.dumps(temp, ensure_ascii=False)
-            string = string + temp + ',\n'
-
-        string = string + '{ "hangul": "X", "hanja": ".", "exp": ".", "english": ".", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."}'
-
-        string = string + '\n]}'
-
-        #print(string)
-
-        f = open("data13.json", 'w', encoding = 'utf-8')
-        f.write(string)
-        f.close()
-
-
-    #신규데이터읽기
-    entry01.delete(0,"end")
-    entry01.insert(0,"X")
-
-    with open ("data13.json", "r", encoding = 'utf-8') as f:
-        data = json.load(f)
-
-    max = len(data['dictionary'])
-    h_temp = entry01.get()
-    result = -1
-
-    for i in range(0,max):
-        #print(data['dictionary'][i]['hangul'])
-        if(data['dictionary'][i]['hangul'] == h_temp ):
-            result = i
-            break
-    
     entry00.delete(0,"end")
-    entry00.insert(0,result)
+
+    search_seq()
+
+    entry01.delete(0,"end")
+    entry01.insert(0,"카피완료")
 
 
 
 def update():
-    with open ("data13.json", "r", encoding = 'utf-8') as f:
-        data = json.load(f)
-
-    max = len(data['dictionary'])
-
     seq = int(entry00.get())
 
-    save_trigger = FALSE
+    g_data['dictionary'][seq]['hangul'] = entry1.get()
+    g_data['dictionary'][seq]['hanja'] = entry2.get()
+    g_data['dictionary'][seq]['exp'] = entry101.get()
+    g_data['dictionary'][seq]['english'] = entry31.get()
+    g_data['dictionary'][seq]['china'] = entry41.get()
+    g_data['dictionary'][seq]['china_s'] = entry51.get()
+    g_data['dictionary'][seq]['japan_k'] = entry61.get()
+    g_data['dictionary'][seq]['japan_m'] = entry71.get()
+    g_data['dictionary'][seq]['japan_s'] = entry81.get()
 
-    if(seq>-1 and seq<max):
-        save_trigger = TRUE
-        data['dictionary'][seq]['hangul'] = entry1.get()
-        data['dictionary'][seq]['hanja'] = entry2.get()
-        data['dictionary'][seq]['exp'] = entry101.get()
-        data['dictionary'][seq]['english'] = entry31.get()
-        data['dictionary'][seq]['china'] = entry41.get()
-        data['dictionary'][seq]['china_s'] = entry51.get()
-        data['dictionary'][seq]['japan_k'] = entry61.get()
-        data['dictionary'][seq]['japan_m'] = entry71.get()
-        data['dictionary'][seq]['japan_s'] = entry81.get()
-
-
-    if(save_trigger == TRUE):
-        string =  '{ "dictionary": [\n'
-
-        for i in range(0,max):
-            temp = data['dictionary'][i]
-            temp = json.dumps(temp, ensure_ascii=False)
-            string = string + temp + ',\n'
-
-        string = string[:-2]
-
-        string = string + '\n]}'
-
-        #print(string)
-
-        f = open("data13.json", 'w', encoding = 'utf-8')
-        f.write(string)
-        f.close()
-
-        entry00.delete(0,"end")
-        entry00.insert(0, seq)
-        entry01.delete(0,"end")
-        entry01.insert(0, "업뎃완료")
+    entry01.delete(0,"end")
+    entry01.insert(0, "업뎃완료")
         
-        
-
 
 
 def search_hangul():
-    with open ("data13.json", "r", encoding = 'utf-8') as f:
-        data = json.load(f)
+    data = g_data
 
     max = len(data['dictionary'])
     h_temp = entry91.get()
@@ -235,8 +146,7 @@ def search_hangul():
 
 
 def next():
-    with open ("data13.json", "r", encoding = 'utf-8') as f:
-        data = json.load(f)
+    data = g_data
 
     max = len(data['dictionary'])
     result = int(entry00.get()) + 1
@@ -271,10 +181,9 @@ def next():
 
 
 def previous():
-    with open ("data13.json", "r", encoding = 'utf-8') as f:
-        data = json.load(f)
+    data = g_data
 
-    max = len(data['dictionary'])
+    #max = len(data['dictionary'])
     result = int(entry00.get()) - 1
 
     if(result < 0): 
@@ -307,12 +216,11 @@ def previous():
 
 
 def search_seq():
-    with open ("data13.json", "r", encoding = 'utf-8') as f:
-        data = json.load(f)
+    data = g_data
+    
+    max = len(data['dictionary']) - 1
 
-    max = len(data['dictionary'])
-
-    result = max - 1
+    result = max
 
     if(entry00.get() != ''):
         result = int(entry00.get())
@@ -320,8 +228,8 @@ def search_seq():
     if(result<0):
         result = 0
 
-    if(result >= max): 
-        result = result - 1
+    if(result > max): 
+        result = max - 1
 
     i = result
     
@@ -347,6 +255,53 @@ def search_seq():
     entry71.insert(0,data['dictionary'][i]['japan_m'])
     entry81.delete(0,"end")
     entry81.insert(0,data['dictionary'][i]['japan_s'])
+
+
+def read():
+    with open ("data13.json", "r", encoding = 'utf-8') as f:
+        data = json.load(f)
+
+    global g_data 
+    
+    g_data = data
+
+    entry01.delete(0,"end")
+    entry01.insert(0,"읽기완료")
+
+
+def save():
+    data = g_data
+
+    #print(data['dictionary'][3])
+
+    max = len(data['dictionary'])
+
+    string =  '{ "dictionary": [\n'
+
+    for i in range(0,max):
+        temp = data['dictionary'][i]
+        temp = json.dumps(temp, ensure_ascii=False)
+        string = string + temp + ',\n'
+
+    string = string[:-2]
+
+    string = string + '\n]}'
+
+    #print(max)
+
+    f = open("data13.json", 'w', encoding = 'utf-8')
+    f.write(string)
+    f.close()
+
+    #entry00.delete(0,"end")
+    #entry00.insert(0, seq)
+    entry01.delete(0,"end")
+    entry01.insert(0, "저장완료")
+
+
+def quit():
+    save()
+    tk.quit()
 
 
 global l_check, temp99
@@ -426,16 +381,22 @@ entry81.grid(row=10,column=1)
 
 
 btn2 = Button(tk,text='조회',bg='black',fg='white',command=search_hangul).grid(row=0,column=2)
-btn5 = Button(tk,text='SEQ',bg='black',fg='white',command=search_seq).grid(row=1,column=3)
+btn8 = Button(tk,text='저장',bg='black',fg='white',command=save).grid(row=0,column=3)
+btn5 = Button(tk,text='SEQ',bg='black',fg='white',command=search_seq).grid(row=2,column=3)
 
 
-btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=3,column=3)
+btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=4,column=3)
 
-btn3 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=5,column=3)
-btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=7,column=3)
+btn3 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=6,column=3)
+btn9 = Button(tk,text='삭제',bg='black',fg='white',command=delete).grid(row=8,column=2)
+btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=8,column=3)
 
-btn4 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=9,column=2)
-btn7 = Button(tk,text='복사',bg='black',fg='white',command=copy).grid(row=9,column=3)
+btn4 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=10,column=2)
+btn7 = Button(tk,text='복사',bg='black',fg='white',command=copy).grid(row=10,column=3)
+
+atexit.register(quit)
+
+read()
 
 clock()
 
