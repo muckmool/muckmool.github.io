@@ -602,7 +602,7 @@ entry00 = Entry(tk, width=15, font=font1)
 entry2 = Text(tk, width=72, height =6, font=font2)
 entry3 = Text(tk, width=80, height =7, font=font1)
 entry4 = Text(tk, width=72, height =6, font=font2)
-entry5 = Text(tk, width=80, height =7, font=font1)
+entry5 = Text(tk, width=72, height =7, font=font2)
 entry6 = Text(tk, width=80, height =7, font=font1)
 entry7 = Text(tk, width=80, height =7, font=font1)
 
