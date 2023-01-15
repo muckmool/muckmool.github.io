@@ -325,11 +325,14 @@ entry4.grid(row=4,column=1)
 
 
 btn1 = Button(tk,text='seq조회',bg='black',fg='white',command=search_seq).grid(row=0,column=3)
-btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=2,column=2)
-btn7 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=2,column=3)
 
-btn2 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=3,column=3)
-btn3 = Button(tk,text='삭제',bg='black',fg='white',command=delete).grid(row=3,column=2)
+btn2 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=2,column=3)
+btn3 = Button(tk,text='삭제',bg='black',fg='white',command=delete).grid(row=2,column=2)
+
+
+btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=3,column=2)
+btn7 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=3,column=3)
+
 
 btn4 = Button(tk,text='독음',bg='black',fg='white',command=trans).grid(row=4,column=2)
 btn5 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=4,column=3)
