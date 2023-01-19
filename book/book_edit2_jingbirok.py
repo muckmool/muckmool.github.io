@@ -174,7 +174,7 @@ def search_seq():
 
     result = None
 
-    if(entry00.get() == None):
+    if(entry00.get() != None):
         result = int(entry00.get())
 
     if(result == None):
