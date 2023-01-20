@@ -172,13 +172,10 @@ def search_seq():
 
     max = len(data['book'])
 
-    result = None
+    result = max - 1
 
-    if(entry00.get() != None):
+    if(entry00.get() != ''):
         result = int(entry00.get())
-
-    if(result == None):
-        result = max -1
 
     if(result<0):
         result = 0
