@@ -1,0 +1,60 @@
+
+<script src="https://unpkg.com/tesseract.js@2.1.4/dist/tesseract.min.js"></script>
+
+<script>
+        function progressUpdate(packet){
+            var log = document.getElementById('result_2');
+        
+            if(log.firstChild && log.firstChild.status === packet.status){
+                if('progress' in packet){
+                    var progress = log.firstChild.querySelector('progress')
+                    progress.value = packet.progress
+                }
+            }else{
+                var line = document.createElement('div');
+                line.status = packet.status;
+                var status = document.createElement('div')
+                status.className = 'status'
+                status.appendChild(document.createTextNode(packet.status))
+                // line.appendChild(status)
+        
+                if('progress' in packet){
+                    var progress = document.createElement('progress')
+                    progress.value = packet.progress
+                    progress.max = 1
+                    //line.appendChild(progress)
+                }
+        
+        
+                if(packet.status == 'done'){
+                    var pre = document.createElement('pre')
+                    pre.appendChild(document.createTextNode(packet.data.data.text))
+                    line.innerHTML = ''
+                    line.appendChild(pre)
+        
+                }
+        
+                log.insertBefore(line, log.firstChild)
+            }
+        }
+        
+        async function recognizeFile(file) {
+            document.querySelector("#result_2").innerHTML = ''
+          const corePath = window.navigator.userAgent.indexOf("Edge") > -1
+            ? 'https://unpkg.com/tesseract.js-core@v2.0.0/tesseract-core.wasm.js'
+            : 'https://unpkg.com/tesseract.js-core@v2.0.0/tesseract-core.wasm.js';
+        
+          const lang = "chi_tra";
+          const data = await Tesseract.recognize(file, lang, {
+            corePath,
+            logger: progressUpdate,
+          });
+          progressUpdate({ status: 'done', data });
+        }
+        </script>
+
+
+<input type="file" onchange="recognizeFile(window.lastFile=this.files[0])">
+
+<div id="result_2">&nbsp;</div>
+

@@ -3,42 +3,53 @@
 <script>
 
 
-arr = [".", ".",".",".",".",".","."];
+arr = [".", ".",".",".",".",".",".","."];
 
 temp = "";
 
-    
-     fetch("https://muckmool.github.io/bible02/01_genesis.json")
-     .then((response) => response.json())
-     .then((data) => { 
-         
-         let temp = data.book; 
-         let max = temp.length;
-         //console.log(max); 
 
-         for (i = 0; i < max; i += 1) {
-             
-             arr.push(data.book[i].cv);
-             arr.push(data.book[i].china);
-             arr.push(data.book[i].pinyin);
-             arr.push(data.book[i].japan);
-             arr.push(data.book[i].hira);
-             arr.push(data.book[i].hangul);
+function test(event) {
+    event.preventDefault(); //submit 할때 새로고침 되는것을 방지
+    let fileObject = document.getElementById("input_file");
+    let fileName = fileObject.files[0];
+
+    let fr = new FileReader();
+    fr.readAsText(fileName, "utf-8");
+
+    fr.onload = () => {
+        parseText(fr.result);
+    }
+}
 
 
-         }  
+function parseText(text) {
+    //console.log(text)
 
-         console.log(arr);
-     
-     } 
-     );
+    data = JSON.parse(text);
+
+    let temp = data.book; 
+    let max = temp.length;
+    //console.log(max); 
+
+    for (i = 0; i < max; i += 1) {
+        
+        arr.push(data.book[i].cv);
+        arr.push(data.book[i].china);
+        arr.push(data.book[i].pinyin);
+        arr.push(data.book[i].japan);
+        arr.push(data.book[i].hira);
+        arr.push(data.book[i].hangul);
+        arr.push(data.book[i].english);
 
 
+    }  
+
+}
 
 
 function book_load()  {
 
-   arr = [".", ".",".",".",".",".","."];
+   arr = [".", ".",".",".",".",".",".","."];
 
    temp = "";
 
@@ -114,28 +125,7 @@ function book_load()  {
 
 
        
-        fetch(temp)
-        .then((response) => response.json())
-        .then((data) => { 
-            
-            let temp = data.book; 
-            let max = temp.length;
-            //console.log(max); 
 
-            for (i = 0; i < max; i += 1) {
-                
-                arr.push(data.book[i].cv);
-                arr.push(data.book[i].china);
-                arr.push(data.book[i].pinyin);
-                arr.push(data.book[i].japan);
-                arr.push(data.book[i].hira);
-                arr.push(data.book[i].hangul);
-
-
-            }  
-        
-        } 
-        );
 
     resultElement_book_input.value = bk;
 
@@ -163,13 +153,13 @@ function book_load()  {
         //let bk = "없음";
         let cv = "없음";
 
-        for (i = 0; i < max; i += 6) {
+        for (i = 0; i < max; i += 7) {
             //bk_temp = arr[i];
             cv_temp = arr[i+1];
             if(cv_temp == resultElement_cv_input.value){
                 //bk=bk_temp;
                 cv=cv_temp;
-                resultElement3.value = String(i/6);
+                resultElement3.value = String(i/7);
                 search();
                 break;
             }
@@ -192,19 +182,20 @@ function book_load()  {
         const resultElement7 = document.getElementById('result7');
         const resultElement8 = document.getElementById('result8');
         const resultElement9 = document.getElementById('result9');
+        const resultElement10 = document.getElementById('result10');
 
         let i = resultElement3.value;
         i = parseInt(i);
 
         //console.log(i);
 
-        let hanja_temp1 = arr[i*6 + 2];
+        let hanja_temp1 = arr[i*7 + 2];
         let hanja_temp2 = hanja_temp1.split('');
         const max = hanja_temp2.length;
 
         //console.log(max);
 
-        let hangul_temp1 = arr[i*6 + 3];
+        let hangul_temp1 = arr[i*7 + 3];
         let hangul_temp2 = hangul_temp1.split('_');
 
         let hanja_temp3 ="";
@@ -214,13 +205,13 @@ function book_load()  {
         }
 
 
-        let hanja_temp71 = arr[i*6 + 4];
+        let hanja_temp71 = arr[i*7 + 4];
         let hanja_temp72 = hanja_temp71.split(' ');
         const max2 = hanja_temp72.length;
 
         //console.log(max);
 
-        let hangul_temp71 = arr[i*6 + 5];
+        let hangul_temp71 = arr[i*7 + 5];
         let hangul_temp72 = hangul_temp71.split('_');
 
         let hanja_temp73 ="";
@@ -233,18 +224,19 @@ function book_load()  {
         //console.log(hanja_temp3);
 
         //resultElement_book_input.value = arr[i*7];
-        resultElement9.innerText = arr[i*6 + 1];
-        resultElement_cv_input.value = arr[i*6 + 1];
+        resultElement9.innerText = arr[i*7 + 1];
+        resultElement_cv_input.value = arr[i*7 + 1];
         resultElement4.innerHTML = hanja_temp3;
         resultElement5.innerHTML = hanja_temp73;
 
-        resultElement6.innerText = arr[i*6 + 2];
+        resultElement6.innerText = arr[i*7 + 2];
         let temp = "";
         for (j = 0; j < max2; j += 1) {
              temp = temp + hangul_temp72[j];        
         }
         resultElement7.innerText = temp;
-        resultElement8.innerText = arr[i*6 + 6];
+        resultElement8.innerText = arr[i*7 + 6];
+        resultElement10.innerText = arr[i*7 + 7];
         
 
     }
@@ -259,6 +251,7 @@ function book_load()  {
         const resultElement7 = document.getElementById('result7');
         const resultElement8 = document.getElementById('result8');
         const resultElement9 = document.getElementById('result9');
+        const resultElement10 = document.getElementById('result10');
 
         let i = resultElement3.value;
         i = parseInt(i) + 1;
@@ -267,13 +260,13 @@ function book_load()  {
 
         //console.log(i);
 
-        let hanja_temp1 = arr[i*6 + 2];
+        let hanja_temp1 = arr[i*7 + 2];
         let hanja_temp2 = hanja_temp1.split('');
         const max = hanja_temp2.length;
 
         //console.log(max);
 
-        let hangul_temp1 = arr[i*6 + 3];
+        let hangul_temp1 = arr[i*7 + 3];
         let hangul_temp2 = hangul_temp1.split('_');
 
         let hanja_temp3 ="";
@@ -283,13 +276,13 @@ function book_load()  {
         }
 
 
-        let hanja_temp71 = arr[i*6 + 4];
+        let hanja_temp71 = arr[i*7 + 4];
         let hanja_temp72 = hanja_temp71.split(' ');
         const max2 = hanja_temp72.length;
 
         //console.log(max);
 
-        let hangul_temp71 = arr[i*6 + 5];
+        let hangul_temp71 = arr[i*7 + 5];
         let hangul_temp72 = hangul_temp71.split('_');
 
         let hanja_temp73 ="";
@@ -303,19 +296,20 @@ function book_load()  {
         //console.log(hanja_temp3);
 
         //resultElement_book_input.value = arr[i*7];
-        resultElement9.innerText = arr[i*6 + 1];
-        resultElement_cv_input.value = arr[i*6 + 1];
+        resultElement9.innerText = arr[i*7 + 1];
+        resultElement_cv_input.value = arr[i*7 + 1];
         resultElement3.value = String(i);
         resultElement4.innerHTML = hanja_temp3;
         resultElement5.innerHTML = hanja_temp73;
 
-        resultElement6.innerText = arr[i*6 + 2];
+        resultElement6.innerText = arr[i*7 + 2];
         let temp = "";
         for (j = 0; j < max2; j += 1) {
              temp = temp + hangul_temp72[j];        
         }
         resultElement7.innerText = temp;
-        resultElement8.innerText = arr[i*6 + 6];
+        resultElement8.innerText = arr[i*7 + 6];
+        resultElement10.innerText = arr[i*7 + 7];
         
 
     }
@@ -330,6 +324,7 @@ function book_load()  {
         const resultElement7 = document.getElementById('result7');
         const resultElement8 = document.getElementById('result8');
         const resultElement9 = document.getElementById('result9');
+        const resultElement10 = document.getElementById('result10');
 
         let i = resultElement3.value;
         i = parseInt(i) - 1;
@@ -338,13 +333,13 @@ function book_load()  {
 
         //console.log(i);
 
-        let hanja_temp1 = arr[i*6 + 2];
+        let hanja_temp1 = arr[i*7 + 2];
         let hanja_temp2 = hanja_temp1.split('');
         const max = hanja_temp2.length;
 
         //console.log(max);
 
-        let hangul_temp1 = arr[i*6 + 3];
+        let hangul_temp1 = arr[i*7 + 3];
         let hangul_temp2 = hangul_temp1.split('_');
 
         let hanja_temp3 ="";
@@ -354,13 +349,13 @@ function book_load()  {
         }
 
 
-        let hanja_temp71 = arr[i*6 + 4];
+        let hanja_temp71 = arr[i*7 + 4];
         let hanja_temp72 = hanja_temp71.split(' ');
         const max2 = hanja_temp72.length;
 
         //console.log(max);
 
-        let hangul_temp71 = arr[i*6 + 5];
+        let hangul_temp71 = arr[i*7 + 5];
         let hangul_temp72 = hangul_temp71.split('_');
 
         let hanja_temp73 ="";
@@ -374,19 +369,20 @@ function book_load()  {
         //console.log(hanja_temp3);
 
         //resultElement_book_input.value = arr[i*7];
-        resultElement9.innerText = arr[i*6 + 1];
-        resultElement_cv_input.value = arr[i*6 + 1];
+        resultElement9.innerText = arr[i*7 + 1];
+        resultElement_cv_input.value = arr[i*7 + 1];
         resultElement3.value = String(i);
         resultElement4.innerHTML = hanja_temp3;
         resultElement5.innerHTML = hanja_temp73;
 
-        resultElement6.innerText = arr[i*6 + 2];
+        resultElement6.innerText = arr[i*7 + 2];
         let temp = "";
         for (j = 0; j < max2; j += 1) {
              temp = temp + hangul_temp72[j];        
         }
         resultElement7.innerText = temp;
-        resultElement8.innerText = arr[i*6 + 6];
+        resultElement8.innerText = arr[i*7 + 6];
+        resultElement10.innerText = arr[i*7 + 7];
         
 
     }
@@ -447,20 +443,55 @@ function book_load()  {
     window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
 
     const speechMsg = new SpeechSynthesisUtterance();
-    speechMsg.rate =  0.7; // 속도: 0.1 ~ 10      
+    speechMsg.rate =  1; // 속도: 0.1 ~ 10      
     speechMsg.pitch = 1; // 음높이: 0 ~ 2
 
 
     speechMsg.lang =  "ja-JP";
     speechMsg.text = document.getElementById("result7").textContent;
+    delay = document.getElementById("result7").textContent;
+    delay = parseInt(delay.length * 200);
+
+    console.log(delay);
+
     window.speechSynthesis.speak(speechMsg);
+
+    setTimeout( function(){ speak_english(); }, delay);
 
     }
    
+    // TTS
+
+    function speak_english() {
+    
+    window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+
+    const speechMsg = new SpeechSynthesisUtterance();
+    speechMsg.rate =  1; // 속도: 0.1 ~ 10      
+    speechMsg.pitch = 1; // 음높이: 0 ~ 2
+
+
+    speechMsg.lang =  "en-US";
+    speechMsg.text = document.getElementById("result10").textContent;
+    window.speechSynthesis.speak(speechMsg);
+
+    }
  
 
 
 </script>
+
+
+<form>
+    <div>
+        <label for="input_file">파일을 추가해주세요.</label>
+        <input type="file" id="input_file">
+    </div>
+    <div>
+        <button onclick="test(event)">summit</button>
+    </div>
+</form>
+
 
 <p>muckmool.tistory.com
 
@@ -571,6 +602,8 @@ function book_load()  {
         <tr><td id="result4" style="font-size:26px; font-weight: 300;">.</td></tr>
         <tr><td>&nbsp</td></tr>
         <tr><td id="result5" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result10" style="font-size:26px; font-weight: 300;">.</td></tr>
         
     </tbody>
 </table>
