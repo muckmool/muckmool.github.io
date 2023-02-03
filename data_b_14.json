@@ -9,5 +9,10 @@
 {"hangul": "덴뿌라", "hanja": ".", "exp": "포루투갈어 튀김 tempero의 일본식 발음.", "english": ".", "china": ".", "china_s": ".", "japan_k": "天麩羅", "japan_m": "天ぷら", "japan_s": "てんぷら"},
 {"hangul": "오뎅", "hanja": ".", "exp": "뎅은 でんがく[田楽] 산적의 준말", "english": ".", "china": ".", "china_s": ".", "japan_k": "御田", "japan_m": "お‐でん", "japan_s": "."},
 {"hangul": "부타동", "hanja": ".", "exp": "돼지고기덮밥. 동은 네모난 곽에 반찬을 얹은 모양.", "english": ".", "china": ".", "china_s": ".", "japan_k": "豚丼", "japan_m": "ぶたどん", "japan_s": "."},
-{"hangul": "이시가리", "hanja": ".", "exp": "イシガレイ 돌가자미, サメガレイ 줄가자미 (상어가자미) 상인들이 돌가자미를 줄가자미로 팔기 위해 만든 잘못된 일본말 ", "english": ".", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": "サメガレイ", "japan_s": "."}
+{"hangul": "이시가리", "hanja": ".", "exp": "イシガレイ 돌가자미, サメガレイ 줄가자미 (상어가자미) 상인들이 돌가자미를 줄가자미로 팔기 위해 만든 잘못된 일본말 ", "english": ".", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": "サメガレイ", "japan_s": "."},
+{"hangul": "금일", "hanja": "今日", "exp": "지금 무언가 입에 물고 있는 모습. 흑점이 있는 해. 지금 머금고 있는 금일은 오늘을 말함.", "english": "today", "china": "今日", "china_s": "jīnrì", "japan_k": "", "japan_m": "きょう", "japan_s": "こんにち"},
+{"hangul": "튀르키예", "hanja": ".", "exp": ".", "english": "Turkiye", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."},
+{"hangul": "호주", "hanja": ".", "exp": ".", "english": "Australia", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."},
+{"hangul": "경기", "hanja": "景氣", "exp": "경기가 좋다 나쁘다. 불경기.", "english": ".", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."},
+{"hangul": "침체", "hanja": "沈滯", "exp": "잠기고 막혀서 활성화 되지 않는 상태", "english": ".", "china": ".", "china_s": ".", "japan_k": ".", "japan_m": ".", "japan_s": "."}
 ]}
