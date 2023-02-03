@@ -1,0 +1,127 @@
+
+<html>
+    <head>
+      <meta charset="utf-8"/>
+      <title>Canvas tutorial</title>
+      <script type="text/javascript">
+
+    function draw(){
+          var canvas = document.getElementById('canvas');
+          if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+          }
+    }
+
+
+    function test(event) {
+        event.preventDefault(); //submit 할때 새로고침 되는것을 방지
+        let fileObject = document.getElementById("input_file");
+        let fileName = fileObject.files[0];
+
+        let fr = new FileReader();
+        fr.readAsText(fileName, "utf-8");
+
+        fr.onload = () => {
+            parseText(fr.result);
+        }
+    }
+
+
+    function parseText(text) {
+        //console.log(text)
+
+        data = JSON.parse(text);
+
+        let temp = data.dictionary; 
+        let max = temp.length;
+        
+        console.log(max); 
+   
+    }
+
+    function draw2() {
+
+      event.preventDefault(); //submit 할때 새로고침 되는것을 방지
+
+      var canvas = document.getElementById("canvas");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect (10, 10, 50, 50);
+
+        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+        ctx.fillRect (30, 30, 50, 50);
+      }
+    }
+
+    async function draw3(event) {
+
+        event.preventDefault(); //submit 할때 새로고침 되는것을 방지
+
+        let fileObject = document.getElementById("input_file");
+        let fileName = fileObject.files[0];
+
+        let fr = new FileReader();
+        fr.readAsDataURL(fileName);
+
+        fr.onload = () => {
+            parseImage(fr.result);
+        }
+
+
+
+
+   }
+
+   function parseImage(image) {
+
+    event.preventDefault(); //submit 할때 새로고침 되는것을 방지
+
+    const img = new Image();
+
+    img.src = image;
+        var canvas = document.getElementById("canvas");
+
+        if (canvas.getContext) {
+            var ctx = canvas.getContext("2d");
+
+            ctx.drawImage(img, 10, 10);
+        }
+
+        setTimeout(function() {
+        console.log('Works!');
+
+        ctx.drawImage(img, 10, 10);
+
+        }, 10);
+
+
+   }
+
+
+
+      </script>
+      <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+    </head>
+    <body onload="draw();">
+      <canvas id="canvas" width="200" height="200"></canvas>
+
+
+    <p>&nbsp
+
+    <form>
+        <div>
+            <label for="input_file">이미지 파일을 추가해주세요.</label>
+            <input type="file" id="input_file">
+        </div>
+        <div>
+            <button onclick="draw3(event)">submit</button>
+        </div>
+    </form>
+
+    
+    </body>
+  </html>

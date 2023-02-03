@@ -11,7 +11,7 @@ tk.wm_attributes("-topmost", 1)
 
 
 def new():
-    with open ("nanjungilgi.json", "r", encoding = 'utf-8') as f:
+    with open ("dongyibogam.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
 
@@ -41,7 +41,7 @@ def new():
 
         #print(string)
 
-        f = open("nanjungilgi.json", 'w', encoding = 'utf-8')
+        f = open("dongyibogam.json", 'w', encoding = 'utf-8')
         f.write(string)
         f.close()
 
@@ -52,7 +52,7 @@ def new():
         entry00.delete(0,"end")
         entry00.insert(0,seq+1)
 
-        with open ("nanjungilgi.json", "r", encoding = 'utf-8') as f:
+        with open ("dongyibogam.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
    
         #entry1.delete(0,"end")
@@ -67,7 +67,7 @@ def new():
 
 
 def delete():
-    with open ("nanjungilgi.json", "r", encoding = 'utf-8') as f:
+    with open ("dongyibogam.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
 
@@ -94,7 +94,7 @@ def delete():
 
         #print(string)
 
-        f = open("nanjungilgi.json", 'w', encoding = 'utf-8')
+        f = open("dongyibogam.json", 'w', encoding = 'utf-8')
         f.write(string)
         f.close()
 
@@ -105,7 +105,7 @@ def delete():
         entry00.delete(0,"end")
         entry00.insert(0,seq-1)
 
-        with open ("nanjungilgi.json", "r", encoding = 'utf-8') as f:
+        with open ("dongyibogam.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
    
         entry1.delete(0,"end")
@@ -121,7 +121,7 @@ def delete():
 
 
 def update():
-    with open ("nanjungilgi.json", "r", encoding = 'utf-8') as f:
+    with open ("dongyibogam.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['book'])
@@ -152,7 +152,7 @@ def update():
 
         #print(string)
 
-        f = open("nanjungilgi.json", 'w', encoding = 'utf-8')
+        f = open("dongyibogam.json", 'w', encoding = 'utf-8')
         f.write(string)
         f.close()
 
@@ -167,7 +167,7 @@ def update():
 
 
 def search_seq():
-    with open ("nanjungilgi.json", "r", encoding = 'utf-8') as f:
+    with open ("dongyibogam.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['book'])
@@ -198,7 +198,7 @@ def search_seq():
     entry4.insert(tkinter.END, data['book'][i]['story'])
 
 def next():
-    with open ("nanjungilgi.json", "r", encoding = 'utf-8') as f:
+    with open ("dongyibogam.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['book'])
@@ -226,7 +226,7 @@ def next():
 
 
 def previous():
-    with open ("nanjungilgi.json", "r", encoding = 'utf-8') as f:
+    with open ("dongyibogam.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     max = len(data['book'])
@@ -322,17 +322,16 @@ entry4.grid(row=4,column=1)
 
 
 btn1 = Button(tk,text='seq조회',bg='black',fg='white',command=search_seq).grid(row=0,column=3)
+btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=2,column=2)
+btn7 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=2,column=3)
 
-btn2 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=2,column=3)
-btn3 = Button(tk,text='삭제',bg='black',fg='white',command=delete).grid(row=2,column=2)
+btn4 = Button(tk,text='독음',bg='black',fg='white',command=trans).grid(row=3,column=2)
+btn5 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=3,column=3)
+
+btn2 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=4,column=2)
+btn3 = Button(tk,text='삭제',bg='black',fg='white',command=delete).grid(row=4,column=3)
 
 
-btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=3,column=2)
-btn7 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=3,column=3)
-
-
-btn4 = Button(tk,text='독음',bg='black',fg='white',command=trans).grid(row=4,column=2)
-btn5 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=4,column=3)
 
 
 

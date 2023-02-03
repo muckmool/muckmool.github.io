@@ -515,6 +515,7 @@ fetch('https://muckmool.github.io/data3.json')
             <option value="zh_TW" selected="selected">Chinese</option>
             <option value="ja">Japanese</option>
             <option value="en">English</option>
+            <option value="ko">Korean</option>
           </select>
         </form>
 
@@ -535,6 +536,21 @@ fetch('https://muckmool.github.io/data3.json')
 
 
     </span>
+
+    <p>&nbsp
+
+    <form>
+        <div>
+            <label for="input_file">이미지 파일을 추가해주세요.</label>
+            <input type="file" id="input_file">
+        </div>
+        <div>
+            <button onclick="draw3(event)">submit</button>
+        </div>
+    </form>
+
+
+
     <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
 
     <script type="text/javascript" defer>
@@ -582,9 +598,7 @@ fetch('https://muckmool.github.io/data3.json')
  
  
 
-
 <script>
-
 // TTS
 
 function speak() {
@@ -600,6 +614,106 @@ function speak() {
     // SpeechSynthesisUtterance에 저장된 내용을 바탕으로 음성합성 실행
     window.speechSynthesis.speak(speechMsg)
 }
+
+
+async function draw3(event) {
+
+    event.preventDefault(); //submit 할때 새로고침 되는것을 방지
+
+    let fileObject = document.getElementById("input_file");
+    let fileName = fileObject.files[0];
+
+    let fr = new FileReader();
+    fr.readAsDataURL(fileName);
+
+    fr.onload = () => {
+        parseImage(fr.result);
+    }
+
+}
+
+
+function parseImage(image) {
+
+    event.preventDefault(); //submit 할때 새로고침 되는것을 방지
+
+    const img = new Image();
+
+    img.src = image;
+    var canvas = document.getElementById("canvas");
+
+    if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        ctx.drawImage(img, 10, 10, 180, 180);
+    }
+
+    setTimeout(function() {
+    console.log('Works!');
+
+    ctx.drawImage(img, 10, 10, 180, 180);
+    recognizeFile(img);
+
+    }, 10);
+
+}
+
+</script>
+
+<script src="https://unpkg.com/tesseract.js@2.1.4/dist/tesseract.min.js"></script>
+
+<script>
+        function progressUpdate(packet){
+            var log = document.getElementById('result');
+        
+            if(log.firstChild && log.firstChild.status === packet.status){
+                if('progress' in packet){
+                    var progress = log.firstChild.querySelector('progress')
+                    progress.value = packet.progress
+                }
+            }else{
+                var line = document.createElement('div');
+                line.status = packet.status;
+                var status = document.createElement('div')
+                status.className = 'status'
+                status.appendChild(document.createTextNode(packet.status))
+                // line.appendChild(status)
+        
+                if('progress' in packet){
+                    var progress = document.createElement('progress')
+                    progress.value = packet.progress
+                    progress.max = 1
+                    //line.appendChild(progress)
+                }
+        
+        
+                if(packet.status == 'done'){
+                    var pre = document.createElement('pre')
+                    pre.appendChild(document.createTextNode(packet.data.data.text))
+                    line.innerHTML = ''
+                    line.appendChild(pre)
+        
+                }
+        
+                log.insertBefore(line, log.firstChild)
+            }
+        }
+        
+        async function recognizeFile(file) {
+            document.querySelector("#result").innerHTML = ''
+          const corePath = window.navigator.userAgent.indexOf("Edge") > -1
+            ? 'https://unpkg.com/tesseract.js-core@v2.0.0/tesseract-core.wasm.js'
+            : 'https://unpkg.com/tesseract.js-core@v2.0.0/tesseract-core.wasm.js';
+        
+          const lang = "chi_tra";
+          const data = await Tesseract.recognize(file, lang, {
+            corePath,
+            logger: progressUpdate,
+          });
+          progressUpdate({ status: 'done', data });
+          document.getElementById("result").innerHTML = "<font size = 30px>" + result.innerHTML + "</font>";
+        }
+        
 
 </script>
 
