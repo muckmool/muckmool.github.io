@@ -340,11 +340,28 @@ fetch('https://muckmool.github.io/data3.json')
     <title>hanja dictionary</title>
 
 </head>
-
-<p>https://muckmool.tistory.com/      &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
-  
    
+<p>https://muckmool.tistory.com/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+               
+        <span id="seq"></span>
+        
+        &nbsp;<input id="input_01" style="width: 100px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" >
+        
+        &nbsp;<button onclick="search();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
+        
+        &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
+    
+        &nbsp;<button onclick="decrease(); search();" style="width: 70px; height: 35px; font-size: 15px;"> PREV </button>
+    
+        &nbsp;<button onclick="increase(); search();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
+
+        &nbsp;<button onclick="refresh1(); " style="width: 70px; height: 35px; font-size: 15px;"> Refresh1 </button>
+        &nbsp;<button onclick="refresh2(); search()" style="width: 70px; height: 35px; font-size: 15px;"> Refresh2 </button>
+          
+          
+   
+<p> 
 
 <table style="border-collapse: collapse; width: 100%;" border="1" width="100%" text-align="center">
 <tbody>
@@ -500,94 +517,7 @@ fetch('https://muckmool.github.io/data3.json')
 
 
 
-
-
-<h2 id="demo"></h2>
-<span id="result_2"><font size = 15px></font> </span> <span id="result"><font size = 15px>.</font></span>
-
-
-<div>
-  <span style="display : inline-block">
-
-    <p>
-    
-    
-    <span id="seq"></span><input id="input_01" style="width: 100px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" >
-    
-    &nbsp;<button onclick="search();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
-    
-    &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
-
-    &nbsp;<button onclick="canvas.erase(); clean_all(); decrease(); search();" style="width: 70px; height: 35px; font-size: 15px;"> PREV </button>
-
-    &nbsp;<button onclick="canvas.erase(); clean_all(); increase(); search();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
-      
-    &nbsp;<canvas id="canvas" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
- 
-
-    &nbsp;<button onclick="
-    var e = document.getElementById('language');
-    canvas.setOptions({language: e.options[e.selectedIndex].value});
-    canvas.recognize();
-     " style="width: 70px; height: 35px; font-size: 15px;"> OCR </button>
-
-    &nbsp;<button onclick="add(); canvas.erase(); clean();" style="width: 70px; height: 35px; font-size: 15px;"> 추가 </button> 
-
-    &nbsp;<button onclick="canvas.erase(); clean_all()" style="width: 70px; height: 35px; font-size: 15px;"> 지움 </button> 
-
-
-
-  
-    
-    
-      <p>
-
-        <br>
-        <form>
-          Language:
-          <select id="language">
-            <option value="zh_TW" selected="selected">Chinese</option>
-            <option value="ja">Japanese</option>
-            <option value="en">English</option>
-          </select>
-        </form>
-
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        
-        PenSize <span id="lineWidth">3</span><input type="range" id="penSize" min="1" max="30" value="3">
-
-
-      <button onclick="canvas.erase(); clean();">Erase</button>
-
-      <button onclick="canvas.undo()">Undo</button>
-      <button onclick="canvas.redo()">Redo</button>
-
-
-
-    </span>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-
-    <script type="text/javascript" defer>
-      var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
-      var width = document.getElementById("demo").clientWidth
-      canvas.cxt.canvas.width  = width < 200 ? width : 200;
-      canvas.cxt.canvas.height = width < 200 ? width : 200;
-      canvas.setCallBack(function(data, err) {
-        if (err) throw err;
-        else document.getElementById("result").innerHTML = "<font size = 15px>&nbsp" + data.slice(0,1) + "</font>";
-      });
-      canvas.set_Undo_Redo(true, true);
-      var penSize = document.getElementById("penSize");
-      penSize.addEventListener("mousemove", function() {
-        document.getElementById("lineWidth").innerHTML = penSize.value;
-      });
-      penSize.addEventListener("change", function(){
-        canvas.setLineWidth(penSize.value);
-      });
+<script>
 
       function clean(){
         document.getElementById("result").innerHTML = "<font size = 15px>.</font>";
@@ -610,6 +540,27 @@ fetch('https://muckmool.github.io/data3.json')
       function add() {
         document.getElementById("result_2").innerHTML = "<font size = 15px>" + result_2.innerHTML + result.innerHTML + "</font>";
       };
+
+      function refresh1(){
+
+        temp = input_01.value;
+
+        localStorage.setItem('temp', temp);
+
+        location.reload(true);
+
+      };
+
+      function refresh2(){
+
+        temp = localStorage.getItem('temp');
+
+        input_01.value = temp;
+
+      };
+
+
+
 
     </script>
   </div>
@@ -634,6 +585,10 @@ function speak() {
     // SpeechSynthesisUtterance에 저장된 내용을 바탕으로 음성합성 실행
     window.speechSynthesis.speak(speechMsg)
 }
+
+
+refresh2();
+
 
 </script>
 

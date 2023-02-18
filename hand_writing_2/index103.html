@@ -341,10 +341,7 @@ fetch('https://muckmool.github.io/data3.json')
 
 </head>
 
-<p>https://muckmool.tistory.com/      &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
-  
-   
-
+<p>https://muckmool.tistory.com/</p>
 
 <table style="border-collapse: collapse; width: 100%;" border="1" width="100%" text-align="center">
 <tbody>
@@ -475,24 +472,14 @@ fetch('https://muckmool.github.io/data3.json')
 <tr>
 <td></td>
 <td colspan="7">
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    
     <canvas id="canvas1" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas1'), 3); </script>
+    <script type="text/javascript" defer> var canvas1 = new handwriting.Canvas(document.getElementById('canvas1'), 3); </script>
     <canvas id="canvas2" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas2'), 3); </script>
-    <canvas id="canvas3" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas3'), 3); </script>
-    <canvas id="canvas4" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas4'), 3); </script>
-    <canvas id="canvas5" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas5'), 3); </script>
-    <canvas id="canvas6" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas6'), 3); </script>
+    <script type="text/javascript" defer> var canvas2 = new handwriting.Canvas(document.getElementById('canvas2'), 3); </script>
+
+
 </td>
 </tr>
 </tbody>
@@ -500,103 +487,31 @@ fetch('https://muckmool.github.io/data3.json')
 
 
 
-
-
-<h2 id="demo"></h2>
-<span id="result_2"><font size = 15px></font> </span> <span id="result"><font size = 15px>.</font></span>
-
-
 <div>
-  <span style="display : inline-block">
+    <span style="display : inline-block">
 
     <p>
     
     
-    <span id="seq"></span><input id="input_01" style="width: 100px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" >
+    <span id="seq"></span><input id="input_01" style="width: 100px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" />
     
     &nbsp;<button onclick="search();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
     
     &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
 
-    &nbsp;<button onclick="canvas.erase(); clean_all(); decrease(); search();" style="width: 70px; height: 35px; font-size: 15px;"> PREV </button>
+    &nbsp;<button onclick="decrease(); search();" style="width: 70px; height: 35px; font-size: 15px;"> PREV </button>
 
-    &nbsp;<button onclick="canvas.erase(); clean_all(); increase(); search();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
-      
-    &nbsp;<canvas id="canvas" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
- 
+    &nbsp;<button onclick="increase(); search();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
 
-    &nbsp;<button onclick="
-    var e = document.getElementById('language');
-    canvas.setOptions({language: e.options[e.selectedIndex].value});
-    canvas.recognize();
-     " style="width: 70px; height: 35px; font-size: 15px;"> OCR </button>
-
-    &nbsp;<button onclick="add(); canvas.erase(); clean();" style="width: 70px; height: 35px; font-size: 15px;"> 추가 </button> 
-
-    &nbsp;<button onclick="canvas.erase(); clean_all()" style="width: 70px; height: 35px; font-size: 15px;"> 지움 </button> 
-
-
-
-  
-    
-    
-      <p>
-
-        <br>
-        <form>
-          Language:
-          <select id="language">
-            <option value="zh_TW" selected="selected">Chinese</option>
-            <option value="ja">Japanese</option>
-            <option value="en">English</option>
-          </select>
-        </form>
-
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        
-        PenSize <span id="lineWidth">3</span><input type="range" id="penSize" min="1" max="30" value="3">
-
-
-      <button onclick="canvas.erase(); clean();">Erase</button>
-
-      <button onclick="canvas.undo()">Undo</button>
-      <button onclick="canvas.redo()">Redo</button>
+    &nbsp;<button onclick="canvas.erase();" style="width: 70px; height: 35px; font-size: 15px;"> 지움 </button> 
 
 
 
     </span>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    
 
     <script type="text/javascript" defer>
-      var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
-      var width = document.getElementById("demo").clientWidth
-      canvas.cxt.canvas.width  = width < 200 ? width : 200;
-      canvas.cxt.canvas.height = width < 200 ? width : 200;
-      canvas.setCallBack(function(data, err) {
-        if (err) throw err;
-        else document.getElementById("result").innerHTML = "<font size = 15px>&nbsp" + data.slice(0,1) + "</font>";
-      });
-      canvas.set_Undo_Redo(true, true);
-      var penSize = document.getElementById("penSize");
-      penSize.addEventListener("mousemove", function() {
-        document.getElementById("lineWidth").innerHTML = penSize.value;
-      });
-      penSize.addEventListener("change", function(){
-        canvas.setLineWidth(penSize.value);
-      });
 
-      function clean(){
-        document.getElementById("result").innerHTML = "<font size = 15px>.</font>";
-      };
-
-      function clean_all(){
-        document.getElementById("result").innerHTML = "<font size = 15px>.</font>";
-        document.getElementById("result_2").innerHTML = "<font size = 15px></font>";
-      };
 
       function increase(){
         input_01.value = String(Number(input_01.value) + 1);

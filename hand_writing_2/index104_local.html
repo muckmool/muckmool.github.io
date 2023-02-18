@@ -9,38 +9,49 @@ var arr = [
 ];
 
 
-fetch('https://muckmool.github.io/data3.json')
-  .then((response) => response.json())
-  .then((data) => { 
-    
-    let temp = data.dictionary; 
-    let max = temp.length;
-    //console.log(max); 
+function test(event) {
+        event.preventDefault(); //submit 할때 새로고침 되는것을 방지
+        let fileObject = document.getElementById("input_file");
+        let fileName = fileObject.files[0];
 
-    for (i = 0; i < max; i += 1) {
-        arr.push(data.dictionary[i].hangul);
-        arr.push(data.dictionary[i].hanja);
-        arr.push(data.dictionary[i].h1);
-        arr.push(data.dictionary[i].c1);
-        arr.push(data.dictionary[i].h2);
-        arr.push(data.dictionary[i].c2);
-        arr.push(data.dictionary[i].h3);
-        arr.push(data.dictionary[i].c3);
-        arr.push(data.dictionary[i].h4);
-        arr.push(data.dictionary[i].c4);
-        arr.push(data.dictionary[i].h5);
-        arr.push(data.dictionary[i].c5);
-        arr.push(data.dictionary[i].exp);
-        arr.push(".");
-        arr.push(data.dictionary[i].china);
-        arr.push(data.dictionary[i].japan);
-        arr.push(data.dictionary[i].english);
+        let fr = new FileReader();
+        fr.readAsText(fileName, "utf-8");
 
+        fr.onload = () => {
+            parseText(fr.result);
+        }
     }
 
+    function parseText(text) {
+        //console.log(text)
 
-  } 
-);
+        data = JSON.parse(text);
+
+        let temp = data.dictionary; 
+        let max = temp.length;
+           //console.log(max); 
+   
+        for (i = 0; i < max; i += 1) {
+            arr.push(data.dictionary[i].hangul);
+            arr.push(data.dictionary[i].hanja);
+            arr.push(data.dictionary[i].h1);
+            arr.push(data.dictionary[i].c1);
+            arr.push(data.dictionary[i].h2);
+            arr.push(data.dictionary[i].c2);
+            arr.push(data.dictionary[i].h3);
+            arr.push(data.dictionary[i].c3);
+            arr.push(data.dictionary[i].h4);
+            arr.push(data.dictionary[i].c4);
+            arr.push(data.dictionary[i].h5);
+            arr.push(data.dictionary[i].c5);
+            arr.push(data.dictionary[i].exp);
+            arr.push(".");
+            arr.push(data.dictionary[i].china);
+            arr.push(data.dictionary[i].japan);
+            arr.push(data.dictionary[i].english);
+        }  
+
+    }
 
 
     function search() {
@@ -341,10 +352,19 @@ fetch('https://muckmool.github.io/data3.json')
 
 </head>
 
-<p>https://muckmool.tistory.com/      &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
-  
-   
 
+<form>
+    <div>
+        <label for="input_file">파일을 추가해주세요.</label>
+        <input type="file" id="input_file">
+    </div>
+    <div>
+        <button onclick="test(event)">summit</button>
+    </div>
+</form>
+
+
+<p>https://muckmool.tistory.com/</p>
 
 <table style="border-collapse: collapse; width: 100%;" border="1" width="100%" text-align="center">
 <tbody>
@@ -475,24 +495,13 @@ fetch('https://muckmool.github.io/data3.json')
 <tr>
 <td></td>
 <td colspan="7">
-    <canvas id="canvas1" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas1'), 3); </script>
-    <canvas id="canvas2" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas2'), 3); </script>
-    <canvas id="canvas3" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas3'), 3); </script>
-    <canvas id="canvas4" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas4'), 3); </script>
-    <canvas id="canvas5" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas5'), 3); </script>
-    <canvas id="canvas6" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas6'), 3); </script>
+    <canvas id='canvas1' width='200' height='200' style="border:2px solid black"></canvas>
+    <canvas id='canvas2' width='200' height='200' style="border:2px solid black"></canvas>
+    <canvas id='canvas3' width='200' height='200' style="border:2px solid black"></canvas>
+    <canvas id='canvas4' width='200' height='200' style="border:2px solid black"></canvas>
+    <canvas id='canvas5' width='200' height='200' style="border:2px solid black"></canvas>
+    <canvas id='canvas6' width='200' height='200' style="border:2px solid black"></canvas>
+
 </td>
 </tr>
 </tbody>
@@ -500,103 +509,31 @@ fetch('https://muckmool.github.io/data3.json')
 
 
 
-
-
-<h2 id="demo"></h2>
-<span id="result_2"><font size = 15px></font> </span> <span id="result"><font size = 15px>.</font></span>
-
-
 <div>
-  <span style="display : inline-block">
+    <span style="display : inline-block">
 
     <p>
     
     
-    <span id="seq"></span><input id="input_01" style="width: 100px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" >
+    <span id="seq"></span><input id="input_01" style="width: 100px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" />
     
-    &nbsp;<button onclick="search();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
+    &nbsp;<button onclick="search(); clearAll();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
     
     &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
 
-    &nbsp;<button onclick="canvas.erase(); clean_all(); decrease(); search();" style="width: 70px; height: 35px; font-size: 15px;"> PREV </button>
+    &nbsp;<button onclick="decrease(); search(); clearAll();" style="width: 70px; height: 35px; font-size: 15px;"> PREV </button>
 
-    &nbsp;<button onclick="canvas.erase(); clean_all(); increase(); search();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
-      
-    &nbsp;<canvas id="canvas" width="200" height="200" style="border: 2px solid; cursor: crosshair;"></canvas>
- 
+    &nbsp;<button onclick="increase(); search(); clearAll();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
 
-    &nbsp;<button onclick="
-    var e = document.getElementById('language');
-    canvas.setOptions({language: e.options[e.selectedIndex].value});
-    canvas.recognize();
-     " style="width: 70px; height: 35px; font-size: 15px;"> OCR </button>
-
-    &nbsp;<button onclick="add(); canvas.erase(); clean();" style="width: 70px; height: 35px; font-size: 15px;"> 추가 </button> 
-
-    &nbsp;<button onclick="canvas.erase(); clean_all()" style="width: 70px; height: 35px; font-size: 15px;"> 지움 </button> 
-
-
-
-  
-    
-    
-      <p>
-
-        <br>
-        <form>
-          Language:
-          <select id="language">
-            <option value="zh_TW" selected="selected">Chinese</option>
-            <option value="ja">Japanese</option>
-            <option value="en">English</option>
-          </select>
-        </form>
-
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        
-        PenSize <span id="lineWidth">3</span><input type="range" id="penSize" min="1" max="30" value="3">
-
-
-      <button onclick="canvas.erase(); clean();">Erase</button>
-
-      <button onclick="canvas.undo()">Undo</button>
-      <button onclick="canvas.redo()">Redo</button>
+    &nbsp;<button onclick="clearAll();" style="width: 70px; height: 35px; font-size: 15px;"> 지움 </button> 
 
 
 
     </span>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    
 
     <script type="text/javascript" defer>
-      var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
-      var width = document.getElementById("demo").clientWidth
-      canvas.cxt.canvas.width  = width < 200 ? width : 200;
-      canvas.cxt.canvas.height = width < 200 ? width : 200;
-      canvas.setCallBack(function(data, err) {
-        if (err) throw err;
-        else document.getElementById("result").innerHTML = "<font size = 15px>&nbsp" + data.slice(0,1) + "</font>";
-      });
-      canvas.set_Undo_Redo(true, true);
-      var penSize = document.getElementById("penSize");
-      penSize.addEventListener("mousemove", function() {
-        document.getElementById("lineWidth").innerHTML = penSize.value;
-      });
-      penSize.addEventListener("change", function(){
-        canvas.setLineWidth(penSize.value);
-      });
 
-      function clean(){
-        document.getElementById("result").innerHTML = "<font size = 15px>.</font>";
-      };
-
-      function clean_all(){
-        document.getElementById("result").innerHTML = "<font size = 15px>.</font>";
-        document.getElementById("result_2").innerHTML = "<font size = 15px></font>";
-      };
 
       function increase(){
         input_01.value = String(Number(input_01.value) + 1);
@@ -611,10 +548,587 @@ fetch('https://muckmool.github.io/data3.json')
         document.getElementById("result_2").innerHTML = "<font size = 15px>" + result_2.innerHTML + result.innerHTML + "</font>";
       };
 
-    </script>
-  </div>
+
  
  
+  // canvas1
+
+  var pos1 = {
+      drawable1 : false,
+      x1 : -1,
+      y1 : -1,
+  };
+  var canvas1 = document.getElementById('canvas1');
+  var ctx1 = canvas1.getContext('2d');
+  var rect1 = canvas1.getBoundingClientRect();  // 터치 스크린
+
+
+// 전체 지우기
+  function clearAll(){
+      ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+      ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+      ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
+      ctx4.clearRect(0, 0, canvas4.width, canvas4.height);
+      ctx5.clearRect(0, 0, canvas5.width, canvas5.height);
+      ctx6.clearRect(0, 0, canvas6.width, canvas6.height);
+
+      rect1 = canvas1.getBoundingClientRect();
+      rect2 = canvas2.getBoundingClientRect();
+      rect3 = canvas3.getBoundingClientRect();
+      rect4 = canvas4.getBoundingClientRect();
+      rect5 = canvas5.getBoundingClientRect();
+      rect6 = canvas6.getBoundingClientRect();
+  }
+
+// 스타일 추가
+  ctx1.lineWidth = 3;
+  ctx1.lineCap = 'round';
+  ctx1.lineJoin = 'round';
+
+  function colorChange(color){
+      ctx1.strokeStyle = color;
+  } 
+
+  canvas1.addEventListener("mousedown", listener1);
+  canvas1.addEventListener("mousemove", listener1);
+  canvas1.addEventListener("mouseup", listener1);
+  canvas1.addEventListener("mouseout", listener1);
+  
+  /// 터치 스크린
+  canvas1.addEventListener("touchstart", listener1);
+  canvas1.addEventListener("touchmove", listener1);
+  canvas1.addEventListener("touchend", listener1);
+
+  
+  function listener1(e){
+      switch(e.type){
+          case "mousedown":
+              drawStart1(e);
+              break;
+          case "mousemove":
+              if(pos1.drawable){
+                  draw1(e);
+              }
+              break;
+          case "mouseout":
+          case "mouseup":
+              drawEnd1();
+              break;
+          case "touchstart":
+              touchStart1(e);
+              break;
+          case "touchmove":
+              if(pos1.drawable)
+                  touch1(e);
+              break;
+          case "touchend":
+              drawEnd1();
+              break;
+          default:
+      }
+  }
+  
+  function drawStart1(e){
+      pos1.drawable = true;
+      ctx1.beginPath();
+      pos1.x = e.offsetX;
+      pos1.y = e.offsetY;
+      ctx1.moveTo(pos1.x, pos1.y);
+  }
+  function touchStart1(e){
+      pos1.drawable = true;
+      ctx1.beginPath();
+      pos1.x = e.touches[0].pageX - rect1.left;
+      pos1.y = e.touches[0].pageY - rect1.top;
+
+      ctx1.moveTo(pos1.x, pos1.y);
+  }
+  function draw1(e){
+      ctx1.lineTo(e.offsetX, e.offsetY);
+      pos1.x = e.offsetX;
+      pos1.y = e.offsetY;
+      ctx1.stroke();
+  }
+  function touch1(e){
+      ctx1.lineTo(e.touches[0].pageX - rect1.left, e.touches[0].pageY - rect1.top);
+      pos1.x = e.touches[0].pageX - rect1.left;
+      pos1.y = e.touches[0].pageY - rect1.top;
+
+      ctx1.stroke();
+  }
+  function drawEnd1(){
+      pos1.drawable = false;
+      pos1.x = -1;
+      pos1.y = -1;
+  }
+
+
+// canvas2
+      
+  var pos2 = {
+      drawable2 : false,
+      x2 : -1,
+      y2 : -1,
+  };
+  var canvas2 = document.getElementById('canvas2');
+  var ctx2 = canvas2.getContext('2d');
+  var rect2 = canvas2.getBoundingClientRect();  // 터치 스크린
+
+
+// 스타일 추가
+  ctx2.lineWidth = 3;
+  ctx2.lineCap = 'round';
+  ctx2.lineJoin = 'round';
+
+  function colorChange(color){
+      ctx2.strokeStyle = color;
+  } 
+
+  canvas2.addEventListener("mousedown", listener2);
+  canvas2.addEventListener("mousemove", listener2);
+  canvas2.addEventListener("mouseup", listener2);
+  canvas2.addEventListener("mouseout", listener2);
+  
+  /// 터치 스크린
+  canvas2.addEventListener("touchstart", listener2);
+  canvas2.addEventListener("touchmove", listener2);
+  canvas2.addEventListener("touchend", listener2);
+
+  
+  function listener2(e){
+      switch(e.type){
+          case "mousedown":
+              drawStart2(e);
+              break;
+          case "mousemove":
+              if(pos2.drawable){
+                  draw2(e);
+              }
+              break;
+          case "mouseout":
+          case "mouseup":
+              drawEnd2();
+              break;
+          case "touchstart":
+              touchStart2(e);
+              break;
+          case "touchmove":
+              if(pos2.drawable)
+                  touch2(e);
+              break;
+          case "touchend":
+              drawEnd2();
+              break;
+          default:
+      }
+  }
+  
+  function drawStart2(e){
+      pos2.drawable = true;
+      ctx2.beginPath();
+      pos2.x = e.offsetX;
+      pos2.y = e.offsetY;
+      ctx2.moveTo(pos2.x, pos2.y);
+  }
+  function touchStart2(e){
+      pos2.drawable = true;
+      ctx2.beginPath();
+      pos2.x = e.touches[0].pageX - rect2.left
+      pos2.y = e.touches[0].pageY - rect2.top
+      ctx2.moveTo(pos2.x, pos2.y);
+  }
+  function draw2(e){
+      ctx2.lineTo(e.offsetX, e.offsetY);
+      pos2.x = e.offsetX;
+      pos2.y = e.offsetY;
+      ctx2.stroke();
+  }
+  function touch2(e){
+      ctx2.lineTo(e.touches[0].pageX - rect2.left, e.touches[0].pageY - rect2.top);
+      pos2.x = e.touches[0].pageX - rect2.left;
+      pos2.y = e.touches[0].pageY - rect2.top;
+      ctx2.stroke();
+  }
+  function drawEnd2(){
+      pos2.drawable = false;
+      pos2.x = -1;
+      pos2.y = -1;
+  }
+
+
+  // canvas3
+      
+  var pos3 = {
+      drawable2 : false,
+      x3 : -1,
+      y3 : -1,
+  };
+  var canvas3 = document.getElementById('canvas3');
+  var ctx3 = canvas3.getContext('2d');
+  var rect3 = canvas3.getBoundingClientRect();  // 터치 스크린
+
+
+// 스타일 추가
+  ctx3.lineWidth = 3;
+  ctx3.lineCap = 'round';
+  ctx3.lineJoin = 'round';
+
+  function colorChange(color){
+      ctx3.strokeStyle = color;
+  } 
+
+  canvas3.addEventListener("mousedown", listener3);
+  canvas3.addEventListener("mousemove", listener3);
+  canvas3.addEventListener("mouseup", listener3);
+  canvas3.addEventListener("mouseout", listener3);
+  
+  /// 터치 스크린
+  canvas3.addEventListener("touchstart", listener3);
+  canvas3.addEventListener("touchmove", listener3);
+  canvas3.addEventListener("touchend", listener3);
+
+  
+  function listener3(e){
+      switch(e.type){
+          case "mousedown":
+              drawStart3(e);
+              break;
+          case "mousemove":
+              if(pos3.drawable){
+                  draw3(e);
+              }
+              break;
+          case "mouseout":
+          case "mouseup":
+              drawEnd3();
+              break;
+          case "touchstart":
+              touchStart3(e);
+              break;
+          case "touchmove":
+              if(pos3.drawable)
+                  touch3(e);
+              break;
+          case "touchend":
+              drawEnd3();
+              break;
+          default:
+      }
+  }
+  
+  function drawStart3(e){
+      pos3.drawable = true;
+      ctx3.beginPath();
+      pos3.x = e.offsetX;
+      pos3.y = e.offsetY;
+      ctx3.moveTo(pos3.x, pos3.y);
+  }
+  function touchStart3(e){
+      pos3.drawable = true;
+      ctx3.beginPath();
+      pos3.x = e.touches[0].pageX - rect3.left
+      pos3.y = e.touches[0].pageY - rect3.top
+      ctx3.moveTo(pos3.x, pos3.y);
+  }
+  function draw3(e){
+      ctx3.lineTo(e.offsetX, e.offsetY);
+      pos3.x = e.offsetX;
+      pos3.y = e.offsetY;
+      ctx3.stroke();
+  }
+  function touch3(e){
+      ctx3.lineTo(e.touches[0].pageX - rect3.left, e.touches[0].pageY - rect3.top);
+      pos3.x = e.touches[0].pageX - rect3.left;
+      pos3.y = e.touches[0].pageY - rect3.top;
+      ctx3.stroke();
+  }
+  function drawEnd3(){
+      pos3.drawable = false;
+      pos3.x = -1;
+      pos3.y = -1;
+  }
+
+
+      // canvas4
+      
+      var pos4 = {
+      drawable2 : false,
+      x4 : -1,
+      y4 : -1,
+  };
+  var canvas4 = document.getElementById('canvas4');
+  var ctx4 = canvas4.getContext('2d');
+  var rect4 = canvas4.getBoundingClientRect();  // 터치 스크린
+
+
+// 스타일 추가
+  ctx4.lineWidth = 3;
+  ctx4.lineCap = 'round';
+  ctx4.lineJoin = 'round';
+
+  function colorChange(color){
+      ctx4.strokeStyle = color;
+  } 
+
+  canvas4.addEventListener("mousedown", listener4);
+  canvas4.addEventListener("mousemove", listener4);
+  canvas4.addEventListener("mouseup", listener4);
+  canvas4.addEventListener("mouseout", listener4);
+  
+  /// 터치 스크린
+  canvas4.addEventListener("touchstart", listener4);
+  canvas4.addEventListener("touchmove", listener4);
+  canvas4.addEventListener("touchend", listener4);
+
+  
+  function listener4(e){
+      switch(e.type){
+          case "mousedown":
+              drawStart4(e);
+              break;
+          case "mousemove":
+              if(pos4.drawable){
+                  draw4(e);
+              }
+              break;
+          case "mouseout":
+          case "mouseup":
+              drawEnd4();
+              break;
+          case "touchstart":
+              touchStart4(e);
+              break;
+          case "touchmove":
+              if(pos4.drawable)
+                  touch4(e);
+              break;
+          case "touchend":
+              drawEnd4();
+              break;
+          default:
+      }
+  }
+  
+  function drawStart4(e){
+      pos4.drawable = true;
+      ctx4.beginPath();
+      pos4.x = e.offsetX;
+      pos4.y = e.offsetY;
+      ctx4.moveTo(pos4.x, pos4.y);
+  }
+  function touchStart4(e){
+      pos4.drawable = true;
+      ctx4.beginPath();
+      pos4.x = e.touches[0].pageX - rect4.left
+      pos4.y = e.touches[0].pageY - rect4.top
+      ctx4.moveTo(pos4.x, pos4.y);
+  }
+  function draw4(e){
+      ctx4.lineTo(e.offsetX, e.offsetY);
+      pos4.x = e.offsetX;
+      pos4.y = e.offsetY;
+      ctx4.stroke();
+  }
+  function touch4(e){
+      ctx4.lineTo(e.touches[0].pageX - rect4.left, e.touches[0].pageY - rect4.top);
+      pos4.x = e.touches[0].pageX - rect4.left;
+      pos4.y = e.touches[0].pageY - rect4.top;
+      ctx4.stroke();
+  }
+  function drawEnd4(){
+      pos4.drawable = false;
+      pos4.x = -1;
+      pos4.y = -1;
+  }
+
+
+          // canvas5
+      
+          var pos5 = {
+      drawable2 : false,
+      x5 : -1,
+      y5 : -1,
+  };
+  var canvas5 = document.getElementById('canvas5');
+  var ctx5 = canvas5.getContext('2d');
+  var rect5 = canvas5.getBoundingClientRect();  // 터치 스크린
+
+
+// 스타일 추가
+  ctx5.lineWidth = 3;
+  ctx5.lineCap = 'round';
+  ctx5.lineJoin = 'round';
+
+  function colorChange(color){
+      ctx5.strokeStyle = color;
+  } 
+
+  canvas5.addEventListener("mousedown", listener5);
+  canvas5.addEventListener("mousemove", listener5);
+  canvas5.addEventListener("mouseup", listener5);
+  canvas5.addEventListener("mouseout", listener5);
+  
+  /// 터치 스크린
+  canvas5.addEventListener("touchstart", listener5);
+  canvas5.addEventListener("touchmove", listener5);
+  canvas5.addEventListener("touchend", listener5);
+
+  
+  function listener5(e){
+      switch(e.type){
+          case "mousedown":
+              drawStart5(e);
+              break;
+          case "mousemove":
+              if(pos5.drawable){
+                  draw5(e);
+              }
+              break;
+          case "mouseout":
+          case "mouseup":
+              drawEnd5();
+              break;
+          case "touchstart":
+              touchStart5(e);
+              break;
+          case "touchmove":
+              if(pos5.drawable)
+                  touch5(e);
+              break;
+          case "touchend":
+              drawEnd5();
+              break;
+          default:
+      }
+  }
+  
+  function drawStart5(e){
+      pos5.drawable = true;
+      ctx5.beginPath();
+      pos5.x = e.offsetX;
+      pos5.y = e.offsetY;
+      ctx5.moveTo(pos5.x, pos5.y);
+  }
+  function touchStart5(e){
+      pos5.drawable = true;
+      ctx5.beginPath();
+      pos5.x = e.touches[0].pageX - rect5.left
+      pos5.y = e.touches[0].pageY - rect5.top
+      ctx5.moveTo(pos5.x, pos5.y);
+  }
+  function draw5(e){
+      ctx5.lineTo(e.offsetX, e.offsetY);
+      pos5.x = e.offsetX;
+      pos5.y = e.offsetY;
+      ctx5.stroke();
+  }
+  function touch5(e){
+      ctx5.lineTo(e.touches[0].pageX - rect5.left, e.touches[0].pageY - rect5.top);
+      pos5.x = e.touches[0].pageX - rect5.left;
+      pos5.y = e.touches[0].pageY - rect5.top;
+      ctx5.stroke();
+  }
+  function drawEnd5(){
+      pos5.drawable = false;
+      pos5.x = -1;
+      pos5.y = -1;
+  }
+
+
+  // canvas6
+      
+  var pos6 = {
+      drawable2 : false,
+      x6 : -1,
+      y6 : -1,
+  };
+  var canvas6 = document.getElementById('canvas6');
+  var ctx6 = canvas6.getContext('2d');
+  var rect6 = canvas6.getBoundingClientRect();  // 터치 스크린
+
+
+// 스타일 추가
+  ctx6.lineWidth = 3;
+  ctx6.lineCap = 'round';
+  ctx6.lineJoin = 'round';
+
+  function colorChange(color){
+      ctx6.strokeStyle = color;
+  } 
+
+  canvas6.addEventListener("mousedown", listener6);
+  canvas6.addEventListener("mousemove", listener6);
+  canvas6.addEventListener("mouseup", listener6);
+  canvas6.addEventListener("mouseout", listener6);
+  
+  /// 터치 스크린
+  canvas6.addEventListener("touchstart", listener6);
+  canvas6.addEventListener("touchmove", listener6);
+  canvas6.addEventListener("touchend", listener6);
+
+  
+  function listener6(e){
+      switch(e.type){
+          case "mousedown":
+              drawStart6(e);
+              break;
+          case "mousemove":
+              if(pos6.drawable){
+                  draw6(e);
+              }
+              break;
+          case "mouseout":
+          case "mouseup":
+              drawEnd6();
+              break;
+          case "touchstart":
+              touchStart6(e);
+              break;
+          case "touchmove":
+              if(pos6.drawable)
+                  touch6(e);
+              break;
+          case "touchend":
+              drawEnd6();
+              break;
+          default:
+      }
+  }
+  
+  function drawStart6(e){
+      pos6.drawable = true;
+      ctx6.beginPath();
+      pos6.x = e.offsetX;
+      pos6.y = e.offsetY;
+      ctx6.moveTo(pos6.x, pos6.y);
+  }
+  function touchStart6(e){
+      pos6.drawable = true;
+      ctx6.beginPath();
+      pos6.x = e.touches[0].pageX - rect6.left
+      pos6.y = e.touches[0].pageY - rect6.top
+      ctx6.moveTo(pos6.x, pos6.y);
+  }
+  function draw6(e){
+      ctx6.lineTo(e.offsetX, e.offsetY);
+      pos6.x = e.offsetX;
+      pos6.y = e.offsetY;
+      ctx6.stroke();
+  }
+  function touch6(e){
+      ctx6.lineTo(e.touches[0].pageX - rect6.left, e.touches[0].pageY - rect6.top);
+      pos6.x = e.touches[0].pageX - rect6.left;
+      pos6.y = e.touches[0].pageY - rect6.top;
+      ctx6.stroke();
+  }
+  function drawEnd6(){
+      pos6.drawable = false;
+      pos6.x = -1;
+      pos6.y = -1;
+  }
+
+</script>
+
 
 
 <script>
