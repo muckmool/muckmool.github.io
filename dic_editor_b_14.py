@@ -92,6 +92,150 @@ def update():
     entry01.insert(0, "업뎃완료")
 
 
+def search_hangul4():
+    data = g_data
+
+    max = len(data['dictionary'])
+    h_temp = entry91.get()
+    result = max - 1
+
+
+    entry01.delete(0,"end")
+    entry01.insert(0,"없음")
+    entry00.delete(0,"end")
+    entry1.delete(0,"end")
+    entry2.delete(0,"end")
+    entry101.delete(0,"end")
+    entry31.delete(0,"end")
+    entry41.delete(0,"end")
+    entry51.delete(0,"end")
+    entry61.delete(0,"end")
+    entry71.delete(0,"end")
+    entry81.delete(0,"end")
+
+    search_result = FALSE
+
+
+    for i in range(0,max):
+        search = data['dictionary'][i]['china']
+        if h_temp in search: search_result = TRUE
+
+        search = data['dictionary'][i]['china_s']
+        if h_temp in search: search_result = TRUE
+
+        search = data['dictionary'][i]['japan_k']
+        if h_temp in search: search_result = TRUE
+
+        search = data['dictionary'][i]['japan_m']
+        if h_temp in search: search_result = TRUE
+
+        search = data['dictionary'][i]['japan_s']
+        if h_temp in search: search_result = TRUE
+
+        search = data['dictionary'][i]['english']
+        if h_temp in search: search_result = TRUE
+
+        search = data['dictionary'][i]['exp']
+        if h_temp in search: search_result = TRUE
+
+        if(search_result == TRUE):
+            result = i
+            search_result = TRUE
+            break
+
+    if(search_result == TRUE):
+        i = result
+        search_result = TRUE
+        entry01.delete(0,"end")
+        entry01.insert(0,"조회완료")
+        entry00.delete(0,"end")
+        entry00.insert(0,result)
+        entry1.insert(0,data['dictionary'][i]['hangul'])
+        entry2.delete(0,"end")
+        entry2.insert(0,data['dictionary'][i]['hanja'])
+        entry101.delete(0,"end")
+        entry101.insert(0,data['dictionary'][i]['exp'])
+        entry31.delete(0,"end")
+        entry31.insert(0,data['dictionary'][i]['english'])
+        entry41.delete(0,"end")
+        entry41.insert(0,data['dictionary'][i]['china'])
+        entry51.delete(0,"end")
+        entry51.insert(0,data['dictionary'][i]['china_s'])
+        entry61.delete(0,"end")
+        entry61.insert(0,data['dictionary'][i]['japan_k'])
+        entry71.delete(0,"end")
+        entry71.insert(0,data['dictionary'][i]['japan_m'])
+        entry81.delete(0,"end")
+        entry81.insert(0,data['dictionary'][i]['japan_s'])
+
+
+def search_hangul3():
+    data = g_data2
+
+    max = len(data['dictionary'])
+    h_temp = entry91.get()
+    result = max - 1
+
+
+    entry01.delete(0,"end")
+    entry01.insert(0,"없음")
+    entry00.delete(0,"end")
+    entry1.delete(0,"end")
+    entry2.delete(0,"end")
+    entry101.delete(0,"end")
+    entry31.delete(0,"end")
+    entry41.delete(0,"end")
+    entry51.delete(0,"end")
+    entry61.delete(0,"end")
+    entry71.delete(0,"end")
+    entry81.delete(0,"end")
+
+
+    search_result = FALSE
+
+
+    for i in range(0,max):
+        search = data['dictionary'][i]['china']
+        if h_temp in search: search_result = TRUE
+
+        search = data['dictionary'][i]['japan']
+        if h_temp in search: search_result = TRUE
+
+        search = data['dictionary'][i]['english']
+        if h_temp in search: search_result = TRUE
+
+        search = data['dictionary'][i]['exp']
+        if h_temp in search: search_result = TRUE
+
+        if(search_result == TRUE):
+            result = i
+            search_result = TRUE
+            break
+
+    if(search_result == TRUE):
+        i = result
+        entry01.delete(0,"end")
+        entry01.insert(0,"조회완료")
+        entry00.delete(0,"end")
+        #entry00.insert(0,result)
+        entry1.insert(0,data['dictionary'][i]['hangul'])
+        entry2.delete(0,"end")
+        entry2.insert(0,data['dictionary'][i]['hanja'])
+        entry101.delete(0,"end")
+        entry101.insert(0,data['dictionary'][i]['exp'])
+        entry31.delete(0,"end")
+        entry31.insert(0,data['dictionary'][i]['english'])
+        entry41.delete(0,"end")
+        entry41.insert(0,data['dictionary'][i]['china'])
+        entry51.delete(0,"end")
+        entry61.delete(0,"end")
+        entry71.delete(0,"end")
+        entry71.insert(0,data['dictionary'][i]['japan'])
+        entry81.delete(0,"end")
+
+    if(search_result == FALSE):
+        search_hangul4()
+
 
 def search_hangul2():
     data = g_data2
@@ -113,6 +257,9 @@ def search_hangul2():
     entry61.delete(0,"end")
     entry71.delete(0,"end")
     entry81.delete(0,"end")
+
+
+    search_result = FALSE
 
 
     for i in range(0,max):
@@ -137,7 +284,11 @@ def search_hangul2():
             entry71.delete(0,"end")
             entry71.insert(0,data['dictionary'][i]['japan'])
             entry81.delete(0,"end")
+            search_result = TRUE
             break
+    
+    if(search_result == FALSE):
+        search_hangul3()
 
 
 def search_hangul():
