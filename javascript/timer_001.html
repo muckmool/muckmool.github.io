@@ -1,0 +1,21 @@
+<html>
+<p id ="result">0</p>
+</html>
+
+<script>
+
+function fun(){
+var txt = document.getElementById('result').innerText;
+
+var i = parseInt(txt);
+i = i + 1;
+txt = i.toString();
+
+//console.log(txt);
+
+document.getElementById('result').innerHTML = txt;
+}
+
+setInterval(fun, 1000);
+
+</script>

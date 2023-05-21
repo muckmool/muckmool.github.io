@@ -1,0 +1,50 @@
+
+<h2 id="demo"></h2>
+
+                
+<br>
+<canvas id="canvas" width=1500 height=1500 style="border: 2px solid; cursor: crosshair;"></canvas>
+
+
+<br>
+PenSize <span id="lineWidth">3</span><input type="range" id="penSize" min="1" max="30" value="3">
+
+
+<br>
+<button onclick="canvas.undo()">Undo</button>
+<button onclick="canvas.redo()">Redo</button>
+              
+
+<script type="text/javascript" src="handwriting.canvas.js"></script>
+
+<script type="text/javascript" defer>
+    var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
+    var width = document.getElementById("demo").clientWidth
+    canvas.cxt.canvas.width  =  window.innerWidth - 20;
+    canvas.cxt.canvas.height = window.innerHeight - 100;
+
+
+    canvas.setCallBack(function(data, err) {
+    if (err) throw err;
+    else document.getElementById("result").innerHTML = "<font size = 15px>&nbsp" + data + "</font>";
+    });
+
+
+    canvas.set_Undo_Redo(true, true);
+    var penSize = document.getElementById("penSize");
+    penSize.addEventListener("mousemove", function() {
+    document.getElementById("lineWidth").innerHTML = penSize.value;
+    });
+
+    
+    penSize.addEventListener("change", function(){
+    canvas.setLineWidth(penSize.value);
+    });
+
+</script>
+
+ 
+ 
+
+
+
