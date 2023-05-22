@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1 class = "h1-date"></h1>
+    <h1 class = "h1-clock"></h1>
+    
+    <script>
+        const clock = document.querySelector('.h1-clock');
+        const date = document.querySelector('.h1-date');
+
+        function getTime(){
+            const time = new Date();
+            const hour = time.getHours();
+            const minutes = time.getMinutes();
+            const seconds = time.getSeconds();
+            
+            var year = time.getFullYear();
+            var month = time.getMonth()+1;
+            var day = time.getDate();
+            //clock.innerHTML = hour +":" + minutes + ":"+seconds;
+            clock.innerHTML = `${hour<10 ? `0${hour}`:hour} : ${minutes<10 ? `0${minutes}`:minutes} : ${seconds<10 ? `0${seconds}`:seconds}`;
+            date.innerHTML = year + "년 " + month + "월 " + day + "일";
+        }
+
+
+        function init(){
+            setInterval(getTime, 1000);
+        }
+
+        init();
+
+    </script>
+    
+</body>
+</html>
