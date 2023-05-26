@@ -12,20 +12,23 @@ from tkinter import *            # tkinter 라이브러리에 모든 함수를 �
 
 
 
-
 def search_hanja(): 
         with open ("data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
-        max = len(data['dictionary'])
+        global g_data
+
+        g_data = data
+
+        max = len(g_data['dictionary'])
 
         temp2 = pyperclip.paste()
 
         temp4 = "없음"
 
         for i in range(max):
-            if(temp2 == data['dictionary'][i]['hanja']):
-                temp4 = data['dictionary'][i]['hanja']
+            if(temp2 == g_data['dictionary'][i]['hanja'] or temp2 == g_data['dictionary'][i]['hangul'] or temp2 == g_data['dictionary'][i]['japan']):
+                temp4 = g_data['dictionary'][i]['hanja']
                 break      
             else: 
                 i = i + 1
@@ -34,18 +37,16 @@ def search_hanja():
 
 
 def search_hangul(): 
-        with open ("data3.json", "r", encoding = 'utf-8') as f:
-            data = json.load(f)
 
-        max = len(data['dictionary'])
+        max = len(g_data['dictionary'])
 
         temp2 = pyperclip.paste()
 
         temp4 = "없음"
 
         for i in range(max):
-            if(temp2 == data['dictionary'][i]['hanja']):
-                temp4 = data['dictionary'][i]['hangul']
+            if(temp2 == g_data['dictionary'][i]['hanja']):
+                temp4 = g_data['dictionary'][i]['hangul']
                 break      
             else: 
                 i = i + 1
@@ -55,18 +56,16 @@ def search_hangul():
 
 
 def search_japan(): 
-        with open ("data3.json", "r", encoding = 'utf-8') as f:
-            data = json.load(f)
 
-        max = len(data['dictionary'])
+        max = len(g_data['dictionary'])
 
         temp2 = pyperclip.paste()
 
         temp4 = "없음"
 
         for i in range(max):
-            if(temp2 == data['dictionary'][i]['hanja']):
-                temp4 = data['dictionary'][i]['japan']
+            if(temp2 == g_data['dictionary'][i]['hanja']):
+                temp4 = g_data['dictionary'][i]['japan']
                 break      
             else: 
                 i = i + 1
@@ -75,18 +74,16 @@ def search_japan():
 
 
 def search_china(): 
-        with open ("data3.json", "r", encoding = 'utf-8') as f:
-            data = json.load(f)
 
-        max = len(data['dictionary'])
+        max = len(g_data['dictionary'])
 
         temp2 = pyperclip.paste()
 
         temp4 = "없음"
 
         for i in range(max):
-            if(temp2 == data['dictionary'][i]['hanja']):
-                temp4 = data['dictionary'][i]['china']
+            if(temp2 == g_data['dictionary'][i]['hanja']):
+                temp4 = g_data['dictionary'][i]['china']
                 break      
             else: 
                 i = i + 1
@@ -95,18 +92,16 @@ def search_china():
 
 
 def search_english(): 
-        with open ("data3.json", "r", encoding = 'utf-8') as f:
-            data = json.load(f)
 
-        max = len(data['dictionary'])
+        max = len(g_data['dictionary'])
 
         temp2 = pyperclip.paste()
 
         temp4 = "없음"
 
         for i in range(max):
-            if(temp2 == data['dictionary'][i]['hanja']):
-                temp4 = data['dictionary'][i]['english']
+            if(temp2 == g_data['dictionary'][i]['hanja']):
+                temp4 = g_data['dictionary'][i]['english']
                 break      
             else: 
                 i = i + 1
