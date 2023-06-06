@@ -22,12 +22,16 @@ def search_hanja():
 
         max = len(g_data['dictionary'])
 
+        global temp2
+
         temp2 = pyperclip.paste()
+
+        temp2 = temp2[0:20]
 
         temp4 = "없음"
 
         for i in range(max):
-            if(temp2 == g_data['dictionary'][i]['hanja'] or temp2 == g_data['dictionary'][i]['hangul'] or temp2 == g_data['dictionary'][i]['japan']):
+            if(temp2 == g_data['dictionary'][i]['hanja'] or temp2 == g_data['dictionary'][i]['hangul'] or temp2 == g_data['dictionary'][i]['japan'] or temp2 == g_data['dictionary'][i]['exp']):
                 temp4 = g_data['dictionary'][i]['hanja']
                 break      
             else: 
@@ -40,12 +44,12 @@ def search_hangul():
 
         max = len(g_data['dictionary'])
 
-        temp2 = pyperclip.paste()
+        #temp2 = pyperclip.paste()
 
         temp4 = "없음"
 
         for i in range(max):
-            if(temp2 == g_data['dictionary'][i]['hanja']):
+            if(temp2 == g_data['dictionary'][i]['hanja'] or temp2 == g_data['dictionary'][i]['hangul'] or temp2 == g_data['dictionary'][i]['japan'] or temp2 == g_data['dictionary'][i]['exp']):
                 temp4 = g_data['dictionary'][i]['hangul']
                 break      
             else: 
@@ -59,13 +63,13 @@ def search_japan():
 
         max = len(g_data['dictionary'])
 
-        temp2 = pyperclip.paste()
+        #temp2 = pyperclip.paste()
 
         temp4 = "없음"
 
         for i in range(max):
-            if(temp2 == g_data['dictionary'][i]['hanja']):
-                temp4 = g_data['dictionary'][i]['japan']
+            if(temp2 == g_data['dictionary'][i]['hanja'] or temp2 == g_data['dictionary'][i]['hangul'] or temp2 == g_data['dictionary'][i]['japan'] or temp2 == g_data['dictionary'][i]['exp']):
+                temp4 = g_data['dictionary'][i]['japan'] + " "+ g_data['dictionary'][i]['exp']
                 break      
             else: 
                 i = i + 1
@@ -77,12 +81,12 @@ def search_china():
 
         max = len(g_data['dictionary'])
 
-        temp2 = pyperclip.paste()
+        #temp2 = pyperclip.paste()
 
         temp4 = "없음"
 
         for i in range(max):
-            if(temp2 == g_data['dictionary'][i]['hanja']):
+            if(temp2 == g_data['dictionary'][i]['hanja'] or temp2 == g_data['dictionary'][i]['hangul'] or temp2 == g_data['dictionary'][i]['japan'] or temp2 == g_data['dictionary'][i]['exp']):
                 temp4 = g_data['dictionary'][i]['china']
                 break      
             else: 
@@ -95,12 +99,12 @@ def search_english():
 
         max = len(g_data['dictionary'])
 
-        temp2 = pyperclip.paste()
+        #temp2 = pyperclip.paste()
 
         temp4 = "없음"
 
         for i in range(max):
-            if(temp2 == g_data['dictionary'][i]['hanja']):
+            if(temp2 == g_data['dictionary'][i]['hanja'] or temp2 == g_data['dictionary'][i]['hangul'] or temp2 == g_data['dictionary'][i]['japan'] or temp2 == g_data['dictionary'][i]['exp']):
                 temp4 = g_data['dictionary'][i]['english']
                 break      
             else: 
@@ -118,7 +122,7 @@ class Clock():
 
         self.root = Tk()                      # 창을 생성
         self.root.wm_attributes("-topmost", 1)
-        self.root.geometry("661x71-10-200")       # 창 크기설정
+        self.root.geometry("661x71-10-450")       # 창 크기설정
         self.root.title("dictionary")    # 창 제목설정
         self.root.option_add("*Font","맑은고딕 13") # 폰트설정
         self.root.resizable(False, False)  # x, y 창 크기 변경 불가
@@ -131,6 +135,7 @@ class Clock():
 
         self.ent20 = Entry(self.root, width=40)
         self.ent21 = Entry(self.root, width=40)
+        #self.ent31 = Entry(self.root, width=40)
 
 
         self.ent00.grid(row=0,column=0)
@@ -141,6 +146,7 @@ class Clock():
 
         self.ent20.grid(row=2,column=0)
         self.ent21.grid(row=2,column=1)
+        #self.ent31.grid(row=3,column=1)
 
 
 
@@ -157,7 +163,12 @@ class Clock():
         
 
         global l_check, temp99
-        l_check = pyperclip.paste()
+
+        try:
+                l_check = pyperclip.paste()
+        except: 
+                print("클립보드에러")
+
                 
         if(l_check != temp99):
             #self.label0.configure(text=now)
@@ -183,9 +194,10 @@ class Clock():
             self.ent21.insert(0, search_english())
 
 
-        
-            
-                        
+        #self.ent31.delete(0, "end")
+        #self.ent31.insert(0, now)
+
+                
         self.root.after(1000, self.update_clock)
 
 app=Clock()
