@@ -579,6 +579,8 @@ def read():
 
 def write():
 
+    update()
+
     data = g_data
 
     #print(data['dictionary'][3])
