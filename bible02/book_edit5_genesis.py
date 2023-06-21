@@ -349,10 +349,10 @@ def previous():
 
 def trans_china():
 
-    with open ("dic/dic_china.json", "r", encoding = 'utf-8') as f:
+    with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
-    max = len(data['book'])
+    max = len(data['dictionary'])
 
 
     if(entry2.get("1.0", "end-1c") != None):
@@ -370,8 +370,8 @@ def trans_china():
         for i in range(0,len(lst)):
             temp2 = lst[i]
             for j in range(0,max):
-                if(data['book'][j]['hanja'] == temp2):
-                    temp2 = data['book'][j]['um']                     
+                if(data['dictionary'][j]['hanja'] == temp2):
+                    temp2 = data['dictionary'][j]['china']                     
                     break
 
             string = string + temp2 + "_"
@@ -385,10 +385,10 @@ def trans_china():
 
 def trans_japan():
 
-    with open ("dic/dic_japan.json", "r", encoding = 'utf-8') as f:
+    with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
-    max = len(data['book'])
+    max = len(data['dictionary'])
 
 
     if(entry4.get("1.0", "end-1c") != None):
@@ -400,13 +400,20 @@ def trans_japan():
         lst = []
         string = ""
 
+        # 특수 문자 삭제
+        temp = temp.replace('．','')
+        temp = temp.replace('，','')
+        temp = temp.replace('「','')
+        temp = temp.replace('」','')
+
+
         temp = temp.split(" ")
 
         for i in range(0,len(temp)):
             temp2 = temp[i]
             for j in range(0,max):
-                if(data['book'][j]['kanji'] == temp2):
-                    temp2 = data['book'][j]['hira']                     
+                if(data['dictionary'][j]['hanja'] == temp2):
+                    temp2 = data['dictionary'][j]['japan']                     
                     break
             string = string + temp2 + "_"
         
