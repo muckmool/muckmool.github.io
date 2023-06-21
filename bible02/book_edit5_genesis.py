@@ -393,12 +393,7 @@ def trans_japan():
 
     if(entry4.get("1.0", "end-1c") != None):
 
-        entry5.delete("1.0", "end-1c")
-
         temp = entry4.get("1.0", "end-1c")
-
-        lst = []
-        string = ""
 
         # 특수 문자 삭제
         temp = temp.replace('．','')
@@ -406,6 +401,16 @@ def trans_japan():
         temp = temp.replace('「','')
         temp = temp.replace('」','')
 
+        entry4.delete("1.0", "end-1c")
+        entry4.insert(tkinter.END, temp)
+
+
+        entry5.delete("1.0", "end-1c")
+
+        temp = entry4.get("1.0", "end-1c")
+
+        lst = []
+        string = ""
 
         temp = temp.split(" ")
 

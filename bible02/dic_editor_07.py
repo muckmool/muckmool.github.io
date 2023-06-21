@@ -185,7 +185,7 @@ def update():
 
 
 def search_hangul():
-    #with open ("dic_japan/data3.json", "r", encoding = 'utf-8') as f:
+    #with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -246,7 +246,7 @@ def search_hangul():
 
     
 def search_exp():
-    #with open ("dic_japan/data3.json", "r", encoding = 'utf-8') as f:
+    #with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -307,7 +307,7 @@ def search_exp():
 
 
 def search_hanja():
-    #with open ("dic_japan/data3.json", "r", encoding = 'utf-8') as f:
+    #with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -368,7 +368,7 @@ def search_hanja():
 
     
 def search_each_hanja():
-    #with open ("dic_japan/data3.json", "r", encoding = 'utf-8') as f:
+    #with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -451,7 +451,7 @@ def search_each_hanja():
 
 
 def next():
-    #with open ("dic_japan/data3.json", "r", encoding = 'utf-8') as f:
+    #with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -505,7 +505,7 @@ def next():
 
 
 def previous():
-    #with open ("dic_japan/data3.json", "r", encoding = 'utf-8') as f:
+    #with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -559,7 +559,7 @@ def previous():
 
 
 def search_seq():
-    #with open ("dic_japan/data3.json", "r", encoding = 'utf-8') as f:
+    #with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
 
     data = g_data
@@ -622,7 +622,7 @@ def search_seq():
 
 
 def read():
-    with open ("dic_japan/data3.json", "r", encoding = 'utf-8') as f:
+    with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     global g_data
@@ -658,7 +658,7 @@ def write():
 
     #print(max)
 
-    f = open("dic_japan/data3.json", 'w', encoding = 'utf-8')
+    f = open("dic/data3.json", 'w', encoding = 'utf-8')
     f.write(string)
     f.close()
 

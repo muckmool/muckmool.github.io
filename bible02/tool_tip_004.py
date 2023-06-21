@@ -13,7 +13,7 @@ from tkinter import *            # tkinter 라이브러리에 모든 함수를 �
 
 
 def search_hanja(): 
-        with open ("dic_japan/data3.json", "r", encoding = 'utf-8') as f:
+        with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
             data = json.load(f)
 
         global g_data
