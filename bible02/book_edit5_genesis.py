@@ -4,9 +4,14 @@ import tkinter.font
 
 
 tk = Tk()
-tk.geometry("920x910+750+100")
+tk.geometry("920x780+750+50")
+font4 = tkinter.font.Font(family="Consolas", size=11)
+font5 = tkinter.font.Font(family="Consolas", size=22)
 font1 = tkinter.font.Font(family="Consolas", size=12)
+font6 = tkinter.font.Font(family="Consolas", size=13)
 font2 = tkinter.font.Font(family="Consolas", size=14)
+font3 = tkinter.font.Font(family="Consolas", size=15)
+font7 = tkinter.font.Font(family="Consolas", size=16)
 tk.title('Bible')
 tk.wm_attributes("-topmost", 1)
 
@@ -396,10 +401,11 @@ def trans_japan():
         temp = entry4.get("1.0", "end-1c")
 
         # 특수 문자 삭제
-        temp = temp.replace('．','')
-        temp = temp.replace('，','')
+        temp = temp.replace('．',' .')
+        temp = temp.replace('，',' ,')
         temp = temp.replace('「','')
         temp = temp.replace('」','')
+        temp = temp.replace('¿','々')
 
         entry4.delete("1.0", "end-1c")
         entry4.insert(tkinter.END, temp)
@@ -611,12 +617,12 @@ entry01 = Entry(tk, width=10, font=font1)
 entry1 = Entry(tk, width=15, font=font1)
 entry00 = Entry(tk, width=15, font=font1)
 
-entry2 = Text(tk, width=72, height =6, font=font2)
-entry3 = Text(tk, width=80, height =7, font=font1)
-entry4 = Text(tk, width=72, height =6, font=font2)
-entry5 = Text(tk, width=72, height =7, font=font2)
-entry6 = Text(tk, width=80, height =7, font=font1)
-entry7 = Text(tk, width=80, height =7, font=font1)
+entry2 = Text(tk, width=45, height =4, font=font5)
+entry3 = Text(tk, width=90, height =4, font=font4)
+entry4 = Text(tk, width=60, height =5, font=font7)
+entry5 = Text(tk, width=73, height =5, font=font2)
+entry6 = Text(tk, width=73, height =5, font=font2)
+entry7 = Text(tk, width=73, height =5, font=font2)
 
 
 entry_book.grid(row=0,column=1)

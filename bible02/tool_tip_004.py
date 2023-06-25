@@ -122,19 +122,19 @@ class Clock():
 
         self.root = Tk()                      # 창을 생성
         self.root.wm_attributes("-topmost", 1)
-        self.root.geometry("661x71-10-450")       # 창 크기설정
+        self.root.geometry("561x71-10-450")       # 창 크기설정
         self.root.title("dictionary")    # 창 제목설정
-        self.root.option_add("*Font","맑은고딕 13") # 폰트설정
+        self.root.option_add("*Font","맑은고딕 15") # 폰트설정
         self.root.resizable(False, False)  # x, y 창 크기 변경 불가
 
-        self.ent00 = Entry(self.root, width=40)
-        self.ent01 = Entry(self.root, width=40)
+        self.ent00 = Entry(self.root, width=25)
+        self.ent01 = Entry(self.root, width=25)
 
-        self.ent10 = Entry(self.root, width=40)
-        self.ent11 = Entry(self.root, width=40)
+        self.ent10 = Entry(self.root, width=25)
+        self.ent11 = Entry(self.root, width=25)
 
-        self.ent20 = Entry(self.root, width=40)
-        self.ent21 = Entry(self.root, width=40)
+        self.ent20 = Entry(self.root, width=25)
+        self.ent21 = Entry(self.root, width=25)
         #self.ent31 = Entry(self.root, width=40)
 
 

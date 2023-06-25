@@ -9,6 +9,8 @@ import atexit
 tk = Tk()
 tk.geometry("500x240+1150+650")
 font1 = tkinter.font.Font(family="Consolas", size=12)
+font2 = tkinter.font.Font(family="Consolas", size=15)
+
 tk.title('사전')
 tk.wm_attributes("-topmost", 1)
 
@@ -697,7 +699,7 @@ label21 = Label(tk,text=' ', font=font1).grid(row=8,column=0)
 entry00 = Entry(tk, width=15, font=font1)
 entry01 = Entry(tk, width=6, font=font1)
 
-entry2 = Entry(tk, width=40, font=font1)
+entry2 = Entry(tk, width=33, font=font2)
 
 entry31 = Entry(tk, width=40, font=font1)
 entry41 = Entry(tk, width=40, font=font1)
@@ -716,7 +718,7 @@ entry82 = Entry(tk, width=6, font=font1)
 entry9 = Entry(tk, width=40, font=font1)
 entry1 = Entry(tk, width=40, font=font1)
 entry10 = Entry(tk, width=40, font=font1)
-entry11 = Entry(tk, width=40, font=font1)
+entry11 = Entry(tk, width=33, font=font2)
 entry12 = Entry(tk, width=40, font=font1)
 
 entry00.grid(row=0,column=1)
