@@ -69,7 +69,7 @@ def search_japan():
 
         for i in range(max):
             if(temp2 == g_data['dictionary'][i]['hanja'] or temp2 == g_data['dictionary'][i]['hangul'] or temp2 == g_data['dictionary'][i]['japan'] or temp2 == g_data['dictionary'][i]['exp']):
-                temp4 = g_data['dictionary'][i]['japan'] + " "+ g_data['dictionary'][i]['exp']
+                temp4 = g_data['dictionary'][i]['japan']
                 break      
             else: 
                 i = i + 1
@@ -113,6 +113,23 @@ def search_english():
         return temp4
 
 
+def search_exp(): 
+
+        max = len(g_data['dictionary'])
+
+        #temp2 = pyperclip.paste()
+
+        temp4 = "없음"
+
+        for i in range(max):
+            if(temp2 == g_data['dictionary'][i]['hanja'] or temp2 == g_data['dictionary'][i]['hangul'] or temp2 == g_data['dictionary'][i]['japan'] or temp2 == g_data['dictionary'][i]['exp']):
+                temp4 = g_data['dictionary'][i]['exp']
+                break      
+            else: 
+                i = i + 1
+
+        return temp4
+
 
 class Clock():
     def __init__(self):
@@ -122,7 +139,7 @@ class Clock():
 
         self.root = Tk()                      # 창을 생성
         self.root.wm_attributes("-topmost", 1)
-        self.root.geometry("561x71-10-450")       # 창 크기설정
+        self.root.geometry("561x71-50-450")       # 창 크기설정
         self.root.title("dictionary")    # 창 제목설정
         self.root.option_add("*Font","맑은고딕 15") # 폰트설정
         self.root.resizable(False, False)  # x, y 창 크기 변경 불가
@@ -176,22 +193,22 @@ class Clock():
             temp99 = l_check
 
             self.ent00.delete(0, "end")
-            self.ent00.insert(0, temp99)
-
-            self.ent01.delete(0, "end")
-            self.ent01.insert(0, search_hanja())
+            self.ent00.insert(0, search_hanja())
 
             self.ent10.delete(0, "end")
             self.ent10.insert(0, search_japan())
 
-            self.ent11.delete(0, "end")
-            self.ent11.insert(0, search_china())
-
             self.ent20.delete(0, "end")
-            self.ent20.insert(0, search_hangul())
+            self.ent20.insert(0, search_exp())
+
+            self.ent01.delete(0, "end")
+            self.ent01.insert(0, search_hangul())
+
+            self.ent11.delete(0, "end")
+            self.ent11.insert(0, search_english())
 
             self.ent21.delete(0, "end")
-            self.ent21.insert(0, search_english())
+            self.ent21.insert(0, search_china())
 
 
         #self.ent31.delete(0, "end")
