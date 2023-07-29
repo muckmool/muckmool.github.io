@@ -7,7 +7,7 @@ import atexit
 
 
 tk = Tk()
-tk.geometry("500x190-70+620")
+tk.geometry("500x190-600-60")
 font1 = tkinter.font.Font(family="Consolas", size=12)
 font2 = tkinter.font.Font(family="Consolas", size=15)
 
