@@ -4,7 +4,8 @@ import tkinter.font
 
 
 tk = Tk()
-tk.geometry("920x780+750+50")
+tk.geometry("830x680-30+50")
+font8 = tkinter.font.Font(family="Consolas", size=8)
 font4 = tkinter.font.Font(family="Consolas", size=11)
 font5 = tkinter.font.Font(family="Consolas", size=22)
 font1 = tkinter.font.Font(family="Consolas", size=12)
@@ -613,24 +614,26 @@ label8 = Label(tk,text='영어', font=font1).grid(row=8, column=0)
 # 각 단위 입력받는 부분 만들기
 entry_book_no = Entry(tk, width=5, font=font1)
 entry_book = Entry(tk, width=80, font=font1)
-entry01 = Entry(tk, width=10, font=font1)
-entry1 = Entry(tk, width=15, font=font1)
-entry00 = Entry(tk, width=15, font=font1)
+entry01 = Entry(tk, width=8, font=font8)
+entry1 = Entry(tk, width=30, font=font1)
+entry00 = Entry(tk, width=30, font=font1)
 
 entry2 = Text(tk, width=45, height =4, font=font5)
 entry3 = Text(tk, width=90, height =4, font=font4)
-entry4 = Text(tk, width=60, height =5, font=font7)
-entry5 = Text(tk, width=73, height =5, font=font2)
-entry6 = Text(tk, width=73, height =5, font=font2)
-entry7 = Text(tk, width=73, height =5, font=font2)
+entry4 = Text(tk, width=60, height =4, font=font7)
+entry5 = Text(tk, width=73, height =4, font=font2)
+entry6 = Text(tk, width=73, height =4, font=font2)
+entry7 = Text(tk, width=73, height =4, font=font2)
 
 
 entry_book.grid(row=0,column=1)
-entry_book_no.grid(row=0,column=2)
+entry01.grid(row=0, column=2)
+#entry_book_no.grid(row=0,column=2)
 
 entry1.grid(row=1,column=1)
+
 entry00.grid(row=2,column=1)
-entry01.grid(row=2, column=2)
+
 entry2.grid(row=3,column=1)
 entry3.grid(row=4,column=1)
 entry4.grid(row=5,column=1)
@@ -644,20 +647,20 @@ entry_book.delete(0,"end")
 entry_book.insert(tkinter.END, "창세기  Genesis  创世纪  創世記")
 
 
-btn8 = Button(tk,text='책번호',bg='black',fg='white',command=search_book).grid(row=0,column=3)
-btn8 = Button(tk,text='장절조회',bg='black',fg='white',command=search_cv).grid(row=1,column=2)
-btn1 = Button(tk,text='seq조회',bg='black',fg='white',command=search_seq).grid(row=2,column=3)
+#btn8 = Button(tk,text='책번호',bg='black',fg='white',command=search_book).grid(row=0,column=3)
+btn8 = Button(tk,text='장절',bg='black',fg='white',command=search_cv).grid(row=1,column=1)
+btn1 = Button(tk,text='seq',bg='black',fg='white',command=search_seq).grid(row=2,column=1)
 
 btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=3,column=2)
-btn7 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=3,column=3)
+btn7 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=5,column=2)
 
-btn4 = Button(tk,text='중국병음',bg='black',fg='white',command=trans_china).grid(row=4,column=2)
-btn3 = Button(tk,text='삭제',bg='black',fg='white',command=delete).grid(row=4, column=3)
+btn4 = Button(tk,text='병음',bg='yellow',fg='black',command=trans_china).grid(row=4,column=2)
+btn3 = Button(tk,text='삭제',bg='orange',fg='white',command=delete).grid(row=1, column=2)
 
-btn5 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=5,column=3)
-btn4 = Button(tk,text='일본발음',bg='black',fg='white',command=trans_japan).grid(row=6,column=2)
+btn5 = Button(tk,text='수정',bg='blue',fg='white',command=update).grid(row=7,column=2)
+btn4 = Button(tk,text='히라',bg='yellow',fg='black',command=trans_japan).grid(row=6,column=2)
 
-btn2 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=7,column=3)
+btn2 = Button(tk,text='신규',bg='green',fg='white',command=new).grid(row=8,column=2)
 
 
 

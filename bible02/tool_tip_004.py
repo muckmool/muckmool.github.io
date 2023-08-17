@@ -141,7 +141,7 @@ class Clock():
 
         self.root = Tk()                      # 창을 생성
         self.root.wm_attributes("-topmost", 1)
-        self.root.geometry("561x71-70-450")       # 창 크기설정
+        self.root.geometry("561x71-30-180")       # 창 크기설정
         self.root.title("dictionary")    # 창 제목설정
         self.root.option_add("*Font","맑은고딕 15") # 폰트설정
         self.root.resizable(False, False)  # x, y 창 크기 변경 불가
