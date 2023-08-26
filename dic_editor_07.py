@@ -758,7 +758,7 @@ btn4 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=10,co
 btn7 = Button(tk,text='복사',bg='black',fg='white',command=copy).grid(row=10,column=3)
 
 #btn4 = Button(tk,text='read',bg='black',fg='white',command=read).grid(row=12,column=2)
-btn1 = Button(tk,text='수정',bg='black',fg='white',command=batch).grid(row=12,column=2)
+btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=12,column=2)
 btn7 = Button(tk,text='write',bg='black',fg='white',command=write).grid(row=12,column=3)
 
 atexit.register(quit)
