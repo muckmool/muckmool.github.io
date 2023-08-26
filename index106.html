@@ -329,8 +329,13 @@ fetch('https://muckmool.github.io/data4.json')
         document.getElementById("japan").textContent = arr[i+15];
 
 
-        document.getElementById("address1").textContent = arr[i+17];
-        address = arr[i+17];
+        addr_temp = arr[i+17];
+        addr_temp = addr_temp.substring(17);
+
+        document.getElementById("address1").textContent = "https://www.youtube.com/embed/" + addr_temp + "?mute=1&autoplay=1";
+        address = "https://www.youtube.com/embed/" + addr_temp + "?mute=1&autoplay=1";
+
+        document.getElementById('y_tube').src = address;
 
 
     }
@@ -345,6 +350,11 @@ fetch('https://muckmool.github.io/data4.json')
     <title>hanja dictionary</title>
 
 </head>
+
+<p><span id="address1">.</span></p>
+
+<iframe id= "y_tube" width="560" height="315" src="https://www.youtube.com/embed/_jrx5w93lnM?si=wfoisKFbroqpzH-g?mute=1&autoplay=1"></iframe>
+
    
 <p>https://muckmool.tistory.com/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -362,60 +372,6 @@ fetch('https://muckmool.github.io/data4.json')
         &nbsp;<button onclick="increase(); refresh1(); search();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
 
 <p> 
-
-    <p>address = '<span id="address1">.</span>'</p>
-
-    <script>
-        address = 's8LdkezDKkQ?si=WDwdYu2Xi_KuuAwU'
-        </script>
-        
-            <div class="tt_article_useless_p_margin contents_style" align="center">
-                <div id="player">&nbsp;</div>
-                <p data-ke-size="size16">
-                <script src="https://www.youtube.com/iframe_api"></script>
-                </p>
-                <p data-ke-size="size16">
-                <script>
-                  var player;
-                  function onYouTubeIframeAPIReady(){
-                    player = new YT.Player('player',{
-                
-                     videoId: address,
-                
-                      playerVars:{'autoplay':1,'playsinline':1, 'loop':1},
-                      events:{ 'onReady':onPlayerReady }
-                    });
-                  }
-                  function onPlayerReady(e){	
-                    e.target.mute();
-                    e.target.playVideo();
-                    setTimeout(function(){e.target.unMute()},100);
-                  }
-                </script>
-                </p>
-                </div>
-                <div id="player">&nbsp;</div>
-                <script src="http://www.youtube.com/iframe_api"></script>
-                <script>
-                  var player;
-                  function onYouTubeIframeAPIReady(){
-                    player = new YT.Player('player',{
-                      width:'100%',
-                
-                      videoId: address,
-                
-                      playerVars:{'autoplay':1,'playsinline':1, 'loop':1},
-                      events:{ 'onReady':onPlayerReady }
-                    });
-                  }
-                
-                  function onPlayerReady(e){
-                    e.target.mute();
-                    e.target.playVideo();
-                  }
-                </script>
-
-
 
 
 <table style="border-collapse: collapse; width: 100%;" border="1" width="100%" text-align="center">
