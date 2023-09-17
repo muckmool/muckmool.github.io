@@ -55,8 +55,7 @@ fetch('https://muckmool.github.io/data3.json')
               
               document.getElementById("h60").textContent = ".";
               document.getElementById("h61").textContent = ".";
-              document.getElementById("c01").textContent = ".";
-              document.getElementById("c02").textContent = ".";
+              document.getElementById("c0").textContent = ".";
               document.getElementById("h1").textContent = ".";
               document.getElementById("c1").textContent = ".";
               document.getElementById("h2").textContent = ".";
@@ -165,10 +164,10 @@ fetch('https://muckmool.github.io/data3.json')
               
               document.getElementById("h60").textContent = arr[i+0];
               document.getElementById("h60").style.fontWeight = "900";
-              document.getElementById("c01").textContent = arr[i+1].substring(0,3);
+              document.getElementById("c0").textContent = arr[i+1];
+              document.getElementById("c0").style.fontSize = "50px"
+              document.getElementById("c01").textContent = arr[i+1];
               document.getElementById("c01").style.fontSize = "50px"
-              document.getElementById("c02").textContent = arr[i+1].substring(3);
-              document.getElementById("c02").style.fontSize = "50px"
               document.getElementById("h1").textContent = arr[i+0];
               
               document.getElementById("c1").textContent = arr[i+1];
@@ -324,7 +323,7 @@ fetch('https://muckmool.github.io/data3.json')
                                                       arr[m+0] + ", " +arr[m+2] + ", " +arr[m+4] + ", " +arr[m+6] + ", " +arr[m+8] + ", " +arr[m+10] + ", " +arr[m+12] +
                                                       arr[n+0] + ", " +arr[n+2] + ", " +arr[n+4] + ", " +arr[n+6] + ", " +arr[n+8] + ", " +arr[n+10] + ", " +arr[n+12] ;
 
-        document.getElementById("china").textContent = arr[i+16] + " / " +arr[i+14];
+        document.getElementById("china").textContent = arr[i+16] + " / " + arr[i+14];
         document.getElementById("japan").textContent = arr[i+15];
 
 
@@ -340,27 +339,8 @@ fetch('https://muckmool.github.io/data3.json')
     <title>hanja dictionary</title>
 
 </head>
-   
-<p>https://muckmool.tistory.com/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-               
-        <span id="seq"></span>
-        
-        &nbsp;<input id="input_01" style="width: 100px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" >
-        
-        &nbsp;<button onclick="search();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
-        
-        &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
-    
-        &nbsp;<button onclick="decrease(); refresh1(); search();" style="width: 70px; height: 35px; font-size: 15px;"> PREV </button>
-    
-        &nbsp;<button onclick="increase(); refresh1(); search();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
-
-
-          
-          
-   
-<p> 
+<p>https://muckmool.tistory.com/</p>
 
 <table style="border-collapse: collapse; width: 100%;" border="1" width="100%" text-align="center">
 <tbody>
@@ -377,7 +357,7 @@ fetch('https://muckmool.github.io/data3.json')
   </colgroup>
 
 <tr>
-<td align=center id="c01" rowspan="6" width="150"><font size="10">.</font></td>
+<td align=center id="c0" rowspan="6" width="150"><font size="10">.</font></td>
 <td align=center id="c1">.</td>
 <td align=center id="c2">.</td>
 <td align=center id="c3">.</td>
@@ -429,7 +409,7 @@ fetch('https://muckmool.github.io/data3.json')
 <td align=center id="h26">.</td>
 </tr>
 <tr>
-<td align=center id="c02" rowspan="6" width="150"><font size="10">.</font></td>
+<td align=center id="c01" rowspan="6" width="150" style="font-family: 'Liu Jian Mao Cao', cursive;"><font size="10">.</font></td>
 <td align=center id="c31">.</td>
 <td align=center id="c32">.</td>
 <td align=center id="c33">.</td>
@@ -488,35 +468,111 @@ fetch('https://muckmool.github.io/data3.json')
 <td align=center id="china" >.</td>
 <td align=left id="japan" colspan="7">.</td>
 </tr>
-<tr>
-<td></td>
-<td colspan="7">
-    <canvas id="canvas1" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas1'), 3); </script>
-    <canvas id="canvas2" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas2'), 3); </script>
-    <canvas id="canvas3" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas3'), 3); </script>
-    <canvas id="canvas4" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas4'), 3); </script>
-    <canvas id="canvas5" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas5'), 3); </script>
-    <canvas id="canvas6" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
-    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
-    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas6'), 3); </script>
-</td>
-</tr>
 </tbody>
 </table>
 
 
+<h2 id="demo"></h2>
 
-<script>
+<span id="result_2"><font size = 15px></font> </span> <span id="result"><font size = 15px>.</font></span>
+
+<div>
+    <span style="display : inline-block">
+
+    <p>
+    
+    
+    <span id="seq"></span><input id="input_01" style="width: 100px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" />
+    
+    &nbsp;<button onclick="search();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
+    
+    &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
+
+    &nbsp;<button onclick="canvas.erase(); clean_all(); decrease(); search();" style="width: 70px; height: 35px; font-size: 15px;"> PREV </button>
+
+    &nbsp;<button onclick="canvas.erase(); clean_all(); increase(); search();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
+      
+    &nbsp;<canvas id="canvas" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
+
+    &nbsp;<button onclick="
+    var e = document.getElementById('language');
+    canvas.setOptions({language: e.options[e.selectedIndex].value});
+    canvas.recognize();
+     " style="width: 70px; height: 35px; font-size: 15px;"> OCR </button>
+
+    &nbsp;<button onclick="add(); canvas.erase(); clean();" style="width: 70px; height: 35px; font-size: 15px;"> 추가 </button> 
+
+    &nbsp;<button onclick="canvas.erase(); clean_all()" style="width: 70px; height: 35px; font-size: 15px;"> 지움 </button> 
+
+
+
+  
+    
+    
+      <p>
+
+        <br>
+        <form>
+          Language:
+          <select id="language">
+            <option value="zh_TW" selected="selected">Chinese</option>
+            <option value="ja">Japanese</option>
+            <option value="en">English</option>
+            <option value="ko">Korean</option>
+          </select>
+        </form>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        
+        PenSize <span id="lineWidth">3</span><input type="range" id="penSize" min="1" max="30" value="3">
+
+
+      <button onclick="canvas.erase(); clean();">Erase</button>
+
+      <button onclick="canvas.undo()">Undo</button>
+      <button onclick="canvas.redo()">Redo</button>
+
+
+
+    </span>
+
+    <p>&nbsp
+
+    <form>
+        <div>
+            <label for="input_file">이미지 파일을 추가해주세요.</label>
+            <input type="file" id="input_file">
+        </div>
+        <div>
+            <button onclick="draw3(event)">submit</button>
+        </div>
+    </form>
+
+
+
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+
+    <script type="text/javascript" defer>
+      var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
+      var width = document.getElementById("demo").clientWidth
+      canvas.cxt.canvas.width  = width < 200 ? width : 200;
+      canvas.cxt.canvas.height = width < 200 ? width : 200;
+      canvas.setCallBack(function(data, err) {
+        if (err) throw err;
+        else document.getElementById("result").innerHTML = "<font size = 15px>&nbsp" + data.slice(0,1) + "</font>";
+      });
+      canvas.set_Undo_Redo(true, true);
+      var penSize = document.getElementById("penSize");
+      penSize.addEventListener("mousemove", function() {
+        document.getElementById("lineWidth").innerHTML = penSize.value;
+      });
+      penSize.addEventListener("change", function(){
+        canvas.setLineWidth(penSize.value);
+      });
 
       function clean(){
         document.getElementById("result").innerHTML = "<font size = 15px>.</font>";
@@ -540,35 +596,12 @@ fetch('https://muckmool.github.io/data3.json')
         document.getElementById("result_2").innerHTML = "<font size = 15px>" + result_2.innerHTML + result.innerHTML + "</font>";
       };
 
-      function refresh1(){
-
-        temp = input_01.value;
-
-        localStorage.setItem('temp', temp);
-
-        //location.reload(true);
-
-      };
-
-      function refresh2(){
-
-        temp = localStorage.getItem('temp');
-
-        input_01.value = temp;
-
-      };
-
-
-
-
     </script>
   </div>
  
  
 
-
 <script>
-
 // TTS
 
 function speak() {
@@ -586,10 +619,104 @@ function speak() {
 }
 
 
-refresh2();
+async function draw3(event) {
 
-setTimeout(() => search(), 100);
+    event.preventDefault(); //submit 할때 새로고침 되는것을 방지
 
+    let fileObject = document.getElementById("input_file");
+    let fileName = fileObject.files[0];
+
+    let fr = new FileReader();
+    fr.readAsDataURL(fileName);
+
+    fr.onload = () => {
+        parseImage(fr.result);
+    }
+
+}
+
+
+function parseImage(image) {
+
+    event.preventDefault(); //submit 할때 새로고침 되는것을 방지
+
+    const img = new Image();
+
+    img.src = image;
+    var canvas = document.getElementById("canvas");
+
+    if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        ctx.drawImage(img, 10, 10, 180, 180);
+    }
+
+    setTimeout(function() {
+    console.log('Works!');
+
+    ctx.drawImage(img, 10, 10, 180, 180);
+    recognizeFile(img);
+
+    }, 10);
+
+}
+
+</script>
+
+<script src="https://unpkg.com/tesseract.js@2.1.4/dist/tesseract.min.js"></script>
+
+<script>
+        function progressUpdate(packet){
+            var log = document.getElementById('result');
+        
+            if(log.firstChild && log.firstChild.status === packet.status){
+                if('progress' in packet){
+                    var progress = log.firstChild.querySelector('progress')
+                    progress.value = packet.progress
+                }
+            }else{
+                var line = document.createElement('div');
+                line.status = packet.status;
+                var status = document.createElement('div')
+                status.className = 'status'
+                status.appendChild(document.createTextNode(packet.status))
+                // line.appendChild(status)
+        
+                if('progress' in packet){
+                    var progress = document.createElement('progress')
+                    progress.value = packet.progress
+                    progress.max = 1
+                    //line.appendChild(progress)
+                }
+        
+        
+                if(packet.status == 'done'){
+                    var pre = document.createElement('pre')
+                    pre.appendChild(document.createTextNode(packet.data.data.text))
+                    line.innerHTML = ''
+                    line.appendChild(pre)
+        
+                }
+        
+                log.insertBefore(line, log.firstChild)
+            }
+        }
+        
+        async function recognizeFile(file) {
+            document.querySelector("#result").innerHTML = ''
+          const corePath = window.navigator.userAgent.indexOf("Edge") > -1
+            ? 'https://unpkg.com/tesseract.js-core@v2.0.0/tesseract-core.wasm.js'
+            : 'https://unpkg.com/tesseract.js-core@v2.0.0/tesseract-core.wasm.js';
+        
+          const lang = "chi_tra";
+          const data = await Tesseract.recognize(file, lang, {
+            corePath,
+            logger: progressUpdate,
+          });
+          progressUpdate({ status: 'done', data });
+          document.getElementById("result").innerHTML = "<font size = 30px>" + result.innerHTML + "</font>";
+        }
+        
 
 </script>
 

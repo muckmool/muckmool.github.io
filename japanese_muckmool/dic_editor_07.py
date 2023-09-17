@@ -3,20 +3,55 @@ from tkinter import *
 import tkinter.font
 import time
 import atexit
+import pyperclip
 
 
 
 tk = Tk()
-tk.geometry("500x340+1100+550")
+tk.geometry("510x400+1100+550")
 font1 = tkinter.font.Font(family="Consolas", size=12)
-tk.title('일본어 한자 사전')
+tk.title('사전')
 tk.wm_attributes("-topmost", 1)
 
 
+def batch():
+    max = len(g_data['dictionary'])
+
+    for j in range(0, max):
+            hangul =    g_data['dictionary'][j]['hangul']
+            hanja =     g_data['dictionary'][j]['hanja']
+            h1 =        g_data['dictionary'][j]['h1']
+            h2 =        g_data['dictionary'][j]['h2']
+            h3 =        g_data['dictionary'][j]['h3']
+            h4 =        g_data['dictionary'][j]['h4']
+            h5 =        g_data['dictionary'][j]['h5']
+            h6 =        g_data['dictionary'][j]['h6']
+            c1 =        g_data['dictionary'][j]['c1']
+            c2 =        g_data['dictionary'][j]['c2']
+            c3 =        g_data['dictionary'][j]['c3']
+            c4 =        g_data['dictionary'][j]['c4']
+            c5 =        g_data['dictionary'][j]['c5']
+            c6 =        g_data['dictionary'][j]['c6']
+            exp =       g_data['dictionary'][j]['exp']
+            china =     g_data['dictionary'][j]['china']
+            japan =     g_data['dictionary'][j]['japan']
+            english =   g_data['dictionary'][j]['english']
+            ytube=      "."
+            
+            new_string = '{ "hangul": "' + hangul + '", "hanja": "' + hanja +'", "h1": "' + h1 + '", "c1": "'+ c1 +'", "h2": "'+ h2 +'", "c2": "'+ c2 +'", "h3": "'+ h3 +'", "c3": "'+ c3 +'", "h4": "'+ h4 +'", "c4": "'+ c4 +'", "h5": "'+ h5 +'", "c5": "'+ c5 +'", "h6": "'+ h6 +'", "c6": "'+ c6 +'", "exp":"'+ exp +'", "china":"'+ china +'", "japan":"'+ japan +'" , "english":"'+ english +'" , "ytube":"'+ ytube +'" }'
+
+            add_json = json.loads(new_string)
+
+            g_data['dictionary'].append(add_json)
+
+    entry01.delete(0,"end")
+    entry01.insert(0,"배치완료")
+
+    
 
 def new():
 
-    new_string = '{ "hangul": "X", "hanja": ".", "h1": ".", "c1": ".", "h2": ".", "c2": ".", "h3": ".", "c3": ".", "h4": ".", "c4": ".", "h5": ".", "c5": ".", "h6": ".", "c6": ".", "exp":".", "china":".", "japan":"." , "english":"." }'
+    new_string = '{ "hangul": "X", "hanja": ".", "h1": ".", "c1": ".", "h2": ".", "c2": ".", "h3": ".", "c3": ".", "h4": ".", "c4": ".", "h5": ".", "c5": ".", "h6": ".", "c6": ".", "exp":".", "china":".", "japan":"." , "english":"." , "ytube":"." }'
 
     add_json = json.loads(new_string)
 
@@ -64,15 +99,17 @@ def copy():
     c4 = entry62.get()
     c5 = entry72.get()
     c6 = entry82.get()
-    exp = entry9.get()
+    exp = entry9.get("1.0", "end-1c")
     china = entry10.get()
     china = china.replace("\n", "")
     japan = entry11.get()
     japan = japan.replace("\n", "")
     english = entry12.get()
     english = english.replace("\n", "")
+    ytube = entry13.get()
+    ytube = ytube.replace("\n", "")
 
-    new_string = '{ "hangul": "' + hangul + '", "hanja": "' + hanja +'", "h1": "' + h1 + '", "c1": "'+ c1 +'", "h2": "'+ h2 +'", "c2": "'+ c2 +'", "h3": "'+ h3 +'", "c3": "'+ c3 +'", "h4": "'+ h4 +'", "c4": "'+ c4 +'", "h5": "'+ h5 +'", "c5": "'+ c5 +'", "h6": "'+ h6 +'", "c6": "'+ c6 +'", "exp":"'+ exp +'", "china":"'+ china +'", "japan":"'+ japan +'" , "english":"'+ english +'" }'
+    new_string = '{ "hangul": "' + hangul + '", "hanja": "' + hanja +'", "h1": "' + h1 + '", "c1": "'+ c1 +'", "h2": "'+ h2 +'", "c2": "'+ c2 +'", "h3": "'+ h3 +'", "c3": "'+ c3 +'", "h4": "'+ h4 +'", "c4": "'+ c4 +'", "h5": "'+ h5 +'", "c5": "'+ c5 +'", "h6": "'+ h6 +'", "c6": "'+ c6 +'", "exp":"'+ exp +'", "china":"'+ china +'", "japan":"'+ japan +'" , "english":"'+ english +'" , "ytube":"'+ ytube +'"}'
 
     add_json = json.loads(new_string)
 
@@ -166,7 +203,7 @@ def update():
     g_data['dictionary'][seq]['c4'] = entry62.get()
     g_data['dictionary'][seq]['c5'] = entry72.get()
     g_data['dictionary'][seq]['c6'] = entry82.get()
-    g_data['dictionary'][seq]['exp'] = entry9.get()
+    g_data['dictionary'][seq]['exp'] = entry9.get("1.0", "end-1c")
     temp = entry10.get()
     temp = temp.replace("\n", "")
     g_data['dictionary'][seq]['china'] = temp
@@ -176,6 +213,9 @@ def update():
     temp = entry12.get()
     temp = temp.replace("\n", "")
     g_data['dictionary'][seq]['english'] = temp
+    temp = entry13.get()
+    temp = temp.replace("\n", "")
+    g_data['dictionary'][seq]['ytube'] = temp
 
     search_seq()
     
@@ -185,7 +225,7 @@ def update():
 
 
 def search_hangul():
-    #with open ("data3.json", "r", encoding = 'utf-8') as f:
+    #with open ("data4.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -211,10 +251,12 @@ def search_hangul():
     entry62.delete(0,"end")
     entry72.delete(0,"end")
     entry82.delete(0,"end")
-    entry9.delete(0,"end")
+    #entry9.delete(0,"end")
+    entry9.delete("1.0", "end-1c")
     entry10.delete(0,"end")
     entry11.delete(0,"end")
     entry12.delete(0,"end")
+    entry13.delete(0,"end")
 
     for i in range(0,max):
         #print(data['dictionary'][i]['hangul'])
@@ -238,10 +280,12 @@ def search_hangul():
             entry62.insert(0,data['dictionary'][i]['c4'])
             entry72.insert(0,data['dictionary'][i]['c5'])
             entry82.insert(0,data['dictionary'][i]['c6'])
-            entry9.insert(0,data['dictionary'][i]['exp'])
+            #entry9.insert(0,data['dictionary'][i]['exp'])
+            entry9.insert(tkinter.END, data['dictionary'][i]['exp'])
             entry10.insert(0,data['dictionary'][i]['china'])
             entry11.insert(0,data['dictionary'][i]['japan'])
             entry12.insert(0,data['dictionary'][i]['english'])
+            entry13.insert(0,data['dictionary'][i]['ytube'])
             break
 
     
@@ -249,7 +293,7 @@ def search_hangul():
 
 
 def search_hanja():
-    #with open ("data3.json", "r", encoding = 'utf-8') as f:
+    #with open ("data4.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -275,10 +319,12 @@ def search_hanja():
     entry62.delete(0,"end")
     entry72.delete(0,"end")
     entry82.delete(0,"end")
-    entry9.delete(0,"end")
+    #entry9.delete(0,"end")
+    entry9.delete("1.0", "end-1c")
     entry10.delete(0,"end")
     entry11.delete(0,"end")
     entry12.delete(0,"end")
+    entry13.delete(0,"end")
 
     for i in range(0,max):
         #print(data['dictionary'][i]['hangul'])
@@ -302,15 +348,17 @@ def search_hanja():
             entry62.insert(0,data['dictionary'][i]['c4'])
             entry72.insert(0,data['dictionary'][i]['c5'])
             entry82.insert(0,data['dictionary'][i]['c6'])
-            entry9.insert(0,data['dictionary'][i]['exp'])
+            #entry9.insert(0,data['dictionary'][i]['exp'])
+            entry9.insert(tkinter.END, data['dictionary'][i]['exp'])    
             entry10.insert(0,data['dictionary'][i]['china'])
             entry11.insert(0,data['dictionary'][i]['japan'])
             entry12.insert(0,data['dictionary'][i]['english'])
+            entry13.insert(0,data['dictionary'][i]['ytube'])
             break
 
     
 def search_each_hanja():
-    #with open ("data3.json", "r", encoding = 'utf-8') as f:
+    #with open ("data4.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -393,7 +441,10 @@ def search_each_hanja():
 
 
 def next():
-    #with open ("data3.json", "r", encoding = 'utf-8') as f:
+
+    update()
+
+    #with open ("data4.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -410,6 +461,9 @@ def next():
     entry01.delete(0,"end")
     entry1.delete(0,"end")
     entry1.insert(0,data['dictionary'][i]['hangul'])
+
+    pyperclip.copy(data['dictionary'][i]['hangul'])
+
     entry2.delete(0,"end")
     entry2.insert(0,data['dictionary'][i]['hanja'])
     entry31.delete(0,"end")
@@ -436,18 +490,22 @@ def next():
     entry72.insert(0,data['dictionary'][i]['c5'])
     entry82.delete(0,"end")
     entry82.insert(0,data['dictionary'][i]['c6'])
-    entry9.delete(0,"end")
-    entry9.insert(0,data['dictionary'][i]['exp'])
+    #entry9.delete(0,"end")
+    entry9.delete("1.0", "end-1c")
+    #entry9.insert(0,data['dictionary'][i]['exp'])
+    entry9.insert(tkinter.END, data['dictionary'][i]['exp'])
     entry10.delete(0,"end")
     entry10.insert(0,data['dictionary'][i]['china'])
     entry11.delete(0,"end")
     entry11.insert(0,data['dictionary'][i]['japan'])
     entry12.delete(0,"end")
     entry12.insert(0,data['dictionary'][i]['english'])
+    entry13.delete(0,"end")
+    entry13.insert(0,data['dictionary'][i]['ytube'])
 
 
 def previous():
-    #with open ("data3.json", "r", encoding = 'utf-8') as f:
+    #with open ("data4.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -464,6 +522,9 @@ def previous():
     entry01.delete(0,"end")
     entry1.delete(0,"end")
     entry1.insert(0,data['dictionary'][i]['hangul'])
+
+    pyperclip.copy(data['dictionary'][i]['hangul'])
+
     entry2.delete(0,"end")
     entry2.insert(0,data['dictionary'][i]['hanja'])
     entry31.delete(0,"end")
@@ -490,18 +551,22 @@ def previous():
     entry72.insert(0,data['dictionary'][i]['c5'])
     entry82.delete(0,"end")
     entry82.insert(0,data['dictionary'][i]['c6'])
-    entry9.delete(0,"end")
-    entry9.insert(0,data['dictionary'][i]['exp'])
+    #entry9.delete(0,"end")
+    entry9.delete("1.0", "end-1c")
+    #entry9.insert(0,data['dictionary'][i]['exp'])
+    entry9.insert(tkinter.END, data['dictionary'][i]['exp'])
     entry10.delete(0,"end")
     entry10.insert(0,data['dictionary'][i]['china'])
     entry11.delete(0,"end")
     entry11.insert(0,data['dictionary'][i]['japan'])
     entry12.delete(0,"end")
     entry12.insert(0,data['dictionary'][i]['english'])
+    entry13.delete(0,"end")
+    entry13.insert(0,data['dictionary'][i]['ytube'])
 
 
 def search_seq():
-    #with open ("data3.json", "r", encoding = 'utf-8') as f:
+    #with open ("data4.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
 
     data = g_data
@@ -553,18 +618,24 @@ def search_seq():
     entry72.insert(0,data['dictionary'][i]['c5'])
     entry82.delete(0,"end")
     entry82.insert(0,data['dictionary'][i]['c6'])
-    entry9.delete(0,"end")
-    entry9.insert(0,data['dictionary'][i]['exp'])
+    #entry9.delete(0,"end")
+    #entry9.insert(0,data['dictionary'][i]['exp'])
+    entry9.delete("1.0", "end-1c")
+    entry9.insert(tkinter.END, data['dictionary'][i]['exp'])
     entry10.delete(0,"end")
     entry10.insert(0,data['dictionary'][i]['china'])
     entry11.delete(0,"end")
     entry11.insert(0,data['dictionary'][i]['japan'])
     entry12.delete(0,"end")
     entry12.insert(0,data['dictionary'][i]['english'])
+    entry13.delete(0,"end")
+    entry13.insert(0,data['dictionary'][i]['ytube'])
+
+    
 
 
 def read():
-    with open ("data3.json", "r", encoding = 'utf-8') as f:
+    with open ("data4.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     global g_data
@@ -600,7 +671,7 @@ def write():
 
     #print(max)
 
-    f = open("data3.json", 'w', encoding = 'utf-8')
+    f = open("data4.json", 'w', encoding = 'utf-8')
     f.write(string)
     f.close()
 
@@ -608,6 +679,60 @@ def write():
     #entry00.insert(0, seq)
     entry01.delete(0,"end")
     entry01.insert(0, "저장완료")
+
+
+def clip_copy():
+
+    temp1_string = entry13.get()
+
+    temp2_string = "<script>\n address = '"
+
+    temp2_string = temp2_string + temp1_string[17:]
+
+    temp2_string = temp2_string + "' \n</script> <div class='tt_article_useless_p_margin contents_style' align='center'>"
+    temp2_string = temp2_string + "\n      <div id='player'>&nbsp;</div> <p data-ke-size='size16'>"
+    temp2_string = temp2_string + "\n    <script src='https://www.youtube.com/iframe_api'></script>"
+    temp2_string = temp2_string + "\n    </p>"
+    temp2_string = temp2_string + "\n    <p data-ke-size='size16'>"
+    temp2_string = temp2_string + "\n    <script>"
+    temp2_string = temp2_string + "\n     var player;"
+    temp2_string = temp2_string + "\n      function onYouTubeIframeAPIReady(){"
+    temp2_string = temp2_string + "\n        player = new YT.Player('player',{    "
+    temp2_string = temp2_string + "\n         videoId: address,        "
+    temp2_string = temp2_string + "\n          playerVars:{'autoplay':1,'playsinline':1, 'loop':1},"
+    temp2_string = temp2_string + "\n          events:{ 'onReady':onPlayerReady }"
+    temp2_string = temp2_string + "\n        });"
+    temp2_string = temp2_string + "\n      }"
+    temp2_string = temp2_string + "\n      function onPlayerReady(e){	"
+    temp2_string = temp2_string + "\n        e.target.mute();"
+    temp2_string = temp2_string + "\n        e.target.playVideo();"
+    temp2_string = temp2_string + "\n        setTimeout(function(){e.target.unMute()},100);"
+    temp2_string = temp2_string + "\n      }"
+    temp2_string = temp2_string + "\n    </script>"
+    temp2_string = temp2_string + "\n    </p>"
+    temp2_string = temp2_string + "\n    </div>"
+    temp2_string = temp2_string + "\n    <div id='player'>&nbsp;</div>"
+    temp2_string = temp2_string + "\n    <script src='http://www.youtube.com/iframe_api'></script>"
+    temp2_string = temp2_string + "\n    <script>"
+    temp2_string = temp2_string + "\n      var player;"
+    temp2_string = temp2_string + "\n      function onYouTubeIframeAPIReady(){"
+    temp2_string = temp2_string + "\n        player = new YT.Player('player',{"
+    temp2_string = temp2_string + "\n          width:'100%',        "
+    temp2_string = temp2_string + "\n          videoId: address,        "
+    temp2_string = temp2_string + "\n          playerVars:{'autoplay':1,'playsinline':1, 'loop':1},"
+    temp2_string = temp2_string + "\n          events:{ 'onReady':onPlayerReady }"
+    temp2_string = temp2_string + "\n        });"
+    temp2_string = temp2_string + "\n      }        "
+    temp2_string = temp2_string + "\n      function onPlayerReady(e){"
+    temp2_string = temp2_string + "\n        e.target.mute();"
+    temp2_string = temp2_string + "\n        e.target.playVideo();"
+    temp2_string = temp2_string + "\n      }"
+    temp2_string = temp2_string + "\n    </script>"
+    temp2_string = temp2_string + "\n    "
+    temp2_string = temp2_string + "\n    "
+
+    pyperclip.copy(temp2_string)
+
 
 
 def quit():
@@ -618,7 +743,7 @@ def quit():
 
 
 label0 = Label(tk,text='SEQ', font=font1).grid(row=0, column=0)
-label1 = Label(tk,text='일본', font=font1).grid(row=1, column=0)
+label1 = Label(tk,text='한글', font=font1).grid(row=1, column=0)
 label2 = Label(tk,text='한자', font=font1).grid(row=2,column=0)
 label3 = Label(tk,text='1', font=font1).grid(row=3,column=0)
 label4 = Label(tk,text='2', font=font1).grid(row=4,column=0)
@@ -628,8 +753,9 @@ label7 = Label(tk,text='5', font=font1).grid(row=7,column=0)
 label8 = Label(tk,text='6', font=font1).grid(row=8,column=0)
 label9 = Label(tk,text='풀이', font=font1).grid(row=9,column=0)
 label10 = Label(tk,text='중국', font=font1).grid(row=10,column=0)
-label11 = Label(tk,text='한글', font=font1).grid(row=11,column=0)
+label11 = Label(tk,text='일본', font=font1).grid(row=11,column=0)
 label12 = Label(tk,text='영어', font=font1).grid(row=12,column=0)
+label13 = Label(tk,text='ytube', font=font1).grid(row=13,column=0)
 
 # 각 단위 입력받는 부분 만들기
 entry00 = Entry(tk, width=15, font=font1)
@@ -651,10 +777,11 @@ entry62 = Entry(tk, width=6, font=font1)
 entry72 = Entry(tk, width=6, font=font1)
 entry82 = Entry(tk, width=6, font=font1)
 
-entry9 = Entry(tk, width=40, font=font1)
+entry9 = Text(tk, width=40, height=3, font=font1)
 entry10 = Entry(tk, width=40, font=font1)
 entry11 = Entry(tk, width=40, font=font1)
 entry12 = Entry(tk, width=40, font=font1)
+entry13 = Entry(tk, width=40, font=font1)
 
 entry00.grid(row=0,column=1)
 entry01.grid(row=0,column=2)
@@ -679,11 +806,12 @@ entry9.grid(row=9,column=1)
 entry10.grid(row=10,column=1)
 entry11.grid(row=11,column=1)
 entry12.grid(row=12,column=1)
+entry13.grid(row=13,column=1)
 
 
 btn5 = Button(tk,text='SEQ',bg='black',fg='white',command=search_seq).grid(row=0,column=3)
 #btn11 = Button(tk,text='quit',bg='black',fg='white',command=quit).grid(row=1,column=3)
-btn2 = Button(tk,text='일본',bg='black',fg='white',command=search_hangul).grid(row=1,column=2)
+btn2 = Button(tk,text='한글',bg='black',fg='white',command=search_hangul).grid(row=1,column=2)
 btn8 = Button(tk,text='한자',bg='black',fg='white',command=search_hanja).grid(row=2,column=2)
 
 btn10 = Button(tk,text='삭제',bg='black',fg='white',command=delete).grid(row=2,column=3)
@@ -692,12 +820,14 @@ btn8 = Button(tk,text='낱자',bg='black',fg='white',command=search_each_hanja).
 btn3 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=6,column=3)
 btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=8,column=3)
 
-btn4 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=10,column=2)
-btn7 = Button(tk,text='복사',bg='black',fg='white',command=copy).grid(row=10,column=3)
+btn4 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=9,column=2)
+btn7 = Button(tk,text='복사',bg='black',fg='white',command=copy).grid(row=9,column=3)
 
 #btn4 = Button(tk,text='read',bg='black',fg='white',command=read).grid(row=12,column=2)
-btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=12,column=2)
-btn7 = Button(tk,text='write',bg='black',fg='white',command=write).grid(row=12,column=3)
+btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=11,column=2)
+btn7 = Button(tk,text='write',bg='black',fg='white',command=write).grid(row=11,column=3)
+
+btn21 = Button(tk,text='클립보드',bg='black',fg='white',command=clip_copy).grid(row=13,column=2)
 
 atexit.register(quit)
 

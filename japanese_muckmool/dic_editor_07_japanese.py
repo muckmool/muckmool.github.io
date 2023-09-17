@@ -10,7 +10,7 @@ import pyperclip
 tk = Tk()
 tk.geometry("510x400+1100+550")
 font1 = tkinter.font.Font(family="Consolas", size=12)
-tk.title('사전')
+tk.title('japanese_muckmool')
 tk.wm_attributes("-topmost", 1)
 
 
@@ -442,7 +442,8 @@ def search_each_hanja():
 
 def next():
 
-    
+    update()
+
     #with open ("data4.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
@@ -649,7 +650,7 @@ def read():
 
 def write():
 
-    #update()
+    update()
 
     data = g_data
 
@@ -681,8 +682,6 @@ def write():
 
 
 def clip_copy():
-
-    update()
 
     temp1_string = entry13.get()
 
