@@ -1,13 +1,13 @@
 <script>
-address = 's8LdkezDKkQ?si=WDwdYu2Xi_KuuAwU'
+address = 'KAdlPYU9UXI?si=vYXP8bR-a4dDDi91'
 </script>
 
-    <div class="tt_article_useless_p_margin contents_style" align="center">
-        <div id="player">&nbsp;</div>
-        <p data-ke-size="size16">
-        <script src="https://www.youtube.com/iframe_api"></script>
+    <div class='tt_article_useless_p_margin contents_style' align='center'>
+        <div id='player'>&nbsp;</div>
+        <p data-ke-size='size16'>
+        <script src='https://www.youtube.com/iframe_api'></script>
         </p>
-        <p data-ke-size="size16">
+        <p data-ke-size='size16'>
         <script>
           var player;
           function onYouTubeIframeAPIReady(){
@@ -27,8 +27,8 @@ address = 's8LdkezDKkQ?si=WDwdYu2Xi_KuuAwU'
         </script>
         </p>
         </div>
-        <div id="player">&nbsp;</div>
-        <script src="http://www.youtube.com/iframe_api"></script>
+        <div id='player'>&nbsp;</div>
+        <script src='http://www.youtube.com/iframe_api'></script>
         <script>
           var player;
           function onYouTubeIframeAPIReady(){

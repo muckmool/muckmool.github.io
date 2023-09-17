@@ -3,6 +3,7 @@ from tkinter import *
 import tkinter.font
 import time
 import atexit
+import pyperclip
 
 
 
@@ -440,6 +441,9 @@ def search_each_hanja():
 
 
 def next():
+
+    update()
+
     #with open ("data4.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
@@ -457,6 +461,9 @@ def next():
     entry01.delete(0,"end")
     entry1.delete(0,"end")
     entry1.insert(0,data['dictionary'][i]['hangul'])
+
+    pyperclip.copy(data['dictionary'][i]['hangul'])
+
     entry2.delete(0,"end")
     entry2.insert(0,data['dictionary'][i]['hanja'])
     entry31.delete(0,"end")
@@ -515,6 +522,9 @@ def previous():
     entry01.delete(0,"end")
     entry1.delete(0,"end")
     entry1.insert(0,data['dictionary'][i]['hangul'])
+
+    pyperclip.copy(data['dictionary'][i]['hangul'])
+
     entry2.delete(0,"end")
     entry2.insert(0,data['dictionary'][i]['hanja'])
     entry31.delete(0,"end")
@@ -621,6 +631,8 @@ def search_seq():
     entry13.delete(0,"end")
     entry13.insert(0,data['dictionary'][i]['ytube'])
 
+    
+
 
 def read():
     with open ("data4.json", "r", encoding = 'utf-8') as f:
@@ -667,6 +679,60 @@ def write():
     #entry00.insert(0, seq)
     entry01.delete(0,"end")
     entry01.insert(0, "저장완료")
+
+
+def clip_copy():
+
+    temp1_string = entry13.get()
+
+    temp2_string = "<script>\n address = '"
+
+    temp2_string = temp2_string + temp1_string[17:]
+
+    temp2_string = temp2_string + "' \n</script> <div class='tt_article_useless_p_margin contents_style' align='center'>"
+    temp2_string = temp2_string + "\n      <div id='player'>&nbsp;</div> <p data-ke-size='size16'>"
+    temp2_string = temp2_string + "\n    <script src='https://www.youtube.com/iframe_api'></script>"
+    temp2_string = temp2_string + "\n    </p>"
+    temp2_string = temp2_string + "\n    <p data-ke-size='size16'>"
+    temp2_string = temp2_string + "\n    <script>"
+    temp2_string = temp2_string + "\n     var player;"
+    temp2_string = temp2_string + "\n      function onYouTubeIframeAPIReady(){"
+    temp2_string = temp2_string + "\n        player = new YT.Player('player',{    "
+    temp2_string = temp2_string + "\n         videoId: address,        "
+    temp2_string = temp2_string + "\n          playerVars:{'autoplay':1,'playsinline':1, 'loop':1},"
+    temp2_string = temp2_string + "\n          events:{ 'onReady':onPlayerReady }"
+    temp2_string = temp2_string + "\n        });"
+    temp2_string = temp2_string + "\n      }"
+    temp2_string = temp2_string + "\n      function onPlayerReady(e){	"
+    temp2_string = temp2_string + "\n        e.target.mute();"
+    temp2_string = temp2_string + "\n        e.target.playVideo();"
+    temp2_string = temp2_string + "\n        setTimeout(function(){e.target.unMute()},100);"
+    temp2_string = temp2_string + "\n      }"
+    temp2_string = temp2_string + "\n    </script>"
+    temp2_string = temp2_string + "\n    </p>"
+    temp2_string = temp2_string + "\n    </div>"
+    temp2_string = temp2_string + "\n    <div id='player'>&nbsp;</div>"
+    temp2_string = temp2_string + "\n    <script src='http://www.youtube.com/iframe_api'></script>"
+    temp2_string = temp2_string + "\n    <script>"
+    temp2_string = temp2_string + "\n      var player;"
+    temp2_string = temp2_string + "\n      function onYouTubeIframeAPIReady(){"
+    temp2_string = temp2_string + "\n        player = new YT.Player('player',{"
+    temp2_string = temp2_string + "\n          width:'100%',        "
+    temp2_string = temp2_string + "\n          videoId: address,        "
+    temp2_string = temp2_string + "\n          playerVars:{'autoplay':1,'playsinline':1, 'loop':1},"
+    temp2_string = temp2_string + "\n          events:{ 'onReady':onPlayerReady }"
+    temp2_string = temp2_string + "\n        });"
+    temp2_string = temp2_string + "\n      }        "
+    temp2_string = temp2_string + "\n      function onPlayerReady(e){"
+    temp2_string = temp2_string + "\n        e.target.mute();"
+    temp2_string = temp2_string + "\n        e.target.playVideo();"
+    temp2_string = temp2_string + "\n      }"
+    temp2_string = temp2_string + "\n    </script>"
+    temp2_string = temp2_string + "\n    "
+    temp2_string = temp2_string + "\n    "
+
+    pyperclip.copy(temp2_string)
+
 
 
 def quit():
@@ -754,12 +820,14 @@ btn8 = Button(tk,text='낱자',bg='black',fg='white',command=search_each_hanja).
 btn3 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=6,column=3)
 btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=8,column=3)
 
-btn4 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=10,column=2)
-btn7 = Button(tk,text='복사',bg='black',fg='white',command=copy).grid(row=10,column=3)
+btn4 = Button(tk,text='신규',bg='black',fg='white',command=new).grid(row=9,column=2)
+btn7 = Button(tk,text='복사',bg='black',fg='white',command=copy).grid(row=9,column=3)
 
 #btn4 = Button(tk,text='read',bg='black',fg='white',command=read).grid(row=12,column=2)
-btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=12,column=2)
-btn7 = Button(tk,text='write',bg='black',fg='white',command=write).grid(row=12,column=3)
+btn1 = Button(tk,text='수정',bg='black',fg='white',command=update).grid(row=11,column=2)
+btn7 = Button(tk,text='write',bg='black',fg='white',command=write).grid(row=11,column=3)
+
+btn21 = Button(tk,text='클립보드',bg='black',fg='white',command=clip_copy).grid(row=13,column=2)
 
 atexit.register(quit)
 

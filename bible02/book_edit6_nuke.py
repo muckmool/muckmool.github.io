@@ -1,13 +1,17 @@
 import json
 from tkinter import *
 import tkinter.font
+import time
+import atexit
 
+
+#GUI 정의-------------------------------------------------
 
 tk = Tk()
-tk.geometry("930x700-30+40")
+tk.geometry("930x830-30+40")
 font8 = tkinter.font.Font(family="Consolas", size=8)
 font4 = tkinter.font.Font(family="Consolas", size=11)
-font5 = tkinter.font.Font(family="Consolas", size=22)
+font5 = tkinter.font.Font(family="Consolas", size=24)
 font1 = tkinter.font.Font(family="Consolas", size=12)
 font6 = tkinter.font.Font(family="Consolas", size=13)
 font2 = tkinter.font.Font(family="Consolas", size=14)
@@ -16,6 +20,9 @@ font7 = tkinter.font.Font(family="Consolas", size=16)
 tk.title('Bible')
 tk.wm_attributes("-topmost", 1)
 
+
+
+#성경 편집 함수들 -------------------------------------------------
 
 
 def new():
@@ -80,6 +87,8 @@ def new():
         entry6.insert(tkinter.END, data['book'][seq+1]['hangul'])
         entry7.delete("1.0", "end-1c")
         entry7.insert(tkinter.END, data['book'][seq+1]['english'])
+
+        
 
 
 
@@ -192,6 +201,7 @@ def update():
         entry00.insert(0, seq)
         entry01.delete(0,"end")
         entry01.insert(0, "업뎃완료")
+
         
         
 def search_cv():
@@ -355,8 +365,10 @@ def previous():
 
 def trans_china():
 
-    with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
-        data = json.load(f)
+    #with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
+    #    data = json.load(f)
+
+    data = g_data
 
     max = len(data['dictionary'])
 
@@ -391,10 +403,14 @@ def trans_china():
 
 
 
+
+
 def trans_japan():
 
-    with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
-        data = json.load(f)
+    #with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
+    #    data = json.load(f)
+
+    data = g_data
 
     max = len(data['dictionary'])
 
@@ -434,6 +450,8 @@ def trans_japan():
         entry5.insert(tkinter.END, string)
 
     update()
+
+
 
 
 
@@ -603,6 +621,179 @@ def book_name_search():
     return book_list[result-1]
 
 
+#dictionary 함수들-------------------------------------------------
+
+
+def new_d():
+
+    new_string = '{ "hangul": "X", "hanja": ".", "h1": ".", "c1": ".", "h2": ".", "c2": ".", "h3": ".", "c3": ".", "h4": ".", "c4": ".", "h5": ".", "c5": ".", "h6": ".", "c6": ".", "exp":".", "china":".", "japan":"." , "english":"." }'
+
+    add_json = json.loads(new_string)
+
+    g_data['dictionary'].append(add_json)
+
+    entry9.delete(0,"end")
+
+    search_seq_d()
+
+    entry01.delete(0,"end")
+    entry01.insert(0,"신규완료")
+
+
+def delete_d():
+
+    if(entry9.get() != ''):
+        target = int(entry9.get())
+
+    g_data['dictionary'].pop(target)
+
+    
+    target = target - 1
+    
+    entry9.delete(0,target)
+
+    search_seq_d()
+
+    entry01.delete(0,"end")
+    entry01.insert(0,"삭제완료")
+
+
+
+def update_d():
+
+    max = len(g_data['dictionary'])
+
+    seq = int(entry9.get())
+    g_data['dictionary'][seq]['hanja'] = entry10.get()
+
+    temp = entry11.get()
+    temp = temp.replace("\n", "")
+    g_data['dictionary'][seq]['japan'] = temp
+
+    temp = entry12.get()
+    temp = temp.replace("\n", "")
+    g_data['dictionary'][seq]['china'] = temp
+
+    search_seq_d()
+    
+    entry01.delete(0,"end")
+    entry01.insert(0, "업뎃완료")
+
+
+def search_seq_d():
+    #with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
+    #    data = json.load(f)
+
+    data = g_data
+    
+    max = len(data['dictionary']) - 1
+
+    result = max
+
+    if(entry9.get() != ''):
+        result = int(entry9.get())
+
+    if(result<0):
+        result = 0
+
+    if(result > max): 
+        result = max - 1
+
+    i = result
+    
+    entry9.delete(0,"end")
+    entry9.insert(0,result)
+    entry01.delete(0,"end")
+    entry01.insert(0,"조회완료")
+    entry10.delete(0,"end")
+    entry10.insert(0,data['dictionary'][i]['hanja'])
+    entry11.delete(0,"end")
+    entry11.insert(0,data['dictionary'][i]['japan'])
+    entry12.delete(0,"end")
+    entry12.insert(0,data['dictionary'][i]['china'])
+
+
+def search_hanja_d():
+    #with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
+    #    data = json.load(f)
+    data = g_data
+
+    max = len(data['dictionary'])
+    h_temp = entry10.get()
+    result = max - 1
+
+    entry01.delete(0,"end")
+    entry01.insert(0,"없음")
+    entry9.delete(0,"end")
+    entry10.delete(0,"end")
+    entry11.delete(0,"end")
+    entry12.delete(0,"end")
+
+    for i in range(0,max):
+        #print(data['dictionary'][i]['hangul'])
+        if(data['dictionary'][i]['hanja'] == h_temp ):
+            result = i
+            entry01.delete(0,"end")
+            entry01.insert(0,"조회완료")
+            entry9.delete(0,"end")
+            entry9.insert(0,result)
+            entry10.insert(0,data['dictionary'][i]['hanja'])
+            entry11.insert(0,data['dictionary'][i]['japan'])
+            entry12.insert(0,data['dictionary'][i]['china'])
+            break
+
+
+
+def read_d():
+    with open ("dic/data3.json", "r", encoding = 'utf-8') as f:
+        data = json.load(f)
+
+    global g_data
+    
+    g_data = data
+
+    #print(g_data['dictionary'][3])
+    
+    entry01.delete(0,"end")
+    entry01.insert(0, "읽기완료")
+
+
+def write_d():
+
+    #update_d()
+
+    data = g_data
+
+    #print(data['dictionary'][3])
+
+    max = len(data['dictionary'])
+
+    string =  '{ "dictionary": [\n'
+
+    for i in range(0,max):
+        temp = data['dictionary'][i]
+        temp = json.dumps(temp, ensure_ascii=False)
+        string = string + temp + ',\n'
+
+    string = string[:-2]
+
+    string = string + '\n]}'
+
+    #print(max)
+
+    f = open("dic/data3.json", 'w', encoding = 'utf-8')
+    f.write(string)
+    f.close()
+
+    #entry00.delete(0,"end")
+    #entry00.insert(0, seq)
+    entry01.delete(0,"end")
+    entry01.insert(0, "저장완료")
+
+
+
+#GUI 구성 요소들---------------------------------------------------
+
 
 label0 = Label(tk,text='BOOK', font=font1).grid(row=0, column=0)
 label1 = Label(tk,text='장절', font=font1).grid(row=1, column=0)
@@ -614,6 +805,11 @@ label6 = Label(tk,text='발음', font=font1).grid(row=6, column=0)
 label7 = Label(tk,text='한글', font=font1).grid(row=7, column=0)
 label8 = Label(tk,text='영어', font=font1).grid(row=8, column=0)
 
+label9 = Label(tk,text='SEQ', font=font1).grid(row=9, column=0)
+label10 = Label(tk,text='한자', font=font1).grid(row=10, column=0)
+label11 = Label(tk,text='일본', font=font1).grid(row=11, column=0)
+label12 = Label(tk,text='중국', font=font1).grid(row=12, column=0)
+
 
 # 각 단위 입력받는 부분 만들기
 entry_book_no = Entry(tk, width=5, font=font1)
@@ -622,12 +818,17 @@ entry01 = Entry(tk, width=8, font=font8)
 entry1 = Entry(tk, width=30, font=font1)
 entry00 = Entry(tk, width=30, font=font1)
 
-entry2 = Text(tk, width=52, height =4, font=font5)
-entry3 = Text(tk, width=105, height =4, font=font4)
+entry2 = Text(tk, width=46, height =4, font=font5)
+entry3 = Text(tk, width=93, height =4, font=font6)
 entry4 = Text(tk, width=70, height =5, font=font7)
 entry5 = Text(tk, width=83, height =4, font=font2)
 entry6 = Text(tk, width=83, height =4, font=font2)
 entry7 = Text(tk, width=83, height =4, font=font2)
+
+entry9 = Entry(tk, width=92, font=font1)
+entry10 = Entry(tk, width=69, font=font7)
+entry11 = Entry(tk, width=69, font=font7)
+entry12 = Entry(tk, width=69, font=font7)
 
 
 entry_book.grid(row=0,column=1)
@@ -644,6 +845,13 @@ entry4.grid(row=5,column=1)
 entry5.grid(row=6,column=1)
 entry6.grid(row=7,column=1)
 entry7.grid(row=8,column=1)
+
+entry9.grid(row=9,column=1)
+entry10.grid(row=10,column=1)
+entry11.grid(row=11,column=1)
+entry12.grid(row=12,column=1)
+
+
 
 entry_book_no.delete(0,"end")
 entry_book_no.insert(tkinter.END, "42")
@@ -666,8 +874,19 @@ btn4 = Button(tk,text='히라',bg='yellow',fg='black',command=trans_japan).grid(
 
 btn2 = Button(tk,text='신규',bg='green',fg='white',command=new).grid(row=8,column=2)
 
+btn9 = Button(tk,text='SEQ',bg='black',fg='white',command=search_seq_d).grid(row=9,column=1)
+btn10 = Button(tk,text='조회',bg='black',fg='white',command=search_hanja_d).grid(row=10,column=1)
+btn13 = Button(tk,text='신규',bg='black',fg='white',command=new_d).grid(row=9,column=2)
+btn14 = Button(tk,text='삭제',bg='black',fg='white',command=delete_d).grid(row=10,column=2)
+btn15 = Button(tk,text='Write',bg='black',fg='white',command=write_d).grid(row=11,column=2)
+btn16 = Button(tk,text='수정',bg='black',fg='white',command=update_d).grid(row=12,column=2)
 
 
+read_d()
+
+def quit():
+    write_d()
+    tk.quit()
 
 
 tk.mainloop()
