@@ -86,13 +86,22 @@ def delete():
 
 def copy():
     hangul = entry1.get()
+    hangul = hangul.replace("\n", "")
     hanja = entry2.get()
+    hanja = hanja.replace("\n", "")
     h1 = entry31.get()
+    h1 = h1.replace("\n", "")
     h2 = entry41.get()
+    h2 = h2.replace("\n", "")
     h3 = entry51.get()
+    h3 = h3.replace("\n", "")
     h4 = entry61.get()
+    h4 = h4.replace("\n", "")
     h5 = entry71.get()
+    h5 = h5.replace("\n", "")
     h6 = entry81.get()
+    h6 = h6.replace("\n", "")
+
     c1 = entry32.get()
     c2 = entry42.get()
     c3 = entry52.get()
@@ -189,21 +198,21 @@ def update():
 
     
 
-    g_data['dictionary'][seq]['hangul'] = entry1.get()
-    g_data['dictionary'][seq]['hanja'] = entry2.get()
-    g_data['dictionary'][seq]['h1'] = entry31.get()
-    g_data['dictionary'][seq]['h2'] = entry41.get()
-    g_data['dictionary'][seq]['h3'] = entry51.get()
-    g_data['dictionary'][seq]['h4'] = entry61.get()
-    g_data['dictionary'][seq]['h5'] = entry71.get()
-    g_data['dictionary'][seq]['h6'] = entry81.get()
-    g_data['dictionary'][seq]['c1'] = entry32.get()
-    g_data['dictionary'][seq]['c2'] = entry42.get()
-    g_data['dictionary'][seq]['c3'] = entry52.get()
-    g_data['dictionary'][seq]['c4'] = entry62.get()
-    g_data['dictionary'][seq]['c5'] = entry72.get()
-    g_data['dictionary'][seq]['c6'] = entry82.get()
-    g_data['dictionary'][seq]['exp'] = entry9.get("1.0", "end-1c")
+    g_data['dictionary'][seq]['hangul'] = entry1.get().replace("\n", "")
+    g_data['dictionary'][seq]['hanja'] = entry2.get().replace("\n", "")
+    g_data['dictionary'][seq]['h1'] = entry31.get().replace("\n", "")
+    g_data['dictionary'][seq]['h2'] = entry41.get().replace("\n", "")
+    g_data['dictionary'][seq]['h3'] = entry51.get().replace("\n", "")
+    g_data['dictionary'][seq]['h4'] = entry61.get().replace("\n", "")
+    g_data['dictionary'][seq]['h5'] = entry71.get().replace("\n", "")
+    g_data['dictionary'][seq]['h6'] = entry81.get().replace("\n", "")
+    g_data['dictionary'][seq]['c1'] = entry32.get().replace("\n", "")
+    g_data['dictionary'][seq]['c2'] = entry42.get().replace("\n", "")
+    g_data['dictionary'][seq]['c3'] = entry52.get().replace("\n", "")
+    g_data['dictionary'][seq]['c4'] = entry62.get().replace("\n", "")
+    g_data['dictionary'][seq]['c5'] = entry72.get().replace("\n", "")
+    g_data['dictionary'][seq]['c6'] = entry82.get().replace("\n", "")
+    g_data['dictionary'][seq]['exp'] = entry9.get("1.0", "end-1c").replace("\n", "")
     temp = entry10.get()
     temp = temp.replace("\n", "")
     g_data['dictionary'][seq]['china'] = temp
@@ -215,7 +224,9 @@ def update():
     g_data['dictionary'][seq]['english'] = temp
     temp = entry13.get()
     temp = temp.replace("\n", "")
-    g_data['dictionary'][seq]['ytube'] = temp
+    #g_data['dictionary'][seq]['ytube'] = temp
+    g_data['dictionary'][seq]['ytube'] = "."
+
 
     search_seq()
     

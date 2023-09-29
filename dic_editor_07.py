@@ -85,21 +85,21 @@ def delete():
 
 
 def copy():
-    hangul = entry1.get()
-    hanja = entry2.get()
-    h1 = entry31.get()
-    h2 = entry41.get()
-    h3 = entry51.get()
-    h4 = entry61.get()
-    h5 = entry71.get()
-    h6 = entry81.get()
-    c1 = entry32.get()
-    c2 = entry42.get()
-    c3 = entry52.get()
-    c4 = entry62.get()
-    c5 = entry72.get()
-    c6 = entry82.get()
-    exp = entry9.get("1.0", "end-1c")
+    hangul = entry1.get().replace("\n", "")
+    hanja = entry2.get().replace("\n", "")
+    h1 = entry31.get().replace("\n", "")
+    h2 = entry41.get().replace("\n", "")
+    h3 = entry51.get().replace("\n", "")
+    h4 = entry61.get().replace("\n", "")
+    h5 = entry71.get().replace("\n", "")
+    h6 = entry81.get().replace("\n", "")
+    c1 = entry32.get().replace("\n", "")
+    c2 = entry42.get().replace("\n", "")
+    c3 = entry52.get().replace("\n", "")
+    c4 = entry62.get().replace("\n", "")
+    c5 = entry72.get().replace("\n", "")
+    c6 = entry82.get().replace("\n", "")
+    exp = entry9.get("1.0", "end-1c").replace("\n", "")
     china = entry10.get()
     china = china.replace("\n", "")
     japan = entry11.get()
@@ -189,21 +189,21 @@ def update():
 
     
 
-    g_data['dictionary'][seq]['hangul'] = entry1.get()
-    g_data['dictionary'][seq]['hanja'] = entry2.get()
-    g_data['dictionary'][seq]['h1'] = entry31.get()
-    g_data['dictionary'][seq]['h2'] = entry41.get()
-    g_data['dictionary'][seq]['h3'] = entry51.get()
-    g_data['dictionary'][seq]['h4'] = entry61.get()
-    g_data['dictionary'][seq]['h5'] = entry71.get()
-    g_data['dictionary'][seq]['h6'] = entry81.get()
-    g_data['dictionary'][seq]['c1'] = entry32.get()
-    g_data['dictionary'][seq]['c2'] = entry42.get()
-    g_data['dictionary'][seq]['c3'] = entry52.get()
-    g_data['dictionary'][seq]['c4'] = entry62.get()
-    g_data['dictionary'][seq]['c5'] = entry72.get()
-    g_data['dictionary'][seq]['c6'] = entry82.get()
-    g_data['dictionary'][seq]['exp'] = entry9.get("1.0", "end-1c")
+    g_data['dictionary'][seq]['hangul'] = entry1.get().replace("\n", "")
+    g_data['dictionary'][seq]['hanja'] = entry2.get().replace("\n", "")
+    g_data['dictionary'][seq]['h1'] = entry31.get().replace("\n", "")
+    g_data['dictionary'][seq]['h2'] = entry41.get().replace("\n", "")
+    g_data['dictionary'][seq]['h3'] = entry51.get().replace("\n", "")
+    g_data['dictionary'][seq]['h4'] = entry61.get().replace("\n", "")
+    g_data['dictionary'][seq]['h5'] = entry71.get().replace("\n", "")
+    g_data['dictionary'][seq]['h6'] = entry81.get().replace("\n", "")
+    g_data['dictionary'][seq]['c1'] = entry32.get().replace("\n", "")
+    g_data['dictionary'][seq]['c2'] = entry42.get().replace("\n", "")
+    g_data['dictionary'][seq]['c3'] = entry52.get().replace("\n", "")
+    g_data['dictionary'][seq]['c4'] = entry62.get().replace("\n", "")
+    g_data['dictionary'][seq]['c5'] = entry72.get().replace("\n", "")
+    g_data['dictionary'][seq]['c6'] = entry82.get().replace("\n", "")
+    g_data['dictionary'][seq]['exp'] = entry9.get("1.0", "end-1c").replace("\n", "")
     temp = entry10.get()
     temp = temp.replace("\n", "")
     g_data['dictionary'][seq]['china'] = temp
@@ -461,7 +461,9 @@ def next():
     entry1.delete(0,"end")
     entry1.insert(0,data['dictionary'][i]['hangul'])
 
-    pyperclip.copy(data['dictionary'][i]['hangul'])
+    temp_clip = data['dictionary'][i]['hangul'] + " 한자"
+
+    pyperclip.copy(temp_clip)
 
     entry2.delete(0,"end")
     entry2.insert(0,data['dictionary'][i]['hanja'])
@@ -522,7 +524,9 @@ def previous():
     entry1.delete(0,"end")
     entry1.insert(0,data['dictionary'][i]['hangul'])
 
-    pyperclip.copy(data['dictionary'][i]['hangul'])
+    temp_clip = data['dictionary'][i]['hangul'] + " 한자"
+
+    pyperclip.copy(temp_clip)
 
     entry2.delete(0,"end")
     entry2.insert(0,data['dictionary'][i]['hanja'])
@@ -682,7 +686,7 @@ def write():
 
 def clip_copy():
 
-    update()
+    #update()
 
     temp1_string = entry13.get()
 
@@ -733,6 +737,8 @@ def clip_copy():
     temp2_string = temp2_string + "\n    "
 
     pyperclip.copy(temp2_string)
+
+    update()
 
 
 

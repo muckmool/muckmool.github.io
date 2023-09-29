@@ -8,7 +8,7 @@ import atexit
 #GUI 정의-------------------------------------------------
 
 tk = Tk()
-tk.geometry("930x830-30+40")
+tk.geometry("940x830-30+40")
 font8 = tkinter.font.Font(family="Consolas", size=8)
 font4 = tkinter.font.Font(family="Consolas", size=11)
 font5 = tkinter.font.Font(family="Consolas", size=24)
