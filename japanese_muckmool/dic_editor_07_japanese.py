@@ -8,7 +8,7 @@ import pyperclip
 
 
 tk = Tk()
-tk.geometry("510x400+1100+550")
+tk.geometry("520x460-50+50")
 font1 = tkinter.font.Font(family="Consolas", size=12)
 tk.title('japanese_muckmool')
 tk.wm_attributes("-topmost", 1)
@@ -236,7 +236,7 @@ def update():
 
 
 def search_hangul():
-    #with open ("data4.json", "r", encoding = 'utf-8') as f:
+    #with open ("data4_japan.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -304,7 +304,7 @@ def search_hangul():
 
 
 def search_hanja():
-    #with open ("data4.json", "r", encoding = 'utf-8') as f:
+    #with open ("data4_japan.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -369,7 +369,7 @@ def search_hanja():
 
     
 def search_each_hanja():
-    #with open ("data4.json", "r", encoding = 'utf-8') as f:
+    #with open ("data4_japan.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -455,7 +455,7 @@ def next():
 
     update()
 
-    #with open ("data4.json", "r", encoding = 'utf-8') as f:
+    #with open ("data4_japan.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -473,7 +473,9 @@ def next():
     entry1.delete(0,"end")
     entry1.insert(0,data['dictionary'][i]['hangul'])
 
-    pyperclip.copy(data['dictionary'][i]['hangul'])
+    temp_string = data['dictionary'][i]['hangul'] + " " + data['dictionary'][i]['hanja'] + " / " + data['dictionary'][i]['japan'] + " " + data['dictionary'][i]['hanja'] + " / " + data['dictionary'][i]['hanja'] + " 일본어"
+
+    pyperclip.copy(temp_string)
 
     entry2.delete(0,"end")
     entry2.insert(0,data['dictionary'][i]['hanja'])
@@ -516,7 +518,7 @@ def next():
 
 
 def previous():
-    #with open ("data4.json", "r", encoding = 'utf-8') as f:
+    #with open ("data4_japan.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
     data = g_data
 
@@ -534,7 +536,7 @@ def previous():
     entry1.delete(0,"end")
     entry1.insert(0,data['dictionary'][i]['hangul'])
 
-    pyperclip.copy(data['dictionary'][i]['hangul'])
+    #pyperclip.copy(data['dictionary'][i]['hangul'])
 
     entry2.delete(0,"end")
     entry2.insert(0,data['dictionary'][i]['hanja'])
@@ -577,7 +579,7 @@ def previous():
 
 
 def search_seq():
-    #with open ("data4.json", "r", encoding = 'utf-8') as f:
+    #with open ("data4_japan.json", "r", encoding = 'utf-8') as f:
     #    data = json.load(f)
 
     data = g_data
@@ -646,7 +648,7 @@ def search_seq():
 
 
 def read():
-    with open ("data4.json", "r", encoding = 'utf-8') as f:
+    with open ("data4_japan.json", "r", encoding = 'utf-8') as f:
         data = json.load(f)
 
     global g_data
@@ -661,7 +663,6 @@ def read():
 
 def write():
 
-    update()
 
     data = g_data
 
@@ -682,7 +683,7 @@ def write():
 
     #print(max)
 
-    f = open("data4.json", 'w', encoding = 'utf-8')
+    f = open("data4_japan.json", 'w', encoding = 'utf-8')
     f.write(string)
     f.close()
 
@@ -788,7 +789,7 @@ entry62 = Entry(tk, width=6, font=font1)
 entry72 = Entry(tk, width=6, font=font1)
 entry82 = Entry(tk, width=6, font=font1)
 
-entry9 = Text(tk, width=40, height=3, font=font1)
+entry9 = Text(tk, width=40, height=6, font=font1)
 entry10 = Entry(tk, width=40, font=font1)
 entry11 = Entry(tk, width=40, font=font1)
 entry12 = Entry(tk, width=40, font=font1)

@@ -461,7 +461,7 @@ def next():
     entry1.delete(0,"end")
     entry1.insert(0,data['dictionary'][i]['hangul'])
 
-    temp_clip = data['dictionary'][i]['hangul'] + " 한자"
+    temp_clip = data['dictionary'][i]['hangul'] + " 한자 " + data['dictionary'][i]['hanja']
 
     pyperclip.copy(temp_clip)
 
@@ -524,7 +524,7 @@ def previous():
     entry1.delete(0,"end")
     entry1.insert(0,data['dictionary'][i]['hangul'])
 
-    temp_clip = data['dictionary'][i]['hangul'] + " 한자"
+    temp_clip = data['dictionary'][i]['hangul'] + " 한자 " + data['dictionary'][i]['hanja']
 
     pyperclip.copy(temp_clip)
 

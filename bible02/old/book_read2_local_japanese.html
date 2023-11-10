@@ -217,7 +217,7 @@ function book_load()  {
         let hanja_temp73 ="";
         
         for (j = 0; j < max2; j += 1) {
-             hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>" + " ";
+             hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>&nbsp&nbsp" + hangul_temp72[j] + "&nbsp&nbsp</rt>" + "</ruby>" + " ";
              
         }
 
@@ -289,7 +289,7 @@ function book_load()  {
         let hira_temp="";
 
         for (j = 0; j < max2; j += 1) {
-             hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>" + " ";
+             hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>&nbsp&nbsp" + hangul_temp72[j] + "&nbsp&nbsp</rt>" + "</ruby>" + " ";
              
         }
 
@@ -362,7 +362,7 @@ function book_load()  {
         let hira_temp ="";
 
         for (j = 0; j < max2; j += 1) {
-             hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>" + hangul_temp72[j] + "</rt>" + "</ruby>" + " ";
+             hanja_temp73 = hanja_temp73 + "<ruby>" + hanja_temp72[j] + "<rt>&nbsp&nbsp" + hangul_temp72[j] + "&nbsp&nbsp</rt>" + "</ruby>" + " ";
              
         }
 
@@ -426,7 +426,7 @@ function book_load()  {
     speechMsg.lang =  "zh-CN";
     speechMsg.text = document.getElementById("result6").textContent;
     delay = document.getElementById("result6").textContent;
-    delay = parseInt(delay.length * 390);
+    delay = parseInt(delay.length * 350);
 
     console.log(delay);
 
@@ -450,7 +450,7 @@ function book_load()  {
     speechMsg.lang =  "ja-JP";
     speechMsg.text = document.getElementById("result7").textContent;
     delay = document.getElementById("result7").textContent;
-    delay = parseInt(delay.length * 180);
+    delay = parseInt(delay.length * 200);
 
     console.log(delay);
 
@@ -495,10 +495,10 @@ function book_load()  {
 
 <p>muckmool.tistory.com
 
-<!--
+
 <p>
         <select id="book_list" style="width:500px;height:40px;font-size:15px;" >
-            <option value="01">창세기  Genesis  创世纪  創世記</option>
+            <option value="01">NHK NEWS</option>
             <option value="02">출애굽기  Exodus  出埃及记  出エジプト記</option>
             <option value="03">레위기  Leviticus  利未记  レビ記</option>
             <option value="04">민수기  Numbers  民数记  民數記</option>
@@ -567,7 +567,7 @@ function book_load()  {
             
 
         </select>
-
+<!--
         <input type='button' onclick='book_load()' value='Book Load'/> 
 
 
@@ -597,22 +597,12 @@ function book_load()  {
 
 
     <tbody>
-
         <tr><td>&nbsp</td></tr>
-        <tr><td id="result9" style="font-size:26px; font-weight: 300;">.</td></tr>
-
+        <tr><td id="result9" style="font-size:10px; font-weight: 300;">.</td></tr>
         <tr><td>&nbsp</td></tr>
         <tr><td id="result5" style="font-size:26px; font-weight: 300;">.</td></tr>
         <tr><td>&nbsp</td></tr>
-        <tr><td id="result10" style="font-size:26px; font-weight: 300;">.</td></tr>
-        <tr><td>&nbsp</td></tr>
-        <tr><td id="result8" style="font-size:26px; font-weight: 300;">.</td></tr>
-
-
-        <tr><td>&nbsp</td></tr>
-        <tr><td id="result4" style="font-size:26px; font-weight: 300;">.</td></tr>
-
-        
+        <tr><td id="result8">.</td></tr>     
     </tbody>
 </table>
 
@@ -635,6 +625,11 @@ function book_load()  {
 
 <table>
     <tbody>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result4" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result10" style="font-size:26px; font-weight: 300;">.</td></tr>
+
         <tr><td>&nbsp</td></tr>
         <tr><td id="result6">.</td></tr>
         <tr><td>&nbsp</td></tr>
