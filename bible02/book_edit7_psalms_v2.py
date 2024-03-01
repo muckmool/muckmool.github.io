@@ -8,13 +8,13 @@ import atexit
 #Global 변수----------------------------------
 
 global count_sum
-count_sum = 30
+count_sum = 10
 
 
 #GUI 정의-------------------------------------------------
 
 tk = Tk()
-tk.geometry("930x740-3+100")
+tk.geometry("930x880-3+3")
 font8 = tkinter.font.Font(family="Consolas", size=8)
 font4 = tkinter.font.Font(family="Consolas", size=11)
 font5 = tkinter.font.Font(family="Consolas", size=24)
@@ -23,8 +23,8 @@ font6 = tkinter.font.Font(family="Consolas", size=13)
 font2 = tkinter.font.Font(family="Consolas", size=14)
 font3 = tkinter.font.Font(family="Consolas", size=15)
 font7 = tkinter.font.Font(family="Consolas", size=16)
-tk.title('토쿠가와 이에야스')
-tk.wm_attributes("-topmost", 1)
+tk.title('시편')
+tk.wm_attributes("-topmost", 0)
 
 
 
@@ -109,7 +109,8 @@ def new():
         entry13.insert(tkinter.END, data['book'][seq+1]['exp'])
 
         #write_d()
-
+        #global count_sum
+        #count_sum = 0
 
         
 
@@ -222,8 +223,6 @@ def update():
         f.write(string)
         f.close()
 
-
-        global count_sum
 
 
         entry00.delete(0,"end")
@@ -458,31 +457,11 @@ def trans_japan():
         temp = entry4.get("1.0", "end-1c")
 
         # 특수 문자 삭제
-        temp = temp.replace('．',' . ')
-        temp = temp.replace('，',' , ')
-        temp = temp.replace('?',' ? ')
+        temp = temp.replace('．',' .')
+        temp = temp.replace('，',' ,')
         temp = temp.replace('「','')
         temp = temp.replace('」','')
         temp = temp.replace('¿','々')
-        temp = temp.replace('、',' 、 ')
-        temp = temp.replace('。',' 。 ')
-        temp = temp.replace('\n',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-
-
 
         entry4.delete("1.0", "end-1c")
         entry4.insert(tkinter.END, temp)
@@ -507,129 +486,6 @@ def trans_japan():
         
         entry5.insert(tkinter.END, string)
 
-
-
-
-
-    if(entry6.get("1.0", "end-1c") != None):
-
-        temp = entry6.get("1.0", "end-1c")
-
-        # 특수 문자 삭제
-        temp = temp.replace('\n',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')  
-
-        entry6.delete("1.0", "end-1c")
-        entry6.insert(tkinter.END, temp)
-
-    if(entry7.get("1.0", "end-1c") != None):
-
-        temp = entry7.get("1.0", "end-1c")
-
-        # 특수 문자 삭제
-        temp = temp.replace('\n',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')
-        temp = temp.replace('  ',' ')   
-
-        entry7.delete("1.0", "end-1c")
-        entry7.insert(tkinter.END, temp)
-
-
-    #등장 인물
-
-    if(entry4.get("1.0", "end-1c") == 'お婆ちゃん'):
-        temp = '할머니'
-        entry6.delete("1.0", "end-1c")
-        entry6.insert(tkinter.END, temp)
-        entry7.delete("1.0", "end-1c")
-        entry7.insert(tkinter.END, temp)
-
-    if(entry4.get("1.0", "end-1c") == '三葉'):
-        temp = '미츠하'
-        entry6.delete("1.0", "end-1c")
-        entry6.insert(tkinter.END, temp)
-        entry7.delete("1.0", "end-1c")
-        entry7.insert(tkinter.END, temp)
-
-    if(entry4.get("1.0", "end-1c") == '四葉'):
-        temp = '요츠하'
-        entry6.delete("1.0", "end-1c")
-        entry6.insert(tkinter.END, temp)
-        entry7.delete("1.0", "end-1c")
-        entry7.insert(tkinter.END, temp)
-
-    if(entry4.get("1.0", "end-1c") == '早耶香'):
-        temp = '사야까'
-        entry6.delete("1.0", "end-1c")
-        entry6.insert(tkinter.END, temp)
-        entry7.delete("1.0", "end-1c")
-        entry7.insert(tkinter.END, temp)
-
-    if(entry4.get("1.0", "end-1c") == '克彦'):
-        temp = '카츠히코'
-        entry6.delete("1.0", "end-1c")
-        entry6.insert(tkinter.END, temp)
-        entry7.delete("1.0", "end-1c")
-        entry7.insert(tkinter.END, temp)
-
-    if(entry4.get("1.0", "end-1c") == '瀧'):
-        temp = '타키'
-        entry6.delete("1.0", "end-1c")
-        entry6.insert(tkinter.END, temp)
-        entry7.delete("1.0", "end-1c")
-        entry7.insert(tkinter.END, temp)
-
-    if(entry4.get("1.0", "end-1c") == '瀧の父'):
-        temp = '타키 아버지'
-        entry6.delete("1.0", "end-1c")
-        entry6.insert(tkinter.END, temp)
-        entry7.delete("1.0", "end-1c")
-        entry7.insert(tkinter.END, "타키노 치치")
-
-    if(entry4.get("1.0", "end-1c") == '同級生'):
-        temp = '동급생'
-        entry6.delete("1.0", "end-1c")
-        entry6.insert(tkinter.END, temp)
-        entry7.delete("1.0", "end-1c")
-        entry7.insert(tkinter.END, "도우큐쎄이")
-
-    if(entry4.get("1.0", "end-1c") == 'ツカサ'):
-        temp = '츠카사'
-        entry6.delete("1.0", "end-1c")
-        entry6.insert(tkinter.END, temp)
-        entry7.delete("1.0", "end-1c")
-        entry7.insert(tkinter.END, temp)
-
-    if(entry4.get("1.0", "end-1c") == '慎太'):
-        temp = '신타'
-        entry6.delete("1.0", "end-1c")
-        entry6.insert(tkinter.END, temp)
-        entry7.delete("1.0", "end-1c")
-        entry7.insert(tkinter.END, temp)
-
-
-
     update()
 
 
@@ -643,13 +499,13 @@ def trans_korea():
 
     max = len(data['dictionary'])
 
-    input_temp = entry4.get("1.0", "end-1c") 
+    input_temp = entry6.get("1.0", "end-1c") 
 
     if(input_temp != None):
 
         entry13.delete("1.0", "end-1c")
 
-        temp = entry4.get("1.0", "end-1c")
+        temp = entry6.get("1.0", "end-1c")
 
         lst = []
         string = ""
@@ -771,7 +627,7 @@ def book_name_search():
                     "06_joshua.json",
                     "07_judges.json",
                     "08_ruth.json",
-                    "09_samuel_1.json",
+                    "bible_data/09_samuel_1.json",
                     "10_samuel_2.json",
                     "11_kings_1.json",
                     "12_kings_2.json",
@@ -781,7 +637,7 @@ def book_name_search():
                     "16_nehemiah.json",
                     "17_esther.json",
                     "18_job.json",
-                    "19_psalms.json",
+                    "bible_data/19_psalms.json",
                     "20_proverbs.json",
                     "21_ecclesiastes.json",
                     "22_songofsolomon.json",
@@ -828,20 +684,18 @@ def book_name_search():
                     "63_john_2.json",
                     "64_john_3.json",
                     "65_jude.json",
-                    "66_revelation.json",
-                    "japan_book_data/67_your_name.json",
-                    "japan_book_data/68_tokugawa_ieyasu.json"
+                    "66_revelation.json"
 
            ]
 
-    result = 68
+    result = 19
 
     if(entry_book_no.get() != ''):
         result = int(entry_book_no.get())
         if(result<1): 
             result = 1
-        if(result>67):
-            result = 68
+        if(result>66):
+            result = 66
 
     return book_list[result-1]
 
@@ -911,9 +765,9 @@ def update_d():
     global count_sum
     count_sum = count_sum - 1
     #print(count_sum) 
-
+    diff = 10
     if(count_sum < 1): 
-        count_sum = count_sum + 30
+        count_sum = count_sum + diff
         write_d()
 
 
@@ -1031,6 +885,9 @@ def write_d():
     entry01.delete(0,"end")
     entry01.insert(0, "저장완료")
 
+    global count_sum
+    count_sum = 30
+
 
 
 #GUI 구성 요소들---------------------------------------------------
@@ -1039,13 +896,13 @@ def write_d():
 label0 = Label(tk,text='BOOK', font=font1).grid(row=0, column=0)
 label1 = Label(tk,text='장절', font=font1).grid(row=1, column=0)
 label2 = Label(tk,text='SEQ',  font=font1).grid(row=2, column=0)
-label3 = Label(tk,text='중X', font=font1).grid(row=3, column=0)
-label4 = Label(tk,text='병X', font=font1).grid(row=4, column=0)
+label3 = Label(tk,text='중국', font=font1).grid(row=3, column=0)
+label4 = Label(tk,text='병음', font=font1).grid(row=4, column=0)
 label5 = Label(tk,text='일본', font=font1).grid(row=5, column=0)
-label6 = Label(tk,text='히라', font=font1).grid(row=6, column=0)
-label7 = Label(tk,text='발음', font=font1).grid(row=7, column=0)
+label6 = Label(tk,text='발음', font=font1).grid(row=6, column=0)
+label7 = Label(tk,text='한글', font=font1).grid(row=7, column=0)
 label13 = Label(tk,text='뜻음', font=font1).grid(row=8, column=0)
-label8 = Label(tk,text='한글', font=font1).grid(row=9, column=0)
+label8 = Label(tk,text='영어', font=font1).grid(row=9, column=0)
 
 label9 = Label(tk,text='SEQ', font=font1).grid(row=10, column=0)
 label10 = Label(tk,text='한자', font=font1).grid(row=11, column=0)
@@ -1061,13 +918,13 @@ entry01 = Entry(tk, width=8, font=font8)
 entry1 = Entry(tk, width=30, font=font1)
 entry00 = Entry(tk, width=30, font=font1)
 
-entry2 = Text(tk, width=46, height =1, font=font5)
-entry3 = Text(tk, width=92, height =1, font=font6)
+entry2 = Text(tk, width=46, height =4, font=font5)
+entry3 = Text(tk, width=92, height =4, font=font6)
 entry4 = Text(tk, width=69, height =5, font=font7)
 entry5 = Text(tk, width=83, height =4, font=font2)
-entry7 = Text(tk, width=83, height =4, font=font2)
-entry13 = Text(tk, width=83, height =2, font=font2)
 entry6 = Text(tk, width=83, height =4, font=font2)
+entry13 = Text(tk, width=83, height =1, font=font2)
+entry7 = Text(tk, width=83, height =4, font=font2)
 
 entry9 = Entry(tk, width=88, font=font1)
 entry10 = Entry(tk, width=66, font=font7)
@@ -1088,10 +945,9 @@ entry2.grid(row=3,column=1)
 entry3.grid(row=4,column=1)
 entry4.grid(row=5,column=1)
 entry5.grid(row=6,column=1)
-entry7.grid(row=7,column=1)
+entry6.grid(row=7,column=1)
 entry13.grid(row=8,column=1)
-entry6.grid(row=9,column=1)
-
+entry7.grid(row=9,column=1)
 
 entry9.grid(row=10,column=1)
 entry10.grid(row=11,column=1)
@@ -1102,9 +958,9 @@ entry12.grid(row=14,column=1)
 
 
 entry_book_no.delete(0,"end")
-entry_book_no.insert(tkinter.END, "68")
+entry_book_no.insert(tkinter.END, "19")
 entry_book.delete(0,"end")
-entry_book.insert(tkinter.END, "토쿠가와 이에야스")
+entry_book.insert(tkinter.END, "시편")
 
 
 #btn8 = Button(tk,text='책번호',bg='black',fg='white',command=search_book).grid(row=0,column=3)

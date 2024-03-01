@@ -23,7 +23,7 @@ font6 = tkinter.font.Font(family="Consolas", size=13)
 font2 = tkinter.font.Font(family="Consolas", size=14)
 font3 = tkinter.font.Font(family="Consolas", size=15)
 font7 = tkinter.font.Font(family="Consolas", size=16)
-tk.title('토쿠가와 이에야스')
+tk.title('노팅힐')
 tk.wm_attributes("-topmost", 1)
 
 
@@ -830,18 +830,19 @@ def book_name_search():
                     "65_jude.json",
                     "66_revelation.json",
                     "japan_book_data/67_your_name.json",
-                    "japan_book_data/68_tokugawa_ieyasu.json"
+                    "japan_book_data/67_your_name.json",
+                    "english_book_data/69_notting_hill.json"
 
            ]
 
-    result = 68
+    result = 69
 
     if(entry_book_no.get() != ''):
         result = int(entry_book_no.get())
         if(result<1): 
             result = 1
-        if(result>67):
-            result = 68
+        if(result>69):
+            result = 69
 
     return book_list[result-1]
 
@@ -1041,10 +1042,10 @@ label1 = Label(tk,text='장절', font=font1).grid(row=1, column=0)
 label2 = Label(tk,text='SEQ',  font=font1).grid(row=2, column=0)
 label3 = Label(tk,text='중X', font=font1).grid(row=3, column=0)
 label4 = Label(tk,text='병X', font=font1).grid(row=4, column=0)
-label5 = Label(tk,text='일본', font=font1).grid(row=5, column=0)
-label6 = Label(tk,text='히라', font=font1).grid(row=6, column=0)
-label7 = Label(tk,text='발음', font=font1).grid(row=7, column=0)
-label13 = Label(tk,text='뜻음', font=font1).grid(row=8, column=0)
+label5 = Label(tk,text='일X', font=font1).grid(row=5, column=0)
+label6 = Label(tk,text='히X', font=font1).grid(row=6, column=0)
+label7 = Label(tk,text='영어', font=font1).grid(row=7, column=0)
+label13 = Label(tk,text='발음', font=font1).grid(row=8, column=0)
 label8 = Label(tk,text='한글', font=font1).grid(row=9, column=0)
 
 label9 = Label(tk,text='SEQ', font=font1).grid(row=10, column=0)
@@ -1063,11 +1064,11 @@ entry00 = Entry(tk, width=30, font=font1)
 
 entry2 = Text(tk, width=46, height =1, font=font5)
 entry3 = Text(tk, width=92, height =1, font=font6)
-entry4 = Text(tk, width=69, height =5, font=font7)
-entry5 = Text(tk, width=83, height =4, font=font2)
-entry7 = Text(tk, width=83, height =4, font=font2)
-entry13 = Text(tk, width=83, height =2, font=font2)
-entry6 = Text(tk, width=83, height =4, font=font2)
+entry4 = Text(tk, width=69, height =1, font=font7)
+entry5 = Text(tk, width=83, height =1, font=font2)
+entry7 = Text(tk, width=83, height =6, font=font2)
+entry13 = Text(tk, width=83, height =6, font=font2)
+entry6 = Text(tk, width=83, height =6, font=font2)
 
 entry9 = Entry(tk, width=88, font=font1)
 entry10 = Entry(tk, width=66, font=font7)
@@ -1102,9 +1103,9 @@ entry12.grid(row=14,column=1)
 
 
 entry_book_no.delete(0,"end")
-entry_book_no.insert(tkinter.END, "68")
+entry_book_no.insert(tkinter.END, "69")
 entry_book.delete(0,"end")
-entry_book.insert(tkinter.END, "토쿠가와 이에야스")
+entry_book.insert(tkinter.END, "노팅힐")
 
 
 #btn8 = Button(tk,text='책번호',bg='black',fg='white',command=search_book).grid(row=0,column=3)
@@ -1114,12 +1115,12 @@ btn1 = Button(tk,text='seq',bg='black',fg='white',command=search_seq).grid(row=2
 btn6 = Button(tk,text='이전',bg='black',fg='white',command=previous).grid(row=3,column=2)
 btn7 = Button(tk,text='다음',bg='black',fg='white',command=next).grid(row=5,column=2)
 
-btn4 = Button(tk,text='병음',bg='yellow',fg='black',command=trans_china).grid(row=4,column=2)
+#btn4 = Button(tk,text='병음',bg='yellow',fg='black',command=trans_china).grid(row=4,column=2)
 btn3 = Button(tk,text='삭제',bg='orange',fg='white',command=delete).grid(row=1, column=2)
 
-btn4 = Button(tk,text='히라',bg='yellow',fg='black',command=trans_japan).grid(row=6,column=2)
+#btn4 = Button(tk,text='히라',bg='yellow',fg='black',command=trans_japan).grid(row=6,column=2)
 btn5 = Button(tk,text='수정',bg='blue',fg='white',command=update).grid(row=7,column=2)
-btn17 = Button(tk,text='뜻음',bg='black',fg='white',command=trans_korea).grid(row=8,column=2)
+#btn17 = Button(tk,text='뜻음',bg='black',fg='white',command=trans_korea).grid(row=8,column=2)
 
 btn2 = Button(tk,text='신규',bg='green',fg='white',command=new).grid(row=9,column=2)
 

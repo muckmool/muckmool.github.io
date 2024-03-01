@@ -593,6 +593,41 @@ def trans_japan():
         entry7.delete("1.0", "end-1c")
         entry7.insert(tkinter.END, temp)
 
+    if(entry4.get("1.0", "end-1c") == '瀧'):
+        temp = '타키'
+        entry6.delete("1.0", "end-1c")
+        entry6.insert(tkinter.END, temp)
+        entry7.delete("1.0", "end-1c")
+        entry7.insert(tkinter.END, temp)
+
+    if(entry4.get("1.0", "end-1c") == '瀧の父'):
+        temp = '타키 아버지'
+        entry6.delete("1.0", "end-1c")
+        entry6.insert(tkinter.END, temp)
+        entry7.delete("1.0", "end-1c")
+        entry7.insert(tkinter.END, "타키노 치치")
+
+    if(entry4.get("1.0", "end-1c") == '同級生'):
+        temp = '동급생'
+        entry6.delete("1.0", "end-1c")
+        entry6.insert(tkinter.END, temp)
+        entry7.delete("1.0", "end-1c")
+        entry7.insert(tkinter.END, "도우큐쎄이")
+
+    if(entry4.get("1.0", "end-1c") == 'ツカサ'):
+        temp = '츠카사'
+        entry6.delete("1.0", "end-1c")
+        entry6.insert(tkinter.END, temp)
+        entry7.delete("1.0", "end-1c")
+        entry7.insert(tkinter.END, temp)
+
+    if(entry4.get("1.0", "end-1c") == '慎太'):
+        temp = '신타'
+        entry6.delete("1.0", "end-1c")
+        entry6.insert(tkinter.END, temp)
+        entry7.delete("1.0", "end-1c")
+        entry7.insert(tkinter.END, temp)
+
 
 
     update()
@@ -1003,13 +1038,13 @@ def write_d():
 label0 = Label(tk,text='BOOK', font=font1).grid(row=0, column=0)
 label1 = Label(tk,text='장절', font=font1).grid(row=1, column=0)
 label2 = Label(tk,text='SEQ',  font=font1).grid(row=2, column=0)
-label3 = Label(tk,text='중국', font=font1).grid(row=3, column=0)
-label4 = Label(tk,text='병음', font=font1).grid(row=4, column=0)
+label3 = Label(tk,text='중X', font=font1).grid(row=3, column=0)
+label4 = Label(tk,text='병X', font=font1).grid(row=4, column=0)
 label5 = Label(tk,text='일본', font=font1).grid(row=5, column=0)
-label6 = Label(tk,text='발음', font=font1).grid(row=6, column=0)
-label7 = Label(tk,text='한글', font=font1).grid(row=7, column=0)
+label6 = Label(tk,text='히라', font=font1).grid(row=6, column=0)
+label7 = Label(tk,text='발음', font=font1).grid(row=7, column=0)
 label13 = Label(tk,text='뜻음', font=font1).grid(row=8, column=0)
-label8 = Label(tk,text='영어', font=font1).grid(row=9, column=0)
+label8 = Label(tk,text='한글', font=font1).grid(row=9, column=0)
 
 label9 = Label(tk,text='SEQ', font=font1).grid(row=10, column=0)
 label10 = Label(tk,text='한자', font=font1).grid(row=11, column=0)
@@ -1029,9 +1064,9 @@ entry2 = Text(tk, width=46, height =1, font=font5)
 entry3 = Text(tk, width=92, height =1, font=font6)
 entry4 = Text(tk, width=69, height =5, font=font7)
 entry5 = Text(tk, width=83, height =4, font=font2)
-entry6 = Text(tk, width=83, height =4, font=font2)
-entry13 = Text(tk, width=83, height =2, font=font2)
 entry7 = Text(tk, width=83, height =4, font=font2)
+entry13 = Text(tk, width=83, height =2, font=font2)
+entry6 = Text(tk, width=83, height =4, font=font2)
 
 entry9 = Entry(tk, width=88, font=font1)
 entry10 = Entry(tk, width=66, font=font7)
@@ -1052,9 +1087,10 @@ entry2.grid(row=3,column=1)
 entry3.grid(row=4,column=1)
 entry4.grid(row=5,column=1)
 entry5.grid(row=6,column=1)
-entry6.grid(row=7,column=1)
+entry7.grid(row=7,column=1)
 entry13.grid(row=8,column=1)
-entry7.grid(row=9,column=1)
+entry6.grid(row=9,column=1)
+
 
 entry9.grid(row=10,column=1)
 entry10.grid(row=11,column=1)

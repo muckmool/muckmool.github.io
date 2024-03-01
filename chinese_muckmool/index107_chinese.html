@@ -1,0 +1,633 @@
+<script>
+
+
+var arr = [ 
+
+'.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 
+
+              
+];
+
+
+fetch('https://muckmool.github.io/data4.json')
+  .then((response) => response.json())
+  .then((data) => { 
+    
+    let temp = data.dictionary; 
+    let max = temp.length;
+    //console.log(max); 
+
+    for (i = 0; i < max; i += 1) {
+        arr.push(data.dictionary[i].hangul);
+        arr.push(data.dictionary[i].hanja);
+        arr.push(data.dictionary[i].h1);
+        arr.push(data.dictionary[i].c1);
+        arr.push(data.dictionary[i].h2);
+        arr.push(data.dictionary[i].c2);
+        arr.push(data.dictionary[i].h3);
+        arr.push(data.dictionary[i].c3);
+        arr.push(data.dictionary[i].h4);
+        arr.push(data.dictionary[i].c4);
+        arr.push(data.dictionary[i].h5);
+        arr.push(data.dictionary[i].c5);
+        arr.push(data.dictionary[i].exp);
+        arr.push(".");
+        arr.push(data.dictionary[i].china);
+        arr.push(data.dictionary[i].japan);
+        arr.push(data.dictionary[i].english);
+        arr.push(data.dictionary[i].ytube);
+
+    }
+
+
+  } 
+);
+
+
+    function search() {
+
+        var i, j, k, l, m, n;
+
+
+        //line0
+
+              
+
+              
+              document.getElementById("h60").textContent = ".";
+              document.getElementById("h61").textContent = ".";
+              document.getElementById("c01").textContent = ".";
+              document.getElementById("c02").textContent = ".";
+              document.getElementById("h1").textContent = ".";
+              document.getElementById("c1").textContent = ".";
+              document.getElementById("h2").textContent = ".";
+              document.getElementById("c2").textContent = ".";
+              document.getElementById("h3").textContent = ".";
+              document.getElementById("c3").textContent = ".";
+              document.getElementById("h4").textContent = ".";
+              document.getElementById("c4").textContent = ".";
+              document.getElementById("h5").textContent = ".";
+              document.getElementById("c5").textContent = ".";
+              document.getElementById("h6").textContent = ".";
+              document.getElementById("c6").textContent = ".";
+              document.getElementById("h7").textContent = ".";
+              document.getElementById("seq").textContent = ".";
+              document.getElementById("china").textContent = ".";
+              document.getElementById("japan").textContent = ".";
+
+        //line1
+
+              document.getElementById("h11").textContent = ".";
+              document.getElementById("c11").textContent = ".";
+              document.getElementById("h12").textContent = ".";
+              document.getElementById("c12").textContent = ".";
+              document.getElementById("h13").textContent = ".";
+              document.getElementById("c13").textContent = ".";
+              document.getElementById("h14").textContent = ".";
+              document.getElementById("c14").textContent = ".";
+              document.getElementById("h15").textContent = ".";
+              document.getElementById("c15").textContent = ".";
+              document.getElementById("h16").textContent = ".";
+              document.getElementById("c16").textContent = ".";
+              document.getElementById("h17").textContent = ".";
+
+        //line2
+
+              document.getElementById("h21").textContent = ".";
+              document.getElementById("c21").textContent = ".";
+              document.getElementById("h22").textContent = ".";
+              document.getElementById("c22").textContent = ".";
+              document.getElementById("h23").textContent = ".";
+              document.getElementById("c23").textContent = ".";
+              document.getElementById("h24").textContent = ".";
+              document.getElementById("c24").textContent = ".";
+              document.getElementById("h25").textContent = ".";
+              document.getElementById("c25").textContent = ".";
+              document.getElementById("h26").textContent = ".";
+              document.getElementById("c26").textContent = ".";
+              document.getElementById("h27").textContent = ".";
+
+        //line3
+
+              document.getElementById("h31").textContent = ".";
+              document.getElementById("c31").textContent = ".";
+              document.getElementById("h32").textContent = ".";
+              document.getElementById("c32").textContent = ".";
+              document.getElementById("h33").textContent = ".";
+              document.getElementById("c33").textContent = ".";
+              document.getElementById("h34").textContent = ".";
+              document.getElementById("c34").textContent = ".";
+              document.getElementById("h35").textContent = ".";
+              document.getElementById("c35").textContent = ".";
+              document.getElementById("h36").textContent = ".";
+              document.getElementById("c36").textContent = ".";
+              document.getElementById("h37").textContent = ".";
+
+        //line4
+
+              document.getElementById("h41").textContent = ".";
+              document.getElementById("c41").textContent = ".";
+              document.getElementById("h42").textContent = ".";
+              document.getElementById("c42").textContent = ".";
+              document.getElementById("h43").textContent = ".";
+              document.getElementById("c43").textContent = ".";
+              document.getElementById("h44").textContent = ".";
+              document.getElementById("c44").textContent = ".";
+              document.getElementById("h45").textContent = ".";
+              document.getElementById("c45").textContent = ".";
+              document.getElementById("h46").textContent = ".";
+              document.getElementById("c46").textContent = ".";
+              document.getElementById("h47").textContent = ".";
+
+   
+
+        //line5
+
+              document.getElementById("h51").textContent = ".";
+              document.getElementById("c51").textContent = ".";
+              document.getElementById("h52").textContent = ".";
+              document.getElementById("c52").textContent = ".";
+              document.getElementById("h53").textContent = ".";
+              document.getElementById("c53").textContent = ".";
+              document.getElementById("h54").textContent = ".";
+              document.getElementById("c54").textContent = ".";
+              document.getElementById("h55").textContent = ".";
+              document.getElementById("c55").textContent = ".";
+              document.getElementById("h56").textContent = ".";
+              document.getElementById("c56").textContent = ".";
+              document.getElementById("h57").textContent = ".";
+
+
+        //line0
+
+        for (i = 0; i < arr.length; i += 18) {
+           if(arr[i] == input_01.value  ||  arr[i+1] == input_01.value   || i == ( (input_01.value -1) * 18)  ) 
+            {
+              
+              document.getElementById("h60").textContent = arr[i+0];
+              document.getElementById("h60").style.fontWeight = "900";
+              document.getElementById("c01").textContent = arr[i+1].substring(0,3);
+              document.getElementById("c01").style.fontSize = "50px"
+              document.getElementById("c02").textContent = arr[i+1].substring(3);
+              document.getElementById("c02").style.fontSize = "50px"
+              document.getElementById("h1").textContent = arr[i+0];
+              
+              document.getElementById("c1").textContent = arr[i+1];
+              document.getElementById("c1").style.fontSize = "20px"
+              
+              document.getElementById("h2").textContent = arr[i+2];
+              document.getElementById("c2").textContent = arr[i+3];
+              document.getElementById("c2").style.fontSize = "20px"
+              
+              document.getElementById("h3").textContent = arr[i+4];
+              document.getElementById("c3").textContent = arr[i+5];
+              document.getElementById("c3").style.fontSize = "20px"
+              
+              document.getElementById("h4").textContent = arr[i+6];
+              document.getElementById("c4").textContent = arr[i+7];
+              document.getElementById("c4").style.fontSize = "20px"
+              
+              document.getElementById("h5").textContent = arr[i+8];
+              document.getElementById("c5").textContent = arr[i+9];
+              document.getElementById("c5").style.fontSize = "20px"
+              
+              document.getElementById("h6").textContent = arr[i+10];
+              document.getElementById("c6").textContent = arr[i+11];
+              document.getElementById("c6").style.fontSize = "20px"
+              
+              document.getElementById("h7").textContent = arr[i+12];
+
+              document.getElementById("seq").textContent = parseInt((i-1)/18)+2;
+
+              break;
+            }
+         }      
+
+        //line1
+
+        for (j = 0; j < arr.length; j += 18) {
+           if(arr[j] == arr[i+2]) 
+            { 
+              document.getElementById("h11").textContent = arr[j+0];
+              document.getElementById("c11").textContent = arr[j+1];
+              document.getElementById("h12").textContent = arr[j+2];
+              document.getElementById("c12").textContent = arr[j+3];
+              document.getElementById("h13").textContent = arr[j+4];
+              document.getElementById("c13").textContent = arr[j+5];
+              document.getElementById("h14").textContent = arr[j+6];
+              document.getElementById("c14").textContent = arr[j+7];
+              document.getElementById("h15").textContent = arr[j+8];
+              document.getElementById("c15").textContent = arr[j+9];
+              document.getElementById("h16").textContent = arr[j+10];
+              document.getElementById("c16").textContent = arr[j+11];
+              document.getElementById("h17").textContent = arr[j+12];
+
+              break;
+            }
+         }      
+
+        //line2
+
+        for (k = 0; k < arr.length; k += 18) {
+           if(arr[k] == arr[i+4]) 
+            { 
+              document.getElementById("h21").textContent = arr[k+0];
+              document.getElementById("c21").textContent = arr[k+1];
+              document.getElementById("h22").textContent = arr[k+2];
+              document.getElementById("c22").textContent = arr[k+3];
+              document.getElementById("h23").textContent = arr[k+4];
+              document.getElementById("c23").textContent = arr[k+5];
+              document.getElementById("h24").textContent = arr[k+6];
+              document.getElementById("c24").textContent = arr[k+7];
+              document.getElementById("h25").textContent = arr[k+8];
+              document.getElementById("c25").textContent = arr[k+9];
+              document.getElementById("h26").textContent = arr[k+10];
+              document.getElementById("c26").textContent = arr[k+11];
+              document.getElementById("h27").textContent = arr[k+12];
+
+              break;
+            }
+         }      
+
+        //line3
+
+        for (l = 0; l < arr.length; l += 18) {
+           if(arr[l] == arr[i+6]) 
+            { 
+              document.getElementById("h31").textContent = arr[l+0];
+              document.getElementById("c31").textContent = arr[l+1];
+              document.getElementById("h32").textContent = arr[l+2];
+              document.getElementById("c32").textContent = arr[l+3];
+              document.getElementById("h33").textContent = arr[l+4];
+              document.getElementById("c33").textContent = arr[l+5];
+              document.getElementById("h34").textContent = arr[l+6];
+              document.getElementById("c34").textContent = arr[l+7];
+              document.getElementById("h35").textContent = arr[l+8];
+              document.getElementById("c35").textContent = arr[l+9];
+              document.getElementById("h36").textContent = arr[l+10];
+              document.getElementById("c36").textContent = arr[l+11];
+              document.getElementById("h37").textContent = arr[l+12];
+
+              break;
+            }
+         }      
+
+        //line4
+
+        for (m = 0; m < arr.length; m += 18) {
+           if(arr[m] == arr[i+8]) 
+            { 
+              document.getElementById("h41").textContent = arr[m+0];
+              document.getElementById("c41").textContent = arr[m+1];
+              document.getElementById("h42").textContent = arr[m+2];
+              document.getElementById("c42").textContent = arr[m+3];
+              document.getElementById("h43").textContent = arr[m+4];
+              document.getElementById("c43").textContent = arr[m+5];
+              document.getElementById("h44").textContent = arr[m+6];
+              document.getElementById("c44").textContent = arr[m+7];
+              document.getElementById("h45").textContent = arr[m+8];
+              document.getElementById("c45").textContent = arr[m+9];
+              document.getElementById("h46").textContent = arr[m+10];
+              document.getElementById("c46").textContent = arr[m+11];
+              document.getElementById("h47").textContent = arr[m+12];
+
+              break;
+            }
+         }      
+
+        //line5
+
+        for (n = 0; n < arr.length; n += 18) {
+           if(arr[n] == arr[i+10]) 
+            { 
+              document.getElementById("h51").textContent = arr[n+0];
+              document.getElementById("c51").textContent = arr[n+1];
+              document.getElementById("h52").textContent = arr[n+2];
+              document.getElementById("c52").textContent = arr[n+3];
+              document.getElementById("h53").textContent = arr[n+4];
+              document.getElementById("c53").textContent = arr[n+5];
+              document.getElementById("h54").textContent = arr[n+6];
+              document.getElementById("c54").textContent = arr[n+7];
+              document.getElementById("h55").textContent = arr[n+8];
+              document.getElementById("c55").textContent = arr[n+9];
+              document.getElementById("h56").textContent = arr[n+10];
+              document.getElementById("c56").textContent = arr[n+11];
+              document.getElementById("h57").textContent = arr[n+12];
+
+              break;
+            }
+         } 
+         
+         document.getElementById("h61").textContent = arr[i+0] + ", " +arr[i+2] + ", " +arr[i+4] + ", " +arr[i+6] + ", " +arr[i+8] + ", " +arr[i+10] + ", " +arr[i+12] +
+                                                      arr[j+0] + ", " +arr[j+2] + ", " +arr[j+4] + ", " +arr[j+6] + ", " +arr[j+8] + ", " +arr[j+10] + ", " +arr[j+12] +
+                                                      arr[k+0] + ", " +arr[k+2] + ", " +arr[k+4] + ", " +arr[k+6] + ", " +arr[k+8] + ", " +arr[k+10] + ", " +arr[k+12] +
+                                                      arr[l+0] + ", " +arr[l+2] + ", " +arr[l+4] + ", " +arr[l+6] + ", " +arr[l+8] + ", " +arr[l+10] + ", " +arr[l+12] +
+                                                      arr[m+0] + ", " +arr[m+2] + ", " +arr[m+4] + ", " +arr[m+6] + ", " +arr[m+8] + ", " +arr[m+10] + ", " +arr[m+12] +
+                                                      arr[n+0] + ", " +arr[n+2] + ", " +arr[n+4] + ", " +arr[n+6] + ", " +arr[n+8] + ", " +arr[n+10] + ", " +arr[n+12] ;
+
+        document.getElementById("china").textContent = arr[i+16] + " / " +arr[i+14];
+        document.getElementById("japan").textContent = arr[i+15];
+
+
+        addr_temp = arr[i+17];
+        addr_temp = addr_temp.substring(17);
+
+        document.getElementById("address1").textContent = "address = '" + addr_temp + "'";
+        
+        //address = "https://www.youtube.com/embed/" + addr_temp + "?mute=1&autoplay=1";
+        // document.getElementById('y_tube').src = address;
+
+
+    }
+
+</script>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hanja dictionary</title>
+
+</head>
+
+<p><span id="address1">.</span></p>
+
+
+
+</p>
+</div>
+<div id="player">&nbsp;</div>
+<script src="http://www.youtube.com/iframe_api"></script>
+<script>
+    var player;
+    function onYouTubeIframeAPIReady(){
+        player = new YT.Player('player',{
+        width:'100%',
+
+        videoId: address,
+
+        playerVars:{'autoplay':1,'playsinline':1, 'loop':1},
+        events:{ 'onReady':onPlayerReady }
+        });
+    }
+
+    function onPlayerReady(e){
+        e.target.mute();
+        e.target.playVideo();
+    }
+</script>
+
+
+
+   
+<p>https://muckmool.tistory.com/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+               
+        <span id="seq"></span>
+        
+        &nbsp;<input id="input_01" style="width: 100px; height: 35px; font-size: 15px;" type="text" value="" autofocus="" >
+        
+        &nbsp;<button onclick="search();" style="width: 70px; height: 35px; font-size: 15px;"> 조회 </button>
+        
+        &nbsp;<button onclick="speak();" style="width: 70px; height: 35px; font-size: 15px;"> TTS </button>
+    
+        &nbsp;<button onclick="decrease(); refresh1(); search();" style="width: 70px; height: 35px; font-size: 15px;"> PREV </button>
+    
+        &nbsp;<button onclick="increase(); refresh1(); search();" style="width: 70px; height: 35px; font-size: 15px;"> NEXT </button>
+
+<p> 
+
+
+<table style="border-collapse: collapse; width: 100%;" border="1" width="100%" text-align="center">
+<tbody>
+
+<colgroup>
+    <col width="16%" />
+    <col width="9%" />
+    <col width="9%" />
+    <col width="9%" />
+    <col width="9%" />
+    <col width="9%" />
+    <col width="9%" />
+    <col width="30%" />
+  </colgroup>
+
+<tr>
+<td align=center id="c01" rowspan="6" width="150"><font size="10">.</font></td>
+<td align=center id="c1">.</td>
+<td align=center id="c2">.</td>
+<td align=center id="c3">.</td>
+<td align=center id="c4">.</td>
+<td align=center id="c5">.</td>
+<td align=center id="c6">.</td>
+<td align=left id="h7" rowspan="2" width="300">.</td>
+</tr>
+<tr>
+<td align=center id="h1">.</td>
+<td align=center id="h2">.</td>
+<td align=center id="h3">.</td>
+<td align=center id="h4">.</td>
+<td align=center id="h5">.</td>
+<td align=center id="h6">.</td>
+</tr>
+<tr>
+<td align=center id="c11">.</td>
+<td align=center id="c12">.</td>
+<td align=center id="c13">.</td>
+<td align=center id="c14">.</td>
+<td align=center id="c15">.</td>
+<td align=center id="c16">.</td>
+<td align=left id="h17" rowspan="2">.</td>
+</tr>
+<tr>
+<td align=center id="h11">.</td>
+<td align=center id="h12">.</td>
+<td align=center id="h13">.</td>
+<td align=center id="h14">.</td>
+<td align=center id="h15">.</td>
+<td align=center id="h16">.</td>
+</tr>
+<tr>
+<td align=center id="c21">.</td>
+<td align=center id="c22">.</td>
+<td align=center id="c23">.</td>
+<td align=center id="c24">.</td>
+<td align=center id="c25">.</td>
+<td align=center id="c26">.</td>
+<td align=left id="h27" rowspan="2">.</td>
+</tr>
+<tr>
+<td align=center id="h21">.</td>
+<td align=center id="h22">.</td>
+<td align=center id="h23">.</td>
+<td align=center id="h24">.</td>
+<td align=center id="h25">.</td>
+<td align=center id="h26">.</td>
+</tr>
+<tr>
+<td align=center id="c02" rowspan="6" width="150"><font size="10">.</font></td>
+<td align=center id="c31">.</td>
+<td align=center id="c32">.</td>
+<td align=center id="c33">.</td>
+<td align=center id="c34">.</td>
+<td align=center id="c35">.</td>
+<td align=center id="c36">.</td>
+<td align=left id="h37" rowspan="2">.</td>
+</tr>
+<tr>
+<td align=center id="h31">.</td>
+<td align=center id="h32">.</td>
+<td align=center id="h33">.</td>
+<td align=center id="h34">.</td>
+<td align=center id="h35">.</td>
+<td align=center id="h36">.</td>
+</tr>
+<tr>
+<td align=center id="c41">.</td>
+<td align=center id="c42">.</td>
+<td align=center id="c43">.</td>
+<td align=center id="c44">.</td>
+<td align=center id="c45">.</td>
+<td align=center id="c46">.</td>
+<td align=left id="h47" rowspan="2">.</td>
+</tr>
+<tr>
+<td align=center id="h41">.</td>
+<td align=center id="h42">.</td>
+<td align=center id="h43">.</td>
+<td align=center id="h44">.</td>
+<td align=center id="h45">.</td>
+<td align=center id="h46">.</td>
+</tr>
+<tr>
+<td align=center id="c51">.</td>
+<td align=center id="c52">.</td>
+<td align=center id="c53">.</td>
+<td align=center id="c54">.</td>
+<td align=center id="c55">.</td>
+<td align=center id="c56">.</td>
+<td align=left id="h57" rowspan="2">.</td>
+</tr>
+<tr>
+<td align=center id="h51">.</td>
+<td align=center id="h52">.</td>
+<td align=center id="h53">.</td>
+<td align=center id="h54">.</td>
+<td align=center id="h55">.</td>
+<td align=center id="h56">.</td>
+</tr>
+<tr>
+<td align=center id="h60" >.</td>
+<td align=left id="h61" colspan="7">.</td>
+</tr>
+<tr>
+<td align=center id="china" >.</td>
+<td align=left id="japan" colspan="7">.</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="7">
+    <canvas id="canvas1" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas1'), 3); </script>
+    <canvas id="canvas2" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas2'), 3); </script>
+    <canvas id="canvas3" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas3'), 3); </script>
+    <canvas id="canvas4" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas4'), 3); </script>
+    <canvas id="canvas5" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas5'), 3); </script>
+    <canvas id="canvas6" width="200" height="200" style="border: 2px solid; cursor: default;"></canvas>
+    <script type="text/javascript" src="https://muckmool.github.io/OCR/handwriting.canvas.js"></script>
+    <script type="text/javascript" defer> var canvas = new handwriting.Canvas(document.getElementById('canvas6'), 3); </script>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<script>
+
+      function clean(){
+        document.getElementById("result").innerHTML = "<font size = 15px>.</font>";
+      };
+
+      function clean_all(){
+        document.getElementById("result").innerHTML = "<font size = 15px>.</font>";
+        document.getElementById("result_2").innerHTML = "<font size = 15px></font>";
+      };
+
+      function increase(){
+        input_01.value = String(Number(input_01.value) + 1);
+      };
+
+      function decrease(){
+        input_01.value = String(Number(input_01.value) - 1);
+      };
+
+
+      function add() {
+        document.getElementById("result_2").innerHTML = "<font size = 15px>" + result_2.innerHTML + result.innerHTML + "</font>";
+      };
+
+      function refresh1(){
+
+        temp = input_01.value;
+
+        localStorage.setItem('temp', temp);
+
+        //location.reload(true);
+
+      };
+
+      function refresh2(){
+
+        temp = localStorage.getItem('temp');
+
+        input_01.value = temp;
+
+      };
+
+
+
+
+    </script>
+  </div>
+ 
+ 
+
+
+<script>
+
+// TTS
+
+function speak() {
+       
+    window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+
+    const speechMsg = new SpeechSynthesisUtterance();
+    speechMsg.rate =  1; // 속도: 0.1 ~ 10      
+    speechMsg.pitch = 1; // 음높이: 0 ~ 2
+    speechMsg.lang =  "ko-KR";
+    speechMsg.text = document.getElementById("h61").textContent;
+    
+    // SpeechSynthesisUtterance에 저장된 내용을 바탕으로 음성합성 실행
+    window.speechSynthesis.speak(speechMsg)
+}
+
+
+refresh2();
+
+setTimeout(() => search(), 100);
+
+
+</script>
+
+
