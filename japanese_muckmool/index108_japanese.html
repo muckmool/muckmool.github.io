@@ -9,7 +9,7 @@ var arr = [
 ];
 
 
-fetch('https://muckmool.github.io/japanese_muckmool/data4.json')
+fetch('https://muckmool.github.io/japanese_muckmool/data4_japan.json')
   .then((response) => response.json())
   .then((data) => { 
     
@@ -346,37 +346,14 @@ fetch('https://muckmool.github.io/japanese_muckmool/data4.json')
 
 </head>
 
-<p><span id="address1">.</span></p>
 
-
-
-</p>
-</div>
-<div id="player">&nbsp;</div>
-<script src="http://www.youtube.com/iframe_api"></script>
-<script>
-    var player;
-    function onYouTubeIframeAPIReady(){
-        player = new YT.Player('player',{
-        width:'100%',
-
-        videoId: address,
-
-        playerVars:{'autoplay':1,'playsinline':1, 'loop':1},
-        events:{ 'onReady':onPlayerReady }
-        });
-    }
-
-    function onPlayerReady(e){
-        e.target.mute();
-        e.target.playVideo();
-    }
-</script>
 
 
 
    
 <p>https://muckmool.tistory.com/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<p>
 
                
         <span id="seq"></span>
