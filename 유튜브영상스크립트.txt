@@ -1,7 +1,7 @@
-https://youtu.be/cnKhj5ye1Yk?si=JnsVLdDhWevpHbFj
+https://youtu.be/oLyuJ7dkPg4
 
 <script>
- address = 'cnKhj5ye1Yk?si=JnsVLdDhWevpHbFj'
+ address = 'oLyuJ7dkPg4'
 
 </script>
 <div class="tt_article_useless_p_margin contents_style" align="center">
