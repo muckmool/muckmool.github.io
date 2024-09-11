@@ -1,0 +1,185 @@
+<html>
+
+<script>
+
+arr = [".", ".", "."];
+       
+
+</script>
+
+
+
+<script>
+
+    function search_seq()  {
+
+        const resultElement3 = document.getElementById('result3');
+        const resultElement4 = document.getElementById('seq');
+        const resultElement5 = document.getElementById('bn');
+        const resultElement6 = document.getElementById('cv');
+
+        let i = resultElement4.value;
+        i = parseInt(i);
+
+        //console.log(i);
+
+        resultElement5.value = arr[i*3];
+        resultElement6.value = arr[i*3 +1];
+
+        resultElement3.innerHTML = arr[i*3 +2];
+
+
+    }
+
+
+    function search_cv()  {
+
+        const resultElement3 = document.getElementById('result3');
+        const resultElement4 = document.getElementById('seq');
+        const resultElement5 = document.getElementById('bn');
+        const resultElement6 = document.getElementById('cv');
+
+
+        let max = arr.length;
+        let i = 0;
+
+        for (i = 0; i < max; i += 1) {
+
+            let book_number = arr[i*3];
+            let cv_number = arr[i*3 +1];
+
+            if ( book_number == resultElement5.value) {
+
+                if (cv_number == resultElement6.value) {
+
+                    //resultElement3.innerHTML = String(i);
+                    break;
+                }
+            }
+            
+              
+        }  
+
+        resultElement3.innerHTML = arr[i*3 +2];
+
+
+    }
+
+
+
+    function next()  {
+
+        const resultElement3 = document.getElementById('result3');
+        const resultElement4 = document.getElementById('seq');
+        const resultElement5 = document.getElementById('bn');
+        const resultElement6 = document.getElementById('cv');
+
+        let i = resultElement4.value;
+        i = parseInt(i);
+
+        i = i + 1;
+
+
+        resultElement5.value = arr[i*3];
+        resultElement6.value = arr[i*3 +1];
+
+        resultElement3.innerHTML = arr[i*3 +2];
+        resultElement4.value = String(i);
+
+    }
+
+
+    function previous()  {
+
+        const resultElement3 = document.getElementById('result3');
+        const resultElement4 = document.getElementById('seq');
+        const resultElement5 = document.getElementById('bn');
+        const resultElement6 = document.getElementById('cv');
+
+        let i = resultElement4.value;
+        i = parseInt(i);
+
+        i = i - 1;
+
+        if(i < 1) { i = 1; }
+
+
+        resultElement5.value = arr[i*3];
+        resultElement6.value = arr[i*3 +1];
+
+        resultElement3.innerHTML = arr[i*3 +2];
+        resultElement4.value = String(i);
+
+    }
+
+   
+
+   function test(event) {
+        event.preventDefault(); //submit 할때 새로고침 되는것을 방지
+        let fileObject = document.getElementById("input_file");
+        let fileName = fileObject.files[0];
+
+        let fr = new FileReader();
+        fr.readAsText(fileName, "utf-8");
+
+        fr.onload = () => {
+            parseText(fr.result);
+        }
+    }
+
+    function parseText(text) {
+        //console.log(text)
+
+        data = JSON.parse(text);
+
+        let temp = data.book; 
+        let max = temp.length;
+           //console.log(max); 
+   
+        for (i = 0; i < max; i += 1) {
+            arr.push(data.book[i].bn);
+            arr.push(data.book[i].cv);
+            arr.push(data.book[i].hangul);
+
+        }  
+
+    }
+
+
+</script>
+
+<form>
+    <div>
+        <label for="input_file">파일을 추가해주세요.</label>
+        <input type="file" id="input_file">
+    </div>
+    <div>
+        <button onclick="test(event)">summit</button>
+    </div>
+</form>
+
+BN   <input type = "text" style="width:100px;height:20px;font-size:12px;" id="bn" value = 1>
+CV   <input type = "text" style="width:100px;height:20px;font-size:12px;" id="cv" value = "1:1">
+
+<input type='button' onclick='search_cv()' value='search'/>
+
+SEQ <input type = "text" style="width:100px;height:20px;font-size:12px;" id="seq" value = 1>
+
+    <input type='button' onclick='search_seq()' value='search'/>
+    <input type='button' onclick='previous()' value='previous'/>
+    <input type='button' onclick='next()' value='next'/>
+
+
+<table style="border-collapse: collapse; width: 100%;" border="0" width="100%" text-align="center">
+
+
+    <tbody>   
+
+        <p>
+        <tr><td id="result3" style="font-size:30px; font-weight: 300;">.</td></tr>
+        
+
+    </tbody>
+</table>
+
+</html>

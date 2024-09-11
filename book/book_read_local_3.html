@@ -1,0 +1,721 @@
+<html>
+
+<script>
+
+arr = [".", ".",".","."];
+
+
+       
+
+</script>
+
+
+
+<script>
+
+
+    function search()  {
+
+        const resultElement1 = document.getElementById('result1');
+        const resultElement2 = document.getElementById('result2');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement4 = document.getElementById('result4');
+        const resultElement5 = document.getElementById('result5');
+        const resultElement6 = document.getElementById('result6');
+
+
+
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        //console.log(i);
+
+        //0
+
+        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*4 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        //console.log(hanja_temp3);
+
+        resultElement1.innerText = arr[i*4];
+        resultElement2.innerHTML = hanja_temp3;
+        resultElement4.innerText = arr[i*4 + 3];
+        resultElement5.innerText = arr[i*4 + 2];
+        resultElement6.innerText = arr[i*4 + 1];
+        
+        search_1();
+
+    }
+
+    function search_1()  {
+        const resultElement11 = document.getElementById('result11');
+        const resultElement12 = document.getElementById('result12');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement14 = document.getElementById('result14');
+        const resultElement15 = document.getElementById('result15');
+        const resultElement16 = document.getElementById('result16');
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i + 1;
+
+
+
+        if((i*4 + 3) > arr.length) { i = i - 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*4 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        console.log(i);
+
+        resultElement11.innerText = arr[i*4];
+        resultElement12.innerHTML = hanja_temp3;
+        //resultElement13.value = String(i);
+        resultElement14.innerText = arr[i*4 + 3];
+        resultElement15.innerText = arr[i*4 + 2];
+        resultElement16.innerText = arr[i*4 + 1];
+
+        search_2();
+    }
+
+    function search_2()  {
+        const resultElement21 = document.getElementById('result21');
+        const resultElement22 = document.getElementById('result22');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement24 = document.getElementById('result24');
+        const resultElement25 = document.getElementById('result25');
+        const resultElement26 = document.getElementById('result26');
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i + 2;
+
+
+
+        if((i*4 + 3) > arr.length) { i = i - 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*4 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        console.log(i);
+
+        resultElement21.innerText = arr[i*4];
+        resultElement22.innerHTML = hanja_temp3;
+        //resultElement13.value = String(i);
+        resultElement24.innerText = arr[i*4 + 3];
+        resultElement25.innerText = arr[i*4 + 2];
+        resultElement26.innerText = arr[i*4 + 1];
+
+        search_3();
+    }
+
+    function search_3()  {
+        const resultElement31 = document.getElementById('result31');
+        const resultElement32 = document.getElementById('result32');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement34 = document.getElementById('result34');
+        const resultElement35 = document.getElementById('result35');
+        const resultElement36 = document.getElementById('result36');
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i + 3;
+
+
+
+        if((i*4 + 3) > arr.length) { i = i - 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*4 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        console.log(i);
+
+        resultElement31.innerText = arr[i*4];
+        resultElement32.innerHTML = hanja_temp3;
+        //resultElement13.value = String(i);
+        resultElement34.innerText = arr[i*4 + 3];
+        resultElement35.innerText = arr[i*4 + 2];
+        resultElement36.innerText = arr[i*4 + 1];
+
+        search_4();
+    }
+
+
+    function search_4()  {
+        const resultElement41 = document.getElementById('result41');
+        const resultElement42 = document.getElementById('result42');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement44 = document.getElementById('result44');
+        const resultElement45 = document.getElementById('result45');
+        const resultElement46 = document.getElementById('result46');
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i + 4;
+
+
+
+        if((i*4 + 3) > arr.length) { i = i - 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*4 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        console.log(i);
+
+        resultElement41.innerText = arr[i*4];
+        resultElement42.innerHTML = hanja_temp3;
+        //resultElement13.value = String(i);
+        resultElement44.innerText = arr[i*4 + 3];
+        resultElement45.innerText = arr[i*4 + 2];
+        resultElement46.innerText = arr[i*4 + 1];
+
+        search_5();
+    }
+
+
+    function search_5()  {
+        const resultElement51 = document.getElementById('result51');
+        const resultElement52 = document.getElementById('result52');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement54 = document.getElementById('result54');
+        const resultElement55 = document.getElementById('result55');
+        const resultElement56 = document.getElementById('result56');
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i + 5;
+
+
+
+        if((i*4 + 3) > arr.length) { i = i - 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*4 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        console.log(i);
+
+        resultElement51.innerText = arr[i*4];
+        resultElement52.innerHTML = hanja_temp3;
+        //resultElement13.value = String(i);
+        resultElement54.innerText = arr[i*4 + 3];
+        resultElement55.innerText = arr[i*4 + 2];
+        resultElement56.innerText = arr[i*4 + 1];
+
+        search_6();
+    }
+
+
+    function search_6()  {
+        const resultElement61 = document.getElementById('result61');
+        const resultElement62 = document.getElementById('result62');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement64 = document.getElementById('result64');
+        const resultElement65 = document.getElementById('result65');
+        const resultElement66 = document.getElementById('result66');
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i + 6;
+
+
+
+        if((i*4 + 3) > arr.length) { i = i - 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*4 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        console.log(i);
+
+        resultElement61.innerText = arr[i*4];
+        resultElement62.innerHTML = hanja_temp3;
+        //resultElement13.value = String(i);
+        resultElement64.innerText = arr[i*4 + 3];
+        resultElement65.innerText = arr[i*4 + 2];
+        resultElement66.innerText = arr[i*4 + 1];
+
+        search_7();
+    }
+
+
+    function search_7()  {
+        const resultElement71 = document.getElementById('result71');
+        const resultElement72 = document.getElementById('result72');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement74 = document.getElementById('result74');
+        const resultElement75 = document.getElementById('result75');
+        const resultElement76 = document.getElementById('result76');
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i + 7;
+
+
+
+        if((i*4 + 3) > arr.length) { i = i - 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*4 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        console.log(i);
+
+        resultElement71.innerText = arr[i*4];
+        resultElement72.innerHTML = hanja_temp3;
+        //resultElement13.value = String(i);
+        resultElement74.innerText = arr[i*4 + 3];
+        resultElement75.innerText = arr[i*4 + 2];
+        resultElement76.innerText = arr[i*4 + 1];
+
+        search_8();
+    }
+
+
+    function search_8()  {
+        const resultElement81 = document.getElementById('result81');
+        const resultElement82 = document.getElementById('result82');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement84 = document.getElementById('result84');
+        const resultElement85 = document.getElementById('result85');
+        const resultElement86 = document.getElementById('result86');
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i + 8;
+
+
+
+        if((i*4 + 3) > arr.length) { i = i - 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*4 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        console.log(i);
+
+        resultElement81.innerText = arr[i*4];
+        resultElement82.innerHTML = hanja_temp3;
+        //resultElement13.value = String(i);
+        resultElement84.innerText = arr[i*4 + 3];
+        resultElement85.innerText = arr[i*4 + 2];
+        resultElement86.innerText = arr[i*4 + 1];
+
+        search_9();
+    }
+
+    function search_9()  {
+        const resultElement91 = document.getElementById('result91');
+        const resultElement92 = document.getElementById('result92');
+        const resultElement3 = document.getElementById('seq');
+        const resultElement94 = document.getElementById('result94');
+        const resultElement95 = document.getElementById('result95');
+        const resultElement96 = document.getElementById('result96');
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i + 9;
+
+
+
+        if((i*4 + 3) > arr.length) { i = i - 1; }
+
+        //console.log(i);
+
+        let hanja_temp1 = arr[i*4 + 1];
+        let hanja_temp2 = hanja_temp1.split('');
+        const max = hanja_temp2.length;
+
+        //console.log(max);
+
+        let hangul_temp1 = arr[i*4 + 2];
+        let hangul_temp2 = hangul_temp1.split('');
+
+        let hanja_temp3 ="";
+
+        for (j = 0; j < max; j += 1) {
+             hanja_temp3 = hanja_temp3 + "<ruby>" + hanja_temp2[j] + "<rt>" + hangul_temp2[j] + "</rt>" + "</ruby>";
+        }
+
+        console.log(i);
+
+        resultElement91.innerText = arr[i*4];
+        resultElement92.innerHTML = hanja_temp3;
+        //resultElement13.value = String(i);
+        resultElement94.innerText = arr[i*4 + 3];
+        resultElement95.innerText = arr[i*4 + 2];
+        resultElement96.innerText = arr[i*4 + 1];
+
+        
+    }
+
+
+
+    function next()  {
+
+        const resultElement3 = document.getElementById('seq');
+
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i + 10;
+
+
+
+        if((i*4 + 3) > arr.length) { i = i - 10; }
+
+
+        resultElement3.value = String(i);
+
+        search();
+
+    }
+
+
+    function previous()  {
+
+        const resultElement3 = document.getElementById('seq');
+
+
+        let i = resultElement3.value;
+        i = parseInt(i);
+
+        i = i - 10;
+
+        if(i < 1) { i = 1; }
+
+
+        resultElement3.value = String(i);
+
+        search();
+
+    }
+
+    // TTS
+
+    function speak() {
+       
+       window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+   
+       const speechMsg = new SpeechSynthesisUtterance();
+       speechMsg.rate =  1; // 속도: 0.1 ~ 10      
+       speechMsg.pitch = 1; // 음높이: 0 ~ 2
+       speechMsg.lang =  "ko-KR";
+       speechMsg.text = document.getElementById("result1").textContent + document.getElementById("result5").textContent + document.getElementById("result4").textContent;
+       
+       // SpeechSynthesisUtterance에 저장된 내용을 바탕으로 음성합성 실행
+       window.speechSynthesis.speak(speechMsg)
+   }
+   
+
+   function test(event) {
+        event.preventDefault(); //submit 할때 새로고침 되는것을 방지
+        let fileObject = document.getElementById("input_file");
+        let fileName = fileObject.files[0];
+
+        let fr = new FileReader();
+        fr.readAsText(fileName, "utf-8");
+
+        fr.onload = () => {
+            parseText(fr.result);
+        }
+    }
+
+    function parseText(text) {
+        //console.log(text)
+
+        data = JSON.parse(text);
+
+        let temp = data.book; 
+        let max = temp.length;
+           //console.log(max); 
+   
+        for (i = 0; i < max; i += 1) {
+            arr.push(data.book[i].date);
+            arr.push(data.book[i].hanja);
+            arr.push(data.book[i].hangul);
+            arr.push(data.book[i].story);
+        }  
+
+    }
+
+
+</script>
+
+<form>
+    <div>
+        <label for="input_file">파일을 추가해주세요.</label>
+        <input type="file" id="input_file">
+    </div>
+    <div>
+        <button onclick="test(event)">summit</button>
+    </div>
+</form>
+
+<p>muckmool.tistory.com
+
+<p>SEQ <input type = "text" style="width:200px;height:40px;font-size:15px;" id="seq" value = 1>
+
+    <input type='button' onclick='search()' value='search'/>
+    <input type='button' onclick='speak()' value='TTS'/>
+    <input type='button' onclick='previous()' value='previous'/>
+    <input type='button' onclick='next()' value='next'/>
+
+<br><br>
+
+<!--
+<p id="result1">.</p>
+<p id="result2" style="font-size:23px; font-weight: 500;">.</p>
+<p id="result5">.</p>
+<p id="result4">.</p>
+-->
+
+<br>
+<table style="border-collapse: collapse; width: 100%;" border="0" width="100%" text-align="center">
+
+
+    <tbody>   
+        <tr><td id="result1">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result2" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result6" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result5">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result4">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result11">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result12" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result16" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result15">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result14">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result21">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result22" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result26" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result25">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result24">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result31">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result32" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result36" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result35">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result34">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result41">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result42" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result46" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result45">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result44">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result51">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result52" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result56" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result55">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result54">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result61">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result62" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result66" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result65">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result64">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result71">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result72" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result76" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result75">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result74">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result81">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result82" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result86" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result85">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result84">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+
+        <tr><td id="result91">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result92" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result96" style="font-size:26px; font-weight: 300;">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result95">.</td></tr>
+        <tr><td>&nbsp</td></tr>
+        <tr><td id="result94">.</td></tr>
+
+    </tbody>
+</table>
+
+</html>
