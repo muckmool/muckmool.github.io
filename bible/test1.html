@@ -1,0 +1,23 @@
+<html>
+<head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript">
+//캡처 기능
+function capture() {
+	var captureImg = document.getElementById("capture_img");
+	
+	html2canvas(document.getElementById('capture_area')).then(function(canvas) {
+		var captureImgData = canvas.toDataURL('image/png');
+		captureImg.src = captureImgData;
+	});
+}
+</script>
+
+<body id="capture_area">
+	<a href="javascript:;" onclick="javascript:capture();">캡쳐</a>
+	<p>hosose</p>
+	<div>=======================================================================</div>
+	<img id="capture_img" src="" alt="screenshot">
+</body>
+</html>
