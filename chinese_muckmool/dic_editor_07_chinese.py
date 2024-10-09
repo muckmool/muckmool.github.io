@@ -380,6 +380,32 @@ def search_each_hanja():
     word = list(entry2.get())
 
     if(len(word)>1):
+            
+            entry31.delete(0,"end")
+            entry31.insert(0,".")
+            entry32.delete(0,"end")
+            entry32.insert(0,".")
+            entry41.delete(0,"end")
+            entry41.insert(0,".")
+            entry42.delete(0,"end")
+            entry42.insert(0,".")
+            entry51.delete(0,"end")
+            entry51.insert(0,".")
+            entry52.delete(0,"end")
+            entry52.insert(0,".")
+            entry61.delete(0,"end")
+            entry61.insert(0,".")
+            entry62.delete(0,"end")
+            entry62.insert(0,".")
+            entry71.delete(0,"end")
+            entry71.insert(0,".")
+            entry72.delete(0,"end")
+            entry72.insert(0,".")
+            entry81.delete(0,"end")
+            entry81.insert(0,".")
+            entry82.delete(0,"end")
+            entry82.insert(0,".")
+    
             #print("if")
             for j in range(0, max):
                 #print(j)
