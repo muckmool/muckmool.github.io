@@ -1,0 +1,217 @@
+<html>
+
+<script>
+
+   arr = [".", ".","."];
+       
+    fetch('https://muckmool.github.io/bible/book_01/book_00.json')
+      .then((response) => response.json())
+      .then((data) => { 
+        
+        let temp = data.book; 
+        let max = temp.length;
+        //console.log(max); 
+
+        for (i = 0; i < max; i += 1) {
+            arr.push(data.book[i].bn);
+            arr.push(data.book[i].cv);
+            arr.push(data.book[i].hangul);
+            
+        }  
+    
+      } 
+    );
+
+
+    function refresh1(){
+
+
+        const resultElement4 = document.getElementById('seq');
+
+        temp = resultElement4.value;
+
+        localStorage.setItem('last', temp);
+
+        //location.reload(true);
+
+    };
+
+    function refresh2(){
+
+        const resultElement4 = document.getElementById('seq');
+
+        temp = localStorage.getItem('last');
+
+        resultElement4.value = temp;
+
+    };
+
+
+    refresh2();
+
+    setTimeout(() => search_seq(), 100);
+
+</script>
+
+
+
+<script>
+
+    function search_seq()  {
+
+        const resultElement3 = document.getElementById('result3');
+        const resultElement4 = document.getElementById('seq');
+        const resultElement5 = document.getElementById('bn');
+        const resultElement6 = document.getElementById('cv');
+
+        let i = resultElement4.value;
+        i = parseInt(i);
+
+        //console.log(i);
+
+        resultElement5.value = arr[i*3];
+        resultElement6.value = arr[i*3 +1];
+
+        resultElement3.innerHTML = arr[i*3 +2];
+
+
+    }
+
+    function search_seq2()  {
+
+        refresh2();
+
+        
+
+        const resultElement3 = document.getElementById('result3');
+        const resultElement4 = document.getElementById('seq');
+        const resultElement5 = document.getElementById('bn');
+        const resultElement6 = document.getElementById('cv');
+
+        let i = resultElement4.value;
+        i = parseInt(i);
+
+        //console.log(i);
+
+        resultElement5.value = arr[i*3];
+        resultElement6.value = arr[i*3 +1];
+
+        resultElement3.innerHTML = arr[i*3 +2];
+
+
+    }
+
+
+    function search_cv()  {
+
+        const resultElement3 = document.getElementById('result3');
+        const resultElement4 = document.getElementById('seq');
+        const resultElement5 = document.getElementById('bn');
+        const resultElement6 = document.getElementById('cv');
+
+
+        let max = arr.length;
+        let i = 0;
+
+        for (i = 0; i < max; i += 1) {
+
+            let book_number = arr[i*3];
+            let cv_number = arr[i*3 +1];
+
+            if ( book_number == resultElement5.value) {
+
+                if (cv_number == resultElement6.value) {
+
+                    resultElement3.innerHTML = arr[i*3 +2];
+                    resultElement4.value = i;
+                    break;
+                }
+            }
+            
+              
+        }  
+
+
+    }
+
+
+
+    function next()  {
+
+        const resultElement3 = document.getElementById('result3');
+        const resultElement4 = document.getElementById('seq');
+        const resultElement5 = document.getElementById('bn');
+        const resultElement6 = document.getElementById('cv');
+
+        let i = resultElement4.value;
+        i = parseInt(i);
+
+        i = i + 1;
+
+
+        resultElement5.value = arr[i*3];
+        resultElement6.value = arr[i*3 +1];
+
+        resultElement3.innerHTML = arr[i*3 +2];
+        resultElement4.value = String(i);
+
+
+    }
+
+
+    function previous()  {
+
+        const resultElement3 = document.getElementById('result3');
+        const resultElement4 = document.getElementById('seq');
+        const resultElement5 = document.getElementById('bn');
+        const resultElement6 = document.getElementById('cv');
+
+        let i = resultElement4.value;
+        i = parseInt(i);
+
+        i = i - 1;
+
+        if(i < 1) { i = 1; }
+
+
+        resultElement5.value = arr[i*3];
+        resultElement6.value = arr[i*3 +1];
+
+        resultElement3.innerHTML = arr[i*3 +2];
+        resultElement4.value = String(i);
+
+
+    }
+
+
+  
+
+
+</script>
+
+BN   <input type = "text" style="width:100px;height:20px;font-size:12px;" id="bn" type="text" value="1" autofocus="" >
+CV   <input type = "text" style="width:100px;height:20px;font-size:12px;" id="cv" type="text" value="1:1" autofocus="" >
+
+<input type='button' onclick='search_cv(); refresh1();' value='search'/>
+
+SEQ <input type = "text" style="width:100px;height:20px;font-size:12px;" id="seq" type="text" value="1" autofocus="" >
+
+    <input type='button' onclick='search_seq(); refresh1();' value='search'/>
+    <input type='button' onclick='search_seq2(); refresh1();' value='continue from last'/>
+    <input type='button' onclick='previous(); refresh1();' value='previous'/>
+    <input type='button' onclick='next(); refresh1();' value='next'/>
+
+
+<table style="border-collapse: collapse; width: 100%;" border="0" width="100%" text-align="center">
+
+
+    <tbody>   
+
+        <p>
+        <tr><td id="result3" style="font-size:30px; font-weight: 300;">.</td></tr>
+        
+
+    </tbody>
+</table>
+
+</html>
