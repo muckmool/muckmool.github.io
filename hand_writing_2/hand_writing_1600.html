@@ -1,0 +1,112 @@
+<body>
+    <div>
+        <input id="input" type="number" min="0" max="100" value="1"></input>
+        <button onclick="colorChange('white')" style="background-color: white; width: 20px; height: 20px; border: solid 1px;"></button>
+        <button onclick="colorChange('black')" style="background-color: black; width: 20px; height: 20px; border: solid 1px;"></button>
+        <button onclick="colorChange('blue')" style="background-color: blue; width: 20px; height: 20px; border: solid 1px;"></button>
+        <button onclick="colorChange('red')" style="background-color: red; width: 20px; height: 20px; border: solid 1px;"></button>
+        <button onclick="colorChange('lime')" style="background-color: lime; width: 20px; height: 20px; border: solid 1px;"></button>
+        <button onclick="clearAll()">E</button>
+    </div>
+    
+    <canvas id='canvas' width='1600' height='1000' style="border:1px solid black"></canvas>
+    </body>
+
+
+    
+    <script>
+    var pos = {
+        drawable : false,
+        x : -1,
+        y : -1,
+    };
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var rect = canvas.getBoundingClientRect();  // 터치 스크린
+
+// 전체 지우기
+    function clearAll(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+ 
+// 스타일 추가
+    input.oninput = function(){
+        ctx.lineWidth = input.value;
+    }
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    function colorChange(color){
+        ctx.strokeStyle = color;
+    } 
+
+    canvas.addEventListener("mousedown", listener);
+    canvas.addEventListener("mousemove", listener);
+    canvas.addEventListener("mouseup", listener);
+    canvas.addEventListener("mouseout", listener);
+    
+    /// 터치 스크린
+    canvas.addEventListener("touchstart", listener);
+    canvas.addEventListener("touchmove", listener);
+    canvas.addEventListener("touchend", listener);
+    
+    function listener(e){
+        switch(e.type){
+            case "mousedown":
+                drawStart(e);
+                break;
+            case "mousemove":
+                if(pos.drawable){
+                    draw(e);
+                }
+                break;
+            case "mouseout":
+            case "mouseup":
+                drawEnd();
+                break;
+            case "touchstart":
+                touchStart(e);
+                break;
+            case "touchmove":
+                if(pos.drawable)
+                    touch(e);
+                break;
+            case "touchend":
+                drawEnd();
+                break;
+            default:
+        }
+    }
+    
+    function drawStart(e){
+        pos.drawable = true;
+        ctx.beginPath();
+        pos.x = e.offsetX;
+        pos.y = e.offsetY;
+        ctx.moveTo(pos.x, pos.y);
+    }
+    function touchStart(e){
+        pos.drawable = true;
+        ctx.beginPath();
+        pos.x = e.touches[0].pageX - rect.left
+        pos.y = e.touches[0].pageY - rect.top
+        ctx.moveTo(pos.x, pos.y);
+    }
+    function draw(e){
+        ctx.lineTo(e.offsetX, e.offsetY);
+        pos.x = e.offsetX;
+        pos.y = e.offsetY;
+        ctx.stroke();
+    }
+    function touch(e){
+        ctx.lineTo(e.touches[0].pageX - rect.left, e.touches[0].pageY - rect.top);
+        pos.x = e.touches[0].pageX - rect.left;
+        pos.y = e.touches[0].pageY - rect.top;
+        ctx.stroke();
+    }
+    function drawEnd(){
+        pos.drawable = false;
+        pos.x = -1;
+        pos.y = -1;
+    }
+    </script>
