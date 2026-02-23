@@ -831,17 +831,18 @@ def book_name_search():
                     "66_revelation.json",
                     "japan_book_data/73_yoondongju.json",
                     "japan_book_data/74_japan_news.json",
+                    "japan_book_data/75_nhk_news",
 
            ]
 
-    result = 68
+    result = 69
 
     if(entry_book_no.get() != ''):
         result = int(entry_book_no.get())
         if(result<1): 
             result = 1
-        if(result>67):
-            result = 67
+        if(result>69):
+            result = 69
 
     return book_list[result-1]
 
