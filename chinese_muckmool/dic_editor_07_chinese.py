@@ -3,8 +3,6 @@ from tkinter import *
 import tkinter.font
 import time
 import atexit
-import pyperclip
-
 
 
 tk = Tk()
@@ -769,7 +767,7 @@ def clip_copy():
     temp2_string = temp2_string + "\n    "
     temp2_string = temp2_string + "\n    "
 
-    pyperclip.copy(temp2_string)
+    #pyperclip.copy(temp2_string)
 
 
 
