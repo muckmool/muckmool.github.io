@@ -6,8 +6,9 @@ import atexit
 
 
 tk = Tk()
-tk.geometry("520x460-50+50")
+tk.geometry("650x500-50+50")
 font1 = tkinter.font.Font(family="Consolas", size=12)
+font2 = tkinter.font.Font(family="Consolas", size=16)
 tk.title('chinese_muckmool')
 tk.wm_attributes("-topmost", 1)
 
@@ -499,7 +500,7 @@ def next():
 
     temp_string = data['dictionary'][i]['hangul'] + " " + data['dictionary'][i]['hanja'] + " / " + data['dictionary'][i]['english'] + " " + data['dictionary'][i]['china'] + " " + data['dictionary'][i]['hanja'] + " / " + data['dictionary'][i]['hanja'] + " 중국어"
 
-    pyperclip.copy(temp_string)
+    #pyperclip.copy(temp_string)
 
     entry2.delete(0,"end")
     entry2.insert(0,data['dictionary'][i]['hanja'])
@@ -813,7 +814,7 @@ entry62 = Entry(tk, width=6, font=font1)
 entry72 = Entry(tk, width=6, font=font1)
 entry82 = Entry(tk, width=6, font=font1)
 
-entry9 = Text(tk, width=40, height=6, font=font1)
+entry9 = Text(tk, width=40, height=6, font=font2)
 entry10 = Entry(tk, width=40, font=font1)
 entry11 = Entry(tk, width=40, font=font1)
 entry12 = Entry(tk, width=40, font=font1)
